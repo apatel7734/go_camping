@@ -13,14 +13,17 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var families = [Family]()
     
     
-    @IBOutlet var familyTableView: UIView!
-
+    @IBOutlet weak var familyTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        familyTableView.delegate = self
+        familyTableView.dataSource = self
+        //TODO : Remove this 
+        generateTestData();
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -28,9 +31,11 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK - tableView datasource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var familyCell = tableView.dequeueReusableCellWithIdentifier(
-        "familycell") as! FamilyUITableViewCell
-     return familyCell
+        println("Family Cell = \(indexPath.row)")
+        var familyCell = tableView.dequeueReusableCellWithIdentifier("familycell") as! FamilyUITableViewCell
+        familyCell.familyName.text = families[indexPath.row].name
+        
+        return familyCell
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -38,14 +43,25 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        println("Family Count = \(families.count)")
         return self.families.count
     }
     
     
     //MARK - tableView delegates
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        self.familyTableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-
+    
+    func generateTestData(){
+        
+        var family = Family()
+        family.name = "Kumar"
+        var family2 = Family()
+        family2.name = "Ashish"
+        families.append(family)
+        families.append(family2)
+    }
+    
 }
 

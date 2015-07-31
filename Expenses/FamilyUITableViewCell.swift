@@ -13,6 +13,7 @@ class FamilyUITableViewCell: UITableViewCell {
     @IBOutlet weak var familyName: UILabel!
     @IBOutlet weak var totalMembers: UILabel!
     @IBOutlet weak var totalExpenses: UILabel!
+    @IBOutlet weak var familyImage: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
