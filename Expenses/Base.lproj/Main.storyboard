@@ -140,7 +140,7 @@
                                     <constraint firstAttribute="height" constant="40" id="iI9-7b-p2S"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-u4-VAW">
                                 <rect key="frame" x="24" y="110" width="552" height="40"/>
@@ -162,6 +162,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onTapAddFamilyButton:" destination="Azq-3o-PgA" eventType="touchUpInside" id="Ijj-av-80K"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oV-sz-wox">
                                 <rect key="frame" x="46" y="400" width="100" height="50"/>
@@ -174,6 +177,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onTapCancelButton:" destination="Azq-3o-PgA" eventType="touchUpInside" id="aCf-Hg-Hz3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -211,6 +217,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="addFamilyButton" destination="8ia-Ic-zI0" id="h8q-Sa-pDK"/>
+                        <outlet property="cancelButton" destination="2oV-sz-wox" id="g0i-34-9h4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dg-eP-KNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -219,7 +229,7 @@
         <!--Expenses-->
         <scene sceneID="gve-GK-iWp">
             <objects>
-                <viewController title="Expenses" id="6Ma-SC-52o" sceneMemberID="viewController">
+                <viewController title="Expenses" id="6Ma-SC-52o" customClass="FamilyExpensesViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6JF-6r-CeC"/>
                         <viewControllerLayoutGuide type="bottom" id="SGA-Dq-jNc"/>
@@ -253,7 +263,7 @@
         <!--Members-->
         <scene sceneID="6I3-Lg-Z35">
             <objects>
-                <viewController title="Members" id="Um3-9n-glm" sceneMemberID="viewController">
+                <viewController title="Members" id="Um3-9n-glm" customClass="FamilyMembersViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XbM-DM-d1V"/>
                         <viewControllerLayoutGuide type="bottom" id="1Xv-yU-PoW"/>

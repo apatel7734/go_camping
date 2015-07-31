@@ -20,7 +20,8 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view, typically from a nib.
         familyTableView.delegate = self
         familyTableView.dataSource = self
-        //TODO : Remove this 
+        
+        //TODO : Remove this
         generateTestData();
     }
     
@@ -52,6 +53,41 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.familyTableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
+    
+    //MARK - segue methods
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destVC = segue.destinationViewController as? UITabBarController;
+        if let tabBarVC = destVC{
+            var viewControllers = tabBarVC.viewControllers
+            if let familyMembersVC = findFamilyMembersViewController(viewControllers){
+                println("FamilyMembersVC = \(familyMembersVC)")
+            }
+            if let familyExpensesVC = findFamilyExpensesViewController(viewControllers){
+                println("FamilyExpenseVC = \(familyExpensesVC)")
+            }
+            
+        }
+    }
+    
+    func findFamilyMembersViewController(var viewControllers: [AnyObject]?) -> FamilyMembersViewController?{
+        if let familyMembersVC0: FamilyMembersViewController = viewControllers?[0] as? FamilyMembersViewController{
+            return familyMembersVC0
+        }else if let familyMembersVC1: FamilyMembersViewController = viewControllers?[1] as? FamilyMembersViewController{
+            return familyMembersVC1
+        }
+        return nil
+    }
+    
+    func findFamilyExpensesViewController(var viewControllers: [AnyObject]?) -> FamilyExpensesViewController?{
+        if let familyExpensesVC0: FamilyExpensesViewController = viewControllers?[0] as? FamilyExpensesViewController{
+            return familyExpensesVC0
+        }else if let familyExpenseVC1: FamilyExpensesViewController = viewControllers?[1] as? FamilyExpensesViewController{
+            return familyExpenseVC1
+        }
+        return nil
+    }
+    
     
     func generateTestData(){
         
