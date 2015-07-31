@@ -8,12 +8,18 @@
 
 import UIKit
 
-class FamilyMembersViewController: BaseUIViewController {
+class FamilyMembersViewController: UIViewController {
+    
+    var family: Family?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("Family name Members = \(family?.name) ")
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        println("Family = \(family)")
+        println("Family name Members = \(family?.name) ")
     }
     
     override func didReceiveMemoryWarning() {

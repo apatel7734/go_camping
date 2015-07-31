@@ -8,12 +8,17 @@
 
 import UIKit
 
-class FamilyExpensesViewController: BaseUIViewController {
+class FamilyExpensesViewController: UIViewController {
+    
+    var family: Family?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        println("Family = \(family)")
         println("Family name Expenses = \(family?.name) ")
     }
     
