@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		098037DF1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037DE1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift */; };
+		098037E11B6C077E00E52846 /* AddFamilyUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E01B6C077E00E52846 /* AddFamilyUIViewController.swift */; };
 		09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */; };
 		09AC0BBF1B5C3670000849C4 /* Expenses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBD1B5C3670000849C4 /* Expenses.xcdatamodeld */; };
 		09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BC01B5C3671000849C4 /* FamilyViewController.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		098037DE1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyDetailsUIViewController.swift; sourceTree = "<group>"; };
+		098037E01B6C077E00E52846 /* AddFamilyUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFamilyUIViewController.swift; sourceTree = "<group>"; };
 		09AC0BB61B5C3670000849C4 /* Expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09AC0BBA1B5C3670000849C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				09AC0BC01B5C3671000849C4 /* FamilyViewController.swift */,
 				09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */,
 				098037DE1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift */,
+				098037E01B6C077E00E52846 /* AddFamilyUIViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				09AC0BE01B5C36A4000849C4 /* Family.swift in Sources */,
 				09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */,
 				09AC0BE21B5C36CF000849C4 /* Member.swift in Sources */,
+				098037E11B6C077E00E52846 /* AddFamilyUIViewController.swift in Sources */,
 				098037DF1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
