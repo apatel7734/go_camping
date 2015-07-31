@@ -85,7 +85,6 @@
                                             <outlet property="familyName" destination="evk-jq-82K" id="rXt-He-MqZ"/>
                                             <outlet property="totalExpenses" destination="U8y-jL-pNF" id="teq-ZR-bg3"/>
                                             <outlet property="totalMembers" destination="7es-de-rtb" id="hjD-Tx-tYp"/>
-                                            <segue destination="yY2-rR-teJ" kind="show" id="hOv-kU-uff"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -108,6 +107,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="familyTableView" destination="7hS-wr-bcS" id="dh5-yF-ph3"/>
+                        <segue destination="yY2-rR-teJ" kind="show" identifier="pushfamily" id="K2r-tw-D61"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

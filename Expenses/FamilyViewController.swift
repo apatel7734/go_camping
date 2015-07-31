@@ -11,7 +11,7 @@ import UIKit
 class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var families = [Family]()
-    
+    var currentIndexPath: NSIndexPath?
     
     @IBOutlet weak var familyTableView: UITableView!
     
@@ -32,7 +32,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK - tableView datasource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        println("Family Cell = \(indexPath.row)")
         var familyCell = tableView.dequeueReusableCellWithIdentifier("familycell") as! FamilyUITableViewCell
         familyCell.familyName.text = families[indexPath.row].name
         
@@ -44,7 +43,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println("Family Count = \(families.count)")
         return self.families.count
     }
     
@@ -52,6 +50,9 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK - tableView delegates
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.familyTableView.deselectRowAtIndexPath(indexPath, animated: true)
+        println("didSelectRowAtIndexPath = \(indexPath.row)")
+        self.currentIndexPath = indexPath
+        self.performSegueWithIdentifier("pushfamily", sender: nil)
     }
     
     
@@ -60,32 +61,16 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var destVC = segue.destinationViewController as? UITabBarController;
         if let tabBarVC = destVC{
             var viewControllers = tabBarVC.viewControllers
-            if let familyMembersVC = findFamilyMembersViewController(viewControllers){
-                println("FamilyMembersVC = \(familyMembersVC)")
-            }
-            if let familyExpensesVC = findFamilyExpensesViewController(viewControllers){
-                println("FamilyExpenseVC = \(familyExpensesVC)")
+            println("prepareForSegue Before = \(self.currentIndexPath?.row)")
+            if let baseVC = viewControllers?[0] as? BaseUIViewController{
+                if let indexPath = currentIndexPath{
+                    println("prepareForSegue = \(indexPath.row)")
+                    baseVC.family = families[indexPath.row]
+                }
             }
             
+            
         }
-    }
-    
-    func findFamilyMembersViewController(var viewControllers: [AnyObject]?) -> FamilyMembersViewController?{
-        if let familyMembersVC0: FamilyMembersViewController = viewControllers?[0] as? FamilyMembersViewController{
-            return familyMembersVC0
-        }else if let familyMembersVC1: FamilyMembersViewController = viewControllers?[1] as? FamilyMembersViewController{
-            return familyMembersVC1
-        }
-        return nil
-    }
-    
-    func findFamilyExpensesViewController(var viewControllers: [AnyObject]?) -> FamilyExpensesViewController?{
-        if let familyExpensesVC0: FamilyExpensesViewController = viewControllers?[0] as? FamilyExpensesViewController{
-            return familyExpensesVC0
-        }else if let familyExpenseVC1: FamilyExpensesViewController = viewControllers?[1] as? FamilyExpensesViewController{
-            return familyExpenseVC1
-        }
-        return nil
     }
     
     

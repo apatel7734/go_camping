@@ -11,10 +11,11 @@
 		098037E11B6C077E00E52846 /* AddFamilyUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E01B6C077E00E52846 /* AddFamilyUIViewController.swift */; };
 		098037E31B6C188400E52846 /* FamilyMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E21B6C188400E52846 /* FamilyMembersViewController.swift */; };
 		098037E51B6C189200E52846 /* FamilyExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E41B6C189200E52846 /* FamilyExpensesViewController.swift */; };
+		098037E71B6C29EC00E52846 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E61B6C29EC00E52846 /* BaseUIViewController.swift */; };
+		098037E91B6C2F2700E52846 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098037E81B6C2F2700E52846 /* Main.storyboard */; };
 		09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */; };
 		09AC0BBF1B5C3670000849C4 /* Expenses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBD1B5C3670000849C4 /* Expenses.xcdatamodeld */; };
 		09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BC01B5C3671000849C4 /* FamilyViewController.swift */; };
-		09AC0BC41B5C3671000849C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09AC0BC21B5C3671000849C4 /* Main.storyboard */; };
 		09AC0BC61B5C3671000849C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09AC0BC51B5C3671000849C4 /* Images.xcassets */; };
 		09AC0BC91B5C3671000849C4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09AC0BC71B5C3671000849C4 /* LaunchScreen.xib */; };
 		09AC0BD51B5C3671000849C4 /* ExpensesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BD41B5C3671000849C4 /* ExpensesTests.swift */; };
@@ -40,12 +41,13 @@
 		098037E01B6C077E00E52846 /* AddFamilyUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFamilyUIViewController.swift; sourceTree = "<group>"; };
 		098037E21B6C188400E52846 /* FamilyMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyMembersViewController.swift; sourceTree = "<group>"; };
 		098037E41B6C189200E52846 /* FamilyExpensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyExpensesViewController.swift; sourceTree = "<group>"; };
+		098037E61B6C29EC00E52846 /* BaseUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
+		098037E81B6C2F2700E52846 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		09AC0BB61B5C3670000849C4 /* Expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09AC0BBA1B5C3670000849C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09AC0BBE1B5C3670000849C4 /* Expenses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Expenses.xcdatamodel; sourceTree = "<group>"; };
 		09AC0BC01B5C3671000849C4 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
-		09AC0BC31B5C3671000849C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		09AC0BC51B5C3671000849C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		09AC0BC81B5C3671000849C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		09AC0BCE1B5C3671000849C4 /* ExpensesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpensesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +103,7 @@
 				09AC0BE51B5C3A1A000849C4 /* Algorithms */,
 				09AC0BDE1B5C3684000849C4 /* Models */,
 				09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */,
-				09AC0BC21B5C3671000849C4 /* Main.storyboard */,
+				098037E81B6C2F2700E52846 /* Main.storyboard */,
 				09AC0BC51B5C3671000849C4 /* Images.xcassets */,
 				09AC0BC71B5C3671000849C4 /* LaunchScreen.xib */,
 				09AC0BBD1B5C3670000849C4 /* Expenses.xcdatamodeld */,
@@ -162,6 +164,7 @@
 				098037E01B6C077E00E52846 /* AddFamilyUIViewController.swift */,
 				098037E21B6C188400E52846 /* FamilyMembersViewController.swift */,
 				098037E41B6C189200E52846 /* FamilyExpensesViewController.swift */,
+				098037E61B6C29EC00E52846 /* BaseUIViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -246,7 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09AC0BC41B5C3671000849C4 /* Main.storyboard in Resources */,
+				098037E91B6C2F2700E52846 /* Main.storyboard in Resources */,
 				09AC0BC91B5C3671000849C4 /* LaunchScreen.xib in Resources */,
 				09AC0BC61B5C3671000849C4 /* Images.xcassets in Resources */,
 			);
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				098037E71B6C29EC00E52846 /* BaseUIViewController.swift in Sources */,
 				09AC0BE71B5C3A3A000849C4 /* Utility.swift in Sources */,
 				09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */,
 				09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */,
@@ -300,14 +304,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		09AC0BC21B5C3671000849C4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09AC0BC31B5C3671000849C4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		09AC0BC71B5C3671000849C4 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
