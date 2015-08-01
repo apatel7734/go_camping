@@ -15,12 +15,16 @@ class FamilyMembersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        var addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addMembersButtonPressed:")
+        self.navigationController?.topViewController.navigationItem.rightBarButtonItem = addRightBarButtonItem
     }
     
     override func viewWillAppear(animated: Bool) {
-        println("Family = \(family)")
-        println("Family name Members = \(family?.name) ")
         self.navigationController?.topViewController.navigationItem.title = "Members"
+    }
+    
+    func addMembersButtonPressed(sender: UIBarButtonItem){
+        println("addMembersButtonPressed()")
     }
     
     override func didReceiveMemoryWarning() {

@@ -15,17 +15,21 @@ class FamilyExpensesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        var addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addExpensesButtonPressed:")
+        self.navigationController?.topViewController.navigationItem.rightBarButtonItem = addRightBarButtonItem
     }
     
     override func viewWillAppear(animated: Bool) {
-        println("Family = \(family)")
-        println("Family name Expenses = \(family?.name) ")
         self.navigationController?.topViewController.navigationItem.title = "Expenses"
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addExpensesButtonPressed(sender: UIBarButtonItem){
+        println("addExpensesButtonPressed()")
     }
     
     
