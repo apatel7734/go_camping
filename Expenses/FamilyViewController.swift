@@ -73,34 +73,22 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func findFamilyMembersViewController(var viewControllers: [AnyObject]?) -> FamilyMembersViewController?{
-        if let navigationVC0: UINavigationController = viewControllers?[0] as? UINavigationController{
-            var vc = navigationVC0.topViewController
-            if let familyMemberVC = navigationVC0.topViewController as? FamilyMembersViewController{
-                return familyMemberVC
-            }
+        if let familyMemberVC: FamilyMembersViewController = viewControllers?[0] as? FamilyMembersViewController{
+            return familyMemberVC
         }
-        if let navigationVC1: UINavigationController = viewControllers?[1] as? UINavigationController{
-            var vc = navigationVC1.topViewController
-            if let familyMemberVC = navigationVC1.topViewController as? FamilyMembersViewController{
-                return familyMemberVC
-            }
+        if let familyMemberVC: FamilyMembersViewController = viewControllers?[1] as? FamilyMembersViewController{
+            return familyMemberVC
         }
         return nil
     }
     
     func findFamilyExpensesViewController(var viewControllers: [AnyObject]?) -> FamilyExpensesViewController?{
         
-        if let navigationVC0: UINavigationController = viewControllers?[0] as? UINavigationController{
-            var vc = navigationVC0.topViewController
-            if let familyExpenseVC = vc as? FamilyExpensesViewController{
-                return familyExpenseVC
-            }
+        if let familyExpenseVC: FamilyExpensesViewController = viewControllers?[0] as? FamilyExpensesViewController{
+            return familyExpenseVC
         }
-        if let navigationVC1: UINavigationController = viewControllers?[1] as? UINavigationController{
-            var vc = navigationVC1.topViewController
-            if let familyExpenseVC = navigationVC1.topViewController as? FamilyExpensesViewController{
-                return familyExpenseVC
-            }
+        if let familyExpenseVC: FamilyExpensesViewController = viewControllers?[1] as? FamilyExpensesViewController{
+            return familyExpenseVC
         }
         return nil
     }

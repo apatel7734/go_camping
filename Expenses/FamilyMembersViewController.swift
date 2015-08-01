@@ -20,6 +20,7 @@ class FamilyMembersViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         println("Family = \(family)")
         println("Family name Members = \(family?.name) ")
+        self.navigationController?.topViewController.navigationItem.title = "Members"
     }
     
     override func didReceiveMemoryWarning() {
