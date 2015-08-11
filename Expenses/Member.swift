@@ -9,13 +9,10 @@
 import Foundation
 
 class Member {
-    var firstName: String?
-    var lastName: String?
-    var email: String?
+    var name: String?
     var phoneNumber: Int?
+    var email: String?
     var age: Int?
-    var gender: Gender?
-    var address: String?
 }
 
 enum Gender{
