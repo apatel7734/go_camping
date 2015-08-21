@@ -32,6 +32,11 @@ class AddFamilyUIViewController: UIViewController {
     }
     
     
+    @IBAction func onTapView(sender: AnyObject) {
+        self.view.endEditing(true)
+    }
+    
+    
     @IBAction func onTapAddFamilyButton(sender: UIButton) {
     }
     

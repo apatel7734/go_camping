@@ -12,6 +12,11 @@
 		098037E31B6C188400E52846 /* FamilyMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E21B6C188400E52846 /* FamilyMembersViewController.swift */; };
 		098037E51B6C189200E52846 /* FamilyExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E41B6C189200E52846 /* FamilyExpensesViewController.swift */; };
 		098037E91B6C2F2700E52846 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098037E81B6C2F2700E52846 /* Main.storyboard */; };
+		09A18CA61B854DE50093932F /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A18CA51B854DE50093932F /* CustomButton.swift */; };
+		09A18CA81B854E010093932F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A18CA71B854E010093932F /* CustomTextField.swift */; };
+		09AA76321B86C0940073FC0B /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA76311B86C0940073FC0B /* CircularImageView.swift */; };
+		09AA76351B86CFB90073FC0B /* key_add-down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09AA76341B86CFB90073FC0B /* key_add-down@3x.png */; };
+		09AA76371B86D0510073FC0B /* HeaderLableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA76361B86D0510073FC0B /* HeaderLableView.swift */; };
 		09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */; };
 		09AC0BBF1B5C3670000849C4 /* Expenses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBD1B5C3670000849C4 /* Expenses.xcdatamodeld */; };
 		09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BC01B5C3671000849C4 /* FamilyViewController.swift */; };
@@ -41,6 +46,11 @@
 		098037E21B6C188400E52846 /* FamilyMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyMembersViewController.swift; sourceTree = "<group>"; };
 		098037E41B6C189200E52846 /* FamilyExpensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyExpensesViewController.swift; sourceTree = "<group>"; };
 		098037E81B6C2F2700E52846 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		09A18CA51B854DE50093932F /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		09A18CA71B854E010093932F /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		09AA76311B86C0940073FC0B /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
+		09AA76341B86CFB90073FC0B /* key_add-down@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "key_add-down@3x.png"; sourceTree = "<group>"; };
+		09AA76361B86D0510073FC0B /* HeaderLableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderLableView.swift; sourceTree = "<group>"; };
 		09AC0BB61B5C3670000849C4 /* Expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09AC0BBA1B5C3670000849C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +86,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09A18CA41B854DA60093932F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				09A18CA51B854DE50093932F /* CustomButton.swift */,
+				09A18CA71B854E010093932F /* CustomTextField.swift */,
+				09AA76311B86C0940073FC0B /* CircularImageView.swift */,
+				09AA76361B86D0510073FC0B /* HeaderLableView.swift */,
+			);
+			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		09AA76331B86CFAE0073FC0B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				09AA76341B86CFB90073FC0B /* key_add-down@3x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		09AC0BAD1B5C3670000849C4 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +126,8 @@
 		09AC0BB81B5C3670000849C4 /* Expenses */ = {
 			isa = PBXGroup;
 			children = (
+				09AA76331B86CFAE0073FC0B /* Resources */,
+				09A18CA41B854DA60093932F /* CustomViews */,
 				09AC0BE81B5C3E73000849C4 /* ViewControllers */,
 				09AC0BE51B5C3A1A000849C4 /* Algorithms */,
 				09AC0BDE1B5C3684000849C4 /* Models */,
@@ -249,6 +280,7 @@
 				098037E91B6C2F2700E52846 /* Main.storyboard in Resources */,
 				09AC0BC91B5C3671000849C4 /* LaunchScreen.xib in Resources */,
 				09AC0BC61B5C3671000849C4 /* Images.xcassets in Resources */,
+				09AA76351B86CFB90073FC0B /* key_add-down@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,14 +298,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09A18CA81B854E010093932F /* CustomTextField.swift in Sources */,
+				09A18CA61B854DE50093932F /* CustomButton.swift in Sources */,
 				09AC0BE71B5C3A3A000849C4 /* Utility.swift in Sources */,
 				09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */,
+				09AA76371B86D0510073FC0B /* HeaderLableView.swift in Sources */,
 				09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */,
 				09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */,
 				09AC0BBF1B5C3670000849C4 /* Expenses.xcdatamodeld in Sources */,
 				098037E51B6C189200E52846 /* FamilyExpensesViewController.swift in Sources */,
 				09AC0BE01B5C36A4000849C4 /* Family.swift in Sources */,
 				09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */,
+				09AA76321B86C0940073FC0B /* CircularImageView.swift in Sources */,
 				09AC0BE21B5C36CF000849C4 /* Member.swift in Sources */,
 				098037E11B6C077E00E52846 /* AddFamilyUIViewController.swift in Sources */,
 				098037DF1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift in Sources */,
