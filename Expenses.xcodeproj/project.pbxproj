@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092DCF4F1B87BA230050F893 /* AddFamilyMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092DCF4E1B87BA230050F893 /* AddFamilyMembersViewController.swift */; };
+		092DCF511B87BA320050F893 /* AddFamilyExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092DCF501B87BA320050F893 /* AddFamilyExpensesViewController.swift */; };
+		092DCF531B87CD1C0050F893 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092DCF521B87CD1C0050F893 /* Main.storyboard */; };
 		098037DF1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037DE1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift */; };
 		098037E11B6C077E00E52846 /* AddFamilyUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E01B6C077E00E52846 /* AddFamilyUIViewController.swift */; };
 		098037E31B6C188400E52846 /* FamilyMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E21B6C188400E52846 /* FamilyMembersViewController.swift */; };
 		098037E51B6C189200E52846 /* FamilyExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E41B6C189200E52846 /* FamilyExpensesViewController.swift */; };
-		098037E91B6C2F2700E52846 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098037E81B6C2F2700E52846 /* Main.storyboard */; };
+		0992591D1B8A783E00CFA81F /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0992591C1B8A783E00CFA81F /* MemberTableViewCell.swift */; };
 		09A18CA61B854DE50093932F /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A18CA51B854DE50093932F /* CustomButton.swift */; };
 		09A18CA81B854E010093932F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A18CA71B854E010093932F /* CustomTextField.swift */; };
 		09AA76321B86C0940073FC0B /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA76311B86C0940073FC0B /* CircularImageView.swift */; };
@@ -26,7 +29,7 @@
 		09AC0BE01B5C36A4000849C4 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BDF1B5C36A4000849C4 /* Family.swift */; };
 		09AC0BE21B5C36CF000849C4 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE11B5C36CF000849C4 /* Member.swift */; };
 		09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE31B5C36DF000849C4 /* Expense.swift */; };
-		09AC0BE71B5C3A3A000849C4 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE61B5C3A3A000849C4 /* Utility.swift */; };
+		09AC0BE71B5C3A3A000849C4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */; };
 		09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,11 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		092DCF4E1B87BA230050F893 /* AddFamilyMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFamilyMembersViewController.swift; sourceTree = "<group>"; };
+		092DCF501B87BA320050F893 /* AddFamilyExpensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFamilyExpensesViewController.swift; sourceTree = "<group>"; };
+		092DCF521B87CD1C0050F893 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		098037DE1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyDetailsUIViewController.swift; sourceTree = "<group>"; };
 		098037E01B6C077E00E52846 /* AddFamilyUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFamilyUIViewController.swift; sourceTree = "<group>"; };
 		098037E21B6C188400E52846 /* FamilyMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyMembersViewController.swift; sourceTree = "<group>"; };
 		098037E41B6C189200E52846 /* FamilyExpensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyExpensesViewController.swift; sourceTree = "<group>"; };
-		098037E81B6C2F2700E52846 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0992591C1B8A783E00CFA81F /* MemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
 		09A18CA51B854DE50093932F /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		09A18CA71B854E010093932F /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		09AA76311B86C0940073FC0B /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
@@ -64,7 +70,7 @@
 		09AC0BDF1B5C36A4000849C4 /* Family.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
 		09AC0BE11B5C36CF000849C4 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		09AC0BE31B5C36DF000849C4 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
-		09AC0BE61B5C3A3A000849C4 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyUITableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,10 +135,10 @@
 				09AA76331B86CFAE0073FC0B /* Resources */,
 				09A18CA41B854DA60093932F /* CustomViews */,
 				09AC0BE81B5C3E73000849C4 /* ViewControllers */,
-				09AC0BE51B5C3A1A000849C4 /* Algorithms */,
+				09AC0BE51B5C3A1A000849C4 /* Utility */,
 				09AC0BDE1B5C3684000849C4 /* Models */,
 				09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */,
-				098037E81B6C2F2700E52846 /* Main.storyboard */,
+				092DCF521B87CD1C0050F893 /* Main.storyboard */,
 				09AC0BC51B5C3671000849C4 /* Images.xcassets */,
 				09AC0BC71B5C3671000849C4 /* LaunchScreen.xib */,
 				09AC0BBD1B5C3670000849C4 /* Expenses.xcdatamodeld */,
@@ -176,12 +182,12 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		09AC0BE51B5C3A1A000849C4 /* Algorithms */ = {
+		09AC0BE51B5C3A1A000849C4 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				09AC0BE61B5C3A3A000849C4 /* Utility.swift */,
+				09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */,
 			);
-			name = Algorithms;
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		09AC0BE81B5C3E73000849C4 /* ViewControllers */ = {
@@ -193,6 +199,9 @@
 				098037E01B6C077E00E52846 /* AddFamilyUIViewController.swift */,
 				098037E21B6C188400E52846 /* FamilyMembersViewController.swift */,
 				098037E41B6C189200E52846 /* FamilyExpensesViewController.swift */,
+				092DCF4E1B87BA230050F893 /* AddFamilyMembersViewController.swift */,
+				092DCF501B87BA320050F893 /* AddFamilyExpensesViewController.swift */,
+				0992591C1B8A783E00CFA81F /* MemberTableViewCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -277,10 +286,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				098037E91B6C2F2700E52846 /* Main.storyboard in Resources */,
 				09AC0BC91B5C3671000849C4 /* LaunchScreen.xib in Resources */,
 				09AC0BC61B5C3671000849C4 /* Images.xcassets in Resources */,
 				09AA76351B86CFB90073FC0B /* key_add-down@3x.png in Resources */,
+				092DCF531B87CD1C0050F893 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,16 +309,19 @@
 			files = (
 				09A18CA81B854E010093932F /* CustomTextField.swift in Sources */,
 				09A18CA61B854DE50093932F /* CustomButton.swift in Sources */,
-				09AC0BE71B5C3A3A000849C4 /* Utility.swift in Sources */,
+				09AC0BE71B5C3A3A000849C4 /* UIColorExtension.swift in Sources */,
 				09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */,
+				092DCF4F1B87BA230050F893 /* AddFamilyMembersViewController.swift in Sources */,
 				09AA76371B86D0510073FC0B /* HeaderLableView.swift in Sources */,
 				09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */,
 				09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */,
 				09AC0BBF1B5C3670000849C4 /* Expenses.xcdatamodeld in Sources */,
+				092DCF511B87BA320050F893 /* AddFamilyExpensesViewController.swift in Sources */,
 				098037E51B6C189200E52846 /* FamilyExpensesViewController.swift in Sources */,
 				09AC0BE01B5C36A4000849C4 /* Family.swift in Sources */,
 				09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */,
 				09AA76321B86C0940073FC0B /* CircularImageView.swift in Sources */,
+				0992591D1B8A783E00CFA81F /* MemberTableViewCell.swift in Sources */,
 				09AC0BE21B5C36CF000849C4 /* Member.swift in Sources */,
 				098037E11B6C077E00E52846 /* AddFamilyUIViewController.swift in Sources */,
 				098037DF1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift in Sources */,

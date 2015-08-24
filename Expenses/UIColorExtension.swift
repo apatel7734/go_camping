@@ -1,5 +1,5 @@
 //
-//  Utility.swift
+//  UIColorExtension.swift
 //  Expenses
 //
 //  Created by Ashish Patel on 7/19/15.
@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-class Utility {
+
+extension UIColor{
     
 }

@@ -95,12 +95,26 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func generateTestData(){
         
-        var family = Family()
-        family.name = "Kumar"
-        var family2 = Family()
-        family2.name = "Ashish"
-        families.append(family)
-        families.append(family2)
+        for var index = 0 ;index < 10;index++ {
+            println("index i = \(index)")
+            var family = Family()
+            family.name = "Family \(index)"
+            
+            let randomExpense = Float(arc4random_uniform(500))
+            family.totalExpense = randomExpense
+            for var memIndex = 0;memIndex < 4 ; memIndex++ {
+                var member = Member()
+                member.name = "Member \(memIndex)"
+                family.members.append(member)
+            }
+            
+            for var expIndex = 0;expIndex < 4 ; expIndex++ {
+                var expense = Expense()
+                expense.name = "Expense \(expIndex)"
+                family.expenses.append(expense)
+            }
+            families.append(family)
+        }
     }
     
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class Family {
     var name: String?
-    var members: [Member]?
+    var members: [Member] = []
     var expenses: [Expense] = []
     var totalExpense: Float?
     var phoneNumber: Int?

@@ -30,7 +30,10 @@ class FamilyExpensesViewController: UIViewController {
     
     func addExpensesButtonPressed(sender: UIBarButtonItem){
         println("addExpensesButtonPressed()")
+        var destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilyexpensesvc") as!AddFamilyExpensesViewController
+        self.presentViewController(destVC, animated: true, completion: nil)
     }
+    
     
     
     /*

@@ -16,8 +16,14 @@ class CustomButton: UIButton {
     }
     
     func setupDefault(){
-        self.layer.cornerRadius = 5.0
+        self.layer.cornerRadius = 3.0
+
         self.backgroundColor = UIColor.blueColor()
+        self.titleLabel?.font = UIFont(name: "Arial", size: 20)
+        self.titleLabel?.textColor = UIColor.whiteColor()
+        self.contentEdgeInsets.bottom = 15
+        self.contentEdgeInsets.top = 15
+
     }
     
     func lightButton(){
