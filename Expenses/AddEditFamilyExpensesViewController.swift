@@ -1,5 +1,5 @@
 //
-//  AddFamilyExpensesViewController.swift
+//  AddEditFamilyExpensesViewController.swift
 //  Expenses
 //
 //  Created by Ashish Patel on 8/21/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddFamilyExpensesViewController: UIViewController {
+class AddEditFamilyExpensesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

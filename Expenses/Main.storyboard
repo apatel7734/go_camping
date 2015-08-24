@@ -314,10 +314,10 @@
             </objects>
             <point key="canvasLocation" x="939" y="888"/>
         </scene>
-        <!--Add Family Members View Controller-->
+        <!--Add Edit Family Members View Controller-->
         <scene sceneID="JP6-Y1-rnI">
             <objects>
-                <viewController storyboardIdentifier="addfamilymembersvc" id="OYI-gr-GZh" customClass="AddFamilyMembersViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addfamilymembersvc" id="OYI-gr-GZh" customClass="AddEditFamilyMembersViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2ct-Cd-VuD"/>
                         <viewControllerLayoutGuide type="bottom" id="h4d-4P-YVN"/>
@@ -529,6 +529,7 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k5B-We-oPK" customClass="CircularImageView" customModule="Expenses" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="19" width="50" height="50"/>
+                                                    <color key="backgroundColor" red="0.1764705882" green="0.36078431370000003" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="QNE-mD-jpC"/>
                                                         <constraint firstAttribute="height" constant="50" id="eMh-Qq-X4M"/>
@@ -604,10 +605,10 @@
             </objects>
             <point key="canvasLocation" x="284" y="-354"/>
         </scene>
-        <!--Add Family Expenses View Controller-->
+        <!--Add Edit Family Expenses View Controller-->
         <scene sceneID="1lu-ch-aZ5">
             <objects>
-                <viewController storyboardIdentifier="addfamilyexpensesvc" id="0AQ-Ch-nAB" customClass="AddFamilyExpensesViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addfamilyexpensesvc" id="0AQ-Ch-nAB" customClass="AddEditFamilyExpensesViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PHr-Aw-qES"/>
                         <viewControllerLayoutGuide type="bottom" id="8qh-vK-A1Z"/>

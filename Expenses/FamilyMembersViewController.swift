@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FamilyMembersViewController: UIViewController, UITableViewDataSource {
+class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
     
     @IBOutlet weak var membersTableView: UITableView!
@@ -25,6 +25,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource {
         
         //delegates
         membersTableView.dataSource = self
+        membersTableView.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -35,12 +36,12 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource {
     //MARK: @IBActions
     func addMembersButtonPressed(sender: UIBarButtonItem){
         println("addMembersButtonPressed()")
-        var destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilymembersvc") as!AddFamilyMembersViewController
+        var destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilymembersvc") as! AddEditFamilyMembersViewController
         self.presentViewController(destVC, animated: true, completion: nil)
     }
     
     
-    //MARK: UITableViewDataSourceDelegate
+    //MARK: UITableViewDelegates
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = family?.members.count{
@@ -52,11 +53,16 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("") as! MemberTableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("membertableviewcell") as! MemberTableViewCell
         if let members = family?.members{
             cell.memberNameLabel.text = members[indexPath.row].name
         }
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("did select row for \(indexPath.row)")
+        membersTableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     
