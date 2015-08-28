@@ -10,7 +10,6 @@ import UIKit
 
 class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
-    
     @IBOutlet weak var membersTableView: UITableView!
     
     var family: Family?
@@ -35,8 +34,12 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     //MARK: @IBActions
     func addMembersButtonPressed(sender: UIBarButtonItem){
-        println("addMembersButtonPressed()")
+        presentNextViewcontroller(nil)
+    }
+    
+    func presentNextViewcontroller(member: Member?){
         var destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilymembersvc") as! AddEditFamilyMembersViewController
+        destVC.member = member
         self.presentViewController(destVC, animated: true, completion: nil)
     }
     
@@ -63,17 +66,8 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("did select row for \(indexPath.row)")
         membersTableView.deselectRowAtIndexPath(indexPath, animated: true)
+        var member = family?.members[indexPath.row]
+        presentNextViewcontroller(member)
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }

@@ -50,9 +50,10 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    //MARK - segue methods
+    //MARK - segue methods on + button clicked.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var destVC = segue.destinationViewController as? UITabBarController;
+        
         if let tabBarVC = destVC{
             var viewControllers = tabBarVC.viewControllers
             
@@ -91,7 +92,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func generateTestData(){
         
         for var index = 0 ;index < 10;index++ {
-            println("index i = \(index)")
             var family = Family()
             family.name = "Family \(index)"
             

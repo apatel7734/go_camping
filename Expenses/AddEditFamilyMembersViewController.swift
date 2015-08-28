@@ -10,23 +10,29 @@ import UIKit
 
 class AddEditFamilyMembersViewController: UIViewController {
     
+    //MARK:@IBOutlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var memberImageView: CircularImageView!
+    @IBOutlet weak var nameTextField: CustomTextField!
+    @IBOutlet weak var phoneNumberTextField: CustomTextField!
+    @IBOutlet weak var emailTextField: CustomTextField!
+    @IBOutlet weak var ageTextField: CustomTextField!
+    
+    @IBOutlet weak var updateActionButton: CustomButton!
+    
+    var member: Member?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+        updateViewControllerForAddorEdit()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func addButtonClicked(sender: AnyObject) {
-        println("addButtonClicked")
+    @IBAction func updateActionButtonPressed(sender: AnyObject) {
+        
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {
-        println("cancelButtonClicked")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -35,14 +41,27 @@ class AddEditFamilyMembersViewController: UIViewController {
     }
     
     
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    //MARK: - helper methods
+    func updateViewControllerForAddorEdit(){
+        if let member = member{
+            //edit view controller
+            titleLabel.text = "Edit Member"
+            nameTextField.text = member.name != nil ? member.name : ""
+            phoneNumberTextField.text = member.phoneNumber != nil ? "\(member.phoneNumber)" : ""
+            emailTextField.text = member.email != nil ? member.email : ""
+            ageTextField.text = member.age != nil ? "\(member.age)" : ""
+            updateActionButton.setTitle("Update", forState: UIControlState.Normal)
+            
+        }else{
+            println("Member Add")
+            //add view controller
+            titleLabel.text = "Add New Member"
+            nameTextField.text = ""
+            phoneNumberTextField.text = ""
+            emailTextField.text = ""
+            ageTextField.text = ""
+            updateActionButton.setTitle("Add", forState: UIControlState.Normal)
+        }
     }
-    */
     
 }

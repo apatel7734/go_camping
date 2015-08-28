@@ -15,6 +15,7 @@
 		098037E31B6C188400E52846 /* FamilyMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E21B6C188400E52846 /* FamilyMembersViewController.swift */; };
 		098037E51B6C189200E52846 /* FamilyExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E41B6C189200E52846 /* FamilyExpensesViewController.swift */; };
 		0992591D1B8A783E00CFA81F /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0992591C1B8A783E00CFA81F /* MemberTableViewCell.swift */; };
+		0992591F1B8AA2DE00CFA81F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0992591E1B8AA2DE00CFA81F /* Enums.swift */; };
 		09A18CA61B854DE50093932F /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A18CA51B854DE50093932F /* CustomButton.swift */; };
 		09A18CA81B854E010093932F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A18CA71B854E010093932F /* CustomTextField.swift */; };
 		09AA76321B86C0940073FC0B /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA76311B86C0940073FC0B /* CircularImageView.swift */; };
@@ -52,6 +53,7 @@
 		098037E21B6C188400E52846 /* FamilyMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyMembersViewController.swift; sourceTree = "<group>"; };
 		098037E41B6C189200E52846 /* FamilyExpensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyExpensesViewController.swift; sourceTree = "<group>"; };
 		0992591C1B8A783E00CFA81F /* MemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
+		0992591E1B8AA2DE00CFA81F /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		09A18CA51B854DE50093932F /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		09A18CA71B854E010093932F /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		09AA76311B86C0940073FC0B /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */,
+				0992591E1B8AA2DE00CFA81F /* Enums.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			files = (
 				09A18CA81B854E010093932F /* CustomTextField.swift in Sources */,
 				09A18CA61B854DE50093932F /* CustomButton.swift in Sources */,
+				0992591F1B8AA2DE00CFA81F /* Enums.swift in Sources */,
 				09AC0BE71B5C3A3A000849C4 /* UIColorExtension.swift in Sources */,
 				09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */,
 				092DCF4F1B87BA230050F893 /* AddEditFamilyMembersViewController.swift in Sources */,
