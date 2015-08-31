@@ -29,7 +29,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var familyCell = tableView.dequeueReusableCellWithIdentifier("familycell") as! FamilyUITableViewCell
         familyCell.familyName.text = families[indexPath.row].name
-        
+        familyCell.familyImage.showFirstCharacterFor(families[indexPath.row].name)
         return familyCell
     }
     

@@ -9,6 +9,8 @@
 import UIKit
 
 class CircularImageView: UIImageView {
+    
+    var label: UILabel!
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -19,6 +21,20 @@ class CircularImageView: UIImageView {
         //clips to bound is required to make cornerRadius work
         self.layer.cornerRadius = self.frame.width/2
         self.clipsToBounds = true
+        label = UILabel(frame: bounds)
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = UIColor.grayColor()
+        label.font = UIFont(name: "ArialMT", size: 25)
+        self.addSubview(label)
     }
-
+    
+    func showFirstCharacterFor(userName: String?){
+        if let userName = userName{
+            for strChar in userName{
+                label.text = "\(strChar)"
+                break;
+            }
+        }
+    }
+    
 }

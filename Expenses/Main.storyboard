@@ -98,7 +98,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="familyImage" destination="PVb-YR-dcu" id="wwb-Do-QWp"/>
+                                            <outlet property="familyImage" destination="PVb-YR-dcu" id="67U-vJ-oHf"/>
                                             <outlet property="familyName" destination="evk-jq-82K" id="rXt-He-MqZ"/>
                                             <outlet property="totalExpenses" destination="U8y-jL-pNF" id="teq-ZR-bg3"/>
                                             <outlet property="totalMembers" destination="7es-de-rtb" id="hjD-Tx-tYp"/>

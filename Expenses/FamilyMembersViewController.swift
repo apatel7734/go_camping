@@ -59,6 +59,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         var cell = tableView.dequeueReusableCellWithIdentifier("membertableviewcell") as! MemberTableViewCell
         if let members = family?.members{
             cell.memberNameLabel.text = members[indexPath.row].name
+            cell.memberImageView.showFirstCharacterFor(members[indexPath.row].name)
         }
         return cell
     }

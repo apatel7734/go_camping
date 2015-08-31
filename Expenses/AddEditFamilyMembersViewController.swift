@@ -8,7 +8,13 @@
 
 import UIKit
 
+//protocol AddEditFamilyMembersDelegate{
+//    func newAddedOrUpdated(#member: Member, with actionType: ActionTypes)
+//}
+
 class AddEditFamilyMembersViewController: UIViewController {
+    
+    //    var delegate: AddEditFamilyMembersDelegate?
     
     //MARK:@IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -63,6 +69,7 @@ class AddEditFamilyMembersViewController: UIViewController {
             emailTextField.text = member.email != nil ? member.email : Constants.emptyString
             ageTextField.text = member.age != nil ? "\(member.age)" : Constants.emptyString
             updateActionButton.setTitle(Constants.update, forState: UIControlState.Normal)
+            memberImageView.showFirstCharacterFor(member.name)
             
         }else{
             //add view controller
