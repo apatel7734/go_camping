@@ -35,14 +35,14 @@ class AddEditFamilyMembersViewController: UIViewController {
     }
     
     @IBAction func updateActionButtonPressed(sender: AnyObject) {
-        var updateActionButtonTitle = updateActionButton.titleLabel?.text
+        let updateActionButtonTitle = updateActionButton.titleLabel?.text
         if let updateActionButtonTitle = updateActionButtonTitle{
             switch(updateActionButtonTitle){
             case Constants.update:
-                println("\(Constants.update) Clicked.")
+                print("\(Constants.update) Clicked.")
                 break;
             case Constants.add:
-                println("\(Constants.add) Clicked.")
+                print("\(Constants.add) Clicked.")
                 break;
             default:
                 break;

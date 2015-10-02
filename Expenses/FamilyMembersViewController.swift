@@ -19,8 +19,8 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //setup topbar button
-        var addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addMembersButtonPressed:")
-        self.navigationController?.topViewController.navigationItem.rightBarButtonItem = addRightBarButtonItem
+        let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addMembersButtonPressed:")
+        self.navigationController?.topViewController?.navigationItem.rightBarButtonItem = addRightBarButtonItem
         
         //delegates
         membersTableView.dataSource = self
@@ -28,7 +28,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.topViewController.navigationItem.title = "Members"
+        self.navigationController?.topViewController?.navigationItem.title = "Members"
     }
     
     
@@ -38,7 +38,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     }
     
     func presentNextViewcontroller(member: Member?){
-        var destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilymembersvc") as! AddEditFamilyMembersViewController
+        let destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilymembersvc") as! AddEditFamilyMembersViewController
         destVC.member = member
         self.presentViewController(destVC, animated: true, completion: nil)
     }
@@ -56,7 +56,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("membertableviewcell") as! MemberTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("membertableviewcell") as! MemberTableViewCell
         if let members = family?.members{
             cell.memberNameLabel.text = members[indexPath.row].name
             cell.memberImageView.showFirstCharacterFor(members[indexPath.row].name)
@@ -65,9 +65,9 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("did select row for \(indexPath.row)")
+        print("did select row for \(indexPath.row)")
         membersTableView.deselectRowAtIndexPath(indexPath, animated: true)
-        var member = family?.members[indexPath.row]
+        let member = family?.members[indexPath.row]
         presentNextViewcontroller(member)
     }
     

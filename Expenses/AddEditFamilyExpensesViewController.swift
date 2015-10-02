@@ -22,12 +22,12 @@ class AddEditFamilyExpensesViewController: UIViewController {
     }
     
     @IBAction func addButtonClicked(sender: AnyObject) {
-        println("AddButtonClicked")
+        print("AddButtonClicked")
     }
     
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {
-        println("CancelButtonClicked")
+        print("CancelButtonClicked")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

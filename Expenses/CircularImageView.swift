@@ -12,7 +12,7 @@ class CircularImageView: UIImageView {
     
     var label: UILabel!
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.setup()
     }
@@ -30,7 +30,7 @@ class CircularImageView: UIImageView {
     
     func showFirstCharacterFor(userName: String?){
         if let userName = userName{
-            for strChar in userName{
+            for strChar in userName.characters{
                 label.text = "\(strChar)"
                 break;
             }

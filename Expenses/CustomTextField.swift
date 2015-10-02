@@ -12,7 +12,7 @@ class CustomTextField: UITextField {
     
      let padding = UIEdgeInsets(top: 15, left: 15, bottom: 10, right: 5);
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }

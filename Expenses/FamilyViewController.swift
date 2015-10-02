@@ -27,7 +27,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK - tableView datasource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var familyCell = tableView.dequeueReusableCellWithIdentifier("familycell") as! FamilyUITableViewCell
+        let familyCell = tableView.dequeueReusableCellWithIdentifier("familycell") as! FamilyUITableViewCell
         familyCell.familyName.text = families[indexPath.row].name
         familyCell.familyImage.showFirstCharacterFor(families[indexPath.row].name)
         return familyCell
@@ -52,10 +52,10 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK - segue methods on + button clicked.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var destVC = segue.destinationViewController as? UITabBarController;
+        let destVC = segue.destinationViewController as? UITabBarController;
         
         if let tabBarVC = destVC{
-            var viewControllers = tabBarVC.viewControllers
+            let viewControllers = tabBarVC.viewControllers
             
             if let indexPath = self.currentIndexPath{
                 if let familyMembersVC = findFamilyMembersViewController(viewControllers){
@@ -92,19 +92,19 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func generateTestData(){
         
         for var index = 0 ;index < 10;index++ {
-            var family = Family()
+            let family = Family()
             family.name = "Family \(index)"
             
             let randomExpense = Float(arc4random_uniform(500))
             family.totalExpense = randomExpense
             for var memIndex = 0;memIndex < 4 ; memIndex++ {
-                var member = Member()
+                let member = Member()
                 member.name = "Member \(memIndex)"
                 family.members.append(member)
             }
             
             for var expIndex = 0;expIndex < 4 ; expIndex++ {
-                var expense = Expense()
+                let expense = Expense()
                 expense.name = "Expense \(expIndex)"
                 family.expenses.append(expense)
             }

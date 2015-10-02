@@ -15,12 +15,12 @@ class FamilyExpensesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        var addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addExpensesButtonPressed:")
-        self.navigationController?.topViewController.navigationItem.rightBarButtonItem = addRightBarButtonItem
+        let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addExpensesButtonPressed:")
+        self.navigationController?.topViewController?.navigationItem.rightBarButtonItem = addRightBarButtonItem
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.topViewController.navigationItem.title = "Expenses"
+        self.navigationController?.topViewController?.navigationItem.title = "Expenses"
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,8 +29,8 @@ class FamilyExpensesViewController: UIViewController {
     }
     
     func addExpensesButtonPressed(sender: UIBarButtonItem){
-        println("addExpensesButtonPressed()")
-        var destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilyexpensesvc") as! AddEditFamilyExpensesViewController
+        print("addExpensesButtonPressed()")
+        let destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilyexpensesvc") as! AddEditFamilyExpensesViewController
         self.presentViewController(destVC, animated: true, completion: nil)
     }
     
