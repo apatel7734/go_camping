@@ -14,6 +14,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var currentIndexPath: NSIndexPath?
     
     @IBOutlet weak var familyTableView: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,9 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //TODO : Remove this
         generateTestData();
+        
+        //TODO: testing coreData
+
     }
     
     //MARK - tableView datasource
