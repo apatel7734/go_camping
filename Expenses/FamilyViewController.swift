@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var families = [Family]()
     var currentIndexPath: NSIndexPath?
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance.managedObjectContext
+    }
     
     @IBOutlet weak var familyTableView: UITableView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +29,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         generateTestData();
         
         //TODO: testing coreData
-
+        print("Calling sharedContext = \(sharedContext)")
     }
     
     //MARK - tableView datasource
