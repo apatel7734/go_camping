@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class AddFamilyUIViewController: UIViewController {
-
+    
+    @IBOutlet weak var familyNameTextField: CustomTextField!
+    
+    @IBOutlet weak var phoneNumberTextField: CustomTextField!
+    
+    @IBOutlet weak var emailTextField: CustomTextField!
+    
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addFamilyButton: UIButton!
     
@@ -20,7 +27,7 @@ class AddFamilyUIViewController: UIViewController {
         cancelButton.layer.cornerRadius = 8
         addFamilyButton.layer.cornerRadius = 8
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,7 +45,19 @@ class AddFamilyUIViewController: UIViewController {
     
     
     @IBAction func onTapAddFamilyButton(sender: UIButton) {
+        print("familyNameTextField \(familyNameTextField.text)")
+        print("phoneNumberTextField \(phoneNumberTextField.text)")
+        print("emailTextField \(emailTextField.text)")
+        
+        let dictionary : [String: AnyObject] = [Family.Keys.Name : familyNameTextField.text!]
+        
+        let _ = Family(dictionary: dictionary, context: sharedContext)
+        
+        CoreDataStackManager.sharedInstance.saveContext()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance.managedObjectContext
+    }
 }

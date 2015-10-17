@@ -323,6 +323,9 @@
                     <connections>
                         <outlet property="addFamilyButton" destination="8ia-Ic-zI0" id="h8q-Sa-pDK"/>
                         <outlet property="cancelButton" destination="2oV-sz-wox" id="g0i-34-9h4"/>
+                        <outlet property="emailTextField" destination="G2w-2L-k0I" id="Soe-ar-7T6"/>
+                        <outlet property="familyNameTextField" destination="0Xn-Az-IwW" id="Sbf-Sx-dOk"/>
+                        <outlet property="phoneNumberTextField" destination="TBB-u4-VAW" id="T5D-JB-wJX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dg-eP-KNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
