@@ -8,13 +8,13 @@
 
 import UIKit
 
-//protocol AddEditFamilyMembersDelegate{
-//    func newAddedOrUpdated(#member: Member, with actionType: ActionTypes)
-//}
+protocol AddEditFamilyMembersViewControllerDelegate{
+    func didPickFamilyMember(member: Member, actionType: ActionTypes)
+}
 
 class AddEditFamilyMembersViewController: UIViewController {
     
-    //    var delegate: AddEditFamilyMembersDelegate?
+    var delegate: AddEditFamilyMembersViewControllerDelegate?
     
     //MARK:@IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -35,19 +35,30 @@ class AddEditFamilyMembersViewController: UIViewController {
     }
     
     @IBAction func updateActionButtonPressed(sender: AnyObject) {
-        let updateActionButtonTitle = updateActionButton.titleLabel?.text
-        if let updateActionButtonTitle = updateActionButtonTitle{
-            switch(updateActionButtonTitle){
-            case Constants.update:
-                print("\(Constants.update) Clicked.")
-                break;
-            case Constants.add:
-                print("\(Constants.add) Clicked.")
-                break;
-            default:
-                break;
-            }
+        addOrUpdateFamilyMember()
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func addOrUpdateFamilyMember(){
+        let name = nameTextField.text!
+        let phoneNumber = phoneNumberTextField.text!
+        let age = ageTextField.text!
+        let email = emailTextField.text!
+        var actionType = ActionTypes.Add
+        
+        if let _ = member{
+            member?.name = name
+            member?.phoneNumber = Int(phoneNumber)
+            member?.name = name
+            member?.age = Int(age)
+            actionType = ActionTypes.Edit
+            
+        }else{
+            let memberDict = [Member.Keys.Name: name, Member.Keys.PhoneNumber : phoneNumber, Member.Keys.Age : age, Member.Keys.Email : email]
+            
+            self.member = Member(dictionary: memberDict, context: CoreDataStackManager.sharedInstance.managedObjectContext)
         }
+        delegate?.didPickFamilyMember(member!, actionType: actionType)
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {

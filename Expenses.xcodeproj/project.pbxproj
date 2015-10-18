@@ -23,7 +23,7 @@
 		09AA76351B86CFB90073FC0B /* key_add-down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09AA76341B86CFB90073FC0B /* key_add-down@3x.png */; };
 		09AA76371B86D0510073FC0B /* HeaderLableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA76361B86D0510073FC0B /* HeaderLableView.swift */; };
 		09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */; };
-		09AC0BBF1B5C3670000849C4 /* Expenses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBD1B5C3670000849C4 /* Expenses.xcdatamodeld */; };
+		09AC0BBF1B5C3670000849C4 /* ExpensesData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBD1B5C3670000849C4 /* ExpensesData.xcdatamodeld */; };
 		09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BC01B5C3671000849C4 /* FamilyViewController.swift */; };
 		09AC0BC61B5C3671000849C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09AC0BC51B5C3671000849C4 /* Images.xcassets */; };
 		09AC0BC91B5C3671000849C4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09AC0BC71B5C3671000849C4 /* LaunchScreen.xib */; };
@@ -66,7 +66,7 @@
 		09AC0BB61B5C3670000849C4 /* Expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09AC0BBA1B5C3670000849C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		09AC0BBE1B5C3670000849C4 /* Expenses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Expenses.xcdatamodel; sourceTree = "<group>"; };
+		09AC0BBE1B5C3670000849C4 /* ExpensesData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpensesData.xcdatamodel; sourceTree = "<group>"; };
 		09AC0BC01B5C3671000849C4 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
 		09AC0BC51B5C3671000849C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		09AC0BC81B5C3671000849C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 				092DCF521B87CD1C0050F893 /* Main.storyboard */,
 				09AC0BC51B5C3671000849C4 /* Images.xcassets */,
 				09AC0BC71B5C3671000849C4 /* LaunchScreen.xib */,
-				09AC0BBD1B5C3670000849C4 /* Expenses.xcdatamodeld */,
+				09AC0BBD1B5C3670000849C4 /* ExpensesData.xcdatamodeld */,
 				09AC0BB91B5C3670000849C4 /* Supporting Files */,
 			);
 			path = Expenses;
@@ -331,7 +331,7 @@
 				09AA76371B86D0510073FC0B /* HeaderLableView.swift in Sources */,
 				09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */,
 				09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */,
-				09AC0BBF1B5C3670000849C4 /* Expenses.xcdatamodeld in Sources */,
+				09AC0BBF1B5C3670000849C4 /* ExpensesData.xcdatamodeld in Sources */,
 				092DCF511B87BA320050F893 /* AddEditFamilyExpensesViewController.swift in Sources */,
 				099F6C7F1B94BDFC00BD8D9C /* Constants.swift in Sources */,
 				098037E51B6C189200E52846 /* FamilyExpensesViewController.swift in Sources */,
@@ -550,13 +550,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		09AC0BBD1B5C3670000849C4 /* Expenses.xcdatamodeld */ = {
+		09AC0BBD1B5C3670000849C4 /* ExpensesData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				09AC0BBE1B5C3670000849C4 /* Expenses.xcdatamodel */,
+				09AC0BBE1B5C3670000849C4 /* ExpensesData.xcdatamodel */,
 			);
-			currentVersion = 09AC0BBE1B5C3670000849C4 /* Expenses.xcdatamodel */;
-			path = Expenses.xcdatamodeld;
+			currentVersion = 09AC0BBE1B5C3670000849C4 /* ExpensesData.xcdatamodel */;
+			path = ExpensesData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

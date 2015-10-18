@@ -12,7 +12,7 @@ import CoreData
 //2. make this class available to objective c
 @objc(Member)
 //3. managed object
-class Member : NSManagedObject{
+class Member: NSManagedObject{
     struct Keys {
         static let Name = "name"
         static let PhoneNumber = "phoneNumber"

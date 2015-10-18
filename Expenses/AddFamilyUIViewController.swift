@@ -51,13 +51,12 @@ class AddFamilyUIViewController: UIViewController {
         
         let dictionary : [String: AnyObject] = [Family.Keys.Name : familyNameTextField.text!]
         
-        let _ = Family(dictionary: dictionary, context: sharedContext)
+        let _ = Family(dictionary: dictionary, context: CoreDataStackManager.sharedInstance.managedObjectContext)
         
         CoreDataStackManager.sharedInstance.saveContext()
+        
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    var sharedContext: NSManagedObjectContext {
-        return CoreDataStackManager.sharedInstance.managedObjectContext
-    }
 }

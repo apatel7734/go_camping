@@ -11,12 +11,7 @@ import CoreData
 
 class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource ,NSFetchedResultsControllerDelegate{
     
-    //    var families = [Family]()
     var currentIndexPath: NSIndexPath?
-    
-    var sharedContext: NSManagedObjectContext {
-        return CoreDataStackManager.sharedInstance.managedObjectContext
-    }
     
     @IBOutlet weak var familyTableView: UITableView!
     
@@ -38,17 +33,12 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK - tableView datasource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let familyCell = tableView.dequeueReusableCellWithIdentifier("familycell") as! FamilyUITableViewCell
-        let fetchObject = fetchedResultsController.objectAtIndexPath(indexPath)
-        let family = fetchObject as? Family
-        if let family2  = family {
-            self.configureCell(familyCell, withFamily: family2)
-        }
+        let family = fetchedResultsController.objectAtIndexPath(indexPath) as? Family
         
+        if let family  = family {
+            self.configureCell(familyCell, withFamily: family)
+        }
         return familyCell
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -118,12 +108,13 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //Step 1. add lazy controller to fetch result
     lazy var fetchedResultsController: NSFetchedResultsController = {
         
-        let fetchRequest = NSFetchRequest(entityName: "a")
+        let fetchRequest = NSFetchRequest(entityName: "Family")
         
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        fetchRequest.returnsObjectsAsFaults = false
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-            managedObjectContext: self.sharedContext,
+            managedObjectContext: CoreDataStackManager.sharedInstance.managedObjectContext,
             sectionNameKeyPath: nil,
             cacheName: nil)
         

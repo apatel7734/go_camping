@@ -17,7 +17,7 @@ import CoreData
  *
  */
 
-private let SQLITE_FILE_NAME = "Expenses.sqlite"
+private let SQLITE_FILE_NAME = "Camping.sqlite"
 
 class CoreDataStackManager {
     
@@ -53,7 +53,7 @@ class CoreDataStackManager {
 
         print("Instantiating the managedObjectModel property")
         
-        let modelURL = NSBundle.mainBundle().URLForResource("Expenses", withExtension: "momd")!
+        let modelURL = NSBundle.mainBundle().URLForResource("ExpensesData", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
     
@@ -82,7 +82,9 @@ class CoreDataStackManager {
         
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
+            
             try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()

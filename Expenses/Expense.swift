@@ -13,7 +13,7 @@ import CoreData
 @objc(Expense)
 //3. managed object
 
-class Expense : NSManagedObject{
+class Expense: NSManagedObject{
     struct Keys {
         static let Name = "name"
         static let Desc = "desc"
