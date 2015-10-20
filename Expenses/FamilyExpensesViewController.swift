@@ -8,42 +8,68 @@
 
 import UIKit
 
-class FamilyExpensesViewController: UIViewController {
+class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, AddEditFamilyExpensesViewControllerDelegate {
+    
+    @IBOutlet weak var expenseTableView: UITableView!
+    
     
     var family: Family?
+    private var currentIndexPath: NSIndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addExpensesButtonPressed:")
         self.navigationController?.topViewController?.navigationItem.rightBarButtonItem = addRightBarButtonItem
+        
+        expenseTableView.dataSource = self
+        expenseTableView.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.topViewController?.navigationItem.title = "Expenses"
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //MARK: TableViewDataSource, TableViewDelegates
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if let expenses = family?.expenses{
+            return expenses.count
+        }else{
+            return 0
+        }
+    }
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("Expense Selected")
+        currentIndexPath = indexPath
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("expensetableviewcell") as! ExpenseTableViewCell
+        cell.expenseName.text = family?.expenses[indexPath.row].name
+        return cell
+    }
+    
+    func didExpenseAdded(expense: Expense) {
+        expense.family = family
+        CoreDataStackManager.sharedInstance.saveContext()
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
     func addExpensesButtonPressed(sender: UIBarButtonItem){
-        print("addExpensesButtonPressed()")
         let destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilyexpensesvc") as! AddEditFamilyExpensesViewController
+        destVC.delegate = self
+        if let expenses = family?.expenses, currentIndexPath = currentIndexPath{
+            if expenses.count > currentIndexPath.row{
+                destVC.expense = expenses[currentIndexPath.row]
+            }
+        }
+        
         self.presentViewController(destVC, animated: true, completion: nil)
     }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }
