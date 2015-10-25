@@ -173,7 +173,7 @@
                                     <constraint firstAttribute="centerX" secondItem="Svm-CU-KlJ" secondAttribute="centerX" id="NfG-1a-CiB"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-u4-VAW" customClass="CustomTextField" customModule="Expenses" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number (XXX-XXX-XXXX)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-u4-VAW" customClass="CustomTextField" customModule="Expenses" customModuleProvider="target">
                                 <rect key="frame" x="20" y="280" width="560" height="30"/>
                                 <animations/>
                                 <constraints>

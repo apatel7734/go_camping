@@ -9,11 +9,17 @@
 import UIKit
 import CoreData
 
-class AddFamilyUIViewController: UIViewController {
+class AddFamilyUIViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var familyNameTextField: CustomTextField!
     
     @IBOutlet weak var phoneNumberTextField: CustomTextField!
+    var phoneNumber: String = ""{
+        didSet{
+            let formattedPhoneNumber = StringFormatterUtil.sharedStringFormatterUtil.formatPhoneNumber(phoneNumber)
+            phoneNumberTextField.text = formattedPhoneNumber
+        }
+    }
     
     @IBOutlet weak var emailTextField: CustomTextField!
     
@@ -23,14 +29,61 @@ class AddFamilyUIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         cancelButton.layer.cornerRadius = 8
         addFamilyButton.layer.cornerRadius = 8
+        
+        familyNameTextField.delegate = self
+        phoneNumberTextField.delegate = self
+        emailTextField.delegate = self
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //MARK - UITextFieldDelegate
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        switch(textField){
+            
+        case familyNameTextField:
+            familyNameTextField(string)
+            
+        case phoneNumberTextField:
+            phoneNumberTextField(string)
+            
+        case emailTextField:
+            emailTextField(string)
+            
+        default:
+            print("Cant find textFieldType")
+        }
+        return false
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return true
+    }
+    
+    private func phoneNumberTextField(string: String){
+        var number = phoneNumber
+        if string.isEmpty{
+            //remove button pressed.
+            phoneNumber = number.substringToIndex(number.endIndex.predecessor())
+        }else{
+            number.append(Character(string))
+        }
+        let validateResponse = ValidationUtil.sharedValidationUtil.isValidPhoneNumber(number)
+        if (validateResponse.isValid){
+            phoneNumber = number
+        }else{
+            // move to next
+            emailTextField.becomeFirstResponder()
+        }
+    }
+    
+    private func familyNameTextField(string: String){
+        
+    }
+    
+    private func emailTextField(string: String){
+        
     }
     
     
@@ -38,23 +91,17 @@ class AddFamilyUIViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
     @IBAction func onTapView(sender: AnyObject) {
         self.view.endEditing(true)
     }
     
-    
     @IBAction func onTapAddFamilyButton(sender: UIButton) {
-        print("familyNameTextField \(familyNameTextField.text)")
-        print("phoneNumberTextField \(phoneNumberTextField.text)")
-        print("emailTextField \(emailTextField.text)")
         
         let dictionary : [String: AnyObject] = [Family.Keys.Name : familyNameTextField.text!]
         
         let _ = Family(dictionary: dictionary, context: CoreDataStackManager.sharedInstance.managedObjectContext)
         
         CoreDataStackManager.sharedInstance.saveContext()
-        
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
