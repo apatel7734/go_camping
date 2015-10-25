@@ -14,7 +14,6 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     
     var family: Family?
-    private var currentIndexPath: NSIndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +30,6 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     //MARK: TableViewDataSource, TableViewDelegates
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if let expenses = family?.expenses{
@@ -43,8 +41,9 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("Expense Selected")
-        currentIndexPath = indexPath
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        addEditExpenseFor(indexPath)
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -57,18 +56,21 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
         expense.family = family
         CoreDataStackManager.sharedInstance.saveContext()
         self.dismissViewControllerAnimated(true, completion: nil)
-        
+        self.expenseTableView.reloadData()
     }
     
     func addExpensesButtonPressed(sender: UIBarButtonItem){
+        addEditExpenseFor(nil)
+    }
+    
+    func addEditExpenseFor(indexPath: NSIndexPath?){
         let destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilyexpensesvc") as! AddEditFamilyExpensesViewController
         destVC.delegate = self
-        if let expenses = family?.expenses, currentIndexPath = currentIndexPath{
-            if expenses.count > currentIndexPath.row{
-                destVC.expense = expenses[currentIndexPath.row]
+        if let expenses = family?.expenses, selectedIndexPath = indexPath{
+            if expenses.count > selectedIndexPath.row{
+                destVC.expense = expenses[selectedIndexPath.row]
             }
         }
-        
         self.presentViewController(destVC, animated: true, completion: nil)
     }
     

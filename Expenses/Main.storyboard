@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DAM-YG-ha9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DAM-YG-ha9">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -357,7 +357,7 @@
                                     <constraint firstAttribute="height" constant="40" id="uDT-JX-jQ5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="uDT-JX-jQ5"/>
@@ -372,7 +372,7 @@
                                     <constraint firstAttribute="height" constant="40" id="bzQ-uN-qDB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="bzQ-uN-qDB"/>
@@ -386,7 +386,7 @@
                                     <constraint firstAttribute="height" constant="40" id="zgw-5S-POl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="zgw-5S-POl"/>
@@ -437,7 +437,7 @@
                                     <constraint firstAttribute="height" constant="40" id="lf4-Dh-qhR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" returnKeyType="next"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="lf4-Dh-qhR"/>
@@ -573,11 +573,19 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Acs-aV-sSX" secondAttribute="trailing" constant="-16" id="9uZ-YE-uB6"/>
-                            <constraint firstItem="Acs-aV-sSX" firstAttribute="leading" secondItem="h7v-NC-fpr" secondAttribute="leadingMargin" constant="-16" id="IRu-dU-OGB"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Acs-aV-sSX" secondAttribute="bottom" id="Ylb-Ck-8RE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Acs-aV-sSX" secondAttribute="trailing" constant="-16" id="Bc5-UU-Iv5"/>
+                            <constraint firstItem="Acs-aV-sSX" firstAttribute="top" secondItem="h7v-NC-fpr" secondAttribute="topMargin" id="GBb-Hj-UiG"/>
+                            <constraint firstItem="Acs-aV-sSX" firstAttribute="top" secondItem="h7v-NC-fpr" secondAttribute="topMargin" id="IYv-Bk-7GD"/>
+                            <constraint firstItem="Acs-aV-sSX" firstAttribute="bottom" secondItem="h7v-NC-fpr" secondAttribute="bottomMargin" id="TLy-6F-T0q"/>
+                            <constraint firstItem="Acs-aV-sSX" firstAttribute="leading" secondItem="h7v-NC-fpr" secondAttribute="leadingMargin" constant="-16" id="guH-0c-Miy"/>
                             <constraint firstItem="Acs-aV-sSX" firstAttribute="top" secondItem="6JF-6r-CeC" secondAttribute="bottom" id="iew-TU-TN1"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="IYv-Bk-7GD"/>
+                                <exclude reference="iew-TU-TN1"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Expenses" id="Sv5-1D-Qgd"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -723,7 +731,7 @@
                                     <constraint firstAttribute="height" constant="40" id="3QX-g5-4qr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="3QX-g5-4qr"/>
@@ -737,7 +745,7 @@
                                     <constraint firstAttribute="height" constant="40" id="dB7-Xq-NMz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="dB7-Xq-NMz"/>
@@ -798,7 +806,7 @@
                                     <constraint firstAttribute="height" constant="40" id="mu8-g9-KCe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="mu8-g9-KCe"/>
@@ -846,6 +854,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="addUpdateButton" destination="fmc-6f-zzl" id="nGP-29-HXV"/>
                         <outlet property="amountTextfield" destination="cQc-L9-xhm" id="NKg-sN-p1N"/>
                         <outlet property="descTextField" destination="iFl-9J-dci" id="WUE-x6-5He"/>
                         <outlet property="nameTextField" destination="Kdz-De-ppY" id="Lgs-FF-QcU"/>
