@@ -12,19 +12,17 @@ import CoreData
 class AddFamilyUIViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var familyNameTextField: CustomTextField!
-    
     @IBOutlet weak var phoneNumberTextField: CustomTextField!
-    var phoneNumber: String = ""{
+    @IBOutlet weak var emailTextField: CustomTextField!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var addFamilyButton: UIButton!
+    
+    private var phoneNumber: String = ""{
         didSet{
             let formattedPhoneNumber = StringFormatterUtil.sharedStringFormatterUtil.formatPhoneNumber(phoneNumber)
             phoneNumberTextField.text = formattedPhoneNumber
         }
     }
-    
-    @IBOutlet weak var emailTextField: CustomTextField!
-    
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var addFamilyButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +41,31 @@ class AddFamilyUIViewController: UIViewController, UITextFieldDelegate {
         switch(textField){
             
         case familyNameTextField:
-            familyNameTextField(string)
+            let familyName = "\(familyNameTextField.text)\(string)"
+            let validationResponse = ValidationUtil.sharedValidationUtil.isValidName(familyName)
+            if(validationResponse.isValid){
+                return true
+            }else{
+                print("Not valid FamilyName....: \(validationResponse.errorMessage)")
+            }
             
         case phoneNumberTextField:
             phoneNumberTextField(string)
             
         case emailTextField:
-            emailTextField(string)
+            
+            var email = ""
+            if let currentText = emailTextField.text{
+                email.appendContentsOf(currentText)
+            }
+            email.appendContentsOf(string)
+            
+            let validationResponse = ValidationUtil.sharedValidationUtil.isValidEmail(email)
+            if(validationResponse.isValid){
+                return true
+            }else{
+                print("Not valid Email...: \(validationResponse.errorMessage)")
+            }
             
         default:
             print("Cant find textFieldType")
@@ -63,29 +79,23 @@ class AddFamilyUIViewController: UIViewController, UITextFieldDelegate {
     
     private func phoneNumberTextField(string: String){
         var number = phoneNumber
+        
         if string.isEmpty{
             //remove button pressed.
             phoneNumber = number.substringToIndex(number.endIndex.predecessor())
         }else{
             number.append(Character(string))
         }
+        
         let validateResponse = ValidationUtil.sharedValidationUtil.isValidPhoneNumber(number)
+        
         if (validateResponse.isValid){
             phoneNumber = number
         }else{
-            // move to next
+            // move to next textfield
             emailTextField.becomeFirstResponder()
         }
     }
-    
-    private func familyNameTextField(string: String){
-        
-    }
-    
-    private func emailTextField(string: String){
-        
-    }
-    
     
     @IBAction func onTapCancelButton(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)

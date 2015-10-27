@@ -49,9 +49,11 @@ class ValidationUtil {
     func isValidEmail(email: String) -> ValidationResponse{
         var isValid: Bool = true
         //validate email here.
-        isValid = emailPredicate.evaluateWithObject(email)
+        let isCharCountValid = email.characters.count < 15
+        let isEmailFormatValid = emailPredicate.evaluateWithObject(email)
+        isValid =  isCharCountValid || isEmailFormatValid
         
-        return ValidationResponse(isValidResponse: isValid, message: "Please make sure entered email is valid.");
+        return ValidationResponse(isValidResponse: isValid, message: "Maximum length of email should be less than 15 and Please make sure entered email is in valid format.");
     }
     
     //validate phoneNumber in format 555-555-55555 and only digits
