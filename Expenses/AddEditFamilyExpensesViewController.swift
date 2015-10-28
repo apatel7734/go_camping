@@ -34,6 +34,22 @@ class AddEditFamilyExpensesViewController: UIViewController {
         }
     }
     
+    private func dataValidTobeSaved() -> Bool{
+        //validate name
+        let nameResponse = ValidationUtil.sharedValidationUtil.isValidName(nameTextField.text)
+        if (!nameResponse.isValid){
+            print("Not valid name : \(nameResponse.errorMessage)")
+        }
+        
+        //validate short desc
+        
+        
+        //validate amount
+        
+        
+        return true
+    }
+    
     func displayExpensesInfo(expense: Expense){
         nameTextField.text = expense.name
         descTextField.text = expense.desc
@@ -49,7 +65,9 @@ class AddEditFamilyExpensesViewController: UIViewController {
     }
     
     @IBAction func addOrUpdateButtonClicked(sender: AnyObject) {
-        addOrUpdateFamilyExpense()
+        if dataValidTobeSaved(){
+            addOrUpdateFamilyExpense()
+        }
     }
     
     
@@ -74,8 +92,6 @@ class AddEditFamilyExpensesViewController: UIViewController {
             expense.name = name
             expense.amount = amount
             expense.desc = desc
-//            CoreDataStackManager.sharedInstance.saveContext()
-//            self.dismissViewControllerAnimated(true, completion: nil)
         }else{
             let expenseDictionary = [Expense.Keys.Name: name, Expense.Keys.Desc: desc, Expense.Keys.Amount: amount]
             self.expense = Expense(dictionary: expenseDictionary as! [String : AnyObject], context: CoreDataStackManager.sharedInstance.managedObjectContext)
