@@ -50,8 +50,8 @@ class Family: NSManagedObject {
         
         name = dictionary[Keys.Name] as? String
         address = dictionary[Keys.Address] as? String
-        phoneNumber = 51046174
-        totalExpense = 20
-        email = "email@test.com"
+        phoneNumber = dictionary[Keys.PhoneNumber] as? NSNumber
+        totalExpense = dictionary[Keys.TotalExpense] as? NSNumber
+        email = dictionary[Keys.Email] as? String
     }
 }

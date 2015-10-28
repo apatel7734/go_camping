@@ -67,7 +67,7 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
             return phoneNumberTextField(string)
             
         case ageTextField:
-            if ageTextField.text == "" || ageTextField.text?.characters.count < 3{
+            if string == "" || ageTextField.text?.characters.count < 3{
                 return true
             }
             
@@ -145,7 +145,7 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
         if let _ = member{
             member?.name = name
             member?.phoneNumber = Int(phone)
-            member?.name = name
+            member?.email = email
             member?.age = Int(age)
             actionType = ActionTypes.Edit
             
@@ -171,10 +171,19 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
         if let member = member{
             //edit view controller
             titleLabel.text = Constants.editMember
-            nameTextField.text = member.name != nil ? member.name : Constants.emptyString
-            phoneNumberTextField.text = member.phoneNumber != nil ? "\(member.phoneNumber)" : Constants.emptyString
-            emailTextField.text = member.email != nil ? member.email : Constants.emptyString
-            ageTextField.text = member.age != nil ? "\(member.age)" : Constants.emptyString
+            
+            if let memberName = member.name{
+                nameTextField.text = memberName
+            }
+            if let memberPhone = member.phoneNumber{
+                phoneNumber = "\(memberPhone)"
+            }
+            if let memberEmail = member.email{
+                emailTextField.text = memberEmail
+            }
+            if let memberAge = member.age{
+                ageTextField.text = "\(memberAge)"
+            }
             updateActionButton.setTitle(Constants.update, forState: UIControlState.Normal)
             memberImageView.showFirstCharacterFor(member.name)
             

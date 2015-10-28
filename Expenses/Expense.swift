@@ -19,7 +19,7 @@ class Expense: NSManagedObject{
         static let Desc = "desc"
         static let Amount = "amount"
     }
-
+    
     //4. Promote below properties to coredata
     @NSManaged var name: String?
     @NSManaged var desc: String?
@@ -32,12 +32,12 @@ class Expense: NSManagedObject{
     }
     
     /**
-    * 6. The two argument init method
-    *
-    * The Two argument Init method. The method has two goals:
-    *  - insert the new Person into a Core Data Managed Object Context
-    *  - initialze the Person's properties from a dictionary
-    */
+     * 6. The two argument init method
+     *
+     * The Two argument Init method. The method has two goals:
+     *  - insert the new Person into a Core Data Managed Object Context
+     *  - initialze the Person's properties from a dictionary
+     */
     
     init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
         
@@ -55,8 +55,8 @@ class Expense: NSManagedObject{
         // dictionary. This works in the same way that it did before we started on Core Data
         name = dictionary[Keys.Name] as? String
         desc = dictionary[Keys.Desc] as? String
-        amount = 32.0
+        amount = dictionary[Keys.Amount] as? NSNumber
         //TODO: save more properties here..
     }
-
+    
 }

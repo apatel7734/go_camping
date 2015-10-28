@@ -41,16 +41,15 @@ class AddFamilyUIViewController: UIViewController, UITextFieldDelegate {
         switch(textField){
             
         case familyNameTextField:
-            let familyName = "\(familyNameTextField.text)\(string)"
-            let validationResponse = ValidationUtil.sharedValidationUtil.isValidName(familyName)
-            if(validationResponse.isValid){
-                return true
-            }else{
-                print("Not valid FamilyName....: \(validationResponse.errorMessage)")
+            if let isNameEmpty = familyNameTextField.text?.isEmpty{
+                let charCount = familyNameTextField.text?.characters.count
+                if isNameEmpty || charCount < 15{
+                    return true
+                }
             }
             
         case phoneNumberTextField:
-            phoneNumberTextField(string)
+            return phoneNumberTextField(string)
             
         case emailTextField:
             
@@ -78,26 +77,54 @@ class AddFamilyUIViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    private func phoneNumberTextField(string: String){
+    private func phoneNumberTextField(string: String) -> Bool{
         var number = phoneNumber
         
         if string.isEmpty{
             //remove button pressed.
             phoneNumber = number.substringToIndex(number.endIndex.predecessor())
+            return true
         }else{
             number.append(Character(string))
         }
         
-        let validateResponse = ValidationUtil.sharedValidationUtil.isValidPhoneNumber(number)
+        let charCount = phoneNumber.characters.count
         
-        if (validateResponse.isValid){
+        if (charCount < 10){
             phoneNumber = number
         }else{
             // move to next textfield
             emailTextField.becomeFirstResponder()
         }
+        return false
     }
     
+    private func areDataValidTobeSaved() -> Bool{
+        //validate family Name
+        let validationResponse = ValidationUtil.sharedValidationUtil.isValidName(familyNameTextField.text)
+        if !validationResponse.isValid{
+            print("Not valid FamilyName....: \(validationResponse.errorMessage)")
+            return false
+        }
+        
+        //validate phoneNumber
+        let phoneResponse = ValidationUtil.sharedValidationUtil.isValidPhoneNumber(phoneNumber)
+        if !phoneResponse.isValid{
+            print("Not valid FamilyName....: \(phoneResponse.errorMessage)")
+            return false
+        }
+        
+        //validate email
+        let emailResponse = ValidationUtil.sharedValidationUtil.isValidEmail(emailTextField.text)
+        if !emailResponse.isValid{
+            print("Not valid FamilyName....: \(emailResponse.errorMessage)")
+            return false
+        }
+        
+        return true
+    }
+    
+    //MARK - IBActions
     @IBAction func onTapCancelButton(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -107,8 +134,15 @@ class AddFamilyUIViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onTapAddFamilyButton(sender: UIButton) {
+        if !areDataValidTobeSaved(){
+            return
+        }
         
-        let dictionary : [String: AnyObject] = [Family.Keys.Name : familyNameTextField.text!]
+        let familyName = familyNameTextField.text!
+        let phone =  phoneNumber
+        let email = emailTextField.text!
+        
+        let dictionary : [String: AnyObject] = [Family.Keys.Name : familyName,Family.Keys.PhoneNumber: phone, Family.Keys.Email: email]
         
         let _ = Family(dictionary: dictionary, context: CoreDataStackManager.sharedInstance.managedObjectContext)
         
@@ -118,3 +152,4 @@ class AddFamilyUIViewController: UIViewController, UITextFieldDelegate {
     }
     
 }
+

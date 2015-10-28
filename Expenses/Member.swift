@@ -32,12 +32,12 @@ class Member: NSManagedObject{
     }
     
     /**
-    * 6. The two argument init method
-    *
-    * The Two argument Init method. The method has two goals:
-    *  - insert the new Person into a Core Data Managed Object Context
-    *  - initialze the Person's properties from a dictionary
-    */
+     * 6. The two argument init method
+     *
+     * The Two argument Init method. The method has two goals:
+     *  - insert the new Person into a Core Data Managed Object Context
+     *  - initialze the Person's properties from a dictionary
+     */
     
     init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
         
@@ -54,12 +54,17 @@ class Member: NSManagedObject{
         // After the Core Data work has been taken care of we can init the properties from the
         // dictionary. This works in the same way that it did before we started on Core Data
         name = dictionary[Keys.Name] as? String
-        age = dictionary[Keys.Age] as? NSNumber
-        phoneNumber = 66666666
-        age = 32
-        //TODO: save more properties here..
+        email = dictionary[Keys.Email] as? String
+        if let numberString = dictionary[Keys.PhoneNumber] as? String{
+            phoneNumber = NSNumberFormatter().numberFromString(numberString)
+        }
+        
+        if let ageString = dictionary[Keys.Age] as? String{
+            age = NSNumberFormatter().numberFromString(ageString)
+        }
+        
     }
-
+    
 }
 
 enum Gender{
