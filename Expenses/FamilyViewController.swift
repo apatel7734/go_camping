@@ -30,6 +30,11 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         fetchedResultsController.delegate = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        familyTableView.reloadData()
+    }
+    
     //MARK - tableView datasource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let familyCell = tableView.dequeueReusableCellWithIdentifier("familycell") as! FamilyUITableViewCell
@@ -101,7 +106,9 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func configureCell(familyCell: FamilyUITableViewCell, withFamily family: Family){
         familyCell.familyName.text = family.name
-        familyCell.totalExpenses.text = "$2000"
+        print("TotalExpense = \(family.totalExpense)")
+        print("TotalExpense String Value = \(family.totalExpense?.stringValue)")
+        familyCell.totalExpenses.text = family.totalExpense?.stringValue
         familyCell.familyImage.showFirstCharacterFor(family.name)
     }
     
@@ -120,7 +127,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return fetchedResultsController
         
-        }()
+    }()
     
     
     func controllerWillChangeContent(controller: NSFetchedResultsController) {

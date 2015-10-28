@@ -82,19 +82,15 @@ class AddEditFamilyExpensesViewController: UIViewController {
     func addOrUpdateFamilyExpense(){
         let name = nameTextField.text!
         let desc = descTextField.text!
-        var amount: Double = 0.0
-        if let isAmountEmpty = amountTextfield.text?.isEmpty{
-            if !isAmountEmpty{
-                amount = Double(isAmountEmpty)
-            }
-        }
+        let  amount = NSDecimalNumber(string: amountTextfield.text)
+        
         if let expense = expense{
             expense.name = name
             expense.amount = amount
             expense.desc = desc
         }else{
             let expenseDictionary = [Expense.Keys.Name: name, Expense.Keys.Desc: desc, Expense.Keys.Amount: amount]
-            self.expense = Expense(dictionary: expenseDictionary as! [String : AnyObject], context: CoreDataStackManager.sharedInstance.managedObjectContext)
+            self.expense = Expense(dictionary: expenseDictionary, context: CoreDataStackManager.sharedInstance.managedObjectContext)
         }
         delegate?.didExpenseAdded(expense!)
     }

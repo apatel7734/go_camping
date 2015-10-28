@@ -62,9 +62,7 @@ class Member: NSManagedObject{
         if let ageString = dictionary[Keys.Age] as? String{
             age = NSNumberFormatter().numberFromString(ageString)
         }
-        
     }
-    
 }
 
 enum Gender{
