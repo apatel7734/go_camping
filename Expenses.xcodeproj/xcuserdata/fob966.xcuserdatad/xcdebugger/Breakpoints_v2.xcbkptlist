@@ -6,16 +6,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Expenses/AddEditFamilyMembersViewController.swift"
+            timestampString = "467703255.16011"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "textField(_:shouldChangeCharactersInRange:replacementString:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Expenses/ValidationUtil.swift"
-            timestampString = "467681739.256275"
+            filePath = "Expenses/AddEditFamilyMembersViewController.swift"
+            timestampString = "467703940.795528"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "isValidEmail(_:)"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "dataValidTobeSaved()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

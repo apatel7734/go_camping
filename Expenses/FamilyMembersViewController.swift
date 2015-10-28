@@ -47,14 +47,15 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     func presentNextViewcontroller(member: Member?){
         let destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilymembersvc") as! AddEditFamilyMembersViewController
-        destVC.member = member
+        if let member = member{
+            destVC.member = member
+        }
         destVC.delegate = self
         self.presentViewController(destVC, animated: true, completion: nil)
     }
     
     
     //MARK: UITableViewDelegates
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("Family members = \(family?.members)")
         if let count = family?.members.count{
@@ -65,7 +66,6 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("membertableviewcell") as! MemberTableViewCell
         if let members = family?.members{
             cell.memberNameLabel.text = members[indexPath.row].name
