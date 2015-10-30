@@ -106,9 +106,10 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func configureCell(familyCell: FamilyUITableViewCell, withFamily family: Family){
         familyCell.familyName.text = family.name
-        print("TotalExpense = \(family.totalExpense)")
-        print("TotalExpense String Value = \(family.totalExpense?.stringValue)")
-        familyCell.totalExpenses.text = family.totalExpense?.stringValue
+        if let totalExpense = family.totalExpense?.stringValue{
+            familyCell.totalExpenses.text = "$\(totalExpense)"
+        }
+        familyCell.totalMembers.text = "\(family.members.count)"
         familyCell.familyImage.showFirstCharacterFor(family.name)
     }
     

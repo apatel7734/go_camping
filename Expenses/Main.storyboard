@@ -32,17 +32,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="592" height="88.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="total members" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzW-6H-DYJ">
-                                                    <rect key="frame" x="76" y="57" width="99" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Members" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzW-6H-DYJ">
+                                                    <rect key="frame" x="76" y="57" width="64.5" height="18"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7es-de-rtb">
-                                                    <rect key="frame" x="183" y="52" width="9.5" height="18"/>
+                                                    <rect key="frame" x="148.5" y="54" width="12.5" height="24"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -54,7 +54,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8y-jL-pNF">
-                                                    <rect key="frame" x="516.5" y="20" width="59.5" height="24"/>
+                                                    <rect key="frame" x="516" y="20" width="59.5" height="24"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -90,6 +90,7 @@
                                                 <constraint firstItem="WzW-6H-DYJ" firstAttribute="leading" secondItem="PVb-YR-dcu" secondAttribute="trailing" constant="25" id="dKm-Jt-vlb"/>
                                                 <constraint firstItem="WzW-6H-DYJ" firstAttribute="bottom" secondItem="PVb-YR-dcu" secondAttribute="bottom" constant="5" id="e1S-GF-ZxN"/>
                                                 <constraint firstItem="PVb-YR-dcu" firstAttribute="top" secondItem="evk-jq-82K" secondAttribute="top" id="hFl-NC-Ipb"/>
+                                                <constraint firstItem="7es-de-rtb" firstAttribute="centerY" secondItem="WzW-6H-DYJ" secondAttribute="centerY" id="jix-6F-Yhj"/>
                                                 <constraint firstItem="evk-jq-82K" firstAttribute="leading" secondItem="PVb-YR-dcu" secondAttribute="trailing" constant="10" id="nKU-ZJ-sCM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="U8y-jL-pNF" secondAttribute="trailing" constant="8" id="sTI-AU-LIP"/>
                                             </constraints>
@@ -98,6 +99,7 @@
                                                     <exclude reference="Ckw-hw-E5t"/>
                                                     <exclude reference="bcu-C1-5vU"/>
                                                     <exclude reference="2du-eF-wiV"/>
+                                                    <exclude reference="O5l-xD-aOi"/>
                                                     <exclude reference="SD0-wh-0db"/>
                                                     <exclude reference="dKm-Jt-vlb"/>
                                                     <exclude reference="e1S-GF-ZxN"/>
