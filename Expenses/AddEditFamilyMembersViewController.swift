@@ -8,13 +8,13 @@
 
 import UIKit
 
-//protocol AddEditFamilyMembersDelegate{
-//    func newAddedOrUpdated(#member: Member, with actionType: ActionTypes)
-//}
+protocol AddEditFamilyMembersViewControllerDelegate{
+    func didPickFamilyMember(member: Member, actionType: ActionTypes)
+}
 
-class AddEditFamilyMembersViewController: UIViewController {
+class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate {
     
-    //    var delegate: AddEditFamilyMembersDelegate?
+    var delegate: AddEditFamilyMembersViewControllerDelegate?
     
     //MARK:@IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -26,28 +26,135 @@ class AddEditFamilyMembersViewController: UIViewController {
     
     @IBOutlet weak var updateActionButton: CustomButton!
     
+    private var phoneNumber: String = ""{
+        didSet{
+            let formattedPhoneNumber = StringFormatterUtil.sharedStringFormatterUtil.formatPhoneNumber(phoneNumber)
+            phoneNumberTextField.text = formattedPhoneNumber
+        }
+    }
+    
+    
     var member: Member?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         updateViewControllerForAddorEdit()
+        
+        nameTextField.delegate = self
+        phoneNumberTextField.delegate = self
+        emailTextField.delegate = self
+        ageTextField.delegate = self
     }
     
     @IBAction func updateActionButtonPressed(sender: AnyObject) {
-        let updateActionButtonTitle = updateActionButton.titleLabel?.text
-        if let updateActionButtonTitle = updateActionButtonTitle{
-            switch(updateActionButtonTitle){
-            case Constants.update:
-                print("\(Constants.update) Clicked.")
-                break;
-            case Constants.add:
-                print("\(Constants.add) Clicked.")
-                break;
-            default:
-                break;
-            }
+        if dataValidTobeSaved(){
+            addOrUpdateFamilyMember()
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
+    }
+    
+    
+    //MARK - UITextFieldDelegate method
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        switch(textField){
+        case emailTextField:
+            return true
+            
+        case nameTextField:
+            return true
+        case phoneNumberTextField:
+            return phoneNumberTextField(string)
+            
+        case ageTextField:
+            if string == "" || ageTextField.text?.characters.count < 3{
+                return true
+            }
+            
+        default:
+            break;
+        }
+        
+        return false
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return true
+    }
+    
+    
+    private func phoneNumberTextField(string: String) -> Bool{
+        var number = phoneNumber
+        
+        if string.isEmpty{
+            //remove button pressed.
+            phoneNumber = number.substringToIndex(number.endIndex.predecessor())
+            return true
+        }else{
+            number.append(Character(string))
+        }
+        
+        if (phoneNumber.characters.count < 10){
+            phoneNumber = number
+        }else{
+            // move to next textfield
+            emailTextField.becomeFirstResponder()
+        }
+        return false
+    }
+    
+    
+    private func dataValidTobeSaved() -> Bool{
+        //validate Name
+        let nameResponse = ValidationUtil.sharedValidationUtil.isValidName(nameTextField.text)
+        if !nameResponse.isValid {
+            print("name note valid \(nameResponse.errorMessage)")
+            return false
+        }
+        //validate email
+        let emailResponse = ValidationUtil.sharedValidationUtil.isValidEmail(emailTextField.text)
+        if !emailResponse.isValid{
+            print("email not valid \(emailResponse.errorMessage)")
+            return false
+        }
+        
+        //validate phoneNumber
+        let phoneNumberResponse = ValidationUtil.sharedValidationUtil.isValidPhoneNumber(phoneNumber)
+        if !phoneNumberResponse.isValid{
+            print("phoneNumberResponse not valid \(phoneNumberResponse.errorMessage)")
+            return false
+        }
+        
+        //validate age
+        let ageResponse = ValidationUtil.sharedValidationUtil.isValidAge(ageTextField.text)
+        if !ageResponse.isValid{
+            print("email not valid \(emailResponse.errorMessage)")
+            return false
+        }
+        
+        return true
+    }
+    
+    func addOrUpdateFamilyMember(){
+        let name = nameTextField.text!
+        let phone = phoneNumber
+        let age = ageTextField.text!
+        let email = emailTextField.text!
+        var actionType = ActionTypes.Add
+        
+        if let _ = member{
+            member?.name = name
+            member?.phoneNumber = Int(phone)
+            member?.email = email
+            member?.age = Int(age)
+            actionType = ActionTypes.Edit
+            
+        }else{
+            let memberDict = [Member.Keys.Name: name, Member.Keys.PhoneNumber : phone, Member.Keys.Age : age, Member.Keys.Email : email]
+            
+            self.member = Member(dictionary: memberDict, context: CoreDataStackManager.sharedInstance.managedObjectContext)
+        }
+        delegate?.didPickFamilyMember(member!, actionType: actionType)
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {
@@ -64,10 +171,19 @@ class AddEditFamilyMembersViewController: UIViewController {
         if let member = member{
             //edit view controller
             titleLabel.text = Constants.editMember
-            nameTextField.text = member.name != nil ? member.name : Constants.emptyString
-            phoneNumberTextField.text = member.phoneNumber != nil ? "\(member.phoneNumber)" : Constants.emptyString
-            emailTextField.text = member.email != nil ? member.email : Constants.emptyString
-            ageTextField.text = member.age != nil ? "\(member.age)" : Constants.emptyString
+            
+            if let memberName = member.name{
+                nameTextField.text = memberName
+            }
+            if let memberPhone = member.phoneNumber{
+                phoneNumber = "\(memberPhone)"
+            }
+            if let memberEmail = member.email{
+                emailTextField.text = memberEmail
+            }
+            if let memberAge = member.age{
+                ageTextField.text = "\(memberAge)"
+            }
             updateActionButton.setTitle(Constants.update, forState: UIControlState.Normal)
             memberImageView.showFirstCharacterFor(member.name)
             

@@ -23,7 +23,7 @@
 		09AA76351B86CFB90073FC0B /* key_add-down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09AA76341B86CFB90073FC0B /* key_add-down@3x.png */; };
 		09AA76371B86D0510073FC0B /* HeaderLableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA76361B86D0510073FC0B /* HeaderLableView.swift */; };
 		09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */; };
-		09AC0BBF1B5C3670000849C4 /* Expenses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBD1B5C3670000849C4 /* Expenses.xcdatamodeld */; };
+		09AC0BBF1B5C3670000849C4 /* ExpensesData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBD1B5C3670000849C4 /* ExpensesData.xcdatamodeld */; };
 		09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BC01B5C3671000849C4 /* FamilyViewController.swift */; };
 		09AC0BC61B5C3671000849C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09AC0BC51B5C3671000849C4 /* Images.xcassets */; };
 		09AC0BC91B5C3671000849C4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09AC0BC71B5C3671000849C4 /* LaunchScreen.xib */; };
@@ -33,6 +33,12 @@
 		09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE31B5C36DF000849C4 /* Expense.swift */; };
 		09AC0BE71B5C3A3A000849C4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */; };
 		09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */; };
+		483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483E4E711BE1426E0073F9DB /* CommonUtility.swift */; };
+		48A7EAFF1BCB2632002D2248 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A7EAFE1BCB2632002D2248 /* CoreDataStackManager.swift */; };
+		48A7EB011BCB2AB1002D2248 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A7EB001BCB2AB1002D2248 /* CoreData.framework */; };
+		48A9B12B1BDD69900050BEAF /* ValidationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9B12A1BDD69900050BEAF /* ValidationUtil.swift */; };
+		48A9B12D1BDD6AC70050BEAF /* StringFormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9B12C1BDD6AC70050BEAF /* StringFormatterUtil.swift */; };
+		48B514501BD6A85400479F64 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B5144F1BD6A85400479F64 /* ExpenseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +70,7 @@
 		09AC0BB61B5C3670000849C4 /* Expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09AC0BBA1B5C3670000849C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		09AC0BBE1B5C3670000849C4 /* Expenses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Expenses.xcdatamodel; sourceTree = "<group>"; };
+		09AC0BBE1B5C3670000849C4 /* ExpensesData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpensesData.xcdatamodel; sourceTree = "<group>"; };
 		09AC0BC01B5C3671000849C4 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
 		09AC0BC51B5C3671000849C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		09AC0BC81B5C3671000849C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -76,6 +82,12 @@
 		09AC0BE31B5C36DF000849C4 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyUITableViewCell.swift; sourceTree = "<group>"; };
+		483E4E711BE1426E0073F9DB /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
+		48A7EAFE1BCB2632002D2248 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
+		48A7EB001BCB2AB1002D2248 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		48A9B12A1BDD69900050BEAF /* ValidationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationUtil.swift; sourceTree = "<group>"; };
+		48A9B12C1BDD6AC70050BEAF /* StringFormatterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormatterUtil.swift; sourceTree = "<group>"; };
+		48B5144F1BD6A85400479F64 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A7EB011BCB2AB1002D2248 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +131,7 @@
 		09AC0BAD1B5C3670000849C4 = {
 			isa = PBXGroup;
 			children = (
+				48A7EB001BCB2AB1002D2248 /* CoreData.framework */,
 				09AC0BB81B5C3670000849C4 /* Expenses */,
 				09AC0BD11B5C3671000849C4 /* ExpensesTests */,
 				09AC0BB71B5C3670000849C4 /* Products */,
@@ -145,7 +159,7 @@
 				092DCF521B87CD1C0050F893 /* Main.storyboard */,
 				09AC0BC51B5C3671000849C4 /* Images.xcassets */,
 				09AC0BC71B5C3671000849C4 /* LaunchScreen.xib */,
-				09AC0BBD1B5C3670000849C4 /* Expenses.xcdatamodeld */,
+				09AC0BBD1B5C3670000849C4 /* ExpensesData.xcdatamodeld */,
 				09AC0BB91B5C3670000849C4 /* Supporting Files */,
 			);
 			path = Expenses;
@@ -179,6 +193,7 @@
 		09AC0BDE1B5C3684000849C4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				48A7EAFE1BCB2632002D2248 /* CoreDataStackManager.swift */,
 				09AC0BDF1B5C36A4000849C4 /* Family.swift */,
 				09AC0BE11B5C36CF000849C4 /* Member.swift */,
 				09AC0BE31B5C36DF000849C4 /* Expense.swift */,
@@ -192,6 +207,9 @@
 				09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */,
 				0992591E1B8AA2DE00CFA81F /* Enums.swift */,
 				099F6C7E1B94BDFC00BD8D9C /* Constants.swift */,
+				48A9B12A1BDD69900050BEAF /* ValidationUtil.swift */,
+				48A9B12C1BDD6AC70050BEAF /* StringFormatterUtil.swift */,
+				483E4E711BE1426E0073F9DB /* CommonUtility.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -208,6 +226,7 @@
 				092DCF4E1B87BA230050F893 /* AddEditFamilyMembersViewController.swift */,
 				092DCF501B87BA320050F893 /* AddEditFamilyExpensesViewController.swift */,
 				0992591C1B8A783E00CFA81F /* MemberTableViewCell.swift */,
+				48B5144F1BD6A85400479F64 /* ExpenseTableViewCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -324,17 +343,22 @@
 				09AA76371B86D0510073FC0B /* HeaderLableView.swift in Sources */,
 				09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */,
 				09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */,
-				09AC0BBF1B5C3670000849C4 /* Expenses.xcdatamodeld in Sources */,
+				09AC0BBF1B5C3670000849C4 /* ExpensesData.xcdatamodeld in Sources */,
 				092DCF511B87BA320050F893 /* AddEditFamilyExpensesViewController.swift in Sources */,
 				099F6C7F1B94BDFC00BD8D9C /* Constants.swift in Sources */,
 				098037E51B6C189200E52846 /* FamilyExpensesViewController.swift in Sources */,
+				48A7EAFF1BCB2632002D2248 /* CoreDataStackManager.swift in Sources */,
 				09AC0BE01B5C36A4000849C4 /* Family.swift in Sources */,
 				09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */,
+				48A9B12B1BDD69900050BEAF /* ValidationUtil.swift in Sources */,
+				48B514501BD6A85400479F64 /* ExpenseTableViewCell.swift in Sources */,
 				09AA76321B86C0940073FC0B /* CircularImageView.swift in Sources */,
+				483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */,
 				0992591D1B8A783E00CFA81F /* MemberTableViewCell.swift in Sources */,
 				09AC0BE21B5C36CF000849C4 /* Member.swift in Sources */,
 				098037E11B6C077E00E52846 /* AddFamilyUIViewController.swift in Sources */,
 				098037DF1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift in Sources */,
+				48A9B12D1BDD6AC70050BEAF /* StringFormatterUtil.swift in Sources */,
 				098037E31B6C188400E52846 /* FamilyMembersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -444,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -542,13 +566,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		09AC0BBD1B5C3670000849C4 /* Expenses.xcdatamodeld */ = {
+		09AC0BBD1B5C3670000849C4 /* ExpensesData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				09AC0BBE1B5C3670000849C4 /* Expenses.xcdatamodel */,
+				09AC0BBE1B5C3670000849C4 /* ExpensesData.xcdatamodel */,
 			);
-			currentVersion = 09AC0BBE1B5C3670000849C4 /* Expenses.xcdatamodel */;
-			path = Expenses.xcdatamodeld;
+			currentVersion = 09AC0BBE1B5C3670000849C4 /* ExpensesData.xcdatamodel */;
+			path = ExpensesData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

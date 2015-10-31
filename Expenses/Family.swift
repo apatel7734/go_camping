@@ -7,14 +7,51 @@
 //
 
 import Foundation
+//Step 1. import coredata
+import CoreData
 
-class Family {
-    var name: String?
-    var members: [Member] = []
-    var expenses: [Expense] = []
-    var totalExpense: Float?
-    var phoneNumber: Int?
-    var email: String?
-    var address: String?
+//Step 2. Make Family available to Objective-C code
+@objc(Family)
+
+//Step 3. Make Family Subclass of NSManagedObject
+class Family: NSManagedObject {
     
+    struct Keys {
+        static let Name = "name"
+        static let TotalExpense = "totalexpense"
+        static let Address = "address"
+        static let PhoneNumber = "phonenumber"
+        static let Email = "email"
+    }
+    
+    //Step 4. Promot these properties to core data attributes
+    @NSManaged var name: String?
+    @NSManaged var totalExpense: NSNumber?
+    @NSManaged var phoneNumber: NSNumber?
+    @NSManaged var email: String?
+    @NSManaged var address: String?
+    @NSManaged var members: [Member]
+    @NSManaged var expenses: [Expense]
+    
+    
+    // 5. Include this standard Core Data init method.
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
+    
+    /**
+    * 6. The two argument init method
+    */
+    
+    init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
+    
+        let entity =  NSEntityDescription.entityForName("Family", inManagedObjectContext: context)!
+        super.init(entity: entity,insertIntoManagedObjectContext: context)
+        
+        name = dictionary[Keys.Name] as? String
+        address = dictionary[Keys.Address] as? String
+        phoneNumber = dictionary[Keys.PhoneNumber] as? NSNumber
+        totalExpense = dictionary[Keys.TotalExpense] as? NSNumber
+        email = dictionary[Keys.Email] as? String
+    }
 }

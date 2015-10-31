@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
-class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource ,NSFetchedResultsControllerDelegate{
     
-    var families = [Family]()
     var currentIndexPath: NSIndexPath?
     
     @IBOutlet weak var familyTableView: UITableView!
@@ -21,24 +21,34 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         familyTableView.delegate = self
         familyTableView.dataSource = self
         
-        //TODO : Remove this
-        generateTestData();
+        do{
+            try fetchedResultsController.performFetch()
+        }catch{
+            print("error perfoming fetch.")
+        }
+        
+        fetchedResultsController.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        familyTableView.reloadData()
     }
     
     //MARK - tableView datasource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let familyCell = tableView.dequeueReusableCellWithIdentifier("familycell") as! FamilyUITableViewCell
-        familyCell.familyName.text = families[indexPath.row].name
-        familyCell.familyImage.showFirstCharacterFor(families[indexPath.row].name)
+        let family = fetchedResultsController.objectAtIndexPath(indexPath) as? Family
+        
+        if let family  = family {
+            self.configureCell(familyCell, withFamily: family)
+        }
         return familyCell
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.families.count
+        let sectionInfo = self.fetchedResultsController.sections![section]
+        return sectionInfo.numberOfObjects
     }
     
     
@@ -58,11 +68,15 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let viewControllers = tabBarVC.viewControllers
             
             if let indexPath = self.currentIndexPath{
-                if let familyMembersVC = findFamilyMembersViewController(viewControllers){
-                    familyMembersVC.family = families[indexPath.row]
+                
+                let family = fetchedResultsController.objectAtIndexPath(indexPath) as? Family
+                
+                if let familyMembersVC = findFamilyMembersViewController(viewControllers), family = family{
+                    familyMembersVC.family = family
                 }
-                if let familyExpensesVC = findFamilyExpensesViewController(viewControllers){
-                    familyExpensesVC.family = families[indexPath.row]
+                
+                if let familyExpensesVC = findFamilyExpensesViewController(viewControllers), family = family{
+                    familyExpensesVC.family = family
                 }
             }
         }
@@ -89,28 +103,78 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return nil
     }
     
-    func generateTestData(){
+    
+    func configureCell(familyCell: FamilyUITableViewCell, withFamily family: Family){
+        familyCell.familyName.text = family.name
+        if let totalExpense = family.totalExpense?.stringValue{
+            familyCell.totalExpenses.text = "$\(totalExpense)"
+        }
+        familyCell.totalMembers.text = "\(family.members.count)"
+        familyCell.familyImage.showFirstCharacterFor(family.name)
+    }
+    
+    //Step 1. add lazy controller to fetch result
+    lazy var fetchedResultsController: NSFetchedResultsController = {
         
-        for var index = 0 ;index < 10;index++ {
-            let family = Family()
-            family.name = "Family \(index)"
+        let fetchRequest = NSFetchRequest(entityName: "Family")
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+            managedObjectContext: CoreDataStackManager.sharedInstance.managedObjectContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+        
+        return fetchedResultsController
+        
+    }()
+    
+    
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        self.familyTableView.beginUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController,
+        didChangeSection sectionInfo: NSFetchedResultsSectionInfo,
+        atIndex sectionIndex: Int,
+        forChangeType type: NSFetchedResultsChangeType) {
             
-            let randomExpense = Float(arc4random_uniform(500))
-            family.totalExpense = randomExpense
-            for var memIndex = 0;memIndex < 4 ; memIndex++ {
-                let member = Member()
-                member.name = "Member \(memIndex)"
-                family.members.append(member)
+            switch type {
+            case .Insert:
+                self.familyTableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+                
+            case .Delete:
+                self.familyTableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+                
+            default:
+                return
             }
+    }
+    
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        
+        switch type {
+        case .Insert:
+            familyTableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
             
-            for var expIndex = 0;expIndex < 4 ; expIndex++ {
-                let expense = Expense()
-                expense.name = "Expense \(expIndex)"
-                family.expenses.append(expense)
-            }
-            families.append(family)
+        case .Delete:
+            familyTableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+            
+        case .Update:
+            let cell = familyTableView.cellForRowAtIndexPath(indexPath!) as! FamilyUITableViewCell
+            let family = controller.objectAtIndexPath(indexPath!) as! Family
+            self.configureCell(cell, withFamily: family)
+            
+        case .Move:
+            familyTableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+            familyTableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
         }
     }
     
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.familyTableView.endUpdates()
+    }
 }
-
