@@ -589,7 +589,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Expenses" id="Sv5-1D-Qgd"/>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="Sv5-1D-Qgd"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="expenseTableView" destination="Acs-aV-sSX" id="aQe-b3-gm3"/>
@@ -666,7 +666,7 @@
                             <constraint firstItem="2yg-ig-cT8" firstAttribute="top" secondItem="YIU-te-hZB" secondAttribute="topMargin" id="xXN-qb-DJU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Members" id="tRS-Zp-hbr"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="tRS-Zp-hbr"/>
                     <connections>
                         <outlet property="membersTableView" destination="2yg-ig-cT8" id="fW8-Jc-OeJ"/>
                     </connections>
