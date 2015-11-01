@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Expenses/FamilyExpensesViewController.swift"
-            timestampString = "468036967.874669"
+            timestampString = "468038210.28802"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "didExpenseAdded(_:)"
             landmarkType = "5">
          </BreakpointContent>

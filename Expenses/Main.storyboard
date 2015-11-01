@@ -554,10 +554,19 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAa-fL-29F">
+                                                    <rect key="frame" x="531" y="15.5" width="45" height="20.5"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="uAa-fL-29F" secondAttribute="trailing" constant="8" id="8fC-Os-gEN"/>
                                                 <constraint firstItem="tJ3-Lu-gA4" firstAttribute="top" secondItem="cPR-6r-3ml" secondAttribute="top" id="8pI-0R-zjh"/>
+                                                <constraint firstItem="uAa-fL-29F" firstAttribute="centerY" secondItem="tJ3-Lu-gA4" secondAttribute="centerY" id="G5T-G1-SAM"/>
                                                 <constraint firstItem="tJ3-Lu-gA4" firstAttribute="leading" secondItem="cPR-6r-3ml" secondAttribute="trailing" constant="17" id="gnm-Kh-7ED"/>
                                                 <constraint firstItem="cPR-6r-3ml" firstAttribute="leading" secondItem="1SU-Mg-MaN" secondAttribute="leadingMargin" constant="8" id="lY0-7S-up9"/>
                                                 <constraint firstItem="cPR-6r-3ml" firstAttribute="centerY" secondItem="1SU-Mg-MaN" secondAttribute="centerY" id="zU5-OD-IhP"/>
@@ -565,6 +574,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
+                                            <outlet property="expenseAmountLabel" destination="uAa-fL-29F" id="3Mq-gD-TA0"/>
                                             <outlet property="expenseImageView" destination="cPR-6r-3ml" id="7Xw-r1-d5J"/>
                                             <outlet property="expenseName" destination="tJ3-Lu-gA4" id="FSr-ke-ssa"/>
                                         </connections>

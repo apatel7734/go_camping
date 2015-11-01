@@ -14,6 +14,8 @@ class ExpenseTableViewCell: UITableViewCell {
     
     @IBOutlet weak var expenseName: UILabel!
 
+    @IBOutlet weak var expenseAmountLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -49,6 +49,9 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("expensetableviewcell") as! ExpenseTableViewCell
         cell.expenseName.text = family?.expenses[indexPath.row].name
+        if let amountStringVal = family?.expenses[indexPath.row].amount?.stringValue{
+            cell.expenseAmountLabel.text = "$\(amountStringVal)"
+        }
         return cell
     }
     
