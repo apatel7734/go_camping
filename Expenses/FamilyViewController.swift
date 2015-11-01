@@ -109,7 +109,8 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let totalExpense = family.totalExpense?.stringValue{
             familyCell.totalExpenses.text = "$\(totalExpense)"
         }
-        familyCell.totalMembers.text = "\(family.members.count)"
+        //        familyCell.totalMembers.text = "\(family.members.count)"
+        familyCell.totalMembers.text = "\(NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent)"
         familyCell.familyImage.showFirstCharacterFor(family.name)
     }
     

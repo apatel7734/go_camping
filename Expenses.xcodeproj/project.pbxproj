@@ -34,6 +34,8 @@
 		09AC0BE71B5C3A3A000849C4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */; };
 		09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */; };
 		483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483E4E711BE1426E0073F9DB /* CommonUtility.swift */; };
+		486BE9281BE55EF400241EA3 /* CoreDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */; };
+		486BE92A1BE5817100241EA3 /* NSUserDefaultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */; };
 		48A7EAFF1BCB2632002D2248 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A7EAFE1BCB2632002D2248 /* CoreDataStackManager.swift */; };
 		48A7EB011BCB2AB1002D2248 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A7EB001BCB2AB1002D2248 /* CoreData.framework */; };
 		48A9B12B1BDD69900050BEAF /* ValidationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9B12A1BDD69900050BEAF /* ValidationUtil.swift */; };
@@ -83,6 +85,8 @@
 		09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyUITableViewCell.swift; sourceTree = "<group>"; };
 		483E4E711BE1426E0073F9DB /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
+		486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCoordinator.swift; sourceTree = "<group>"; };
+		486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaultCoordinator.swift; sourceTree = "<group>"; };
 		48A7EAFE1BCB2632002D2248 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		48A7EB001BCB2AB1002D2248 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		48A9B12A1BDD69900050BEAF /* ValidationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationUtil.swift; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				48A9B12A1BDD69900050BEAF /* ValidationUtil.swift */,
 				48A9B12C1BDD6AC70050BEAF /* StringFormatterUtil.swift */,
 				483E4E711BE1426E0073F9DB /* CommonUtility.swift */,
+				486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */,
+				486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 				09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */,
 				092DCF4F1B87BA230050F893 /* AddEditFamilyMembersViewController.swift in Sources */,
 				09AA76371B86D0510073FC0B /* HeaderLableView.swift in Sources */,
+				486BE9281BE55EF400241EA3 /* CoreDataCoordinator.swift in Sources */,
 				09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */,
 				09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */,
 				09AC0BBF1B5C3670000849C4 /* ExpensesData.xcdatamodeld in Sources */,
@@ -351,6 +358,7 @@
 				09AC0BE01B5C36A4000849C4 /* Family.swift in Sources */,
 				09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */,
 				48A9B12B1BDD69900050BEAF /* ValidationUtil.swift in Sources */,
+				486BE92A1BE5817100241EA3 /* NSUserDefaultCoordinator.swift in Sources */,
 				48B514501BD6A85400479F64 /* ExpenseTableViewCell.swift in Sources */,
 				09AA76321B86C0940073FC0B /* CircularImageView.swift in Sources */,
 				483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */,

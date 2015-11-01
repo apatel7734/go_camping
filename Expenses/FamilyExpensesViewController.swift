@@ -54,13 +54,15 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     func didExpenseAdded(expense: Expense) {
         expense.family = family
-        updateTotalExpense()
+        CommonUtility.sharedInstance.updateTotalExpenseForEvent(expense)
+        updateFamilyTotalExpense()
         CoreDataStackManager.sharedInstance.saveContext()
         self.dismissViewControllerAnimated(true, completion: nil)
         self.expenseTableView.reloadData()
     }
     
-    private func updateTotalExpense(){
+    
+    private func updateFamilyTotalExpense(){
         var totalExpense: NSDecimalNumber = NSDecimalNumber.zero()
         if let expenses = family?.expenses{
             for expense in expenses{

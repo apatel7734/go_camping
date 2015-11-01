@@ -37,6 +37,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     func didPickFamilyMember(member: Member, actionType: ActionTypes) {
         member.family = self.family
         CoreDataStackManager.sharedInstance.saveContext()
+        CommonUtility.sharedInstance.incrementTotalMembersCountForEvent()
         self.membersTableView.reloadData()
     }
     
@@ -57,7 +58,6 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     //MARK: UITableViewDelegates
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Family members = \(family?.members)")
         if let count = family?.members.count{
             return count
         }else{
