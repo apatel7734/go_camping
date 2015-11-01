@@ -6,7 +6,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Expenses/Family.swift"
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Expenses/CommonUtility.swift"
-            timestampString = "468028486.143823"
+            filePath = "Expenses/FamilyExpensesViewController.swift"
+            timestampString = "468038210.28802"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "updateTotalExpenseForEvent(_:)"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "didExpenseAdded(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Expenses/FamilyExpensesViewController.swift"
-            timestampString = "468038210.28802"
+            filePath = "Expenses/FamilyViewController.swift"
+            timestampString = "468040740.41054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "didExpenseAdded(_:)"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "configureCell(_:withFamily:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

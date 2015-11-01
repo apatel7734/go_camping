@@ -106,11 +106,9 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func configureCell(familyCell: FamilyUITableViewCell, withFamily family: Family){
         familyCell.familyName.text = family.name
-        if let totalExpense = family.totalExpense?.stringValue{
-            familyCell.totalExpenses.text = "$\(totalExpense)"
-        }
-        //        familyCell.totalMembers.text = "\(family.members.count)"
-        familyCell.totalMembers.text = "\(NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent)"
+        familyCell.totalMembers.text = "\(family.members.count)"
+        let familyCalculatedExpense = CommonUtility.sharedInstance.amountDifferenceToPayOrTakeForFamily(family)
+        familyCell.totalExpenses.text = familyCalculatedExpense.currencyFormattedValueWithDollarPrefix()
         familyCell.familyImage.showFirstCharacterFor(family.name)
     }
     

@@ -14,8 +14,6 @@ class CommonUtility {
     
     func updateTotalExpenseForEvent(expense: Expense){
         var currentTotalExpense = NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent
-        print("currentTotalExpense = \(currentTotalExpense)")
-        print("expense.amount = \(expense.amount?.decimalValue)")
         if let decimalExpenseAmount = expense.amount?.decimalValue{
             currentTotalExpense = currentTotalExpense.decimalNumberByAdding(NSDecimalNumber(decimal: decimalExpenseAmount))
             NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent = currentTotalExpense
@@ -28,71 +26,38 @@ class CommonUtility {
         NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent = currentTotalMembersCount
     }
     
-    /**
-     calculates total expense for whole event by adding each family's expenses.
-     */
-    func totalExpenseForEvent(families: [Family]?) -> NSDecimalNumber{
-        var totalExpense = NSDecimalNumber.zero()
-        guard let families = families else{
-            return totalExpense
+    func amountDifferenceToPayOrTakeForFamily(family: Family) -> NSDecimalNumber{
+        var totalFamilyPaidExpense = NSDecimalNumber.zero()
+        if let familyPaidDecimalExpense = family.totalExpense?.decimalValue{
+            totalFamilyPaidExpense = NSDecimalNumber(decimal: familyPaidDecimalExpense)
         }
-        
-        for family in families{
-            let totalFamilyExpense = totalExpenseForFamily(family)
-            totalExpense = totalExpense.decimalNumberByAdding(totalFamilyExpense)
-        }
-        return totalExpense
-    }
-    
-    
-    func totalExpenseForFamily(family: Family?, totalExpensePerFamily: NSDecimalNumber) -> NSDecimalNumber{
-        guard let family = family else{
-            return NSDecimalNumber.zero()
-        }
-        let totalFamilyMembers = family.members.count
-        
-        return totalExpensePerFamily.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: totalFamilyMembers))
+        let amountOwedByFamily = totalAmountOwedByFamily(family)
+        return totalFamilyPaidExpense.decimalNumberBySubtracting(amountOwedByFamily)
     }
     
     /**
      calculates totalExpense each family suppose to pay.
      */
-    func totalExpensePerFamily(totalExpenseForEvent: NSDecimalNumber?, totalMembersCountForEvent: Int) -> NSDecimalNumber{
+    func totalExpenseEachFamilySupposeToPay() -> NSDecimalNumber{
+        let totalExpenseForEvent = NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent
         let zero = NSDecimalNumber.zero()
-        
-        guard let totalExpenseForEvent = totalExpenseForEvent
-            where totalExpenseForEvent.compare(zero) == .OrderedAscending
-            else{
-                return zero
+        let isValidTotalMember = NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent > 0 ? true : false
+        let result = zero.compare(totalExpenseForEvent)
+        let isValidTotalExpense = result == NSComparisonResult.OrderedAscending
+        if isValidTotalExpense && isValidTotalMember{
+            let totalMembersCountForEvent = NSDecimalNumber(integer: NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent)
+            return totalExpenseForEvent.decimalNumberByDividingBy(totalMembersCountForEvent, withBehavior: NSDecimalNumber.defaultHandler())
         }
-        return totalExpenseForEvent.decimalNumberByDividingBy(NSDecimalNumber(integer: totalMembersCountForEvent))
-    }
-    
-    /**
-     calculates and return total members for this event
-     */
-    func totalMembersForEvent(families: [Family]?) -> Int{
-        var totalMembers = 0
-        guard let families = families else{
-            return totalMembers
-        }
-        
-        for family in families{
-            totalMembers += family.members.count
-        }
-        return totalMembers
+        return zero
     }
     
     /**
      calculates expense for each family by adding each expense bill submitted.
      */
-    func totalExpenseForFamily(family: Family) -> NSDecimalNumber{
-        var totalExpense: NSDecimalNumber = NSDecimalNumber.zero()
-        for expense in family.expenses{
-            if let expenseAmout = expense.amount{
-                totalExpense = totalExpense.decimalNumberByAdding(NSDecimalNumber(decimal: expenseAmout.decimalValue))
-            }
-        }
-        return totalExpense
+    func totalAmountOwedByFamily(family: Family) -> NSDecimalNumber{
+        let perFamilyExpense = totalExpenseEachFamilySupposeToPay()
+        let totalFamilyMembers = family.members.count
+        let returnValue = perFamilyExpense.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: totalFamilyMembers), withBehavior: NSDecimalNumber.defaultHandler())
+        return returnValue
     }
 }

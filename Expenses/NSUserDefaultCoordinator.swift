@@ -21,7 +21,9 @@ class NSUserDefaultCoordinator {
         get{
             let defaults = NSUserDefaults.standardUserDefaults()
             let totalExpenseForEvent = defaults.doubleForKey(NSUserDefaultConstants.totalExpenseForEvent)
-            return NSDecimalNumber(double: totalExpenseForEvent)
+            let returnValue = NSDecimalNumber(double: totalExpenseForEvent)
+            print("totalExpenseForEvent doubleValue= \(totalExpenseForEvent), returnValue = \(returnValue)")
+            return returnValue
         }
         
         set(newTotalExpense){

@@ -36,6 +36,7 @@
 		483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483E4E711BE1426E0073F9DB /* CommonUtility.swift */; };
 		486BE9281BE55EF400241EA3 /* CoreDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */; };
 		486BE92A1BE5817100241EA3 /* NSUserDefaultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */; };
+		486BE92C1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE92B1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift */; };
 		48A7EAFF1BCB2632002D2248 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A7EAFE1BCB2632002D2248 /* CoreDataStackManager.swift */; };
 		48A7EB011BCB2AB1002D2248 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A7EB001BCB2AB1002D2248 /* CoreData.framework */; };
 		48A9B12B1BDD69900050BEAF /* ValidationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9B12A1BDD69900050BEAF /* ValidationUtil.swift */; };
@@ -87,6 +88,7 @@
 		483E4E711BE1426E0073F9DB /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCoordinator.swift; sourceTree = "<group>"; };
 		486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaultCoordinator.swift; sourceTree = "<group>"; };
+		486BE92B1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberExtension.swift; sourceTree = "<group>"; };
 		48A7EAFE1BCB2632002D2248 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		48A7EB001BCB2AB1002D2248 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		48A9B12A1BDD69900050BEAF /* ValidationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationUtil.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				483E4E711BE1426E0073F9DB /* CommonUtility.swift */,
 				486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */,
 				486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */,
+				486BE92B1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			files = (
 				09A18CA81B854E010093932F /* CustomTextField.swift in Sources */,
 				09A18CA61B854DE50093932F /* CustomButton.swift in Sources */,
+				486BE92C1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift in Sources */,
 				0992591F1B8AA2DE00CFA81F /* Enums.swift in Sources */,
 				09AC0BE71B5C3A3A000849C4 /* UIColorExtension.swift in Sources */,
 				09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */,
