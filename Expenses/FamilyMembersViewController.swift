@@ -86,4 +86,23 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         presentNextViewcontroller(member)
     }
     
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        switch(editingStyle){
+        case .Delete:
+            if let memberTobeDeleted = family?.members[indexPath.row]{
+                CoreDataStackManager.sharedInstance.managedObjectContext.deleteObject(memberTobeDeleted)
+                CoreDataStackManager.sharedInstance.saveContext()
+                tableView.beginUpdates()
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                tableView.endUpdates()
+            }
+        default:
+            print("Not supported yet.")
+        }
+    }
 }
