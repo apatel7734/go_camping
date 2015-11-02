@@ -51,7 +51,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    
     //MARK - tableView delegates
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.familyTableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -67,8 +66,13 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)
             print("Deleting row \(indexPath.row)")
-            if let objectAtIndexpath = self.fetchedResultsController.objectAtIndexPath(indexPath) as? NSManagedObject{
-                CoreDataStackManager.sharedInstance.managedObjectContext.deleteObject(objectAtIndexpath)
+            if let objectToRemove = self.fetchedResultsController.objectAtIndexPath(indexPath) as? NSManagedObject{
+                
+                CoreDataStackManager.sharedInstance.managedObjectContext.deleteObject(objectToRemove)
+                CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
+                CommonUtility.sharedInstance.updateTotalMembersCountForEvent()
+                CoreDataStackManager.sharedInstance.saveContext()
+                tableView.reloadData()
             }
         }
     }

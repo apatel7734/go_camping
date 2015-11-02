@@ -7,29 +7,11 @@
 //
 
 import Foundation
+import CoreData
 
 class CommonUtility {
     
     internal static let sharedInstance = CommonUtility()
-    
-    func updateTotalExpenseForEvent(updatedExpense: Expense?){
-        guard let updatedExpenseAmount = updatedExpense?.amount else{
-            return
-        }
-        let newExpenseAmount = NSDecimalNumber(decimal: updatedExpenseAmount.decimalValue)
-        let currentExpenseAmount = NSUserDefaultCoordinator.sharedInstance.originalExpenseAmount
-        let amountDifference = newExpenseAmount.decimalNumberBySubtracting(currentExpenseAmount)
-        let currentTotalExpenseForEvent = NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent
-        NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent = currentTotalExpenseForEvent.decimalNumberByAdding(amountDifference)
-    }
-    
-    func incrementTotalExpenseForEvent(expense: Expense){
-        var currentTotalExpense = NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent
-        if let decimalExpenseAmount = expense.amount?.decimalValue{
-            currentTotalExpense = currentTotalExpense.decimalNumberByAdding(NSDecimalNumber(decimal: decimalExpenseAmount))
-            NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent = currentTotalExpense
-        }
-    }
     
     func incrementTotalMembersCountForEvent(){
         var currentTotalMembersCount = NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent
@@ -71,5 +53,31 @@ class CommonUtility {
         let totalFamilyMembers = family.members.count
         let returnValue = perFamilyExpense.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: totalFamilyMembers), withBehavior: NSDecimalNumber.defaultHandler())
         return returnValue
+    }
+    
+    func updateTotalMembersCountForEvent(){
+        let fetchRequest = NSFetchRequest(entityName: "Member")
+        do{
+            let members = try CoreDataStackManager.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest) as! [Member]
+            NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent = members.count
+        }catch{
+            print("Error in fetching members in updateTotalMembersCountForEvent.")
+        }
+    }
+    
+    func updateTotalExpenseAmountForEvent(){
+        let fetchRequest = NSFetchRequest(entityName: "Expense")
+        do{
+            let expenses = try CoreDataStackManager.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest) as! [Expense]
+            var totalExpenseAmount = NSDecimalNumber.zero()
+            for expense in expenses{
+                if let expenseAmount = expense.amount?.decimalValue{
+                    totalExpenseAmount = totalExpenseAmount.decimalNumberByAdding(NSDecimalNumber(decimal: expenseAmount))
+                }
+            }
+            NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent = totalExpenseAmount
+        }catch{
+            print("Error in fetching expenses in updateTotalExpenseAmountForEvent.")
+        }
     }
 }

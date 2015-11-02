@@ -56,19 +56,12 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     func didPickExpense(expense: Expense, actionType: ActionType) {
-        
-        switch(actionType){
-        case .Add:
-            CommonUtility.sharedInstance.incrementTotalExpenseForEvent(expense)
-        case .Update:
-            CommonUtility.sharedInstance.updateTotalExpenseForEvent(expense)
-            break;
-        }
         expense.family = family
         updateFamilyTotalExpense()
         CoreDataStackManager.sharedInstance.saveContext()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
         self.expenseTableView.reloadData()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     private func updateFamilyTotalExpense(){

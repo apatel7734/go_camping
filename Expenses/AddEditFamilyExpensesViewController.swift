@@ -86,9 +86,6 @@ class AddEditFamilyExpensesViewController: UIViewController {
         var actionType = ActionType.Add
         
         if let expense = expense{
-            if let expenseDecimalValue = expense.amount?.decimalValue{
-                NSUserDefaultCoordinator.sharedInstance.originalExpenseAmount = NSDecimalNumber(decimal: expenseDecimalValue)
-            }
             expense.name = name
             expense.amount = amount
             expense.desc = desc
