@@ -26,7 +26,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }catch{
             print("error perfoming fetch.")
         }
-        
         fetchedResultsController.delegate = self
     }
     

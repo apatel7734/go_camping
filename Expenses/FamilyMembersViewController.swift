@@ -34,10 +34,16 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     
     
-    func didPickFamilyMember(member: Member, actionType: ActionTypes) {
+    func didPickFamilyMember(member: Member, actionType: ActionType) {
         member.family = self.family
         CoreDataStackManager.sharedInstance.saveContext()
-        CommonUtility.sharedInstance.incrementTotalMembersCountForEvent()
+        switch(actionType){
+        case .Add:
+            CommonUtility.sharedInstance.incrementTotalMembersCountForEvent()
+        case .Update:
+            //nothing to update
+            break
+        }
         self.membersTableView.reloadData()
     }
     

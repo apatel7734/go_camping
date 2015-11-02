@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddEditFamilyMembersViewControllerDelegate{
-    func didPickFamilyMember(member: Member, actionType: ActionTypes)
+    func didPickFamilyMember(member: Member, actionType: ActionType)
 }
 
 class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate {
@@ -140,14 +140,14 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
         let phone = phoneNumber
         let age = ageTextField.text!
         let email = emailTextField.text!
-        var actionType = ActionTypes.Add
+        var actionType = ActionType.Add
         
         if let _ = member{
             member?.name = name
             member?.phoneNumber = Int(phone)
             member?.email = email
             member?.age = Int(age)
-            actionType = ActionTypes.Edit
+            actionType = .Update
             
         }else{
             let memberDict = [Member.Keys.Name: name, Member.Keys.PhoneNumber : phone, Member.Keys.Age : age, Member.Keys.Email : email]

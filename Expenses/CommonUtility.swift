@@ -12,7 +12,18 @@ class CommonUtility {
     
     internal static let sharedInstance = CommonUtility()
     
-    func updateTotalExpenseForEvent(expense: Expense){
+    func updateTotalExpenseForEvent(updatedExpense: Expense?){
+        guard let updatedExpenseAmount = updatedExpense?.amount else{
+            return
+        }
+        let newExpenseAmount = NSDecimalNumber(decimal: updatedExpenseAmount.decimalValue)
+        let currentExpenseAmount = NSUserDefaultCoordinator.sharedInstance.originalExpenseAmount
+        let amountDifference = newExpenseAmount.decimalNumberBySubtracting(currentExpenseAmount)
+        let currentTotalExpenseForEvent = NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent
+        NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent = currentTotalExpenseForEvent.decimalNumberByAdding(amountDifference)
+    }
+    
+    func incrementTotalExpenseForEvent(expense: Expense){
         var currentTotalExpense = NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent
         if let decimalExpenseAmount = expense.amount?.decimalValue{
             currentTotalExpense = currentTotalExpense.decimalNumberByAdding(NSDecimalNumber(decimal: decimalExpenseAmount))

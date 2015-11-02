@@ -11,6 +11,7 @@ import Foundation
 struct NSUserDefaultConstants {
     static let totalExpenseForEvent = "TotalExpenseForEvent"
     static let totalMembersCountForEvent = "TotalMembersCountForEvent"
+    static let originalLastModifiedExpenseAmount = "OriginalLastModifiedExpenseAmount"
 }
 
 class NSUserDefaultCoordinator {
@@ -22,12 +23,10 @@ class NSUserDefaultCoordinator {
             let defaults = NSUserDefaults.standardUserDefaults()
             let totalExpenseForEvent = defaults.doubleForKey(NSUserDefaultConstants.totalExpenseForEvent)
             let returnValue = NSDecimalNumber(double: totalExpenseForEvent)
-            print("totalExpenseForEvent doubleValue= \(totalExpenseForEvent), returnValue = \(returnValue)")
             return returnValue
         }
         
         set(newTotalExpense){
-            print("newTotalExpense = \(newTotalExpense)")
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setDouble(newTotalExpense.doubleValue, forKey: NSUserDefaultConstants.totalExpenseForEvent)
         }
@@ -43,6 +42,19 @@ class NSUserDefaultCoordinator {
         set(newTotalmembersCount){
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setInteger(newTotalmembersCount, forKey: NSUserDefaultConstants.totalMembersCountForEvent)
+        }
+    }
+    
+    var originalExpenseAmount: NSDecimalNumber{
+        get{
+            let defaults = NSUserDefaults.standardUserDefaults()
+            let lastModifiedExpenseOriginalAmount = defaults.doubleForKey(NSUserDefaultConstants.originalLastModifiedExpenseAmount)
+            return NSDecimalNumber(double: lastModifiedExpenseOriginalAmount)
+        }
+        
+        set(originalExpenseAmount){
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setDouble(originalExpenseAmount.doubleValue, forKey: NSUserDefaultConstants.originalLastModifiedExpenseAmount)
         }
     }
 }
