@@ -62,6 +62,7 @@ class CommonUtility {
         return zero
     }
     
+    
     /**
      calculates expense for each family by adding each expense bill submitted.
      */
