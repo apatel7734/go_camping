@@ -100,6 +100,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
                 tableView.beginUpdates()
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
                 tableView.endUpdates()
+                CommonUtility.sharedInstance.decrementTotalMembersCountForEvent()
             }
         default:
             print("Not supported yet.")

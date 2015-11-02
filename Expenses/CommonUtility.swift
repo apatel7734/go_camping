@@ -19,6 +19,12 @@ class CommonUtility {
         NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent = currentTotalMembersCount
     }
     
+    func decrementTotalMembersCountForEvent(){
+        var currentTotalMembersCount = NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent
+        currentTotalMembersCount--
+        NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent = currentTotalMembersCount
+    }
+    
     func amountDifferenceToPayOrTakeForFamily(family: Family) -> NSDecimalNumber{
         var totalFamilyPaidExpense = NSDecimalNumber.zero()
         if let familyPaidDecimalExpense = family.totalExpense?.decimalValue{

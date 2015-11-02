@@ -55,6 +55,29 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
         return cell
     }
     
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        switch(editingStyle){
+        case .Delete:
+            if let expenseTobeDeleted = family?.expenses[indexPath.row]{
+                CoreDataStackManager.sharedInstance.managedObjectContext.deleteObject(expenseTobeDeleted)
+                CoreDataStackManager.sharedInstance.saveContext()
+                tableView.beginUpdates()
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                tableView.endUpdates()
+                CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
+            }
+        default:
+            print("Not supported yet.")
+        }
+    }
+    
+    
+    
     func didPickExpense(expense: Expense, actionType: ActionType) {
         expense.family = family
         updateFamilyTotalExpense()
