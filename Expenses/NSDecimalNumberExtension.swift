@@ -17,7 +17,7 @@ extension NSDecimalNumber{
     }
     
     func currencyFormattedValueWithDollarPrefix() -> String{
-        var formatter = NSNumberFormatter()
+        let formatter = NSNumberFormatter()
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         formatter.currencySymbol = "$"
         return formatter.stringFromNumber(self)!

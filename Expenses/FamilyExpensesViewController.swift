@@ -69,6 +69,7 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
                 tableView.beginUpdates()
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
                 tableView.endUpdates()
+                CommonUtility.sharedInstance.updateFamilyTotalExpense(family)
                 CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
             }
         default:
@@ -80,23 +81,11 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     func didPickExpense(expense: Expense, actionType: ActionType) {
         expense.family = family
-        updateFamilyTotalExpense()
+        CommonUtility.sharedInstance.updateFamilyTotalExpense(family)
         CoreDataStackManager.sharedInstance.saveContext()
         CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
         self.expenseTableView.reloadData()
         self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    private func updateFamilyTotalExpense(){
-        var totalExpense: NSDecimalNumber = NSDecimalNumber.zero()
-        if let expenses = family?.expenses{
-            for expense in expenses{
-                if let expenseAmout = expense.amount{
-                    totalExpense = totalExpense.decimalNumberByAdding(NSDecimalNumber(decimal: expenseAmout.decimalValue))
-                }
-            }
-        }
-        family?.totalExpense = totalExpense
     }
     
     func addExpensesButtonPressed(sender: UIBarButtonItem){

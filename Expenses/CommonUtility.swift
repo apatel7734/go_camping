@@ -26,11 +26,15 @@ class CommonUtility {
     }
     
     func amountDifferenceToPayOrTakeForFamily(family: Family) -> NSDecimalNumber{
+        print("******** amountDifferenceToPayOrTakeForFamily ***** ")
         var totalFamilyPaidExpense = NSDecimalNumber.zero()
         if let familyPaidDecimalExpense = family.totalExpense?.decimalValue{
             totalFamilyPaidExpense = NSDecimalNumber(decimal: familyPaidDecimalExpense)
         }
+        print("totalFamilyPaidExpense = \(totalFamilyPaidExpense)")
         let amountOwedByFamily = totalAmountOwedByFamily(family)
+        print("amountOwedByFamily = \(amountOwedByFamily)")
+                print("totalFamilyPaidExpense.decimalNumberBySubtracting(amountOwedByFamily) = \(totalFamilyPaidExpense.decimalNumberBySubtracting(amountOwedByFamily))")
         return totalFamilyPaidExpense.decimalNumberBySubtracting(amountOwedByFamily)
     }
     
@@ -57,7 +61,11 @@ class CommonUtility {
     func totalAmountOwedByFamily(family: Family) -> NSDecimalNumber{
         let perFamilyExpense = totalExpenseEachFamilySupposeToPay()
         let totalFamilyMembers = family.members.count
+        print("family.name = \(family.name)")
+        print("perFamilyExpense = \(perFamilyExpense)")
+        print("totalFamilyMembers = \(totalFamilyMembers)")
         let returnValue = perFamilyExpense.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: totalFamilyMembers), withBehavior: NSDecimalNumber.defaultHandler())
+        print("returnValue = \(returnValue)")
         return returnValue
     }
     
@@ -71,6 +79,21 @@ class CommonUtility {
         }
     }
     
+    
+    func updateFamilyTotalExpense(family: Family?){
+        var totalExpense: NSDecimalNumber = NSDecimalNumber.zero()
+        if let expenses = family?.expenses{
+            for expense in expenses{
+                if let expenseAmout = expense.amount{
+                    totalExpense = totalExpense.decimalNumberByAdding(NSDecimalNumber(decimal: expenseAmout.decimalValue))
+                }
+            }
+        }
+        family?.totalExpense = totalExpense
+    }
+    
+    
+    
     func updateTotalExpenseAmountForEvent(){
         let fetchRequest = NSFetchRequest(entityName: "Expense")
         do{
@@ -82,6 +105,7 @@ class CommonUtility {
                 }
             }
             NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent = totalExpenseAmount
+            print("Total Expense = \(totalExpenseAmount)")
         }catch{
             print("Error in fetching expenses in updateTotalExpenseAmountForEvent.")
         }

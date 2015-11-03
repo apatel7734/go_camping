@@ -14,7 +14,7 @@ class StringFormatterUtil{
     
     func formatPhoneNumber(phoneNumber: String) -> String{
         
-        var string: NSMutableString = NSMutableString(string: phoneNumber)
+        let string: NSMutableString = NSMutableString(string: phoneNumber)
 
         if string.length > 0 {
             string.insertString("(", atIndex: 0)
