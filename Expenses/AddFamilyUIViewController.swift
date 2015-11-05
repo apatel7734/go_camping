@@ -103,21 +103,21 @@ class AddFamilyUIViewController: UIViewController, UITextFieldDelegate {
         //validate family Name
         let validationResponse = ValidationUtil.sharedValidationUtil.isValidName(familyNameTextField.text)
         if !validationResponse.isValid{
-            print("Not valid FamilyName....: \(validationResponse.errorMessage)")
+            ErrorView.sharedView.showErrorMessage(self.view, message: validationResponse.errorMessage!)
             return false
         }
         
         //validate phoneNumber
         let phoneResponse = ValidationUtil.sharedValidationUtil.isValidPhoneNumber(phoneNumber)
         if !phoneResponse.isValid{
-            print("Not valid FamilyName....: \(phoneResponse.errorMessage)")
+            ErrorView.sharedView.showErrorMessage(self.view, message: phoneResponse.errorMessage!)
             return false
         }
         
         //validate email
         let emailResponse = ValidationUtil.sharedValidationUtil.isValidEmail(emailTextField.text)
         if !emailResponse.isValid{
-            print("Not valid FamilyName....: \(emailResponse.errorMessage)")
+            ErrorView.sharedView.showErrorMessage(self.view, message: emailResponse.errorMessage!)
             return false
         }
         
