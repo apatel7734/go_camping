@@ -109,26 +109,27 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
         let nameResponse = ValidationUtil.sharedValidationUtil.isValidName(nameTextField.text)
         if !nameResponse.isValid {
             print("name note valid \(nameResponse.errorMessage)")
+            ErrorView.sharedView.showErrorMessage(self.view, message: nameResponse.errorMessage!)
             return false
         }
         //validate email
         let emailResponse = ValidationUtil.sharedValidationUtil.isValidEmail(emailTextField.text)
         if !emailResponse.isValid{
-            print("email not valid \(emailResponse.errorMessage)")
+            ErrorView.sharedView.showErrorMessage(self.view, message: emailResponse.errorMessage!)
             return false
         }
         
         //validate phoneNumber
         let phoneNumberResponse = ValidationUtil.sharedValidationUtil.isValidPhoneNumber(phoneNumber)
         if !phoneNumberResponse.isValid{
-            print("phoneNumberResponse not valid \(phoneNumberResponse.errorMessage)")
+            ErrorView.sharedView.showErrorMessage(self.view, message: phoneNumberResponse.errorMessage!)
             return false
         }
         
         //validate age
         let ageResponse = ValidationUtil.sharedValidationUtil.isValidAge(ageTextField.text)
         if !ageResponse.isValid{
-            print("email not valid \(emailResponse.errorMessage)")
+            ErrorView.sharedView.showErrorMessage(self.view, message: emailResponse.errorMessage!)
             return false
         }
         

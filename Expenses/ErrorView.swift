@@ -9,6 +9,7 @@
 import UIKit
 
 class ErrorView {
+    
     static let sharedView = ErrorView()
     private let errorLabel: UILabel!
     private let viewHeight: CGFloat = 50.0
@@ -22,18 +23,26 @@ class ErrorView {
     
     func showErrorMessage(view:UIView, message: String){
         errorLabel.text = message
+        setErrorLabelFrame(view)
+        view.addSubview(errorLabel)
+        resetTransform()
+        animateErrorView()
+    }
+
+    private func setErrorLabelFrame(view: UIView){
         errorViewOriginalBounds = view.bounds
         errorLabel.frame = view.bounds
         errorLabel.frame.size.height = viewHeight
-        view.addSubview(errorLabel)
-        resetTransform()
-        UIView.animateWithDuration(0.5) { () -> Void in
+    }
+    
+    private func animateErrorView(){
+        UIView.animateWithDuration(1.0) { () -> Void in
             let affineTranslate = CGAffineTransformMakeTranslation(self.errorViewOriginalBounds.origin.x,self.errorViewOriginalBounds.origin.y)
             self.errorLabel.transform = affineTranslate
         }
     }
     
-    func resetTransform(){
+    private func resetTransform(){
         let affineTranslate = CGAffineTransformMakeTranslation(self.errorViewOriginalBounds.origin.x,self.errorViewOriginalBounds.origin.y - viewHeight)
         self.errorLabel.transform = affineTranslate
     }
