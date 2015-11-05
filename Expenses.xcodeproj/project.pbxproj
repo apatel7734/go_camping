@@ -73,6 +73,11 @@
 		B55572F21BEB0C070024CB88 /* PlacesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F01BEB0C070024CB88 /* PlacesApi.swift */; };
 		B55572F41BEB10320024CB88 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F31BEB10320024CB88 /* Place.swift */; };
 		B55572F51BEB10320024CB88 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F31BEB10320024CB88 /* Place.swift */; };
+		B55572F71BEB19E20024CB88 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F61BEB19E20024CB88 /* ApiError.swift */; };
+		B55572F81BEB19E20024CB88 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F61BEB19E20024CB88 /* ApiError.swift */; };
+		B55572FC1BEB1C360024CB88 /* FakeApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572FA1BEB1C360024CB88 /* FakeApiController.swift */; };
+		B55572FF1BEB1CB00024CB88 /* PlaceApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572FD1BEB1CAF0024CB88 /* PlaceApiTests.swift */; };
+		B55573001BEB1F9B0024CB88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099F6C7E1B94BDFC00BD8D9C /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +159,9 @@
 		B55572ED1BEB0BB80024CB88 /* ApiStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiStatusCode.swift; sourceTree = "<group>"; };
 		B55572F01BEB0C070024CB88 /* PlacesApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesApi.swift; sourceTree = "<group>"; };
 		B55572F31BEB10320024CB88 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		B55572F61BEB19E20024CB88 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		B55572FA1BEB1C360024CB88 /* FakeApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeApiController.swift; sourceTree = "<group>"; };
+		B55572FD1BEB1CAF0024CB88 /* PlaceApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceApiTests.swift; sourceTree = "<group>"; };
 		B78AB995FF88485C5BB74291 /* Pods_ExpensesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExpensesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C38BF7CD4AC0194D164EA1 /* Pods-ExpensesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpensesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExpensesTests/Pods-ExpensesTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -265,6 +273,7 @@
 		09AC0BD11B5C3671000849C4 /* ExpensesTests */ = {
 			isa = PBXGroup;
 			children = (
+				B55572F91BEB1C280024CB88 /* Apis */,
 				09AC0BD41B5C3671000849C4 /* ExpensesTests.swift */,
 				09AC0BD21B5C3671000849C4 /* Supporting Files */,
 			);
@@ -388,6 +397,16 @@
 				B55572EA1BEB0B2C0024CB88 /* ApiController.swift */,
 				B55572F01BEB0C070024CB88 /* PlacesApi.swift */,
 				B55572ED1BEB0BB80024CB88 /* ApiStatusCode.swift */,
+				B55572F61BEB19E20024CB88 /* ApiError.swift */,
+			);
+			path = Apis;
+			sourceTree = "<group>";
+		};
+		B55572F91BEB1C280024CB88 /* Apis */ = {
+			isa = PBXGroup;
+			children = (
+				B55572FA1BEB1C360024CB88 /* FakeApiController.swift */,
+				B55572FD1BEB1CAF0024CB88 /* PlaceApiTests.swift */,
 			);
 			path = Apis;
 			sourceTree = "<group>";
@@ -609,6 +628,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09A18CA81B854E010093932F /* CustomTextField.swift in Sources */,
+				B55572F71BEB19E20024CB88 /* ApiError.swift in Sources */,
 				09A18CA61B854DE50093932F /* CustomButton.swift in Sources */,
 				485F9CA21C2603AA00A4CB38 /* UIKitExtensions.swift in Sources */,
 				485F9C9E1C25F93600A4CB38 /* EnterCodeViewController.swift in Sources */,
@@ -655,11 +675,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55572FF1BEB1CB00024CB88 /* PlaceApiTests.swift in Sources */,
 				B55572F21BEB0C070024CB88 /* PlacesApi.swift in Sources */,
 				B55572EF1BEB0BB80024CB88 /* ApiStatusCode.swift in Sources */,
 				B55572EC1BEB0B2C0024CB88 /* ApiController.swift in Sources */,
 				09AC0BD51B5C3671000849C4 /* ExpensesTests.swift in Sources */,
 				B55572F51BEB10320024CB88 /* Place.swift in Sources */,
+				B55572F81BEB19E20024CB88 /* ApiError.swift in Sources */,
+				B55572FC1BEB1C360024CB88 /* FakeApiController.swift in Sources */,
+				B55573001BEB1F9B0024CB88 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
