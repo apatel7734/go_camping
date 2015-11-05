@@ -108,7 +108,7 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
         //validate Name
         let nameResponse = ValidationUtil.sharedValidationUtil.isValidName(nameTextField.text)
         if !nameResponse.isValid {
-            print("name note valid \(nameResponse.errorMessage)")
+
             ErrorView.sharedView.showErrorMessage(self.view, message: nameResponse.errorMessage!)
             return false
         }

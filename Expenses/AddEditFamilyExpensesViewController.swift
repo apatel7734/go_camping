@@ -39,6 +39,7 @@ class AddEditFamilyExpensesViewController: UIViewController {
         let nameResponse = ValidationUtil.sharedValidationUtil.isValidName(nameTextField.text)
         if (!nameResponse.isValid){
             print("Not valid name : \(nameResponse.errorMessage)")
+            ErrorView.sharedView.showErrorMessage(self.view, message: nameResponse.errorMessage!)
         }
         
         //validate short desc
