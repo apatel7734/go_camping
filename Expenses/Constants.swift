@@ -16,4 +16,6 @@ struct Constants {
     static let editMember = "Edit Member"
     static let addNewMember = "Add New Member"
     static let emptyString = ""
+    
+    static let googleApiKey = "AIzaSyDBfMCdh-BIHJpl_w1rQ1_RS3ry7NQkI2k"
 }
