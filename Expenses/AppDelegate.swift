@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        setupParse(launchOptions)
+        
         return true
     }
 
@@ -115,6 +118,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+    }
+    
+    private func setupParse(launchOptions: [NSObject : AnyObject]?){
+        Parse.enableLocalDatastore()
+        Parse.setApplicationId("iBZKa2LCHSSyBx2j342ckwwwNmD5SaPAdac1KJXN", clientKey: "7VmzkRWGuUqlBwzN3y1l3Y8GvCjxQXHwVTcIwWcf")
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
     }
 
 }

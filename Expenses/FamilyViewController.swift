@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Parse
+
 
 class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource ,NSFetchedResultsControllerDelegate{
     
@@ -27,6 +29,15 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("error perfoming fetch.")
         }
         fetchedResultsController.delegate = self
+        testParse()
+    }
+    
+    private func testParse(){
+        let testObj = PFObject(className: "TestObject")
+        testObj["foo"] = "foobar 2"
+        testObj.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("Saved success \(success)")
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
