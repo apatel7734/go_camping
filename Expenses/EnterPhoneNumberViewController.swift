@@ -19,11 +19,8 @@ class EnterPhoneNumberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(animated: Bool) {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide", name: UIKeyboardWillHideNotification, object: nil)
+        self.phoneNumberTextField.becomeFirstResponder()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -33,20 +30,12 @@ class EnterPhoneNumberViewController: UIViewController {
     func keyboardWillShow(sender: NSNotification) {
         if let userInfo = sender.userInfo {
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
-                submitButonBottomLayoutConstraint.constant = keyboardHeight
+                submitButonBottomLayoutConstraint.constant = keyboardHeight + 20
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.view.layoutIfNeeded()
                 })
             }
         }
     }
-    
-    func keyboardWillHide(sender: NSNotification) {
-        if let userInfo = sender.userInfo {
-            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
-                submitButonBottomLayoutConstraint.constant = 0.0
-                UIView.animateWithDuration(0.25, animations: { () -> Void in self.view.layoutIfNeeded() })
-            }
-        } }
     
 }
