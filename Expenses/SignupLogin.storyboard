@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your phone number to login." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XtZ-Rt-5rz" customClass="CustomTextField" customModule="Expenses" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your phone number" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XtZ-Rt-5rz" customClass="CustomTextField" customModule="Expenses" customModuleProvider="target">
                                 <rect key="frame" x="45" y="156" width="510" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,20 +41,36 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didSubmitTapped:" destination="6xw-z4-a0e" eventType="touchUpInside" id="4H3-UV-Jot"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter confirmation code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trm-Am-fpV" customClass="CustomTextField" customModule="Expenses" customModuleProvider="target">
+                                <rect key="frame" x="578" y="156" width="510" height="44"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="go"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="trm-Am-fpV" firstAttribute="centerY" secondItem="XtZ-Rt-5rz" secondAttribute="centerY" id="0AG-NT-aOO"/>
                             <constraint firstItem="nli-bP-WHt" firstAttribute="centerX" secondItem="ymL-kv-FsN" secondAttribute="centerX" id="4B8-m5-bkX"/>
+                            <constraint firstItem="trm-Am-fpV" firstAttribute="leading" secondItem="ymL-kv-FsN" secondAttribute="leadingMargin" constant="558" id="Ie2-Kw-UyD"/>
                             <constraint firstItem="F0K-yN-Yp0" firstAttribute="top" secondItem="nli-bP-WHt" secondAttribute="bottom" constant="271" id="JAw-3g-P16"/>
+                            <constraint firstItem="trm-Am-fpV" firstAttribute="width" secondItem="XtZ-Rt-5rz" secondAttribute="width" id="Txo-WW-q4k"/>
                             <constraint firstItem="XtZ-Rt-5rz" firstAttribute="leading" secondItem="ymL-kv-FsN" secondAttribute="leadingMargin" constant="25" id="U0j-P8-RaV"/>
                             <constraint firstItem="XtZ-Rt-5rz" firstAttribute="top" secondItem="qMi-Qh-uuA" secondAttribute="bottom" constant="136" id="e6r-cW-CnY"/>
                             <constraint firstItem="XtZ-Rt-5rz" firstAttribute="centerX" secondItem="ymL-kv-FsN" secondAttribute="centerX" id="gN4-sh-7Sk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XtZ-Rt-5rz" secondAttribute="trailing" constant="25" id="ryg-dc-IVw"/>
+                            <constraint firstItem="trm-Am-fpV" firstAttribute="height" secondItem="XtZ-Rt-5rz" secondAttribute="height" id="nds-6Z-mck"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="codeTextField" destination="trm-Am-fpV" id="56U-hg-1ML"/>
+                        <outlet property="codeTextFieldLeadingLayoutConstraint" destination="Ie2-Kw-UyD" id="0WI-AJ-Yjd"/>
                         <outlet property="phoneNumberTextField" destination="XtZ-Rt-5rz" id="aCn-Va-q47"/>
                         <outlet property="submitButonBottomLayoutConstraint" destination="JAw-3g-P16" id="HBF-kB-2zv"/>
                         <outlet property="submitButton" destination="nli-bP-WHt" id="RLc-rw-K3d"/>
