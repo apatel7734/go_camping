@@ -28,7 +28,7 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
     
     private var phoneNumber: String = ""{
         didSet{
-            let formattedPhoneNumber = StringFormatterUtil.sharedStringFormatterUtil.formatPhoneNumber(phoneNumber)
+            let formattedPhoneNumber = StringFormatterUtil.sharedInstance.formatPhoneNumber(phoneNumber)
             phoneNumberTextField.text = formattedPhoneNumber
         }
     }

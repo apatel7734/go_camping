@@ -10,7 +10,7 @@ import Foundation
 
 class StringFormatterUtil{
     
-    static let sharedStringFormatterUtil = StringFormatterUtil()
+    static let sharedInstance = StringFormatterUtil()
     
     func formatPhoneNumber(phoneNumber: String) -> String{
         
