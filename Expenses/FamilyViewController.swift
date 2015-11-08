@@ -29,7 +29,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("error perfoming fetch.")
         }
         fetchedResultsController.delegate = self
-        testParse()
     }
     
     private func testParse(){
