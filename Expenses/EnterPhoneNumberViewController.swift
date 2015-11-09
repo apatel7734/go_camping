@@ -17,6 +17,15 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var submitButonBottomLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var codeTextFieldLeadingLayoutConstraint: NSLayoutConstraint!
     
+    private var isPhoneNumberVisible: Bool = true{
+        didSet{
+            if isPhoneNumberVisible{
+                phoneNumberTextField.becomeFirstResponder()
+            }else{
+                codeTextField.becomeFirstResponder()
+            }
+        }
+    }
     
     private var phoneNumber: String = ""{
         didSet{
@@ -27,6 +36,7 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
     //MARK - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         //observers
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
@@ -44,7 +54,11 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
     //@IBActions
     
     @IBAction func didSubmitTapped(sender: AnyObject) {
-        animateToShowCodeTextField()
+        if isPhoneNumberVisible{
+            animateToShowCodeTextField()
+        }else{
+            animateToHideCodeTextField()
+        }
     }
     
     //MARK - UITextfield delegate methods
@@ -65,28 +79,28 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
     }
     
     //MARK - Utilities methods
-    
     private func animateToShowCodeTextField(){
         let phoneNumberFrame = phoneNumberTextField.frame
         let xToHidePhoneNumber = 0 - phoneNumberFrame.origin.x - phoneNumberFrame.width
         let xToShowCode = xToHidePhoneNumber
         let translateHidePhoneNumberBounds = CGAffineTransformMakeTranslation(xToHidePhoneNumber, 0)
         let translateShowCodeNumber = CGAffineTransformMakeTranslation(xToShowCode, 0)
-        UIView.animateWithDuration(0.5) { () -> Void in
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.phoneNumberTextField.transform = translateHidePhoneNumberBounds
             self.codeTextField.transform = translateShowCodeNumber
+            }) { (success: Bool) -> Void in
+                self.isPhoneNumberVisible = false
         }
     }
     
     private func animateToHideCodeTextField(){
-        let phoneNumberFrame = phoneNumberTextField.frame
-        let xToHidePhoneNumber = 0 - phoneNumberFrame.origin.x - phoneNumberFrame.width
-        let xToShowCode = xToHidePhoneNumber
-        let translateHidePhoneNumberBounds = CGAffineTransformMakeTranslation(xToHidePhoneNumber, 0)
-        let translateShowCodeNumber = CGAffineTransformMakeTranslation(xToShowCode, 0)
-        UIView.animateWithDuration(0.5) { () -> Void in
+        let translateHidePhoneNumberBounds = CGAffineTransformMakeTranslation(0, 0)
+        let translateShowCodeNumber = CGAffineTransformMakeTranslation(0, 0)
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.phoneNumberTextField.transform = translateHidePhoneNumberBounds
             self.codeTextField.transform = translateShowCodeNumber
+            }) { (success: Bool) -> Void in
+                self.isPhoneNumberVisible = true
         }
     }
     
