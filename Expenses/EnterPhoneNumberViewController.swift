@@ -33,6 +33,12 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
         }
     }
     
+    private var loginCode: String = ""{
+        didSet{
+            codeTextField.text = loginCode
+        }
+    }
+    
     //MARK - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +49,9 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
         //delegates
         self.phoneNumberTextField.becomeFirstResponder()
         self.phoneNumberTextField.delegate = self
-        codeTextFieldLeadingLayoutConstraint.constant = 375 - 16
+        self.codeTextField.delegate = self
+        codeTextFieldLeadingLayoutConstraint.constant = UIScreen.mainScreen().bounds.width
+        
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -63,12 +71,18 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
     
     //MARK - UITextfield delegate methods
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        //check empty string for return
-        if string.isEmpty && phoneNumber.characters.count > 0{
-            phoneNumber.removeAtIndex(phoneNumber.endIndex.predecessor())
-        }else if phoneNumber.characters.count < 10{
-            phoneNumber.append(Character(string))
+        
+        switch(textField){
+        case phoneNumberTextField:
+            handlePhoneNumbeTextFieldChange(string)
+            
+        case codeTextField:
+            handleCodeTextFieldChange(string)
+            
+        default:
+            break
         }
+        
         return false
     }
     
@@ -101,6 +115,24 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
             self.codeTextField.transform = translateShowCodeNumber
             }) { (success: Bool) -> Void in
                 self.isPhoneNumberVisible = true
+        }
+    }
+    
+    private func handlePhoneNumbeTextFieldChange(string: String){
+        //check empty string for return
+        if string.isEmpty && phoneNumber.characters.count > 0{
+            phoneNumber.removeAtIndex(phoneNumber.endIndex.predecessor())
+        }else if phoneNumber.characters.count < 10{
+            phoneNumber.append(Character(string))
+        }
+    }
+    
+    private func handleCodeTextFieldChange(string: String){
+        //check empty string for return
+        if string.isEmpty && loginCode.characters.count > 0{
+            loginCode.removeAtIndex(loginCode.endIndex.predecessor())
+        }else if loginCode.characters.count < 4{
+            loginCode.append(Character(string))
         }
     }
     
