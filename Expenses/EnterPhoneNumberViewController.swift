@@ -50,8 +50,8 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
         self.phoneNumberTextField.becomeFirstResponder()
         self.phoneNumberTextField.delegate = self
         self.codeTextField.delegate = self
-        codeTextFieldLeadingLayoutConstraint.constant = UIScreen.mainScreen().bounds.width
-        
+        let margins = self.view.layoutMargins
+        codeTextFieldLeadingLayoutConstraint.constant = UIScreen.mainScreen().bounds.width - (margins.left + margins.right)
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -88,7 +88,14 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
     
     
     func textFieldShouldClear(textField: UITextField) -> Bool {
-        phoneNumber = ""
+        switch(textField){
+        case phoneNumberTextField:
+            phoneNumber = ""
+        case codeTextField:
+            loginCode = ""
+        default:
+            break;
+        }
         return true
     }
     
