@@ -24,18 +24,50 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
             }else{
                 codeTextField.becomeFirstResponder()
             }
+            updateSubitButtonUI()
         }
     }
     
     private var phoneNumber: String = ""{
         didSet{
             phoneNumberTextField.text = StringFormatterUtil.sharedInstance.formatPhoneNumber(phoneNumber)
+            updateSubitButtonUI()
         }
     }
     
     private var loginCode: String = ""{
         didSet{
             codeTextField.text = loginCode
+            updateSubitButtonUI()
+        }
+    }
+    
+    private func updateSubitButtonUI(){
+        if isPhoneNumberVisible{
+            if phoneNumber.characters.count == 10{
+                enableSubmitButton = true
+            }else{
+                enableSubmitButton = false
+            }
+        }else{
+            if loginCode.characters.count == 4{
+                enableSubmitButton = true
+            }else{
+                enableSubmitButton = false
+            }
+        }
+        
+    }
+    
+    private var enableSubmitButton: Bool = false{
+        didSet{
+            if enableSubmitButton{
+                submitButton.backgroundColor = UIColor.greenColor()
+                submitButton.enabled = true
+            }else{
+                submitButton.backgroundColor = UIColor.darkGrayColor()
+                submitButton.enabled = false
+            }
         }
     }
     
@@ -52,6 +84,7 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
         self.codeTextField.delegate = self
         let margins = self.view.layoutMargins
         codeTextFieldLeadingLayoutConstraint.constant = UIScreen.mainScreen().bounds.width - (margins.left + margins.right)
+        enableSubmitButton = false
     }
     
     override func viewDidDisappear(animated: Bool) {
