@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="-420" y="261"/>
         </scene>
-        <!--Campsite List View Controller-->
+        <!--Campsite Main View Controller-->
         <scene sceneID="CPz-3C-NZq">
             <objects>
-                <viewController storyboardIdentifier="CampsiteListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kBd-Ov-9G2" customClass="CampsiteListViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CampsiteMainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kBd-Ov-9G2" customClass="CampsiteMainViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RhD-3g-RC0"/>
                         <viewControllerLayoutGuide type="bottom" id="GVa-rf-61S"/>
@@ -105,8 +105,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="aZS-Q9-yns"/>
                     <connections>
-                        <outlet property="listView" destination="nyt-Jz-g5o" id="EF4-Wc-JVh"/>
-                        <outlet property="mapView" destination="fiL-EG-MuQ" id="wx8-B5-vb5"/>
+                        <outlet property="listView" destination="nyt-Jz-g5o" id="n0a-Wv-qe8"/>
+                        <outlet property="mapView" destination="fiL-EG-MuQ" id="Dkq-OA-ygJ"/>
                         <outlet property="searchField" destination="pMJ-ol-N79" id="fUr-c1-Dzd"/>
                     </connections>
                 </viewController>
@@ -118,6 +118,10 @@
         <scene sceneID="nIY-O1-Pe8">
             <objects>
                 <viewController id="o1Z-SE-7i9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Lx-VT-gip"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zwg-EC-g17"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TcN-0D-wAG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,6 +148,10 @@
         <scene sceneID="beu-zX-Cyy">
             <objects>
                 <viewController id="Hme-Wz-6Ff" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vu7-o3-HEx"/>
+                        <viewControllerLayoutGuide type="bottom" id="fIO-23-eCo"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Bgg-04-VSo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

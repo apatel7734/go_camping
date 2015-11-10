@@ -69,18 +69,24 @@
 		B55572EC1BEB0B2C0024CB88 /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572EA1BEB0B2C0024CB88 /* ApiController.swift */; };
 		B55572EE1BEB0BB80024CB88 /* ApiStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572ED1BEB0BB80024CB88 /* ApiStatusCode.swift */; };
 		B55572EF1BEB0BB80024CB88 /* ApiStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572ED1BEB0BB80024CB88 /* ApiStatusCode.swift */; };
-		B55572F11BEB0C070024CB88 /* PlacesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F01BEB0C070024CB88 /* PlacesApi.swift */; };
-		B55572F21BEB0C070024CB88 /* PlacesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F01BEB0C070024CB88 /* PlacesApi.swift */; };
-		B55572F41BEB10320024CB88 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F31BEB10320024CB88 /* Place.swift */; };
-		B55572F51BEB10320024CB88 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F31BEB10320024CB88 /* Place.swift */; };
+		B55572F11BEB0C070024CB88 /* GoogleMapApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F01BEB0C070024CB88 /* GoogleMapApi.swift */; };
+		B55572F21BEB0C070024CB88 /* GoogleMapApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F01BEB0C070024CB88 /* GoogleMapApi.swift */; };
 		B55572F71BEB19E20024CB88 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F61BEB19E20024CB88 /* ApiError.swift */; };
 		B55572F81BEB19E20024CB88 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F61BEB19E20024CB88 /* ApiError.swift */; };
 		B55572FC1BEB1C360024CB88 /* FakeApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572FA1BEB1C360024CB88 /* FakeApiController.swift */; };
-		B55572FF1BEB1CB00024CB88 /* PlaceApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572FD1BEB1CAF0024CB88 /* PlaceApiTests.swift */; };
+		B55572FF1BEB1CB00024CB88 /* GoogleMapApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572FD1BEB1CAF0024CB88 /* GoogleMapApiTests.swift */; };
 		B55573001BEB1F9B0024CB88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099F6C7E1B94BDFC00BD8D9C /* Constants.swift */; };
+		B5621DD61BF1D9FF00E8CA4D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5621DD51BF1D9FF00E8CA4D /* Place.swift */; };
+		B5621DD81BF1DA1500E8CA4D /* Geocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5621DD71BF1DA1500E8CA4D /* Geocoding.swift */; };
+		B5621DD91BF1DA1500E8CA4D /* Geocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5621DD71BF1DA1500E8CA4D /* Geocoding.swift */; };
+		B5621DDA1BF1E05D00E8CA4D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5621DD51BF1D9FF00E8CA4D /* Place.swift */; };
 		B5F373311BF1B77F0073409B /* Campsite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F373301BF1B77F0073409B /* Campsite.storyboard */; };
-		B5F373331BF1B9A40073409B /* CampsiteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F373321BF1B9A40073409B /* CampsiteListViewController.swift */; };
-		B5F373341BF1B9A40073409B /* CampsiteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F373321BF1B9A40073409B /* CampsiteListViewController.swift */; };
+		B5F373331BF1B9A40073409B /* CampsiteMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F373321BF1B9A40073409B /* CampsiteMainViewController.swift */; };
+		B5F373341BF1B9A40073409B /* CampsiteMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F373321BF1B9A40073409B /* CampsiteMainViewController.swift */; };
+		B5F373361BF1CF350073409B /* CampsiteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F373351BF1CF350073409B /* CampsiteListViewController.swift */; };
+		B5F373371BF1CF350073409B /* CampsiteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F373351BF1CF350073409B /* CampsiteListViewController.swift */; };
+		B5F3733C1BF1CFCB0073409B /* CampsiteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F3733B1BF1CFCB0073409B /* CampsiteMapViewController.swift */; };
+		B5F3733D1BF1CFCB0073409B /* CampsiteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F3733B1BF1CFCB0073409B /* CampsiteMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,13 +168,16 @@
 		95B76239F85FDEDCA27D1F3F /* Pods-ExpensesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpensesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExpensesTests/Pods-ExpensesTests.release.xcconfig"; sourceTree = "<group>"; };
 		B55572EA1BEB0B2C0024CB88 /* ApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		B55572ED1BEB0BB80024CB88 /* ApiStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiStatusCode.swift; sourceTree = "<group>"; };
-		B55572F01BEB0C070024CB88 /* PlacesApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesApi.swift; sourceTree = "<group>"; };
-		B55572F31BEB10320024CB88 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		B55572F01BEB0C070024CB88 /* GoogleMapApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapApi.swift; sourceTree = "<group>"; };
 		B55572F61BEB19E20024CB88 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		B55572FA1BEB1C360024CB88 /* FakeApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeApiController.swift; sourceTree = "<group>"; };
-		B55572FD1BEB1CAF0024CB88 /* PlaceApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceApiTests.swift; sourceTree = "<group>"; };
+		B55572FD1BEB1CAF0024CB88 /* GoogleMapApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapApiTests.swift; sourceTree = "<group>"; };
+		B5621DD51BF1D9FF00E8CA4D /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
+		B5621DD71BF1DA1500E8CA4D /* Geocoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geocoding.swift; path = Models/Geocoding.swift; sourceTree = "<group>"; };
 		B5F373301BF1B77F0073409B /* Campsite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Campsite.storyboard; sourceTree = "<group>"; };
-		B5F373321BF1B9A40073409B /* CampsiteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampsiteListViewController.swift; path = ViewControllers/CampsiteListViewController.swift; sourceTree = "<group>"; };
+		B5F373321BF1B9A40073409B /* CampsiteMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampsiteMainViewController.swift; path = ViewControllers/CampsiteMainViewController.swift; sourceTree = "<group>"; };
+		B5F373351BF1CF350073409B /* CampsiteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampsiteListViewController.swift; path = ViewControllers/CampsiteListViewController.swift; sourceTree = "<group>"; };
+		B5F3733B1BF1CFCB0073409B /* CampsiteMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampsiteMapViewController.swift; path = ViewControllers/CampsiteMapViewController.swift; sourceTree = "<group>"; };
 		B78AB995FF88485C5BB74291 /* Pods_ExpensesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExpensesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C38BF7CD4AC0194D164EA1 /* Pods-ExpensesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpensesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExpensesTests/Pods-ExpensesTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,7 +311,8 @@
 				09AC0BDF1B5C36A4000849C4 /* Family.swift */,
 				09AC0BE11B5C36CF000849C4 /* Member.swift */,
 				09AC0BE31B5C36DF000849C4 /* Expense.swift */,
-				B55572F31BEB10320024CB88 /* Place.swift */,
+				B5621DD51BF1D9FF00E8CA4D /* Place.swift */,
+				B5621DD71BF1DA1500E8CA4D /* Geocoding.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -329,7 +339,9 @@
 			children = (
 				481B63C11BEF352F00FAB95D /* Expense */,
 				481B63C01BEF352100FAB95D /* Signup */,
-				B5F373321BF1B9A40073409B /* CampsiteListViewController.swift */,
+				B5F373321BF1B9A40073409B /* CampsiteMainViewController.swift */,
+				B5F373351BF1CF350073409B /* CampsiteListViewController.swift */,
+				B5F3733B1BF1CFCB0073409B /* CampsiteMapViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -404,7 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				B55572EA1BEB0B2C0024CB88 /* ApiController.swift */,
-				B55572F01BEB0C070024CB88 /* PlacesApi.swift */,
+				B55572F01BEB0C070024CB88 /* GoogleMapApi.swift */,
 				B55572ED1BEB0BB80024CB88 /* ApiStatusCode.swift */,
 				B55572F61BEB19E20024CB88 /* ApiError.swift */,
 			);
@@ -415,7 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				B55572FA1BEB1C360024CB88 /* FakeApiController.swift */,
-				B55572FD1BEB1CAF0024CB88 /* PlaceApiTests.swift */,
+				B55572FD1BEB1CAF0024CB88 /* GoogleMapApiTests.swift */,
 			);
 			path = Apis;
 			sourceTree = "<group>";
@@ -649,8 +661,8 @@
 				09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */,
 				092DCF4F1B87BA230050F893 /* AddEditFamilyMembersViewController.swift in Sources */,
 				09AA76371B86D0510073FC0B /* HeaderLableView.swift in Sources */,
+				B5F373361BF1CF350073409B /* CampsiteListViewController.swift in Sources */,
 				481B63C31BEF355D00FAB95D /* EnterPhoneNumberViewController.swift in Sources */,
-				B55572F41BEB10320024CB88 /* Place.swift in Sources */,
 				486BE9281BE55EF400241EA3 /* CoreDataCoordinator.swift in Sources */,
 				09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */,
 				09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */,
@@ -663,9 +675,12 @@
 				09AC0BE01B5C36A4000849C4 /* Family.swift in Sources */,
 				B55572EE1BEB0BB80024CB88 /* ApiStatusCode.swift in Sources */,
 				09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */,
-				B5F373331BF1B9A40073409B /* CampsiteListViewController.swift in Sources */,
+				B5F3733C1BF1CFCB0073409B /* CampsiteMapViewController.swift in Sources */,
+				B5F373331BF1B9A40073409B /* CampsiteMainViewController.swift in Sources */,
+				B5621DD81BF1DA1500E8CA4D /* Geocoding.swift in Sources */,
 				48A9B12B1BDD69900050BEAF /* ValidationUtil.swift in Sources */,
 				486BE92A1BE5817100241EA3 /* NSUserDefaultCoordinator.swift in Sources */,
+				B5621DD61BF1D9FF00E8CA4D /* Place.swift in Sources */,
 				48B514501BD6A85400479F64 /* ExpenseTableViewCell.swift in Sources */,
 				485F9C9C1C25F92900A4CB38 /* PhoneNumberViewController.swift in Sources */,
 				09AA76321B86C0940073FC0B /* CircularImageView.swift in Sources */,
@@ -676,6 +691,7 @@
 				098037E11B6C077E00E52846 /* AddFamilyUIViewController.swift in Sources */,
 				485F9CA01C25FE7900A4CB38 /* NoCaretTextField.swift in Sources */,
 				B55572F11BEB0C070024CB88 /* PlacesApi.swift in Sources */,
+				B55572F11BEB0C070024CB88 /* GoogleMapApi.swift in Sources */,
 				098037DF1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift in Sources */,
 				48A9B12D1BDD6AC70050BEAF /* StringFormatterUtil.swift in Sources */,
 				098037E31B6C188400E52846 /* FamilyMembersViewController.swift in Sources */,
@@ -686,14 +702,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B55572FF1BEB1CB00024CB88 /* PlaceApiTests.swift in Sources */,
-				B55572F21BEB0C070024CB88 /* PlacesApi.swift in Sources */,
+				B55572FF1BEB1CB00024CB88 /* GoogleMapApiTests.swift in Sources */,
+				B5621DDA1BF1E05D00E8CA4D /* Place.swift in Sources */,
+				B5621DD91BF1DA1500E8CA4D /* Geocoding.swift in Sources */,
+				B55572F21BEB0C070024CB88 /* GoogleMapApi.swift in Sources */,
 				B55572EF1BEB0BB80024CB88 /* ApiStatusCode.swift in Sources */,
 				B55572EC1BEB0B2C0024CB88 /* ApiController.swift in Sources */,
 				09AC0BD51B5C3671000849C4 /* ExpensesTests.swift in Sources */,
-				B55572F51BEB10320024CB88 /* Place.swift in Sources */,
-				B5F373341BF1B9A40073409B /* CampsiteListViewController.swift in Sources */,
+				B5F373341BF1B9A40073409B /* CampsiteMainViewController.swift in Sources */,
 				B55572F81BEB19E20024CB88 /* ApiError.swift in Sources */,
+				B5F373371BF1CF350073409B /* CampsiteListViewController.swift in Sources */,
+				B5F3733D1BF1CFCB0073409B /* CampsiteMapViewController.swift in Sources */,
 				B55572FC1BEB1C360024CB88 /* FakeApiController.swift in Sources */,
 				B55573001BEB1F9B0024CB88 /* Constants.swift in Sources */,
 			);
