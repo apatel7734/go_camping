@@ -78,6 +78,9 @@
 		B55572FC1BEB1C360024CB88 /* FakeApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572FA1BEB1C360024CB88 /* FakeApiController.swift */; };
 		B55572FF1BEB1CB00024CB88 /* PlaceApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572FD1BEB1CAF0024CB88 /* PlaceApiTests.swift */; };
 		B55573001BEB1F9B0024CB88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099F6C7E1B94BDFC00BD8D9C /* Constants.swift */; };
+		B5F373311BF1B77F0073409B /* Campsite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F373301BF1B77F0073409B /* Campsite.storyboard */; };
+		B5F373331BF1B9A40073409B /* CampsiteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F373321BF1B9A40073409B /* CampsiteListViewController.swift */; };
+		B5F373341BF1B9A40073409B /* CampsiteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F373321BF1B9A40073409B /* CampsiteListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +129,8 @@
 		481B63C41BF0571D00FAB95D /* APICoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICoordinator.swift; sourceTree = "<group>"; };
 		109BA77F7DE5DB1EDAA886F8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		1B9074750539B43CDE86F8F1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		481B63BE1BEF33E200FAB95D /* SignupLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignupLogin.storyboard; sourceTree = "<group>"; };
+		481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		483E4E711BE1426E0073F9DB /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		485F9C9B1C25F92900A4CB38 /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
 		485F9C9D1C25F93600A4CB38 /* EnterCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +167,8 @@
 		B55572F61BEB19E20024CB88 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		B55572FA1BEB1C360024CB88 /* FakeApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeApiController.swift; sourceTree = "<group>"; };
 		B55572FD1BEB1CAF0024CB88 /* PlaceApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceApiTests.swift; sourceTree = "<group>"; };
+		B5F373301BF1B77F0073409B /* Campsite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Campsite.storyboard; sourceTree = "<group>"; };
+		B5F373321BF1B9A40073409B /* CampsiteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampsiteListViewController.swift; path = ViewControllers/CampsiteListViewController.swift; sourceTree = "<group>"; };
 		B78AB995FF88485C5BB74291 /* Pods_ExpensesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExpensesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C38BF7CD4AC0194D164EA1 /* Pods-ExpensesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpensesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExpensesTests/Pods-ExpensesTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -322,8 +329,18 @@
 			children = (
 				481B63C11BEF352F00FAB95D /* Expense */,
 				481B63C01BEF352100FAB95D /* Signup */,
+				B5F373321BF1B9A40073409B /* CampsiteListViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		288FEF75C8228A86C2E342CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62F120543BBC8700687328C8 /* Pods.framework */,
+				B78AB995FF88485C5BB74291 /* Pods_ExpensesTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		481B63BD1BEF33B900FAB95D /* Storyboards */ = {
@@ -331,6 +348,7 @@
 			children = (
 				092DCF521B87CD1C0050F893 /* Main.storyboard */,
 				481B63BE1BEF33E200FAB95D /* SignupLogin.storyboard */,
+				B5F373301BF1B77F0073409B /* Campsite.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -378,15 +396,6 @@
 				4892A7161BEDC081007A6366 /* Bolts.framework */,
 				4892A7171BEDC081007A6366 /* Parse.framework */,
 				48A7EB001BCB2AB1002D2248 /* CoreData.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		288FEF75C8228A86C2E342CA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				62F120543BBC8700687328C8 /* Pods.framework */,
-				B78AB995FF88485C5BB74291 /* Pods_ExpensesTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -516,6 +525,7 @@
 				481B63BF1BEF33E200FAB95D /* SignupLogin.storyboard in Resources */,
 				09AA76351B86CFB90073FC0B /* key_add-down@3x.png in Resources */,
 				092DCF531B87CD1C0050F893 /* Main.storyboard in Resources */,
+				B5F373311BF1B77F0073409B /* Campsite.storyboard in Resources */,
 				488EDD031BE891FF00261531 /* ErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,6 +663,7 @@
 				09AC0BE01B5C36A4000849C4 /* Family.swift in Sources */,
 				B55572EE1BEB0BB80024CB88 /* ApiStatusCode.swift in Sources */,
 				09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */,
+				B5F373331BF1B9A40073409B /* CampsiteListViewController.swift in Sources */,
 				48A9B12B1BDD69900050BEAF /* ValidationUtil.swift in Sources */,
 				486BE92A1BE5817100241EA3 /* NSUserDefaultCoordinator.swift in Sources */,
 				48B514501BD6A85400479F64 /* ExpenseTableViewCell.swift in Sources */,
@@ -681,6 +692,7 @@
 				B55572EC1BEB0B2C0024CB88 /* ApiController.swift in Sources */,
 				09AC0BD51B5C3671000849C4 /* ExpensesTests.swift in Sources */,
 				B55572F51BEB10320024CB88 /* Place.swift in Sources */,
+				B5F373341BF1B9A40073409B /* CampsiteListViewController.swift in Sources */,
 				B55572F81BEB19E20024CB88 /* ApiError.swift in Sources */,
 				B55572FC1BEB1C360024CB88 /* FakeApiController.swift in Sources */,
 				B55573001BEB1F9B0024CB88 /* Constants.swift in Sources */,
