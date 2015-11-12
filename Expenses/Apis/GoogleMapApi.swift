@@ -18,7 +18,7 @@ class GoogleMapApi {
         self.apiController = apiController
     }
     
-    func getLatLngFromAddress(address: String?, success: (geocoding: Geocoding?) -> Void, failure: (error: Error?) -> Void) {
+    func getLatLngFromAddress(address: String?, success: (location: CLLocation?) -> Void, failure: (error: Error?) -> Void) {
         guard let aAddress = address else {
             failure(error: Error(.BadRequest, title: "Error", message: "Cannot identify the address"))
             return
@@ -30,9 +30,14 @@ class GoogleMapApi {
         apiController.callGetRequestForPath(path, mapping: geocoding.getMapping(), keyPath: "results") {
             (statusCode, response) in
             if statusCode == .Success {
-                print(response)
+                let geocoding = response as? [Geocoding]
+                if let location = geocoding?[0].geometry?.location {
+                    success(location: CLLocation(latitude: Double(location.latitude), longitude: Double(location.longitude)))
+                } else {
+                    failure(error: Error(.Unknown))
+                }
             } else {
-                print(response)
+                failure(error: response as? Error)
             }
         }
     }

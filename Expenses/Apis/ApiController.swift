@@ -23,10 +23,10 @@ class ApiController {
         
         let descriptor: RKResponseDescriptor = RKResponseDescriptor(mapping: mapping, method: RKRequestMethod.GET,
             pathPattern: nil, keyPath: keyPath, statusCodes: statusCodes)
-        let url: NSURL? = NSURL(string: apiPath)
+        let encodedPath = apiPath.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
         
-        if let aUrl = url {
-            let request: NSURLRequest = NSURLRequest(URL: aUrl)
+        if let path = encodedPath, url = NSURL(string: path) {
+            let request: NSURLRequest = NSURLRequest(URL: url)
             let operation: RKObjectRequestOperation = RKObjectRequestOperation(request: request, responseDescriptors: [descriptor])
             
             operation.setCompletionBlockWithSuccess({ (operation: RKObjectRequestOperation!, result: RKMappingResult!) in

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class CampsiteMainViewController: UIViewController {
     
@@ -15,6 +16,9 @@ class CampsiteMainViewController: UIViewController {
     @IBOutlet weak var listView: UIView!
     
     private lazy var googleMapApi: GoogleMapApi = self.initGoogleMapApi()
+
+    private var listVC: CampsiteListViewController!
+    private var mapVC: CampsiteMapViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +26,13 @@ class CampsiteMainViewController: UIViewController {
         navigationController?.navigationBarHidden = true
         
         searchField.delegate = self
-        
-        googleMapApi.getLatLngFromAddress("San Francisco", success: { (geocoding) -> Void in
-            
-            }) { (error) -> Void in
-                
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "containerForList" {
+            listVC = segue.destinationViewController as! CampsiteListViewController
+        } else if segue.identifier == "containerForMap" {
+            mapVC = segue.destinationViewController as! CampsiteMapViewController
         }
     }
 }
@@ -35,7 +41,9 @@ class CampsiteMainViewController: UIViewController {
 extension CampsiteMainViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
+        if let address = textField.text where address.characters.count > 0 {
+            searchCampsiteFromAddress(address)
+        }
         
         return true
     }
@@ -59,6 +67,25 @@ extension CampsiteMainViewController {
 
 // MARK: - Private methods
 extension CampsiteMainViewController {
+    
+    private func searchCampsiteFromAddress(address: String) {
+        googleMapApi.getLatLngFromAddress(address, success: { (location) in
+            if let aLocation = location {
+                self.searchCampsiteForLocation(aLocation)
+            }
+            }) { (error) in
+                //TODO handle this
+        }
+    }
+    
+    private func searchCampsiteForLocation(location: CLLocation) {
+        googleMapApi.getCampingSitesForLocation(location, radius: 4000, success: { (places) in
+            self.listVC.campsiteList = places
+            
+            }) { (error) in
+            //TODO handle this
+        }
+    }
     
     private func initGoogleMapApi() -> GoogleMapApi {
         return GoogleMapApi(apiController: ApiController())

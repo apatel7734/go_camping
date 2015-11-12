@@ -133,7 +133,6 @@
                         <segue destination="yY2-rR-teJ" kind="show" identifier="pushfamily" id="K2r-tw-D61"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992" y="-361"/>
         </scene>

@@ -21,6 +21,91 @@
             </objects>
             <point key="canvasLocation" x="-420" y="261"/>
         </scene>
+        <!--Campsite List View Controller-->
+        <scene sceneID="RSr-MH-i0T">
+            <objects>
+                <tableViewController id="A9G-gq-q5w" customClass="CampsiteListViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="vdy-Zj-l8g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="campsiteCell" rowHeight="55" id="AbH-Mi-X2W" customClass="CampsiteListCell" customModule="Expenses" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="55"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AbH-Mi-X2W" id="t7r-1K-9Nu">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NRT-zv-nyc" customClass="CosmosView" customModule="Cosmos">
+                                            <rect key="frame" x="512" y="8" width="80" height="16"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                                    <integer key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                    <real key="value" value="16"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OxP-iw-Zpk">
+                                            <rect key="frame" x="8" y="8" width="496" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnW-E5-ldD">
+                                            <rect key="frame" x="8" y="30.5" width="496" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="OxP-iw-Zpk" firstAttribute="leading" secondItem="t7r-1K-9Nu" secondAttribute="leading" constant="8" id="Fei-DP-td1"/>
+                                        <constraint firstItem="NRT-zv-nyc" firstAttribute="leading" secondItem="OxP-iw-Zpk" secondAttribute="trailing" constant="8" id="LH5-dm-Nuj"/>
+                                        <constraint firstAttribute="bottom" secondItem="hnW-E5-ldD" secondAttribute="bottom" constant="8" id="NV3-yK-Ywn"/>
+                                        <constraint firstAttribute="trailing" secondItem="NRT-zv-nyc" secondAttribute="trailing" constant="8" id="Trc-cV-2bA"/>
+                                        <constraint firstAttribute="bottom" secondItem="hnW-E5-ldD" secondAttribute="bottom" constant="8" id="U66-KY-kTl"/>
+                                        <constraint firstItem="NRT-zv-nyc" firstAttribute="leading" secondItem="hnW-E5-ldD" secondAttribute="trailing" constant="8" id="V2N-hR-jKg"/>
+                                        <constraint firstItem="hnW-E5-ldD" firstAttribute="leading" secondItem="OxP-iw-Zpk" secondAttribute="leading" id="VFD-ck-VMn"/>
+                                        <constraint firstItem="OxP-iw-Zpk" firstAttribute="top" secondItem="t7r-1K-9Nu" secondAttribute="top" constant="4" id="YuP-ey-4r4"/>
+                                        <constraint firstItem="OxP-iw-Zpk" firstAttribute="top" secondItem="t7r-1K-9Nu" secondAttribute="top" constant="8" id="bqe-Sx-LTi"/>
+                                        <constraint firstAttribute="bottom" secondItem="hnW-E5-ldD" secondAttribute="bottom" constant="8" id="brf-sX-Tuo"/>
+                                        <constraint firstAttribute="bottom" secondItem="hnW-E5-ldD" secondAttribute="bottom" constant="8" id="gZu-PO-PFo"/>
+                                        <constraint firstItem="NRT-zv-nyc" firstAttribute="top" secondItem="OxP-iw-Zpk" secondAttribute="top" id="glg-Jh-egG"/>
+                                        <constraint firstItem="hnW-E5-ldD" firstAttribute="top" secondItem="OxP-iw-Zpk" secondAttribute="bottom" constant="2" id="uPU-sS-zB4"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="YuP-ey-4r4"/>
+                                            <exclude reference="NV3-yK-Ywn"/>
+                                            <exclude reference="U66-KY-kTl"/>
+                                            <exclude reference="gZu-PO-PFo"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addressLabel" destination="hnW-E5-ldD" id="Qpi-rr-McC"/>
+                                    <outlet property="nameLabel" destination="OxP-iw-Zpk" id="zXx-Xn-K1T"/>
+                                    <outlet property="ratingView" destination="NRT-zv-nyc" id="DNg-UX-laP"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="A9G-gq-q5w" id="muk-ev-0o5"/>
+                            <outlet property="delegate" destination="A9G-gq-q5w" id="qwy-1K-q2g"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idu-Ke-M2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-420" y="984"/>
+        </scene>
         <!--Campsite Main View Controller-->
         <scene sceneID="CPz-3C-NZq">
             <objects>
@@ -69,13 +154,13 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiL-EG-MuQ" userLabel="MapView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
                                         <connections>
-                                            <segue destination="Hme-Wz-6Ff" kind="embed" id="HAw-nG-ZCQ"/>
+                                            <segue destination="Hme-Wz-6Ff" kind="embed" identifier="containerForMap" id="HAw-nG-ZCQ"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyt-Jz-g5o" userLabel="ListView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
                                         <connections>
-                                            <segue destination="o1Z-SE-7i9" kind="embed" id="YXB-to-BcS"/>
+                                            <segue destination="A9G-gq-q5w" kind="embed" identifier="containerForList" id="RP9-LW-byp"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
@@ -114,40 +199,10 @@
             </objects>
             <point key="canvasLocation" x="264" y="261"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="nIY-O1-Pe8">
-            <objects>
-                <viewController id="o1Z-SE-7i9" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0Lx-VT-gip"/>
-                        <viewControllerLayoutGuide type="bottom" id="Zwg-EC-g17"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TcN-0D-wAG">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFY-3g-jgN">
-                                <rect key="frame" x="286.5" y="234" width="27.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cFY-3g-jgN" firstAttribute="centerX" secondItem="TcN-0D-wAG" secondAttribute="centerX" id="AU4-XT-6x4"/>
-                            <constraint firstItem="cFY-3g-jgN" firstAttribute="centerY" secondItem="TcN-0D-wAG" secondAttribute="centerY" id="TbJ-NU-523"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YQS-jy-iDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-420" y="984"/>
-        </scene>
-        <!--View Controller-->
+        <!--Campsite Map View Controller-->
         <scene sceneID="beu-zX-Cyy">
             <objects>
-                <viewController id="Hme-Wz-6Ff" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CampsiteMapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hme-Wz-6Ff" customClass="CampsiteMapViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vu7-o3-HEx"/>
                         <viewControllerLayoutGuide type="bottom" id="fIO-23-eCo"/>

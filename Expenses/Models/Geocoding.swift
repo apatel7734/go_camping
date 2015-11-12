@@ -18,14 +18,13 @@ class Geocoding: NSObject {
         mapping = RKObjectMapping(forClass: Geocoding.self)
         
         let geometryMapping = RKObjectMapping(forClass: Geometry.self)
-        geometryMapping.addAttributeMappingsFromArray(["location"])
         
         let locationMapping = RKObjectMapping(forClass: Location.self)
         locationMapping.addAttributeMappingsFromDictionary([
             "lat": "latitude",
             "lng": "longitude"])
         
-        mapping.addPropertyMapping(RKRelationshipMapping(fromKeyPath: "location", toKeyPath: "location", withMapping: locationMapping))
+        geometryMapping.addPropertyMapping(RKRelationshipMapping(fromKeyPath: "location", toKeyPath: "location", withMapping: locationMapping))
         mapping.addPropertyMapping(RKRelationshipMapping(fromKeyPath: "geometry", toKeyPath: "geometry", withMapping: geometryMapping))
     }
     

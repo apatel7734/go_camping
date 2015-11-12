@@ -2,6 +2,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 pod 'RestKit', '> 0.24.0'
+pod 'Cosmos', '> 1.0'
 
 target 'Expenses' do
 
