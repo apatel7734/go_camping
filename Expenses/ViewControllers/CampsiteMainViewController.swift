@@ -57,10 +57,10 @@ extension CampsiteMainViewController {
         
         if buttonTitle == "Map" {
             sender.setTitle("List", forState: .Normal)
-            UIView.transitionFromView(listView, toView: mapView, duration: 1.0, options: .TransitionFlipFromRight, completion: nil)
+            UIView.transitionFromView(listView, toView: mapView, duration: 1.0, options: [.TransitionFlipFromRight, .ShowHideTransitionViews], completion: nil)
         } else {
             sender.setTitle("Map", forState: .Normal)
-            UIView.transitionFromView(mapView, toView: listView, duration: 1.0, options: .TransitionFlipFromRight, completion: nil)
+            UIView.transitionFromView(mapView, toView: listView, duration: 1.0, options: [.TransitionFlipFromRight, .ShowHideTransitionViews], completion: nil)
         }
     }
 }
