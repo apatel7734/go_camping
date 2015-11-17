@@ -12,6 +12,7 @@ import Foundation
 class Place: NSObject {
     
     var name: String!
+    var placeId: String!
     var rating: NSNumber?
     var vicinity: String?
     
@@ -19,7 +20,11 @@ class Place: NSObject {
     
     override init() {
         mapping = RKObjectMapping(forClass: Place.self)
-        mapping.addAttributeMappingsFromArray(["name", "rating", "vicinity"])
+        mapping.addAttributeMappingsFromDictionary([
+            "name": "name",
+            "place_id": "placeId",
+            "rating": "rating",
+            "vicinity": "vicinity"])
     }
     
     func getMapping() -> RKObjectMapping {

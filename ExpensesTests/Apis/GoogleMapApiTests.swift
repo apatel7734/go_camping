@@ -59,4 +59,14 @@ class GoogleMapApiTests: XCTestCase {
         expect(self.fakeApiController.mapping).to(beNil())
         expect(self.fakeApiController.keyPath).to(beNil())
     }
+    
+    func testGetPlaceDetailForPlaceId_CallGetRequest() {
+        let placeId = "somePlaceId"
+        googleMapApi.getPlaceDetailForPlaceId(placeId, success: { (place) in
+            }) { (error) in
+        }
+        
+        expect(self.fakeApiController.apiPath).to(contain("placeid=\(placeId)"))
+        expect(self.fakeApiController.keyPath).to(equal("result"))
+    }
 }

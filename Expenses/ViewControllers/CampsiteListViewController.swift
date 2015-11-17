@@ -15,10 +15,6 @@ class CampsiteListViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }
 
 extension CampsiteListViewController {

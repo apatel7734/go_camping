@@ -61,4 +61,17 @@ class GoogleMapApi {
                 }
             }
     }
+    
+    func getPlaceDetailForPlaceId(placeId: String, success: (place: PlaceDetail?) -> Void, failure: (error: Error?) -> Void) {
+        let path = "\(basePath)/place/details/json?placeid=\(placeId)&key=\(Constants.googleApiKey)"
+        
+        let placeDetail = PlaceDetail()
+        apiController.callGetRequestForPath(path, mapping: placeDetail.getMapping(), keyPath: "result") { (statusCode, response) in
+            if statusCode == .Success {
+                success(place: response?[0] as? PlaceDetail)
+            } else {
+                failure(error: response as? Error)
+            }
+        }
+    }
 }
