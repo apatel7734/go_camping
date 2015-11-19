@@ -13,14 +13,13 @@ class PlaceDetail: NSObject {
 
     var name: String!
     var address: String?
+    var geometry: Geometry?
     var phoneNumber: String?
     var website: String?
     var photos: [Photo]?
     
-    private let mapping: RKObjectMapping
-    
-    override init() {
-        mapping = RKObjectMapping(forClass: PlaceDetail.self)
+    static func getMapping() -> RKObjectMapping {
+        let mapping = RKObjectMapping(forClass: PlaceDetail.self)
         mapping.addAttributeMappingsFromDictionary([
             "name": "name",
             "formatted_address": "address",
@@ -28,18 +27,23 @@ class PlaceDetail: NSObject {
             "website": "website"
             ])
         
-        let photoMapping = RKObjectMapping(forClass: Photo.self)
-        photoMapping.addAttributeMappingsFromDictionary([
-            "photo_reference": "photoRef"])
-        
-        mapping.addPropertyMapping(RKRelationshipMapping(fromKeyPath: "photos", toKeyPath: "photos", withMapping: photoMapping))
-    }
+        mapping.addPropertyMapping(RKRelationshipMapping(fromKeyPath: "photos", toKeyPath: "photos", withMapping: Photo.getMapping()))
     
-    func getMapping() -> RKObjectMapping {
+        mapping.addPropertyMapping(RKRelationshipMapping(fromKeyPath: "geometry", toKeyPath: "geometry", withMapping: Geometry.getMapping()))
+        
         return mapping
     }
     
     class Photo: NSObject {
+        
         var photoRef: String!
+   
+        static func getMapping() -> RKObjectMapping {
+            let mapping = RKObjectMapping(forClass: Photo.self)
+            mapping.addAttributeMappingsFromDictionary([
+                "photo_reference": "photoRef"])
+            
+            return mapping
+        }
     }
 }

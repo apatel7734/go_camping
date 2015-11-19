@@ -16,18 +16,14 @@ class Place: NSObject {
     var rating: NSNumber?
     var vicinity: String?
     
-    private var mapping: RKObjectMapping
-    
-    override init() {
-        mapping = RKObjectMapping(forClass: Place.self)
+    static func getMapping() -> RKObjectMapping {
+        let mapping = RKObjectMapping(forClass: Place.self)
         mapping.addAttributeMappingsFromDictionary([
             "name": "name",
             "place_id": "placeId",
             "rating": "rating",
             "vicinity": "vicinity"])
-    }
-    
-    func getMapping() -> RKObjectMapping {
+        
         return mapping
     }
 }

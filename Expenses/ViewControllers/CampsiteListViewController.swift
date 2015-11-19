@@ -37,4 +37,14 @@ extension CampsiteListViewController {
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let list = campsiteList where indexPath.row < list.count {
+            let campsite = list[indexPath.row]
+            let detailVC = storyboard?.instantiateViewControllerWithIdentifier("CampsiteDetailViewController") as! CampsiteDetailViewController
+            detailVC.place = campsite
+            
+            showViewController(detailVC, sender: self)
+        }
+    }
 }

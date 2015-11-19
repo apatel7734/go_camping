@@ -26,12 +26,11 @@ class GoogleMapApi {
         
         let path = "\(basePath)/geocode/json?key=\(Constants.googleApiKey)&address=\(aAddress)"
         
-        let geocoding = Geocoding()
-        apiController.callGetRequestForPath(path, mapping: geocoding.getMapping(), keyPath: "results") {
+        apiController.callGetRequestForPath(path, mapping: Geocoding.getMapping(), keyPath: "results") {
             (statusCode, response) in
             if statusCode == .Success {
                 let geocoding = response as? [Geocoding]
-                if let location = geocoding?[0].geometry?.location {
+                if geocoding?.count > 0, let location = geocoding?[0].geometry?.location {
                     success(location: CLLocation(latitude: Double(location.latitude), longitude: Double(location.longitude)))
                 } else {
                     failure(error: Error(.Unknown))
@@ -52,8 +51,7 @@ class GoogleMapApi {
             var path = "\(basePath)/place/nearbysearch/json?types=campground&key=\(Constants.googleApiKey)"
             path += "&location=\(aLocation.coordinate.latitude),\(aLocation.coordinate.longitude)&radius=\(radius)"
             
-            let place = Place()
-            apiController.callGetRequestForPath(path, mapping: place.getMapping(), keyPath: "results") { (statusCode, response) in
+            apiController.callGetRequestForPath(path, mapping: Place.getMapping(), keyPath: "results") { (statusCode, response) in
                 if statusCode == .Success {
                     success(places: response as? [Place])
                 } else {
@@ -62,13 +60,12 @@ class GoogleMapApi {
             }
     }
     
-    func getPlaceDetailForPlaceId(placeId: String, success: (place: PlaceDetail?) -> Void, failure: (error: Error?) -> Void) {
+    func getPlaceDetailForPlaceId(placeId: String, success: (placeDetail: PlaceDetail?) -> Void, failure: (error: Error?) -> Void) {
         let path = "\(basePath)/place/details/json?placeid=\(placeId)&key=\(Constants.googleApiKey)"
         
-        let placeDetail = PlaceDetail()
-        apiController.callGetRequestForPath(path, mapping: placeDetail.getMapping(), keyPath: "result") { (statusCode, response) in
+        apiController.callGetRequestForPath(path, mapping: PlaceDetail.getMapping(), keyPath: "result") { (statusCode, response) in
             if statusCode == .Success {
-                success(place: response?[0] as? PlaceDetail)
+                success(placeDetail: response?[0] as? PlaceDetail)
             } else {
                 failure(error: response as? Error)
             }

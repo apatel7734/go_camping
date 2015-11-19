@@ -35,6 +35,12 @@
 		09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */; };
 		4404E4511BFAB29400384945 /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E4501BFAB29400384945 /* PlaceDetail.swift */; };
 		4404E4521BFAB29400384945 /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E4501BFAB29400384945 /* PlaceDetail.swift */; };
+		440EF5811BFE580F00AE274E /* CampsiteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440EF5801BFE580F00AE274E /* CampsiteDetailViewController.swift */; };
+		440EF5821BFE580F00AE274E /* CampsiteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440EF5801BFE580F00AE274E /* CampsiteDetailViewController.swift */; };
+		440EF5841BFE777C00AE274E /* CampsiteDetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440EF5831BFE777C00AE274E /* CampsiteDetailMapCell.swift */; };
+		440EF5851BFE777C00AE274E /* CampsiteDetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440EF5831BFE777C00AE274E /* CampsiteDetailMapCell.swift */; };
+		440EF5871BFE809300AE274E /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440EF5861BFE809300AE274E /* Geometry.swift */; };
+		440EF5881BFE809300AE274E /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440EF5861BFE809300AE274E /* Geometry.swift */; };
 		481B63BF1BEF33E200FAB95D /* SignupLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481B63BE1BEF33E200FAB95D /* SignupLogin.storyboard */; };
 		481B63C31BEF355D00FAB95D /* EnterPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */; };
 		481B63C51BF0571D00FAB95D /* APICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B63C41BF0571D00FAB95D /* APICoordinator.swift */; };
@@ -142,6 +148,9 @@
 		109BA77F7DE5DB1EDAA886F8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		1B9074750539B43CDE86F8F1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4404E4501BFAB29400384945 /* PlaceDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceDetail.swift; path = Models/PlaceDetail.swift; sourceTree = "<group>"; };
+		440EF5801BFE580F00AE274E /* CampsiteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampsiteDetailViewController.swift; path = ViewControllers/CampsiteDetailViewController.swift; sourceTree = "<group>"; };
+		440EF5831BFE777C00AE274E /* CampsiteDetailMapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampsiteDetailMapCell.swift; sourceTree = "<group>"; };
+		440EF5861BFE809300AE274E /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Models/Geometry.swift; sourceTree = "<group>"; };
 		481B63BE1BEF33E200FAB95D /* SignupLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignupLogin.storyboard; sourceTree = "<group>"; };
 		481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		483E4E711BE1426E0073F9DB /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
@@ -323,6 +332,7 @@
 				09AC0BE31B5C36DF000849C4 /* Expense.swift */,
 				B5621DD51BF1D9FF00E8CA4D /* Place.swift */,
 				B5621DD71BF1DA1500E8CA4D /* Geocoding.swift */,
+				440EF5861BFE809300AE274E /* Geometry.swift */,
 				4404E4501BFAB29400384945 /* PlaceDetail.swift */,
 			);
 			name = Models;
@@ -354,6 +364,7 @@
 				B5F373321BF1B9A40073409B /* CampsiteMainViewController.swift */,
 				B5F373351BF1CF350073409B /* CampsiteListViewController.swift */,
 				B5F3733B1BF1CFCB0073409B /* CampsiteMapViewController.swift */,
+				440EF5801BFE580F00AE274E /* CampsiteDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -448,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				B58097751BF455B800A474A6 /* CampsiteListCell.swift */,
+				440EF5831BFE777C00AE274E /* CampsiteDetailMapCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -697,16 +709,19 @@
 				B55572EE1BEB0BB80024CB88 /* ApiStatusCode.swift in Sources */,
 				09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */,
 				B5F3733C1BF1CFCB0073409B /* CampsiteMapViewController.swift in Sources */,
+				440EF5871BFE809300AE274E /* Geometry.swift in Sources */,
 				B5F373331BF1B9A40073409B /* CampsiteMainViewController.swift in Sources */,
 				B5621DD81BF1DA1500E8CA4D /* Geocoding.swift in Sources */,
 				48A9B12B1BDD69900050BEAF /* ValidationUtil.swift in Sources */,
 				486BE92A1BE5817100241EA3 /* NSUserDefaultCoordinator.swift in Sources */,
+				440EF5811BFE580F00AE274E /* CampsiteDetailViewController.swift in Sources */,
 				B58097791BF4594A00A474A6 /* AutoHeightTableView+UITableView.swift in Sources */,
 				4404E4511BFAB29400384945 /* PlaceDetail.swift in Sources */,
 				B5621DD61BF1D9FF00E8CA4D /* Place.swift in Sources */,
 				48B514501BD6A85400479F64 /* ExpenseTableViewCell.swift in Sources */,
 				485F9C9C1C25F92900A4CB38 /* PhoneNumberViewController.swift in Sources */,
 				09AA76321B86C0940073FC0B /* CircularImageView.swift in Sources */,
+				440EF5841BFE777C00AE274E /* CampsiteDetailMapCell.swift in Sources */,
 				483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */,
 				0992591D1B8A783E00CFA81F /* MemberTableViewCell.swift in Sources */,
 				09AC0BE21B5C36CF000849C4 /* Member.swift in Sources */,
@@ -725,6 +740,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				440EF5821BFE580F00AE274E /* CampsiteDetailViewController.swift in Sources */,
 				B55572FF1BEB1CB00024CB88 /* GoogleMapApiTests.swift in Sources */,
 				B5621DDA1BF1E05D00E8CA4D /* Place.swift in Sources */,
 				B5621DD91BF1DA1500E8CA4D /* Geocoding.swift in Sources */,
@@ -735,12 +751,14 @@
 				09AC0BD51B5C3671000849C4 /* ExpensesTests.swift in Sources */,
 				B58097771BF455B800A474A6 /* CampsiteListCell.swift in Sources */,
 				B5F373341BF1B9A40073409B /* CampsiteMainViewController.swift in Sources */,
+				440EF5881BFE809300AE274E /* Geometry.swift in Sources */,
 				B55572F81BEB19E20024CB88 /* ApiError.swift in Sources */,
 				B5F373371BF1CF350073409B /* CampsiteListViewController.swift in Sources */,
 				B5F3733D1BF1CFCB0073409B /* CampsiteMapViewController.swift in Sources */,
 				B55572FC1BEB1C360024CB88 /* FakeApiController.swift in Sources */,
 				B55573001BEB1F9B0024CB88 /* Constants.swift in Sources */,
 				B580977A1BF4594A00A474A6 /* AutoHeightTableView+UITableView.swift in Sources */,
+				440EF5851BFE777C00AE274E /* CampsiteDetailMapCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
