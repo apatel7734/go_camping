@@ -88,6 +88,6 @@ extension CampsiteMainViewController {
     }
     
     private func initGoogleMapApi() -> GoogleMapApi {
-        return GoogleMapApi(apiController: ApiController())
+        return GoogleMapApi(apiController: ApiController.sharedInstance)
     }
 }

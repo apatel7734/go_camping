@@ -21,6 +21,10 @@ class CampsiteDetailMapCell: UITableViewCell {
         
         mapView.centerCoordinate = aLocation
     
+        let pointAnnotation = MKPointAnnotation()
+        pointAnnotation.coordinate = mapView.centerCoordinate
+        mapView.addAnnotation(pointAnnotation)
+        
         let region = MKCoordinateRegionMakeWithDistance(aLocation, 1000.0, 1000.0)
         mapView.setRegion(region, animated: false)
     }
