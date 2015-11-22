@@ -35,6 +35,7 @@
 		09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */; };
 		481B63BF1BEF33E200FAB95D /* SignupLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481B63BE1BEF33E200FAB95D /* SignupLogin.storyboard */; };
 		481B63C31BEF355D00FAB95D /* EnterPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */; };
+		481B63C51BF0571D00FAB95D /* APICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B63C41BF0571D00FAB95D /* APICoordinator.swift */; };
 		483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483E4E711BE1426E0073F9DB /* CommonUtility.swift */; };
 		486BE9281BE55EF400241EA3 /* CoreDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */; };
 		486BE92A1BE5817100241EA3 /* NSUserDefaultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */; };
@@ -103,6 +104,7 @@
 		09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyUITableViewCell.swift; sourceTree = "<group>"; };
 		481B63BE1BEF33E200FAB95D /* SignupLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignupLogin.storyboard; sourceTree = "<group>"; };
 		481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberViewController.swift; sourceTree = "<group>"; };
+		481B63C41BF0571D00FAB95D /* APICoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICoordinator.swift; sourceTree = "<group>"; };
 		483E4E711BE1426E0073F9DB /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCoordinator.swift; sourceTree = "<group>"; };
 		486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaultCoordinator.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */,
 				486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */,
 				486BE92B1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift */,
+				481B63C41BF0571D00FAB95D /* APICoordinator.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */,
 				09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */,
 				09AC0BBF1B5C3670000849C4 /* ExpensesData.xcdatamodeld in Sources */,
+				481B63C51BF0571D00FAB95D /* APICoordinator.swift in Sources */,
 				092DCF511B87BA320050F893 /* AddEditFamilyExpensesViewController.swift in Sources */,
 				099F6C7F1B94BDFC00BD8D9C /* Constants.swift in Sources */,
 				098037E51B6C189200E52846 /* FamilyExpensesViewController.swift in Sources */,

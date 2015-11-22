@@ -39,6 +39,18 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    
+    let phoneNumber = "+15104617034"
+    let phoneNumberKey = "phoneNumber"
+    let sendCodeKey = "sendCode"
+    let codeEntryKey = "codeEntry"
+    private func submitPhoneNumber(){
+        let params = [phoneNumberKey : phoneNumber]
+        PFCloud.callFunctionInBackground(sendCodeKey, withParameters: params) { (response: AnyObject?, error: NSError?) -> Void in
+            print("Response  = \(response)and error = \(error)")
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         familyTableView.reloadData()

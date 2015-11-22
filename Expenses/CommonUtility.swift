@@ -84,8 +84,6 @@ class CommonUtility {
         family?.totalExpense = totalExpense
     }
     
-    
-    
     func updateTotalExpenseAmountForEvent(){
         let fetchRequest = NSFetchRequest(entityName: "Expense")
         do{

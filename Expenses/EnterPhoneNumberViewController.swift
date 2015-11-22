@@ -10,53 +10,39 @@ import UIKit
 
 class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
     
+    //MARK: - @IBOutlets
     @IBOutlet weak var phoneNumberTextField: CustomTextField!
-    
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var submitButonBottomLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var codeTextFieldLeadingLayoutConstraint: NSLayoutConstraint!
     
+    //MARK: - Properties
     private var isPhoneNumberVisible: Bool = true{
         didSet{
             if isPhoneNumberVisible{
                 phoneNumberTextField.becomeFirstResponder()
+                submitButton.setTitle("Submit", forState: UIControlState.Normal)
             }else{
                 codeTextField.becomeFirstResponder()
+                submitButton.setTitle("Login", forState: UIControlState.Normal)
             }
-            updateSubitButtonUI()
+            updateSubmitButtonUI()
         }
     }
     
     private var phoneNumber: String = ""{
         didSet{
             phoneNumberTextField.text = StringFormatterUtil.sharedInstance.formatPhoneNumber(phoneNumber)
-            updateSubitButtonUI()
+            updateSubmitButtonUI()
         }
     }
     
     private var loginCode: String = ""{
         didSet{
             codeTextField.text = loginCode
-            updateSubitButtonUI()
+            updateSubmitButtonUI()
         }
-    }
-    
-    private func updateSubitButtonUI(){
-        if isPhoneNumberVisible{
-            if phoneNumber.characters.count == 10{
-                enableSubmitButton = true
-            }else{
-                enableSubmitButton = false
-            }
-        }else{
-            if loginCode.characters.count == 4{
-                enableSubmitButton = true
-            }else{
-                enableSubmitButton = false
-            }
-        }
-        
     }
     
     private var enableSubmitButton: Bool = false{
@@ -71,7 +57,7 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
         }
     }
     
-    //MARK - Lifecycle methods
+    //MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,17 +78,16 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
     }
     
     
-    //@IBActions
-    
-    @IBAction func didSubmitTapped(sender: AnyObject) {
-        if isPhoneNumberVisible{
-            animateToShowCodeTextField()
-        }else{
-            animateToHideCodeTextField()
+    //MARK: - @IBActions
+    @IBAction func didSubmitTapped(sender: UIButton) {
+        if isPhoneNumberVisible && sender.titleLabel?.text == "Submit"{
+            submitPhoneNumber()
+        }else if sender.titleLabel?.text == "Login"{
+            submitConfirmationCode()
         }
     }
     
-    //MARK - UITextfield delegate methods
+    //MARK: - UITextfield delegate methods
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
         switch(textField){
@@ -132,7 +117,25 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
         return true
     }
     
-    //MARK - Utilities methods
+    //MARK: - Utilities methods
+    private func submitPhoneNumber(){
+        APICoordinator.submitPhoneNumber(phoneNumber) { (response, error) -> Void in
+            print("submitPhoneNumber - response - \(response) and error \(error)")
+            if self.isPhoneNumberVisible{
+                self.animateToShowCodeTextField()
+            }else{
+                self.animateToHideCodeTextField()
+            }
+        }
+    }
+    
+    private func submitConfirmationCode(){
+        APICoordinator.submitCode(loginCode, phoneNumber: phoneNumber) { (response, error) -> Void in
+            print("submitConfirmationCode - response - \(response) and error \(error)")
+        }
+    }
+    
+    
     private func animateToShowCodeTextField(){
         let phoneNumberFrame = phoneNumberTextField.frame
         let xToHidePhoneNumber = 0 - phoneNumberFrame.origin.x - phoneNumberFrame.width
@@ -176,8 +179,24 @@ class EnterPhoneNumberViewController: UIViewController,UITextFieldDelegate {
         }
     }
     
+    private func updateSubmitButtonUI(){
+        if isPhoneNumberVisible{
+            if phoneNumber.characters.count == 10{
+                enableSubmitButton = true
+            }else{
+                enableSubmitButton = false
+            }
+        }else{
+            if loginCode.characters.count == 4{
+                enableSubmitButton = true
+            }else{
+                enableSubmitButton = false
+            }
+        }
+        
+    }
     
-    //MARK - Keyboard methods
+    //MARK: - Keyboard methods
     func keyboardWillShow(sender: NSNotification) {
         if let userInfo = sender.userInfo {
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
