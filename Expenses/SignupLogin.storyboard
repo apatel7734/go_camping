@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6xw-z4-a0e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0IU-Ig-c7y">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,6 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your phone number" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XtZ-Rt-5rz" customClass="CustomTextField" customModule="Expenses" customModuleProvider="target">
                                 <rect key="frame" x="45" y="156" width="510" height="44"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="FUq-jy-br6"/>
@@ -31,7 +30,6 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nli-bP-WHt" customClass="CustomButton" customModule="Expenses" customModuleProvider="target">
                                 <rect key="frame" x="200" y="285" width="200" height="44"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.027450980392156862" green="0.57647058823529407" blue="0.019607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="EPl-tQ-Lbn"/>
@@ -47,14 +45,12 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter confirmation code" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="trm-Am-fpV" customClass="CustomTextField" customModule="Expenses" customModuleProvider="target">
                                 <rect key="frame" x="578" y="156" width="510" height="44"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="go"/>
                             </textField>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="trm-Am-fpV" firstAttribute="centerY" secondItem="XtZ-Rt-5rz" secondAttribute="centerY" id="0AG-NT-aOO"/>
@@ -79,6 +75,142 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRl-Qw-djD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="619" y="368"/>
+        </scene>
+        <!--Phone Number View Controller-->
+        <scene sceneID="tDD-lU-GCW">
+            <objects>
+                <viewController id="0IU-Ig-c7y" customClass="PhoneNumberViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LIU-qW-xii"/>
+                        <viewControllerLayoutGuide type="bottom" id="hKV-6T-NtJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QBh-ZJ-Yo5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jJ7-0R-rwa">
+                                <rect key="frame" x="250" y="28" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="bQD-bn-fyU"/>
+                                    <constraint firstAttribute="height" constant="100" id="jmJ-xY-hSv"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Go Camping!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDj-SX-JA4">
+                                <rect key="frame" x="196.5" y="198" width="206" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xWu-kt-0FU" customClass="NoCaretTextField" customModule="Expenses" customModuleProvider="target">
+                                <rect key="frame" x="40" y="239" width="520" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="mmw-8X-ph0"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="mmw-8X-ph0"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="we need to text you a confirmation code to get started" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVe-y3-sbk">
+                                <rect key="frame" x="40" y="319.5" width="520" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JDj-SX-JA4" firstAttribute="top" secondItem="jJ7-0R-rwa" secondAttribute="bottom" constant="70" id="4Jy-Td-xFy"/>
+                            <constraint firstItem="JDj-SX-JA4" firstAttribute="centerX" secondItem="QBh-ZJ-Yo5" secondAttribute="centerX" id="Cwl-bR-c3A"/>
+                            <constraint firstItem="kVe-y3-sbk" firstAttribute="trailing" secondItem="xWu-kt-0FU" secondAttribute="trailing" id="EOe-Tw-xO1"/>
+                            <constraint firstItem="jJ7-0R-rwa" firstAttribute="centerX" secondItem="QBh-ZJ-Yo5" secondAttribute="centerX" id="KZN-FC-VwU"/>
+                            <constraint firstItem="xWu-kt-0FU" firstAttribute="leading" secondItem="QBh-ZJ-Yo5" secondAttribute="leadingMargin" constant="20" id="Wg1-n9-HSp"/>
+                            <constraint firstItem="xWu-kt-0FU" firstAttribute="top" secondItem="JDj-SX-JA4" secondAttribute="bottom" constant="20" id="eC9-v7-nSs"/>
+                            <constraint firstItem="kVe-y3-sbk" firstAttribute="leading" secondItem="xWu-kt-0FU" secondAttribute="leading" id="eMk-en-Cgm"/>
+                            <constraint firstItem="kVe-y3-sbk" firstAttribute="centerX" secondItem="QBh-ZJ-Yo5" secondAttribute="centerX" id="f5H-c9-Ru9"/>
+                            <constraint firstItem="kVe-y3-sbk" firstAttribute="top" secondItem="xWu-kt-0FU" secondAttribute="bottom" constant="20" id="gl9-hD-01j"/>
+                            <constraint firstItem="jJ7-0R-rwa" firstAttribute="top" secondItem="LIU-qW-xii" secondAttribute="bottom" constant="8" symbolic="YES" id="hLS-7s-OfB"/>
+                            <constraint firstItem="xWu-kt-0FU" firstAttribute="centerX" secondItem="QBh-ZJ-Yo5" secondAttribute="centerX" id="sV4-lR-zoG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xWu-kt-0FU" secondAttribute="trailing" constant="20" id="vd4-64-gJd"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="phoneNumberTextField" destination="xWu-kt-0FU" id="PJD-HM-AUu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IHO-ab-ylI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="619" y="1048"/>
+        </scene>
+        <!--Enter Code View Controller-->
+        <scene sceneID="Xfs-UZ-Mrn">
+            <objects>
+                <viewController id="lNR-M4-gdw" customClass="EnterCodeViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kaM-p0-5K1"/>
+                        <viewControllerLayoutGuide type="bottom" id="PwX-l2-dYu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Omt-Pc-FAd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJc-2F-DXM">
+                                <rect key="frame" x="250" y="28" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Rge-8i-K95"/>
+                                    <constraint firstAttribute="width" constant="100" id="kaY-Yj-KjL"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awesome, thanks!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bS7-9V-o2f">
+                                <rect key="frame" x="227" y="198" width="146.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cks-ot-wro" customClass="NoCaretTextField" customModule="Expenses" customModuleProvider="target">
+                                <rect key="frame" x="40" y="239.5" width="520" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kqM-Rq-0nC"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="kqM-Rq-0nC"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We've sent the confirmation code. you should get it soon." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcM-xE-B74">
+                                <rect key="frame" x="40" y="319.5" width="520" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Cks-ot-wro" firstAttribute="top" secondItem="bS7-9V-o2f" secondAttribute="bottom" constant="20" id="9vb-h7-9m6"/>
+                            <constraint firstItem="wcM-xE-B74" firstAttribute="trailing" secondItem="Cks-ot-wro" secondAttribute="trailing" id="NoJ-Bh-4q9"/>
+                            <constraint firstItem="bS7-9V-o2f" firstAttribute="centerX" secondItem="Omt-Pc-FAd" secondAttribute="centerX" id="QEI-4D-pYo"/>
+                            <constraint firstItem="wcM-xE-B74" firstAttribute="top" secondItem="Cks-ot-wro" secondAttribute="bottom" constant="20" id="RvW-Ny-Xlz"/>
+                            <constraint firstItem="wcM-xE-B74" firstAttribute="leading" secondItem="Cks-ot-wro" secondAttribute="leading" id="Seu-bQ-seP"/>
+                            <constraint firstItem="CJc-2F-DXM" firstAttribute="centerX" secondItem="Omt-Pc-FAd" secondAttribute="centerX" id="Sy9-Cg-pVx"/>
+                            <constraint firstItem="Cks-ot-wro" firstAttribute="leading" secondItem="Omt-Pc-FAd" secondAttribute="leadingMargin" constant="20" id="ens-wF-9au"/>
+                            <constraint firstItem="bS7-9V-o2f" firstAttribute="top" secondItem="CJc-2F-DXM" secondAttribute="bottom" constant="70" id="kYo-eI-cM2"/>
+                            <constraint firstItem="CJc-2F-DXM" firstAttribute="top" secondItem="kaM-p0-5K1" secondAttribute="bottom" constant="8" symbolic="YES" id="lRH-ci-VoD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cks-ot-wro" secondAttribute="trailing" constant="20" id="zTn-X9-VJD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MzR-c5-hNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1392" y="1048"/>
         </scene>
     </scenes>
 </document>
