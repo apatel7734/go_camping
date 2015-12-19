@@ -40,6 +40,7 @@
 		485F9C9C1C25F92900A4CB38 /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F9C9B1C25F92900A4CB38 /* PhoneNumberViewController.swift */; };
 		485F9C9E1C25F93600A4CB38 /* EnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F9C9D1C25F93600A4CB38 /* EnterCodeViewController.swift */; };
 		485F9CA01C25FE7900A4CB38 /* NoCaretTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F9C9F1C25FE7900A4CB38 /* NoCaretTextField.swift */; };
+		485F9CA21C2603AA00A4CB38 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F9CA11C2603AA00A4CB38 /* UIKitExtensions.swift */; };
 		486BE9281BE55EF400241EA3 /* CoreDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */; };
 		486BE92A1BE5817100241EA3 /* NSUserDefaultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */; };
 		486BE92C1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE92B1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift */; };
@@ -112,6 +113,7 @@
 		485F9C9B1C25F92900A4CB38 /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
 		485F9C9D1C25F93600A4CB38 /* EnterCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeViewController.swift; sourceTree = "<group>"; };
 		485F9C9F1C25FE7900A4CB38 /* NoCaretTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCaretTextField.swift; sourceTree = "<group>"; };
+		485F9CA11C2603AA00A4CB38 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCoordinator.swift; sourceTree = "<group>"; };
 		486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaultCoordinator.swift; sourceTree = "<group>"; };
 		486BE92B1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberExtension.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				488EDD001BE891ED00261531 /* ErrorView.swift */,
 				488EDD021BE891FF00261531 /* ErrorView.xib */,
 				485F9C9F1C25FE7900A4CB38 /* NoCaretTextField.swift */,
+				485F9CA11C2603AA00A4CB38 /* UIKitExtensions.swift */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 			files = (
 				09A18CA81B854E010093932F /* CustomTextField.swift in Sources */,
 				09A18CA61B854DE50093932F /* CustomButton.swift in Sources */,
+				485F9CA21C2603AA00A4CB38 /* UIKitExtensions.swift in Sources */,
 				485F9C9E1C25F93600A4CB38 /* EnterCodeViewController.swift in Sources */,
 				486BE92C1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift in Sources */,
 				0992591F1B8AA2DE00CFA81F /* Enums.swift in Sources */,

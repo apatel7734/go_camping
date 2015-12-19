@@ -14,9 +14,6 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
     private var phoneNumber: String = ""{
         didSet{
             phoneNumberTextField.text = phoneNumber
-            if phoneNumber.characters.count >= 10 {
-                moveToEnterCodeScreen()
-            }
         }
     }
     
@@ -26,6 +23,8 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         phoneNumberTextField.delegate = self
         phoneNumberTextField.becomeFirstResponder()
+        
+        self.navigationController?.navigationBar.configureAsTransparentBar()
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
