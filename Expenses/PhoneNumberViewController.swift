@@ -14,6 +14,9 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
     private var phoneNumber: String = ""{
         didSet{
             phoneNumberTextField.text = phoneNumber
+            if phoneNumber.characters.count >= 10 {
+                moveToEnterCodeScreen()
+            }
         }
     }
     
@@ -35,5 +38,11 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
         
         return false
     }
-
+    
+    private func moveToEnterCodeScreen(){
+        if let enterCodeVC = storyboard?.instantiateViewControllerWithIdentifier("entercodeviewcontroller") as? EnterCodeViewController{
+            self.navigationController?.pushViewController(enterCodeVC, animated: true)
+        }
+    }
+    
 }

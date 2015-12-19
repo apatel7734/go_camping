@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0IU-Ig-c7y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Xek-Zo-50R">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -89,20 +89,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jJ7-0R-rwa">
-                                <rect key="frame" x="250" y="28" width="100" height="100"/>
+                                <rect key="frame" x="250" y="72" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="bQD-bn-fyU"/>
                                     <constraint firstAttribute="height" constant="100" id="jmJ-xY-hSv"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Go Camping!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDj-SX-JA4">
-                                <rect key="frame" x="196.5" y="198" width="206" height="21.5"/>
+                                <rect key="frame" x="196.5" y="242" width="206" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xWu-kt-0FU" customClass="NoCaretTextField" customModule="Expenses" customModuleProvider="target">
-                                <rect key="frame" x="40" y="239" width="520" height="60"/>
+                                <rect key="frame" x="40" y="283" width="520" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mmw-8X-ph0"/>
                                 </constraints>
@@ -116,7 +116,7 @@
                                 </variation>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="we need to text you a confirmation code to get started" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVe-y3-sbk">
-                                <rect key="frame" x="40" y="319.5" width="520" height="20.5"/>
+                                <rect key="frame" x="40" y="363.5" width="520" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -138,6 +138,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="xWu-kt-0FU" secondAttribute="trailing" constant="20" id="vd4-64-gJd"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="HWI-he-ucr"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="phoneNumberTextField" destination="xWu-kt-0FU" id="PJD-HM-AUu"/>
@@ -145,12 +146,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHO-ab-ylI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="619" y="1048"/>
+            <point key="canvasLocation" x="1431" y="1048"/>
         </scene>
         <!--Enter Code View Controller-->
         <scene sceneID="Xfs-UZ-Mrn">
             <objects>
-                <viewController id="lNR-M4-gdw" customClass="EnterCodeViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="entercodeviewcontroller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lNR-M4-gdw" customClass="EnterCodeViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kaM-p0-5K1"/>
                         <viewControllerLayoutGuide type="bottom" id="PwX-l2-dYu"/>
@@ -210,7 +211,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MzR-c5-hNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1392" y="1048"/>
+            <point key="canvasLocation" x="2204" y="1048"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wTq-cd-JqS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xek-Zo-50R" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ReM-ja-zBk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0IU-Ig-c7y" kind="relationship" relationship="rootViewController" id="2At-BR-hda"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZXg-Oj-bu3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="619" y="1048"/>
         </scene>
     </scenes>
 </document>
