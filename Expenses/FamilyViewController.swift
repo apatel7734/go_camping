@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import Parse
-
+//pushfamily
 
 class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource ,NSFetchedResultsControllerDelegate{
     
@@ -29,6 +29,8 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("error perfoming fetch.")
         }
         fetchedResultsController.delegate = self
+        
+        configureNavigationBar()
     }
     
     private func testParse(){
@@ -39,21 +41,19 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    
-    let phoneNumber = "+15104617034"
-    let phoneNumberKey = "phoneNumber"
-    let sendCodeKey = "sendCode"
-    let codeEntryKey = "codeEntry"
-    private func submitPhoneNumber(){
-        let params = [phoneNumberKey : phoneNumber]
-        PFCloud.callFunctionInBackground(sendCodeKey, withParameters: params) { (response: AnyObject?, error: NSError?) -> Void in
-            print("Response  = \(response)and error = \(error)")
-        }
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         familyTableView.reloadData()
+    }
+    
+    func configureNavigationBar(){
+        self.navigationController?.navigationBar.configureAsBlueBar()
+        let addbutton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "didTapAddButton")
+        self.navigationItem.rightBarButtonItem = addbutton
+    }
+    
+    func didTapAddButton(){
+        performSegueWithIdentifier("pushfamily", sender: self)
     }
     
     //MARK - tableView datasource
@@ -87,7 +87,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)
-            print("Deleting row \(indexPath.row)")
             if let objectToRemove = self.fetchedResultsController.objectAtIndexPath(indexPath) as? NSManagedObject{
                 
                 CoreDataStackManager.sharedInstance.managedObjectContext.deleteObject(objectToRemove)
@@ -193,7 +192,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        
         switch type {
         case .Insert:
             familyTableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)

@@ -9,6 +9,27 @@
 import Foundation
 import UIKit
 
+extension UIColor{
+    class func colorWithHexString(hexString: String, alpha: CGFloat = 1.0) -> UIColor {
+        var rgbValue: UInt32 = 0
+        let scanner = NSScanner(string: hexString)
+        scanner.scanLocation = 1
+        scanner.scanHexInt(&rgbValue)
+        let red = (CGFloat((rgbValue & 0xFF0000) >> 16)) / 255.0
+        let green = (CGFloat((rgbValue & 0xFF00) >> 8)) / 255.0
+        let blue = CGFloat((rgbValue & 0xFF)) / 255.0
+        
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
+    
+    class func darkBlue() -> UIColor {
+        return UIColor.colorWithHexString("#273B49")
+    }
+    
+    
+}
+
+
 extension String{
     /*
     it formatS phoneNumber into formate of "XXX XXX XXXX"
@@ -28,7 +49,7 @@ extension String{
         
         return formattedPhoneNumber
     }
-
+    
 }
 
 
@@ -42,6 +63,18 @@ extension UINavigationBar{
         self.translucent = true
         self.backgroundColor = UIColor.clearColor()
         self.tintColor = UIColor.whiteColor()
+    }
+    
+    func configureAsBlueBar(){
+        self.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
+        self.barTintColor = UIColor.darkBlue()
+        self.translucent = true
+        setTitleTextAttributesWithColor(UIColor.whiteColor())
+    }
+    
+    func setTitleTextAttributesWithColor(color: UIColor) {
+        var attributes: [String : AnyObject] = [NSForegroundColorAttributeName : color]
+        titleTextAttributes = attributes
     }
     
 }

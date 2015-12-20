@@ -208,6 +208,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Cks-ot-wro" secondAttribute="trailing" constant="20" id="zTn-X9-VJD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="enterCodeTextField" destination="Cks-ot-wro" id="dsy-RO-9M5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MzR-c5-hNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

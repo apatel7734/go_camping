@@ -22,8 +22,12 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         phoneNumberTextField.delegate = self
-        phoneNumberTextField.becomeFirstResponder()
         configureNavigationBar()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.configureAsTransparentBar()
+        phoneNumberTextField.becomeFirstResponder()
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -35,23 +39,31 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
         if phoneNumber.characters.count < 10 {
             phoneNumber = phoneNumber + string
         }
-
+        
         return false
     }
     
     private func configureNavigationBar(){
-        self.navigationController?.navigationBar.configureAsTransparentBar()
-        let sendCodeButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: "sendCode")
+        let sendCodeButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: "didTapNextButton")
         self.navigationItem.rightBarButtonItem = sendCodeButton
     }
     
-    func sendCode(){
-        moveToEnterCodeScreen()
+    func didTapNextButton(){
+        submitPhoneNumber()
     }
     
     private func moveToEnterCodeScreen(){
         if let enterCodeVC = storyboard?.instantiateViewControllerWithIdentifier("entercodeviewcontroller") as? EnterCodeViewController{
+            enterCodeVC.phoneNumber = phoneNumber
             self.navigationController?.pushViewController(enterCodeVC, animated: true)
+        }
+    }
+    
+    
+    private func submitPhoneNumber(){
+        APICoordinator.submitPhoneNumber(phoneNumber) { (response, error) -> Void in
+            print("Response = \(response), Error = \(error)")
+            self.moveToEnterCodeScreen()
         }
     }
     

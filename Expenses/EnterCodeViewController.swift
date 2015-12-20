@@ -8,28 +8,41 @@
 
 import UIKit
 
-class EnterCodeViewController: UIViewController {
-
+class EnterCodeViewController: UIViewController,UITextFieldDelegate {
+    
+    @IBOutlet weak var enterCodeTextField: NoCaretTextField!
+    var phoneNumber = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        enterCodeTextField.delegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(animated: Bool) {
+        enterCodeTextField.becomeFirstResponder()
+        self.navigationController?.navigationBar.configureAsTransparentBar()
     }
-    */
-
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        if string.isEmpty || textField.text?.characters.count < 4{
+            return true
+        }
+        submitConfirmationCode()
+        
+        return false
+    }
+    
+    private func submitConfirmationCode(){
+        APICoordinator.submitCode(enterCodeTextField.text!, phoneNumber: phoneNumber) { (response, error) -> Void in
+            self.moveToFamilisVC()
+        }
+    }
+    
+    private func moveToFamilisVC(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let familyVC = storyboard.instantiateViewControllerWithIdentifier("FamilyViewController") as? FamilyViewController{
+            self.navigationController?.pushViewController(familyVC, animated: true)
+        }
+    }
 }
