@@ -103,7 +103,6 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="familyImage" destination="PVb-YR-dcu" id="67U-vJ-oHf"/>
                                             <outlet property="familyName" destination="evk-jq-82K" id="rXt-He-MqZ"/>
@@ -125,7 +124,7 @@
                     <navigationItem key="navigationItem" title="Families" id="8WA-Dh-Xnb">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="9sd-wr-GGu">
                             <connections>
-                                <segue destination="Azq-3o-PgA" kind="presentation" id="dEk-8x-cZu"/>
+                                <segue destination="Azq-3o-PgA" kind="presentation" identifier="presentaddnewfamily" id="dEk-8x-cZu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -528,7 +527,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAa-fL-29F">
                                                     <rect key="frame" x="531" y="16" width="45" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
