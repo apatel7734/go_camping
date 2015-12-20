@@ -13,7 +13,7 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     private var phoneNumber: String = ""{
         didSet{
-            phoneNumberTextField.text = phoneNumber
+            phoneNumberTextField.text = phoneNumber.formatPhoneNumberWithSpaces()
         }
     }
     
@@ -23,8 +23,7 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         phoneNumberTextField.delegate = self
         phoneNumberTextField.becomeFirstResponder()
-        
-        self.navigationController?.navigationBar.configureAsTransparentBar()
+        configureNavigationBar()
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -33,9 +32,21 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
             phoneNumber = String(phoneNumber.characters.dropLast())
         }
         
-        phoneNumber = phoneNumber + string
-        
+        if phoneNumber.characters.count < 10 {
+            phoneNumber = phoneNumber + string
+        }
+
         return false
+    }
+    
+    private func configureNavigationBar(){
+        self.navigationController?.navigationBar.configureAsTransparentBar()
+        let sendCodeButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: "sendCode")
+        self.navigationItem.rightBarButtonItem = sendCodeButton
+    }
+    
+    func sendCode(){
+        moveToEnterCodeScreen()
     }
     
     private func moveToEnterCodeScreen(){

@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class StringFormatterUtil{
     
     static let sharedInstance = StringFormatterUtil()
@@ -15,7 +16,7 @@ class StringFormatterUtil{
     func formatPhoneNumber(phoneNumber: String) -> String{
         
         let string: NSMutableString = NSMutableString(string: phoneNumber)
-
+        
         if string.length > 0 {
             string.insertString("(", atIndex: 0)
         }
@@ -30,4 +31,5 @@ class StringFormatterUtil{
         }
         return string as String
     }
+    
 }
