@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum ActionTypes{
-    case Add, Edit
+enum ActionType{
+    case Add, Update
 }

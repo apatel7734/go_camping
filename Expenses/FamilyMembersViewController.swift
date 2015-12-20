@@ -34,9 +34,16 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     
     
-    func didPickFamilyMember(member: Member, actionType: ActionTypes) {
+    func didPickFamilyMember(member: Member, actionType: ActionType) {
         member.family = self.family
         CoreDataStackManager.sharedInstance.saveContext()
+        switch(actionType){
+        case .Add:
+            CommonUtility.sharedInstance.incrementTotalMembersCountForEvent()
+        case .Update:
+            //nothing to update
+            break
+        }
         self.membersTableView.reloadData()
     }
     
@@ -57,7 +64,6 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     //MARK: UITableViewDelegates
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Family members = \(family?.members)")
         if let count = family?.members.count{
             return count
         }else{
@@ -80,4 +86,24 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         presentNextViewcontroller(member)
     }
     
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        switch(editingStyle){
+        case .Delete:
+            if let memberTobeDeleted = family?.members[indexPath.row]{
+                CoreDataStackManager.sharedInstance.managedObjectContext.deleteObject(memberTobeDeleted)
+                CoreDataStackManager.sharedInstance.saveContext()
+                tableView.beginUpdates()
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                tableView.endUpdates()
+                CommonUtility.sharedInstance.decrementTotalMembersCountForEvent()
+            }
+        default:
+            print("Not supported yet.")
+        }
+    }
 }

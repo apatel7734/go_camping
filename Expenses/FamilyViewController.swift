@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Parse
+//pushfamily
 
 class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource ,NSFetchedResultsControllerDelegate{
     
@@ -26,13 +28,32 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }catch{
             print("error perfoming fetch.")
         }
-        
         fetchedResultsController.delegate = self
+        
+        configureNavigationBar()
+    }
+    
+    private func testParse(){
+        let testObj = PFObject(className: "TestObject")
+        testObj["foo"] = "foobar 2"
+        testObj.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("Saved success \(success)")
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         familyTableView.reloadData()
+    }
+    
+    func configureNavigationBar(){
+        self.navigationController?.navigationBar.configureAsBlueBar()
+        let addbutton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "didTapAddButton")
+        self.navigationItem.rightBarButtonItem = addbutton
+    }
+    
+    func didTapAddButton(){
+        performSegueWithIdentifier("pushfamily", sender: self)
     }
     
     //MARK - tableView datasource
@@ -57,6 +78,24 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.familyTableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.currentIndexPath = indexPath
         self.performSegueWithIdentifier("pushfamily", sender: nil)
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            if let objectToRemove = self.fetchedResultsController.objectAtIndexPath(indexPath) as? NSManagedObject{
+                
+                CoreDataStackManager.sharedInstance.managedObjectContext.deleteObject(objectToRemove)
+                CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
+                CommonUtility.sharedInstance.updateTotalMembersCountForEvent()
+                CoreDataStackManager.sharedInstance.saveContext()
+                tableView.reloadData()
+            }
+        }
     }
     
     
@@ -106,10 +145,9 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func configureCell(familyCell: FamilyUITableViewCell, withFamily family: Family){
         familyCell.familyName.text = family.name
-        if let totalExpense = family.totalExpense?.stringValue{
-            familyCell.totalExpenses.text = "$\(totalExpense)"
-        }
         familyCell.totalMembers.text = "\(family.members.count)"
+        let familyCalculatedExpense = CommonUtility.sharedInstance.amountDifferenceToPayOrTakeForFamily(family)
+        familyCell.totalExpenses.text = familyCalculatedExpense.currencyFormattedValueWithDollarPrefix()
         familyCell.familyImage.showFirstCharacterFor(family.name)
     }
     
@@ -154,7 +192,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        
         switch type {
         case .Insert:
             familyTableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)

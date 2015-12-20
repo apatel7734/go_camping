@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddEditFamilyExpensesViewControllerDelegate{
-    func didExpenseAdded(expense: Expense)
+    func didPickExpense(expense: Expense, actionType: ActionType)
 }
 
 class AddEditFamilyExpensesViewController: UIViewController {
@@ -39,6 +39,7 @@ class AddEditFamilyExpensesViewController: UIViewController {
         let nameResponse = ValidationUtil.sharedValidationUtil.isValidName(nameTextField.text)
         if (!nameResponse.isValid){
             print("Not valid name : \(nameResponse.errorMessage)")
+            ErrorView.sharedView.showErrorMessage(self.view, message: nameResponse.errorMessage!)
         }
         
         //validate short desc
@@ -82,16 +83,20 @@ class AddEditFamilyExpensesViewController: UIViewController {
     func addOrUpdateFamilyExpense(){
         let name = nameTextField.text!
         let desc = descTextField.text!
-        let  amount = NSDecimalNumber(string: amountTextfield.text)
+        let amount = NSDecimalNumber(string: amountTextfield.text)
+        var actionType = ActionType.Add
         
         if let expense = expense{
             expense.name = name
             expense.amount = amount
             expense.desc = desc
+            //save original expense amount
+            actionType = .Update
         }else{
             let expenseDictionary = [Expense.Keys.Name: name, Expense.Keys.Desc: desc, Expense.Keys.Amount: amount]
             self.expense = Expense(dictionary: expenseDictionary, context: CoreDataStackManager.sharedInstance.managedObjectContext)
+            actionType = .Add
         }
-        delegate?.didExpenseAdded(expense!)
+        delegate?.didPickExpense(expense!, actionType: actionType)
     }
 }

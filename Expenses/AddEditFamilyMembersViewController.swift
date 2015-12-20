@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddEditFamilyMembersViewControllerDelegate{
-    func didPickFamilyMember(member: Member, actionType: ActionTypes)
+    func didPickFamilyMember(member: Member, actionType: ActionType)
 }
 
 class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate {
@@ -28,7 +28,7 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
     
     private var phoneNumber: String = ""{
         didSet{
-            let formattedPhoneNumber = StringFormatterUtil.sharedStringFormatterUtil.formatPhoneNumber(phoneNumber)
+            let formattedPhoneNumber = StringFormatterUtil.sharedInstance.formatPhoneNumber(phoneNumber)
             phoneNumberTextField.text = formattedPhoneNumber
         }
     }
@@ -108,27 +108,28 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
         //validate Name
         let nameResponse = ValidationUtil.sharedValidationUtil.isValidName(nameTextField.text)
         if !nameResponse.isValid {
-            print("name note valid \(nameResponse.errorMessage)")
+
+            ErrorView.sharedView.showErrorMessage(self.view, message: nameResponse.errorMessage!)
             return false
         }
         //validate email
         let emailResponse = ValidationUtil.sharedValidationUtil.isValidEmail(emailTextField.text)
         if !emailResponse.isValid{
-            print("email not valid \(emailResponse.errorMessage)")
+            ErrorView.sharedView.showErrorMessage(self.view, message: emailResponse.errorMessage!)
             return false
         }
         
         //validate phoneNumber
         let phoneNumberResponse = ValidationUtil.sharedValidationUtil.isValidPhoneNumber(phoneNumber)
         if !phoneNumberResponse.isValid{
-            print("phoneNumberResponse not valid \(phoneNumberResponse.errorMessage)")
+            ErrorView.sharedView.showErrorMessage(self.view, message: phoneNumberResponse.errorMessage!)
             return false
         }
         
         //validate age
         let ageResponse = ValidationUtil.sharedValidationUtil.isValidAge(ageTextField.text)
         if !ageResponse.isValid{
-            print("email not valid \(emailResponse.errorMessage)")
+            ErrorView.sharedView.showErrorMessage(self.view, message: emailResponse.errorMessage!)
             return false
         }
         
@@ -140,14 +141,14 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
         let phone = phoneNumber
         let age = ageTextField.text!
         let email = emailTextField.text!
-        var actionType = ActionTypes.Add
+        var actionType = ActionType.Add
         
         if let _ = member{
             member?.name = name
             member?.phoneNumber = Int(phone)
             member?.email = email
             member?.age = Int(age)
-            actionType = ActionTypes.Edit
+            actionType = .Update
             
         }else{
             let memberDict = [Member.Keys.Name: name, Member.Keys.PhoneNumber : phone, Member.Keys.Age : age, Member.Keys.Email : email]

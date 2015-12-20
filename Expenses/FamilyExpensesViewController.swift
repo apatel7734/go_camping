@@ -49,27 +49,43 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("expensetableviewcell") as! ExpenseTableViewCell
         cell.expenseName.text = family?.expenses[indexPath.row].name
+        if let amountStringVal = family?.expenses[indexPath.row].amount?.stringValue{
+            cell.expenseAmountLabel.text = "$\(amountStringVal)"
+        }
         return cell
     }
     
-    func didExpenseAdded(expense: Expense) {
-        expense.family = family
-        updateTotalExpense()
-        CoreDataStackManager.sharedInstance.saveContext()
-        self.dismissViewControllerAnimated(true, completion: nil)
-        self.expenseTableView.reloadData()
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
     }
     
-    private func updateTotalExpense(){
-        var totalExpense: NSDecimalNumber = NSDecimalNumber.zero()
-        if let expenses = family?.expenses{
-            for expense in expenses{
-                if let expenseAmout = expense.amount{
-                    totalExpense = totalExpense.decimalNumberByAdding(NSDecimalNumber(decimal: expenseAmout.decimalValue))
-                }
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        switch(editingStyle){
+        case .Delete:
+            if let expenseTobeDeleted = family?.expenses[indexPath.row]{
+                CoreDataStackManager.sharedInstance.managedObjectContext.deleteObject(expenseTobeDeleted)
+                CoreDataStackManager.sharedInstance.saveContext()
+                tableView.beginUpdates()
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                tableView.endUpdates()
+                CommonUtility.sharedInstance.updateFamilyTotalExpense(family)
+                CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
             }
+        default:
+            print("Not supported yet.")
         }
-        family?.totalExpense = totalExpense
+    }
+    
+    
+    
+    func didPickExpense(expense: Expense, actionType: ActionType) {
+        expense.family = family
+        CommonUtility.sharedInstance.updateFamilyTotalExpense(family)
+        CoreDataStackManager.sharedInstance.saveContext()
+        CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
+        self.expenseTableView.reloadData()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func addExpensesButtonPressed(sender: UIBarButtonItem){
