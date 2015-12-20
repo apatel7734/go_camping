@@ -32,15 +32,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         configureNavigationBar()
     }
-    
-    private func testParse(){
-        let testObj = PFObject(className: "TestObject")
-        testObj["foo"] = "foobar 2"
-        testObj.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Saved success \(success)")
-        }
-    }
-    
+   
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         familyTableView.reloadData()
@@ -53,7 +45,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func didTapAddButton(){
-        performSegueWithIdentifier("pushfamily", sender: self)
+        performSegueWithIdentifier("presentaddnewfamily", sender: self)
     }
     
     //MARK - tableView datasource
@@ -209,7 +201,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             familyTableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
         }
     }
-    
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.familyTableView.endUpdates()
