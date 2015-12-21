@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CampsiteDetailPhotoCell: UITableViewCell {
     
@@ -14,7 +15,11 @@ class CampsiteDetailPhotoCell: UITableViewCell {
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
 
+    private var googleMapApi: GoogleMapApi!
+    
     override func awakeFromNib() {
+        googleMapApi = GoogleMapApi(apiController: ApiController())
+
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
     }
@@ -39,7 +44,11 @@ extension CampsiteDetailPhotoCell: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("photoCell", forIndexPath: indexPath)
         
         let imageView = cell.viewWithTag(1) as! UIImageView
-        imageView.image = UIImage(named: "eee")
+        
+        if let stringUrl = googleMapApi.getPhotoUrlForReference(photos?[indexPath.row].photoRef, maxWidth: 200),
+            let url = NSURL(string: stringUrl) {
+            imageView.kf_setImageWithURL(url)
+        }
         
         return cell
     }

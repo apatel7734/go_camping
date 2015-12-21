@@ -45,6 +45,7 @@
 		440EF58B1BFE929D00AE274E /* CampsiteDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440EF5891BFE929D00AE274E /* CampsiteDetailInfoCell.swift */; };
 		44DF6FCD1C28A13200ED7CB4 /* CampsiteDetailPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DF6FCC1C28A13100ED7CB4 /* CampsiteDetailPhotoCell.swift */; };
 		44DF6FCE1C28A13200ED7CB4 /* CampsiteDetailPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DF6FCC1C28A13100ED7CB4 /* CampsiteDetailPhotoCell.swift */; };
+		44DF6FCF1C28A7E300ED7CB4 /* GoogleMapApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F01BEB0C070024CB88 /* GoogleMapApi.swift */; };
 		481B63BF1BEF33E200FAB95D /* SignupLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481B63BE1BEF33E200FAB95D /* SignupLogin.storyboard */; };
 		481B63C31BEF355D00FAB95D /* EnterPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */; };
 		481B63C51BF0571D00FAB95D /* APICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B63C41BF0571D00FAB95D /* APICoordinator.swift */; };
@@ -81,7 +82,6 @@
 		B55572EC1BEB0B2C0024CB88 /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572EA1BEB0B2C0024CB88 /* ApiController.swift */; };
 		B55572EE1BEB0BB80024CB88 /* ApiStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572ED1BEB0BB80024CB88 /* ApiStatusCode.swift */; };
 		B55572EF1BEB0BB80024CB88 /* ApiStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572ED1BEB0BB80024CB88 /* ApiStatusCode.swift */; };
-		B55572F11BEB0C070024CB88 /* GoogleMapApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F01BEB0C070024CB88 /* GoogleMapApi.swift */; };
 		B55572F21BEB0C070024CB88 /* GoogleMapApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F01BEB0C070024CB88 /* GoogleMapApi.swift */; };
 		B55572F71BEB19E20024CB88 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F61BEB19E20024CB88 /* ApiError.swift */; };
 		B55572F81BEB19E20024CB88 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F61BEB19E20024CB88 /* ApiError.swift */; };
@@ -687,6 +687,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44DF6FCF1C28A7E300ED7CB4 /* GoogleMapApi.swift in Sources */,
 				09A18CA81B854E010093932F /* CustomTextField.swift in Sources */,
 				B55572F71BEB19E20024CB88 /* ApiError.swift in Sources */,
 				09A18CA61B854DE50093932F /* CustomButton.swift in Sources */,
@@ -735,8 +736,6 @@
 				488EDD011BE891ED00261531 /* ErrorView.swift in Sources */,
 				098037E11B6C077E00E52846 /* AddFamilyUIViewController.swift in Sources */,
 				485F9CA01C25FE7900A4CB38 /* NoCaretTextField.swift in Sources */,
-				B55572F11BEB0C070024CB88 /* PlacesApi.swift in Sources */,
-				B55572F11BEB0C070024CB88 /* GoogleMapApi.swift in Sources */,
 				098037DF1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift in Sources */,
 				440EF58A1BFE929D00AE274E /* CampsiteDetailInfoCell.swift in Sources */,
 				48A9B12D1BDD6AC70050BEAF /* StringFormatterUtil.swift in Sources */,

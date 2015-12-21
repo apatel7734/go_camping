@@ -71,4 +71,12 @@ class GoogleMapApi {
             }
         }
     }
+    
+    func getPhotoUrlForReference(photoRef: String?, maxWidth: Int) -> String? {
+        guard let reference = photoRef else {
+            return nil
+        }
+        
+        return "\(basePath)/place/photo?photoreference=\(reference)&maxwidth=\(maxWidth)&key=\(Constants.googleApiKey)"
+    }
 }
