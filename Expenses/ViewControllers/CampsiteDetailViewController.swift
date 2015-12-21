@@ -47,9 +47,14 @@ extension CampsiteDetailViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == DetailRow.MapRow.rawValue {
+        switch indexPath.row {
+        case DetailRow.MapRow.rawValue:
             return 200
-        } else {
+            
+        case DetailRow.PhotoRow.rawValue:
+            return 100
+            
+        default:
             return UITableViewAutomaticDimension
         }
     }
@@ -78,6 +83,11 @@ extension CampsiteDetailViewController {
             }
             break
             
+        case DetailRow.PhotoRow.rawValue:
+            let photoCell = cell as! CampsiteDetailPhotoCell
+            photoCell.configureCellWithPhoto(placeDetail?.photos)
+            break
+            
         case DetailRow.InfoRow.rawValue:
             let infoCell = cell as! CampsiteDetailInfoCell
             infoCell.configureCellWithPlaceDetail(placeDetail)
@@ -97,7 +107,7 @@ extension CampsiteDetailViewController {
             return "infoCell"
             
         case DetailRow.PhotoRow.rawValue:
-            return "photoCell"
+            return "photoCollectionCell"
         
         default:
             return ""
