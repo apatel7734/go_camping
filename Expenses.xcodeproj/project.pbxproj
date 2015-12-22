@@ -63,6 +63,8 @@
 		48A9B12B1BDD69900050BEAF /* ValidationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9B12A1BDD69900050BEAF /* ValidationUtil.swift */; };
 		48A9B12D1BDD6AC70050BEAF /* StringFormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9B12C1BDD6AC70050BEAF /* StringFormatterUtil.swift */; };
 		48B514501BD6A85400479F64 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B5144F1BD6A85400479F64 /* ExpenseTableViewCell.swift */; };
+		48CB64CF1C27A94400791A22 /* CustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB64CE1C27A94400791A22 /* CustomLoadingView.swift */; };
+		48CB64D31C27AEE600791A22 /* CustomLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48CB64D21C27AEE600791A22 /* CustomLoadingView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +138,8 @@
 		48A9B12A1BDD69900050BEAF /* ValidationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationUtil.swift; sourceTree = "<group>"; };
 		48A9B12C1BDD6AC70050BEAF /* StringFormatterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormatterUtil.swift; sourceTree = "<group>"; };
 		48B5144F1BD6A85400479F64 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
+		48CB64CE1C27A94400791A22 /* CustomLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLoadingView.swift; sourceTree = "<group>"; };
+		48CB64D21C27AEE600791A22 /* CustomLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLoadingView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,8 @@
 				488EDD021BE891FF00261531 /* ErrorView.xib */,
 				485F9C9F1C25FE7900A4CB38 /* NoCaretTextField.swift */,
 				485F9CA11C2603AA00A4CB38 /* UIKitExtensions.swift */,
+				48CB64CE1C27A94400791A22 /* CustomLoadingView.swift */,
+				48CB64D21C27AEE600791A22 /* CustomLoadingView.xib */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 			files = (
 				09AC0BC91B5C3671000849C4 /* LaunchScreen.xib in Resources */,
 				09AC0BC61B5C3671000849C4 /* Images.xcassets in Resources */,
+				48CB64D31C27AEE600791A22 /* CustomLoadingView.xib in Resources */,
 				481B63BF1BEF33E200FAB95D /* SignupLogin.storyboard in Resources */,
 				09AA76351B86CFB90073FC0B /* key_add-down@3x.png in Resources */,
 				092DCF531B87CD1C0050F893 /* Main.storyboard in Resources */,
@@ -468,6 +475,7 @@
 				09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */,
 				09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */,
 				09AC0BBF1B5C3670000849C4 /* ExpensesData.xcdatamodeld in Sources */,
+				48CB64CF1C27A94400791A22 /* CustomLoadingView.swift in Sources */,
 				481B63C51BF0571D00FAB95D /* APICoordinator.swift in Sources */,
 				092DCF511B87BA320050F893 /* AddEditFamilyExpensesViewController.swift in Sources */,
 				099F6C7F1B94BDFC00BD8D9C /* Constants.swift in Sources */,

@@ -25,8 +25,7 @@ extension UIColor{
     class func darkBlue() -> UIColor {
         return UIColor.colorWithHexString("#273B49")
     }
-    
-    
+
 }
 
 

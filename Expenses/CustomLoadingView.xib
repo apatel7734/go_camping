@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomLoadingView" customModule="Expenses" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="ma5-ox-A0m" id="l4a-jU-FJZ"/>
+                <outlet property="backgroundView" destination="iN0-l3-epB" id="41U-d8-EZv"/>
+                <outlet property="containerView" destination="AOW-qd-Uec" id="NUE-dN-iiE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view alpha="0.59999999999999998" contentMode="scaleToFill" id="iN0-l3-epB" userLabel="background view">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOW-qd-Uec" userLabel="container view">
+                    <rect key="frame" x="180" y="270" width="240" height="60"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ma5-ox-A0m">
+                            <rect key="frame" x="15" y="20" width="20" height="20"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="G5Z-U3-ER3"/>
+                        <constraint firstItem="ma5-ox-A0m" firstAttribute="centerY" secondItem="AOW-qd-Uec" secondAttribute="centerY" id="Ram-ke-3eP"/>
+                        <constraint firstItem="ma5-ox-A0m" firstAttribute="leading" secondItem="AOW-qd-Uec" secondAttribute="leading" constant="15" id="ThI-zj-AUh"/>
+                        <constraint firstAttribute="width" constant="240" id="vGY-tp-wGD"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sending code....." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKM-KQ-uQS">
+                    <rect key="frame" x="227" y="289.5" width="127" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="AOW-qd-Uec" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0Qu-sY-QV1"/>
+                <constraint firstItem="FKM-KQ-uQS" firstAttribute="centerY" secondItem="ma5-ox-A0m" secondAttribute="centerY" id="I79-Ib-Joh"/>
+                <constraint firstItem="FKM-KQ-uQS" firstAttribute="leading" secondItem="ma5-ox-A0m" secondAttribute="trailing" constant="12" id="LKn-dv-phx"/>
+                <constraint firstItem="AOW-qd-Uec" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UfK-dQ-GEF"/>
+                <constraint firstItem="AOW-qd-Uec" firstAttribute="leading" secondItem="FKM-KQ-uQS" secondAttribute="trailing" constant="-231" id="eet-Zz-IfQ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="eet-Zz-IfQ"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="313" y="307"/>
+        </view>
+    </objects>
+</document>

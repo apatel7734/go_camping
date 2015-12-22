@@ -66,6 +66,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="7es-de-rtb" firstAttribute="leading" secondItem="WzW-6H-DYJ" secondAttribute="trailing" constant="8" id="0cC-c3-iJr"/>
                                                 <constraint firstItem="U8y-jL-pNF" firstAttribute="top" secondItem="O0H-JS-K8N" secondAttribute="topMargin" constant="8" id="1ne-dQ-b37"/>

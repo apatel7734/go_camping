@@ -31,7 +31,7 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        
+        ErrorView.sharedView.hideErrorView()
         if string.isEmpty && !phoneNumber.isEmpty{
             phoneNumber = String(phoneNumber.characters.dropLast())
         }
@@ -61,9 +61,17 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
     
     
     private func submitPhoneNumber(){
+        let customLoadingView = CustomLoadingView.showLoadingViewFor(self.view)
         APICoordinator.submitPhoneNumber(phoneNumber) { (response, error) -> Void in
-            print("Response = \(response), Error = \(error)")
-            self.moveToEnterCodeScreen()
+            customLoadingView.hidden = true
+            if let error = error {
+                let errors = error.userInfo as Dictionary
+                if let errorMessage = errors["NSLocalizedDescription"] as? String{
+                    ErrorView.sharedView.showErrorMessage(self.view, message: errorMessage)
+                }
+            }else{
+                self.moveToEnterCodeScreen()
+            }
         }
     }
     

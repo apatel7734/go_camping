@@ -19,8 +19,11 @@ class EnterCodeViewController: UIViewController,UITextFieldDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        enterCodeTextField.becomeFirstResponder()
         self.navigationController?.navigationBar.configureAsTransparentBar()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        enterCodeTextField.becomeFirstResponder()
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {

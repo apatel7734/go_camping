@@ -205,4 +205,5 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.familyTableView.endUpdates()
     }
+    
 }
