@@ -11,17 +11,26 @@ import UIKit
 
 class CustomLoadingView: UIView{
     
+    static let sharedView = CustomLoadingView()
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet var backgroundView: UIView!
     
-    static func showLoadingViewFor(view: UIView) -> CustomLoadingView{
-        let customLoadingView =  CustomLoadingView(frame: UIScreen.mainScreen().bounds)
-        view.addSubview(customLoadingView)
-        return customLoadingView
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    func showLoadingViewFor(view: UIView, withMessage message: String?){
+        if let message = message where !message.isEmpty{
+            messageLabel.text = message
+        }
+        self.hidden = false
+        view.addSubview(self)
     }
     
-    private override init(frame: CGRect) {
+    func hideLoadingView(){
+        self.hidden = true
+    }
+    
+    override init(frame: CGRect) {
         // 1. setup any properties here
         
         // 2. call super.init(frame:)
@@ -41,23 +50,25 @@ class CustomLoadingView: UIView{
     }
     
     // Our custom view from the XIB file
-    private var view: UIView!
+    private var backgroundView: UIView!
     
     func xibSetup() {
-        view = loadViewFromNib()
+        backgroundView = loadViewFromNib()
         
         // use bounds not frame or it'll be offset
-        view.frame = bounds
+        backgroundView.frame = UIScreen.mainScreen().bounds
         
         // Make the view stretch with containing view
-        view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
-        // Adding custom subview on top of our view (over any custom drawing > see note below)
-        containerView.layer.cornerRadius = 5.0
+        backgroundView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         backgroundView.backgroundColor = UIColor.blackColor()
         backgroundView.alpha = 0.8
         backgroundView.userInteractionEnabled = false
+        
+        containerView.layer.cornerRadius = 5.0
         activityIndicator.startAnimating()
-        addSubview(view)
+        
+        // Adding custom subview on top of our view (over any custom drawing > see note below)
+        addSubview(backgroundView)
     }
     
     func loadViewFromNib() -> UIView {

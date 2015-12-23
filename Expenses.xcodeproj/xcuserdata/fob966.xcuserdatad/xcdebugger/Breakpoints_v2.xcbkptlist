@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Expenses/PhoneNumberViewController.swift"
-            timestampString = "472432546.059157"
+            filePath = "Expenses/EnterCodeViewController.swift"
+            timestampString = "472547595.355503"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "submitPhoneNumber()"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "doVerifyCodeFromServer()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

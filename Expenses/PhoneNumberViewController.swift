@@ -55,15 +55,16 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
     private func moveToEnterCodeScreen(){
         if let enterCodeVC = storyboard?.instantiateViewControllerWithIdentifier("entercodeviewcontroller") as? EnterCodeViewController{
             enterCodeVC.phoneNumber = phoneNumber
+            self.navigationItem.title = ""
             self.navigationController?.pushViewController(enterCodeVC, animated: true)
         }
     }
     
     
     private func submitPhoneNumber(){
-        let customLoadingView = CustomLoadingView.showLoadingViewFor(self.view)
+        CustomLoadingView.sharedView.showLoadingViewFor(self.view, withMessage: nil)
         APICoordinator.submitPhoneNumber(phoneNumber) { (response, error) -> Void in
-            customLoadingView.hidden = true
+            CustomLoadingView.sharedView.hideLoadingView()
             if let error = error {
                 let errors = error.userInfo as Dictionary
                 if let errorMessage = errors["NSLocalizedDescription"] as? String{
