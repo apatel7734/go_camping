@@ -4,12 +4,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--List Camping Trips View Controller-->
         <scene sceneID="gXu-Jv-I7u">
             <objects>
-                <viewController id="os3-vz-TUP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="listcampingtripsviewcontroller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="os3-vz-TUP" customClass="ListCampingTripsViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Xl-Uw-h7n"/>
                         <viewControllerLayoutGuide type="bottom" id="QHL-wM-zNb"/>
@@ -18,17 +19,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B1p-ar-ing">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B1p-ar-ing">
                                 <rect key="frame" x="20" y="20" width="560" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oPO-C5-ZXZ">
-                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="campingtripstableviewcell" rowHeight="103" id="oPO-C5-ZXZ" customClass="CampingTripsTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oPO-C5-ZXZ" id="EVG-Sw-1B5">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="102.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUa-ds-7F8" userLabel="Container View">
+                                                    <rect key="frame" x="13" y="9.5" width="539" height="84"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lake Chabot" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9P-IL-sKp">
+                                                            <rect key="frame" x="0.0" y="0.0" width="539" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="ghP-QT-Hue"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday, December 24, 2015 4:30 PM To" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpr-fk-6qc">
+                                                            <rect key="frame" x="0.0" y="35" width="539" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="11"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday, December 24, 2015 4:30 PM" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVI-qm-Yge">
+                                                            <rect key="frame" x="0.0" y="51.5" width="539" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="11"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6253 Dougherty Rd, Fremont CA 94538" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ap-yw-2PM">
+                                                            <rect key="frame" x="0.0" y="68" width="539" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" red="0.0039215686269999999" green="0.5450980392" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="8Ap-yw-2PM" firstAttribute="top" secondItem="jVI-qm-Yge" secondAttribute="bottom" constant="3" id="1tr-oo-nn0"/>
+                                                        <constraint firstItem="jVI-qm-Yge" firstAttribute="trailing" secondItem="bpr-fk-6qc" secondAttribute="trailing" id="5nA-o3-noS"/>
+                                                        <constraint firstItem="jVI-qm-Yge" firstAttribute="leading" secondItem="bpr-fk-6qc" secondAttribute="leading" id="BzE-Na-bSu"/>
+                                                        <constraint firstItem="jVI-qm-Yge" firstAttribute="top" secondItem="bpr-fk-6qc" secondAttribute="bottom" constant="3" id="Ioh-UO-g21"/>
+                                                        <constraint firstItem="8Ap-yw-2PM" firstAttribute="trailing" secondItem="jVI-qm-Yge" secondAttribute="trailing" id="KMx-lw-dBl"/>
+                                                        <constraint firstItem="8Ap-yw-2PM" firstAttribute="leading" secondItem="jVI-qm-Yge" secondAttribute="leading" id="P8f-og-s0E"/>
+                                                        <constraint firstItem="bpr-fk-6qc" firstAttribute="top" secondItem="T9P-IL-sKp" secondAttribute="bottom" constant="5" id="XTC-Em-Xof"/>
+                                                        <constraint firstItem="T9P-IL-sKp" firstAttribute="leading" secondItem="NUa-ds-7F8" secondAttribute="leading" id="afV-fZ-5sJ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="8Ap-yw-2PM" secondAttribute="bottom" id="drd-Fq-DGr"/>
+                                                        <constraint firstAttribute="trailing" secondItem="T9P-IL-sKp" secondAttribute="trailing" id="gMa-DB-0gc"/>
+                                                        <constraint firstItem="bpr-fk-6qc" firstAttribute="trailing" secondItem="T9P-IL-sKp" secondAttribute="trailing" id="hR7-f4-dPg"/>
+                                                        <constraint firstItem="bpr-fk-6qc" firstAttribute="leading" secondItem="T9P-IL-sKp" secondAttribute="leading" id="lw3-Ys-9Lk"/>
+                                                        <constraint firstItem="T9P-IL-sKp" firstAttribute="top" secondItem="NUa-ds-7F8" secondAttribute="top" id="vFO-ER-M4n"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="NUa-ds-7F8" firstAttribute="height" secondItem="EVG-Sw-1B5" secondAttribute="height" multiplier="0.8" id="9fc-bx-Vy1"/>
+                                                <constraint firstItem="NUa-ds-7F8" firstAttribute="leading" secondItem="EVG-Sw-1B5" secondAttribute="leadingMargin" constant="5" id="GLY-IO-Wlz"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="NUa-ds-7F8" secondAttribute="trailing" id="qfm-AE-QrN"/>
+                                                <constraint firstItem="NUa-ds-7F8" firstAttribute="centerY" secondItem="EVG-Sw-1B5" secondAttribute="centerY" id="wRf-sl-0WK"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="9fc-bx-Vy1"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="campingTripAddressLabel" destination="8Ap-yw-2PM" id="gJM-DP-r2s"/>
+                                            <outlet property="campingTripTitleLabel" destination="T9P-IL-sKp" id="sme-h9-bHD"/>
+                                            <outlet property="campingTripToDateLabel" destination="jVI-qm-Yge" id="SkB-Ox-kA0"/>
+                                            <outlet property="camptingTripFromDateLabel" destination="bpr-fk-6qc" id="JmI-fg-94B"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
