@@ -8,14 +8,40 @@
 
 import UIKit
 
-class ListCampingTripsViewController: UIViewController {
+class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var campingTripsTableView: UITableView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        campingTripsTableView.delegate = self
+        campingTripsTableView.dataSource = self
+        
+        campingTripsTableView.estimatedRowHeight = 125
+        campingTripsTableView.rowHeight = UITableViewAutomaticDimension
+        
+        //this removes empty lines from tableview.
+        campingTripsTableView.tableFooterView = UIView()
     }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = campingTripsTableView.dequeueReusableCellWithIdentifier("campingtripstableviewcell") as! CampingTripsTableViewCell
+        
+        return cell
+    }
+    
 }

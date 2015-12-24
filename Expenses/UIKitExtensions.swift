@@ -72,7 +72,7 @@ extension UINavigationBar{
     }
     
     func setTitleTextAttributesWithColor(color: UIColor) {
-        var attributes: [String : AnyObject] = [NSForegroundColorAttributeName : color]
+        let attributes: [String : AnyObject] = [NSForegroundColorAttributeName : color]
         titleTextAttributes = attributes
     }
     

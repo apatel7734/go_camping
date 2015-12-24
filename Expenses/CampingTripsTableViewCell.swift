@@ -1,5 +1,5 @@
 //
-//  campingTripsTableViewCell.swift
+//  CampingTripsTableViewCell.swift
 //  Expenses
 //
 //  Created by Patel, Ashish on 12/23/15.
@@ -9,7 +9,7 @@
 import UIKit
 
 class CampingTripsTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var campingTripTitleLabel: UILabel!
     
     @IBOutlet weak var camptingTripFromDateLabel: UILabel!
@@ -18,15 +18,11 @@ class CampingTripsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var campingTripAddressLabel: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
 }
