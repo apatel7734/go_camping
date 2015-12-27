@@ -33,6 +33,8 @@
 		09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE31B5C36DF000849C4 /* Expense.swift */; };
 		09AC0BE71B5C3A3A000849C4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */; };
 		09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */; };
+		481736EB1C309F0200686992 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481736EA1C309F0200686992 /* MapKit.framework */; };
+		481736ED1C30AB7A00686992 /* TripDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481736EC1C30AB7A00686992 /* TripDetailsViewController.swift */; };
 		481B63BF1BEF33E200FAB95D /* SignupLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481B63BE1BEF33E200FAB95D /* SignupLogin.storyboard */; };
 		481B63C31BEF355D00FAB95D /* EnterPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */; };
 		481B63C51BF0571D00FAB95D /* APICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B63C41BF0571D00FAB95D /* APICoordinator.swift */; };
@@ -111,6 +113,8 @@
 		09AC0BE31B5C36DF000849C4 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyUITableViewCell.swift; sourceTree = "<group>"; };
+		481736EA1C309F0200686992 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		481736EC1C30AB7A00686992 /* TripDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailsViewController.swift; sourceTree = "<group>"; };
 		481B63BE1BEF33E200FAB95D /* SignupLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignupLogin.storyboard; sourceTree = "<group>"; };
 		481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		481B63C41BF0571D00FAB95D /* APICoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICoordinator.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481736EB1C309F0200686992 /* MapKit.framework in Frameworks */,
 				4892A72D1BEDC103007A6366 /* libsqlite3.tbd in Frameworks */,
 				4892A72B1BEDC0F7007A6366 /* libz.tbd in Frameworks */,
 				4892A7291BEDC0EC007A6366 /* SystemConfiguration.framework in Frameworks */,
@@ -346,6 +351,7 @@
 			children = (
 				482377091C2B541D00DAC89C /* ListCampingTripsViewController.swift */,
 				487B67281C2B6FB400106137 /* CampingTripsTableViewCell.swift */,
+				481736EC1C30AB7A00686992 /* TripDetailsViewController.swift */,
 			);
 			name = CampingTrips;
 			sourceTree = "<group>";
@@ -353,6 +359,7 @@
 		4892A7151BEDC06B007A6366 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				481736EA1C309F0200686992 /* MapKit.framework */,
 				4892A72C1BEDC103007A6366 /* libsqlite3.tbd */,
 				4892A72A1BEDC0F7007A6366 /* libz.tbd */,
 				4892A7281BEDC0EC007A6366 /* SystemConfiguration.framework */,
@@ -508,6 +515,7 @@
 				485F9C9C1C25F92900A4CB38 /* PhoneNumberViewController.swift in Sources */,
 				09AA76321B86C0940073FC0B /* CircularImageView.swift in Sources */,
 				483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */,
+				481736ED1C30AB7A00686992 /* TripDetailsViewController.swift in Sources */,
 				0992591D1B8A783E00CFA81F /* MemberTableViewCell.swift in Sources */,
 				09AC0BE21B5C36CF000849C4 /* Member.swift in Sources */,
 				488EDD011BE891ED00261531 /* ErrorView.swift in Sources */,

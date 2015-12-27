@@ -35,6 +35,9 @@ class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBar = storyboard.instantiateViewControllerWithIdentifier("tripDetailAndFamilyTabbar")
+        presentViewController(tabBar, animated: true, completion: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
