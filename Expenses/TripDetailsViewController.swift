@@ -7,29 +7,36 @@
 //
 
 import UIKit
+import MapKit
 
 class TripDetailsViewController: UIViewController {
 
+    //MARK:- IBOutlets
+    
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var locationTitleLabel: UILabel!
+    @IBOutlet weak var locationAddressLabel: UILabel!
+    @IBOutlet weak var fromDate: UILabel!
+    @IBOutlet weak var toDate: UILabel!
+    @IBOutlet weak var familiesRSVPSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var totalFamiliesRSVPLabel: UILabel!
+    
+    @IBOutlet weak var rsvpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    
+    private func initMap(){
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func didTapOnRSVPButton(sender: AnyObject) {
+        
     }
-    */
 
 }

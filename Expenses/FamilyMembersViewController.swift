@@ -14,6 +14,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     @IBOutlet weak var membersTableView: UITableView!
     
     var family: Family?
+    var pageIndex: Int = 0
     
     //MARK: UIView Callback methods
     override func viewDidLoad() {

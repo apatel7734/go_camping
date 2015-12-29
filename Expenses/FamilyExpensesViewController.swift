@@ -12,8 +12,8 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     @IBOutlet weak var expenseTableView: UITableView!
     
-    
     var family: Family?
+    var pageIndex: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()

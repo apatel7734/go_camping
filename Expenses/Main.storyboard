@@ -3,15 +3,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Details-->
+        <!--Trip Details View Controller-->
         <scene sceneID="eel-Nq-KUh">
             <objects>
-                <viewController id="Qdc-Ip-15r" sceneMemberID="viewController">
+                <viewController id="Qdc-Ip-15r" customClass="TripDetailsViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bP2-To-GKb"/>
                         <viewControllerLayoutGuide type="bottom" id="mCF-Zg-zAB"/>
@@ -67,14 +68,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qf-8Y-as0" userLabel="DateTimeView">
                                                 <rect key="frame" x="8" y="261" width="584" height="58"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Thursday 25th December, 2015 4:30 PM To" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLJ-UV-g23">
-                                                        <rect key="frame" x="8" y="8" width="568" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday 25th December, 2015 4:30 PM To" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLJ-UV-g23">
+                                                        <rect key="frame" x="8" y="8" width="568" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                         <color key="textColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sunday 28th December, 2015 4:30 PM" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFa-uq-Yzv">
-                                                        <rect key="frame" x="8" y="34" width="568" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday 28th December, 2015 4:30 PM" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFa-uq-Yzv">
+                                                        <rect key="frame" x="8" y="33" width="568" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                         <color key="textColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -197,11 +198,14 @@
                             <constraint firstItem="lxm-fY-5j6" firstAttribute="width" secondItem="yne-jF-YRk" secondAttribute="width" id="ke0-LW-hv7"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Details" id="ale-ky-Tnf"/>
+                    <navigationItem key="navigationItem" id="RYj-j9-EMs"/>
+                    <connections>
+                        <outlet property="mapView" destination="sM3-cS-SaP" id="WWa-In-GxQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n40-zb-g2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="418" y="-965"/>
+            <point key="canvasLocation" x="1230" y="-965"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zji-4u-Kqf">
@@ -213,8 +217,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="LIg-Df-Ovu"/>
-                        <segue destination="Qdc-Ip-15r" kind="relationship" relationship="viewControllers" id="xFK-4J-chO"/>
+                        <segue destination="mCa-tM-Fzm" kind="relationship" relationship="viewControllers" id="LIg-Df-Ovu"/>
+                        <segue destination="kRG-hY-Jze" kind="relationship" relationship="viewControllers" id="xFK-4J-chO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wzp-Fa-20q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,7 +243,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="familycell" rowHeight="89" id="IJs-u9-NUJ" customClass="FamilyUITableViewCell" customModule="Expenses" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="592" height="89"/>
+                                        <rect key="frame" x="0.0" y="86" width="592" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IJs-u9-NUJ" id="O0H-JS-K8N">
                                             <rect key="frame" x="0.0" y="0.0" width="592" height="88.5"/>
@@ -322,6 +326,7 @@
                                             <outlet property="familyName" destination="evk-jq-82K" id="rXt-He-MqZ"/>
                                             <outlet property="totalExpenses" destination="U8y-jL-pNF" id="teq-ZR-bg3"/>
                                             <outlet property="totalMembers" destination="7es-de-rtb" id="hjD-Tx-tYp"/>
+                                            <segue destination="zTN-RT-528" kind="show" identifier="pushfamilyInfo" id="W7U-st-UPJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -335,7 +340,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="7hS-wr-bcS" secondAttribute="trailing" constant="-16" id="hV0-Hp-ywU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Families" id="luX-kP-xU8"/>
                     <navigationItem key="navigationItem" title="Families" id="8WA-Dh-Xnb">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="9sd-wr-GGu">
                             <connections>
@@ -345,12 +349,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="familyTableView" destination="7hS-wr-bcS" id="dh5-yF-ph3"/>
-                        <segue destination="yY2-rR-teJ" kind="show" identifier="pushfamily" id="K2r-tw-D61"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="418" y="-247"/>
+            <point key="canvasLocation" x="1230" y="-254"/>
         </scene>
         <!--Add FamilyUI View Controller-->
         <scene sceneID="6Nu-le-t7D">
@@ -706,7 +709,7 @@
         <!--Expenses-->
         <scene sceneID="gve-GK-iWp">
             <objects>
-                <viewController title="Expenses" id="6Ma-SC-52o" customClass="FamilyExpensesViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FamilyExpensesViewController" title="Expenses" id="6Ma-SC-52o" customClass="FamilyExpensesViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6JF-6r-CeC"/>
                         <viewControllerLayoutGuide type="bottom" id="SGA-Dq-jNc"/>
@@ -779,12 +782,83 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qE-Eg-Sbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3004" y="105"/>
+            <point key="canvasLocation" x="3635" y="41"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="eEN-SF-pSH">
+            <objects>
+                <viewController id="zTN-RT-528" customClass="RootViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k7X-jA-7C5"/>
+                        <viewControllerLayoutGuide type="bottom" id="hEk-5Z-nG6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Fp-lQ-poy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNE-3t-Ld5" userLabel="Title Container View">
+                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sju-9q-Wv6">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                        <state key="normal" title="Members"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHb-zc-yVJ">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="30"/>
+                                        <state key="normal" title="Expenses"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bHb-zc-yVJ" secondAttribute="trailing" id="2DK-Fg-LZ9"/>
+                                    <constraint firstItem="bHb-zc-yVJ" firstAttribute="leading" secondItem="sju-9q-Wv6" secondAttribute="trailing" id="Aoq-LD-RMR"/>
+                                    <constraint firstItem="bHb-zc-yVJ" firstAttribute="centerY" secondItem="KNE-3t-Ld5" secondAttribute="centerY" id="FTI-3W-w9I"/>
+                                    <constraint firstItem="bHb-zc-yVJ" firstAttribute="leading" secondItem="KNE-3t-Ld5" secondAttribute="centerX" id="FZr-z0-hWZ"/>
+                                    <constraint firstItem="sju-9q-Wv6" firstAttribute="leading" secondItem="KNE-3t-Ld5" secondAttribute="leading" id="Pwz-Iw-PMh"/>
+                                    <constraint firstItem="bHb-zc-yVJ" firstAttribute="leading" secondItem="sju-9q-Wv6" secondAttribute="trailing" id="Y5n-cv-b1p"/>
+                                    <constraint firstItem="sju-9q-Wv6" firstAttribute="centerY" secondItem="KNE-3t-Ld5" secondAttribute="centerY" id="bk7-Ka-MT7"/>
+                                    <constraint firstAttribute="height" constant="30" id="op8-qh-yAO"/>
+                                    <constraint firstAttribute="centerX" secondItem="sju-9q-Wv6" secondAttribute="trailing" id="tkb-by-Gzp"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Aoq-LD-RMR"/>
+                                        <exclude reference="Y5n-cv-b1p"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9Q-PU-amH">
+                                <rect key="frame" x="0.0" y="94" width="600" height="457"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.5450980392" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="X9Q-PU-amH" firstAttribute="leading" secondItem="5Fp-lQ-poy" secondAttribute="leading" id="DPB-us-fNe"/>
+                            <constraint firstItem="KNE-3t-Ld5" firstAttribute="top" secondItem="k7X-jA-7C5" secondAttribute="bottom" id="Iif-Gy-iz7"/>
+                            <constraint firstAttribute="trailing" secondItem="X9Q-PU-amH" secondAttribute="trailing" id="NWU-Mt-wLx"/>
+                            <constraint firstItem="hEk-5Z-nG6" firstAttribute="top" secondItem="X9Q-PU-amH" secondAttribute="bottom" id="X8M-iC-Zh1"/>
+                            <constraint firstItem="X9Q-PU-amH" firstAttribute="leading" secondItem="5Fp-lQ-poy" secondAttribute="leading" id="b0r-uE-i1d"/>
+                            <constraint firstAttribute="trailing" secondItem="X9Q-PU-amH" secondAttribute="trailing" id="eEV-Ww-JfJ"/>
+                            <constraint firstItem="X9Q-PU-amH" firstAttribute="top" secondItem="KNE-3t-Ld5" secondAttribute="bottom" id="ogv-lH-rL6"/>
+                            <constraint firstAttribute="trailing" secondItem="KNE-3t-Ld5" secondAttribute="trailing" id="u9s-2S-2A4"/>
+                            <constraint firstItem="KNE-3t-Ld5" firstAttribute="leading" secondItem="5Fp-lQ-poy" secondAttribute="leading" id="ySm-DH-su6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="X9Q-PU-amH" id="zqm-gx-Brt"/>
+                        <outlet property="expenseLabel" destination="bHb-zc-yVJ" id="hCI-cu-wBQ"/>
+                        <outlet property="membersLabel" destination="sju-9q-Wv6" id="9qY-Dw-wo0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Uk-AT-XeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2844" y="-543"/>
         </scene>
         <!--Members-->
         <scene sceneID="6I3-Lg-Z35">
             <objects>
-                <viewController title="Members" id="Um3-9n-glm" customClass="FamilyMembersViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FamilyMembersViewController" title="Members" id="Um3-9n-glm" customClass="FamilyMembersViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XbM-DM-d1V"/>
                         <viewControllerLayoutGuide type="bottom" id="1Xv-yU-PoW"/>
@@ -795,7 +869,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2yg-ig-cT8">
                                 <rect key="frame" x="4" y="0.0" width="592" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.57647058819999997" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="membertableviewcell" rowHeight="88" id="0vb-SK-Myq" customClass="MemberTableViewCell" customModule="Expenses" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="592" height="88"/>
@@ -849,26 +923,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeP-tm-Kzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2795" y="-594"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="AcY-dF-cwf">
-            <objects>
-                <tabBarController id="yY2-rR-teJ" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Px7-tF-rIV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="Um3-9n-glm" kind="relationship" relationship="viewControllers" id="KHV-4r-e9T"/>
-                        <segue destination="6Ma-SC-52o" kind="relationship" relationship="viewControllers" id="XSc-6b-EAB"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sj2-Ee-6Gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1827" y="-361"/>
+            <point key="canvasLocation" x="3635" y="-728"/>
         </scene>
         <!--Add Edit Family Expenses View Controller-->
         <scene sceneID="1lu-ch-aZ5">
@@ -1017,6 +1072,44 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2767" y="962"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="h9R-dP-668">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kRG-hY-Jze" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Details" id="ale-ky-Tnf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q2p-OT-gpR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qdc-Ip-15r" kind="relationship" relationship="rootViewController" id="7dh-O8-rcI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zPo-2E-3Ar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="418" y="-965"/>
+        </scene>
+        <!--Families-->
+        <scene sceneID="47B-L6-xEs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mCa-tM-Fzm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Families" id="luX-kP-xU8"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Doa-Qi-3fs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="qeF-4G-dwx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yhx-rP-Qfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="418" y="-254"/>
         </scene>
     </scenes>
 </document>

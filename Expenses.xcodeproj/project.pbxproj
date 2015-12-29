@@ -70,6 +70,7 @@
 		48B514501BD6A85400479F64 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B5144F1BD6A85400479F64 /* ExpenseTableViewCell.swift */; };
 		48CB64CF1C27A94400791A22 /* CustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB64CE1C27A94400791A22 /* CustomLoadingView.swift */; };
 		48CB64D31C27AEE600791A22 /* CustomLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48CB64D21C27AEE600791A22 /* CustomLoadingView.xib */; };
+		48E4C9531C32426100052FD5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E4C9521C32426100052FD5 /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,7 @@
 		48B5144F1BD6A85400479F64 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		48CB64CE1C27A94400791A22 /* CustomLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLoadingView.swift; sourceTree = "<group>"; };
 		48CB64D21C27AEE600791A22 /* CustomLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLoadingView.xib; sourceTree = "<group>"; };
+		48E4C9521C32426100052FD5 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +334,7 @@
 		481B63C11BEF352F00FAB95D /* Expense */ = {
 			isa = PBXGroup;
 			children = (
+				48E4C9521C32426100052FD5 /* RootViewController.swift */,
 				09AC0BC01B5C3671000849C4 /* FamilyViewController.swift */,
 				09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */,
 				098037DE1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift */,
@@ -496,6 +499,7 @@
 				092DCF4F1B87BA230050F893 /* AddEditFamilyMembersViewController.swift in Sources */,
 				09AA76371B86D0510073FC0B /* HeaderLableView.swift in Sources */,
 				481B63C31BEF355D00FAB95D /* EnterPhoneNumberViewController.swift in Sources */,
+				48E4C9531C32426100052FD5 /* RootViewController.swift in Sources */,
 				486BE9281BE55EF400241EA3 /* CoreDataCoordinator.swift in Sources */,
 				09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */,
 				09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */,

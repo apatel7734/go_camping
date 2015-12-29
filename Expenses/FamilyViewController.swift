@@ -69,7 +69,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.familyTableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.currentIndexPath = indexPath
-        self.performSegueWithIdentifier("pushfamily", sender: nil)
+//        self.performSegueWithIdentifier("pushfamilyInfo", sender: nil)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
