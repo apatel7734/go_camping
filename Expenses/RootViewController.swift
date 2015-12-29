@@ -49,7 +49,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource , UIP
             pageViewcontrollers.append(familyMembersVC)
             let familyExpenseVC = storyboard.instantiateViewControllerWithIdentifier("FamilyExpensesViewController") as! FamilyExpensesViewController
             familyExpenseVC.pageIndex = 1
-            
             pageViewcontrollers.append(familyExpenseVC)
         }
     }

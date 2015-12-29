@@ -21,8 +21,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //setup topbar button
-        let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addMembersButtonPressed:")
-        self.navigationController?.topViewController?.navigationItem.rightBarButtonItem = addRightBarButtonItem
+        
         
         //delegates
         membersTableView.dataSource = self
@@ -30,6 +29,10 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     }
     
     override func viewWillAppear(animated: Bool) {
+        let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addMembersButtonPressed:")
+        if let navigationController = self.navigationController{
+            navigationController.topViewController?.navigationItem.rightBarButtonItem = addRightBarButtonItem
+        }
         self.navigationController?.topViewController?.navigationItem.title = "Members"
     }
     

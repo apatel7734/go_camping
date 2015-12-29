@@ -18,14 +18,16 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addExpensesButtonPressed:")
-        self.navigationController?.topViewController?.navigationItem.rightBarButtonItem = addRightBarButtonItem
-        
         expenseTableView.dataSource = self
         expenseTableView.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
+        let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addExpensesButtonPressed:")
+        if let navigationController = self.navigationController{
+            navigationController.topViewController?.navigationItem.rightBarButtonItem = addRightBarButtonItem
+        }
+        
         self.navigationController?.topViewController?.navigationItem.title = "Expenses"
     }
     
