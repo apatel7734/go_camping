@@ -32,7 +32,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         configureNavigationBar()
     }
-   
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         familyTableView.reloadData()
@@ -41,11 +41,18 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func configureNavigationBar(){
         self.navigationController?.navigationBar.configureAsBlueBar()
         let addbutton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "didTapAddButton")
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "didTapCancelBarButton")
         self.navigationItem.rightBarButtonItem = addbutton
+        self.navigationItem.leftBarButtonItem = cancelButton
     }
+    
     
     func didTapAddButton(){
         performSegueWithIdentifier("presentaddnewfamily", sender: self)
+    }
+    
+    func didTapCancelBarButton(){
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     //MARK - tableView datasource
@@ -69,7 +76,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.familyTableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.currentIndexPath = indexPath
-//        self.performSegueWithIdentifier("pushfamilyInfo", sender: nil)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
