@@ -26,6 +26,9 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         //delegates
         membersTableView.dataSource = self
         membersTableView.delegate = self
+        
+        let emptyFooterView = UIView()
+        membersTableView.tableFooterView = emptyFooterView
     }
     
     override func viewWillAppear(animated: Bool) {

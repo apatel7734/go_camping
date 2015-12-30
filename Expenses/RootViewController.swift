@@ -18,6 +18,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource , UIP
     
     @IBOutlet weak var containerView: UIView!
     var pageViewcontrollers = [UIViewController]()
+    var family: Family?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +47,11 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource , UIP
         if let storyboard = self.storyboard{
             let familyMembersVC = storyboard.instantiateViewControllerWithIdentifier("FamilyMembersViewController") as! FamilyMembersViewController
             familyMembersVC.pageIndex = 0
+            familyMembersVC.family = self.family
             pageViewcontrollers.append(familyMembersVC)
             let familyExpenseVC = storyboard.instantiateViewControllerWithIdentifier("FamilyExpensesViewController") as! FamilyExpensesViewController
             familyExpenseVC.pageIndex = 1
+            familyExpenseVC.family = self.family
             pageViewcontrollers.append(familyExpenseVC)
         }
     }

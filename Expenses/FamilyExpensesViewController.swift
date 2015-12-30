@@ -20,6 +20,9 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
         // Do any additional setup after loading the view.
         expenseTableView.dataSource = self
         expenseTableView.delegate = self
+        
+        let emptyFooterView = UIView()
+        expenseTableView.tableFooterView = emptyFooterView
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -326,7 +326,6 @@
                                             <outlet property="familyName" destination="evk-jq-82K" id="rXt-He-MqZ"/>
                                             <outlet property="totalExpenses" destination="U8y-jL-pNF" id="teq-ZR-bg3"/>
                                             <outlet property="totalMembers" destination="7es-de-rtb" id="hjD-Tx-tYp"/>
-                                            <segue destination="zTN-RT-528" kind="show" id="lYC-Yw-P7t"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -350,6 +349,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="familyTableView" destination="7hS-wr-bcS" id="dh5-yF-ph3"/>
+                        <segue destination="zTN-RT-528" kind="show" identifier="familyInfoPushSegue" id="2Ns-FD-vik"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -861,7 +861,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Uk-AT-XeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1910" y="-237"/>
+            <point key="canvasLocation" x="2132" y="-267"/>
         </scene>
         <!--Members-->
         <scene sceneID="6I3-Lg-Z35">
