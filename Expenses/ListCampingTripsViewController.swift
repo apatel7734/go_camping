@@ -23,6 +23,12 @@ class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITa
         
         //this removes empty lines from tableview.
         campingTripsTableView.tableFooterView = UIView()
+        
+        configureNavigationBar()
+    }
+    
+    private func configureNavigationBar(){
+        self.navigationController?.navigationBar.configureAsBlueBar()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
