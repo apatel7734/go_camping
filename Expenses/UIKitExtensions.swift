@@ -68,11 +68,12 @@ extension UINavigationBar{
         self.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
         self.barTintColor = UIColor.darkBlue()
         self.translucent = true
-        setTitleTextAttributesWithColor(UIColor.whiteColor())
+        self.setTitleTextAttributesWithColor(UIColor.whiteColor())
+        self.tintColor = UIColor.whiteColor()
     }
     
     func setTitleTextAttributesWithColor(color: UIColor) {
-        var attributes: [String : AnyObject] = [NSForegroundColorAttributeName : color]
+        let attributes: [String : AnyObject] = [NSForegroundColorAttributeName : color]
         titleTextAttributes = attributes
     }
     

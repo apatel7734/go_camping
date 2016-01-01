@@ -29,23 +29,30 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("error perfoming fetch.")
         }
         fetchedResultsController.delegate = self
-        
         configureNavigationBar()
     }
-   
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         familyTableView.reloadData()
+        familyTableView.tableFooterView = UIView()
     }
     
     func configureNavigationBar(){
         self.navigationController?.navigationBar.configureAsBlueBar()
         let addbutton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "didTapAddButton")
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "didTapCancelBarButton")
         self.navigationItem.rightBarButtonItem = addbutton
+        self.navigationItem.leftBarButtonItem = cancelButton
     }
+    
     
     func didTapAddButton(){
         performSegueWithIdentifier("presentaddnewfamily", sender: self)
+    }
+    
+    func didTapCancelBarButton(){
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     //MARK - tableView datasource
@@ -69,7 +76,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.familyTableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.currentIndexPath = indexPath
-        self.performSegueWithIdentifier("pushfamily", sender: nil)
+        performSegueWithIdentifier("familyInfoPushSegue", sender: nil)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -93,22 +100,11 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK - segue methods on + button clicked.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destVC = segue.destinationViewController as? UITabBarController;
-        
-        if let tabBarVC = destVC{
-            let viewControllers = tabBarVC.viewControllers
-            
+        let rootViewController = segue.destinationViewController as? RootViewController;
+        if let rootViewController = rootViewController{
             if let indexPath = self.currentIndexPath{
-                
                 let family = fetchedResultsController.objectAtIndexPath(indexPath) as? Family
-                
-                if let familyMembersVC = findFamilyMembersViewController(viewControllers), family = family{
-                    familyMembersVC.family = family
-                }
-                
-                if let familyExpensesVC = findFamilyExpensesViewController(viewControllers), family = family{
-                    familyExpensesVC.family = family
-                }
+                rootViewController.family = family
             }
         }
     }
