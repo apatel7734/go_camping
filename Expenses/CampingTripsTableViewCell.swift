@@ -23,6 +23,10 @@ class CampingTripsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    func displayData(campingTrip: CampingTrip){
+        campingTripTitleLabel.text = campingTrip.title
+    }
+    
     
 }

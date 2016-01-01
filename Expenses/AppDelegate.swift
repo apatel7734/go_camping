@@ -125,6 +125,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("iBZKa2LCHSSyBx2j342ckwwwNmD5SaPAdac1KJXN", clientKey: "7VmzkRWGuUqlBwzN3y1l3Y8GvCjxQXHwVTcIwWcf")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
     }
-
 }
 

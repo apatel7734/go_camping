@@ -70,6 +70,9 @@
 		48B514501BD6A85400479F64 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B5144F1BD6A85400479F64 /* ExpenseTableViewCell.swift */; };
 		48CB64CF1C27A94400791A22 /* CustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB64CE1C27A94400791A22 /* CustomLoadingView.swift */; };
 		48CB64D31C27AEE600791A22 /* CustomLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48CB64D21C27AEE600791A22 /* CustomLoadingView.xib */; };
+		48CD12021C37040F009066BB /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD12011C37040F009066BB /* ParseManager.swift */; };
+		48CD12041C370424009066BB /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD12031C370424009066BB /* ParseConstants.swift */; };
+		48CD12061C370ABE009066BB /* CampingTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD12051C370ABE009066BB /* CampingTrip.swift */; };
 		48E4C9531C32426100052FD5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E4C9521C32426100052FD5 /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +154,9 @@
 		48B5144F1BD6A85400479F64 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		48CB64CE1C27A94400791A22 /* CustomLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLoadingView.swift; sourceTree = "<group>"; };
 		48CB64D21C27AEE600791A22 /* CustomLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLoadingView.xib; sourceTree = "<group>"; };
+		48CD12011C37040F009066BB /* ParseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
+		48CD12031C370424009066BB /* ParseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConstants.swift; sourceTree = "<group>"; };
+		48CD12051C370ABE009066BB /* CampingTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampingTrip.swift; sourceTree = "<group>"; };
 		48E4C9521C32426100052FD5 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -280,6 +286,9 @@
 				09AC0BDF1B5C36A4000849C4 /* Family.swift */,
 				09AC0BE11B5C36CF000849C4 /* Member.swift */,
 				09AC0BE31B5C36DF000849C4 /* Expense.swift */,
+				48CD12011C37040F009066BB /* ParseManager.swift */,
+				48CD12031C370424009066BB /* ParseConstants.swift */,
+				48CD12051C370ABE009066BB /* CampingTrip.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -494,8 +503,11 @@
 				485F9C9E1C25F93600A4CB38 /* EnterCodeViewController.swift in Sources */,
 				486BE92C1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift in Sources */,
 				0992591F1B8AA2DE00CFA81F /* Enums.swift in Sources */,
+				48CD12041C370424009066BB /* ParseConstants.swift in Sources */,
 				09AC0BE71B5C3A3A000849C4 /* UIColorExtension.swift in Sources */,
+				48CD12021C37040F009066BB /* ParseManager.swift in Sources */,
 				09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */,
+				48CD12061C370ABE009066BB /* CampingTrip.swift in Sources */,
 				092DCF4F1B87BA230050F893 /* AddEditFamilyMembersViewController.swift in Sources */,
 				09AA76371B86D0510073FC0B /* HeaderLableView.swift in Sources */,
 				481B63C31BEF355D00FAB95D /* EnterPhoneNumberViewController.swift in Sources */,
