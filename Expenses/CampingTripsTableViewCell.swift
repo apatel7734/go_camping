@@ -12,7 +12,7 @@ class CampingTripsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var campingTripTitleLabel: UILabel!
     
-    @IBOutlet weak var camptingTripFromDateLabel: UILabel!
+    @IBOutlet weak var campingTripFromDateLabel: UILabel!
     
     @IBOutlet weak var campingTripToDateLabel: UILabel!
     
@@ -23,6 +23,20 @@ class CampingTripsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    func displayData(campingTrip: CampingTrip){
+        campingTripTitleLabel.text = campingTrip.title
+        
+        if let dateFrom = campingTrip.dateFrom{
+            campingTripFromDateLabel.text = "\(dateFrom) To"
+        }
+        
+        if let dateTo = campingTrip.dateTo{
+            campingTripToDateLabel.text = dateTo
+        }
+        
+        campingTripAddressLabel.text = campingTrip.address
+    }
+    
     
 }

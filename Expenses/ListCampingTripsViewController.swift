@@ -11,6 +11,7 @@ import UIKit
 class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var campingTripsTableView: UITableView!
+    var campingTrips = [CampingTrip]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,13 @@ class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITa
         
         //this removes empty lines from tableview.
         campingTripsTableView.tableFooterView = UIView()
-        
         configureNavigationBar()
+        ParseManager.campingTrips(0, totalTripsPerPage: 10) { (campingTrips, error) -> Void in
+            if let campingTrips = campingTrips{
+                self.campingTrips = campingTrips
+                self.campingTripsTableView.reloadData()
+            }
+        }
     }
     
     private func configureNavigationBar(){
@@ -36,7 +42,7 @@ class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return campingTrips.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -49,6 +55,7 @@ class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = campingTripsTableView.dequeueReusableCellWithIdentifier("campingtripstableviewcell") as! CampingTripsTableViewCell
+        cell.displayData(self.campingTrips[indexPath.row])
         
         return cell
     }
