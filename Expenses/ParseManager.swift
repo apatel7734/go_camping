@@ -12,7 +12,6 @@ import Parse
 class ParseManager {
     
     static func campingTrips(pageNumber: Int, totalTripsPerPage: Int, completionBlock: (campingTrips: [CampingTrip]?, error: NSError?) -> Void){
-        print("ParseManager.campingTrips  pageNumber = \(pageNumber), totalObjectsPerPage = \(totalTripsPerPage)")
         let query = PFQuery(className: ParseTrip.CampingTrip)
         query.skip = pageNumber * totalTripsPerPage
         query.findObjectsInBackgroundWithBlock { (trips: [PFObject]?, error:NSError?) -> Void in

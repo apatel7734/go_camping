@@ -28,6 +28,26 @@ class CampingTrip : PFObject, PFSubclassing{
         }
     }
     
+    var dateFrom: String?{
+        get{
+            let date = self[ParseTrip.DateFrom] as? NSDate
+            return date?.fullStyleString()
+        }
+    }
+    
+    var dateTo: String?{
+        get{
+            let date = self[ParseTrip.DateTo] as? NSDate
+            return date?.fullStyleString()
+        }
+    }
+    
+    var address: String?{
+        get{
+            return self[ParseTrip.Address] as? String
+        }
+    }
+    
     class func parseClassName() -> String{
         return ParseTrip.CampingTrip
     }
@@ -36,5 +56,4 @@ class CampingTrip : PFObject, PFSubclassing{
         superclass()?.load()
         self.registerSubclass()
     }
-    
 }

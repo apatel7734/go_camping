@@ -93,9 +93,9 @@
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="campingTripAddressLabel" destination="8Ap-yw-2PM" id="rc7-dx-sWQ"/>
+                                            <outlet property="campingTripFromDateLabel" destination="bpr-fk-6qc" id="Dni-ka-97U"/>
                                             <outlet property="campingTripTitleLabel" destination="T9P-IL-sKp" id="Wn9-b9-7tM"/>
                                             <outlet property="campingTripToDateLabel" destination="jVI-qm-Yge" id="79S-fj-xjp"/>
-                                            <outlet property="camptingTripFromDateLabel" destination="bpr-fk-6qc" id="xds-pB-hdK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

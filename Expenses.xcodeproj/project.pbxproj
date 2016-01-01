@@ -31,7 +31,7 @@
 		09AC0BE01B5C36A4000849C4 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BDF1B5C36A4000849C4 /* Family.swift */; };
 		09AC0BE21B5C36CF000849C4 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE11B5C36CF000849C4 /* Member.swift */; };
 		09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE31B5C36DF000849C4 /* Expense.swift */; };
-		09AC0BE71B5C3A3A000849C4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */; };
+		09AC0BE71B5C3A3A000849C4 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE61B5C3A3A000849C4 /* NSDateExtension.swift */; };
 		09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */; };
 		481736EB1C309F0200686992 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481736EA1C309F0200686992 /* MapKit.framework */; };
 		481736ED1C30AB7A00686992 /* TripDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481736EC1C30AB7A00686992 /* TripDetailsViewController.swift */; };
@@ -115,7 +115,7 @@
 		09AC0BDF1B5C36A4000849C4 /* Family.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
 		09AC0BE11B5C36CF000849C4 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		09AC0BE31B5C36DF000849C4 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
-		09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		09AC0BE61B5C3A3A000849C4 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		09AC0BE91B5C3EAD000849C4 /* FamilyUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyUITableViewCell.swift; sourceTree = "<group>"; };
 		481736EA1C309F0200686992 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		481736EC1C30AB7A00686992 /* TripDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailsViewController.swift; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 		09AC0BE51B5C3A1A000849C4 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				09AC0BE61B5C3A3A000849C4 /* UIColorExtension.swift */,
+				09AC0BE61B5C3A3A000849C4 /* NSDateExtension.swift */,
 				0992591E1B8AA2DE00CFA81F /* Enums.swift */,
 				099F6C7E1B94BDFC00BD8D9C /* Constants.swift */,
 				48A9B12A1BDD69900050BEAF /* ValidationUtil.swift */,
@@ -504,7 +504,7 @@
 				486BE92C1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift in Sources */,
 				0992591F1B8AA2DE00CFA81F /* Enums.swift in Sources */,
 				48CD12041C370424009066BB /* ParseConstants.swift in Sources */,
-				09AC0BE71B5C3A3A000849C4 /* UIColorExtension.swift in Sources */,
+				09AC0BE71B5C3A3A000849C4 /* NSDateExtension.swift in Sources */,
 				48CD12021C37040F009066BB /* ParseManager.swift in Sources */,
 				09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */,
 				48CD12061C370ABE009066BB /* CampingTrip.swift in Sources */,

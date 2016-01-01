@@ -14,6 +14,7 @@ struct ParseTrip {
     static let Title = "title"
     static let DateFrom = "dateFrom"
     static let DateTo = "dateTo"
+    static let Address = "locationAddress"
 }
 
 struct ParseFamily {
