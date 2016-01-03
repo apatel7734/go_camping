@@ -50,9 +50,13 @@ class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITa
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBar = storyboard.instantiateViewControllerWithIdentifier("tripDetailAndFamilyTabbar")
         for tabBarChildVC in tabBar.childViewControllers{
-            if let navigationVC = tabBarChildVC as? UINavigationController,                 familyVC = navigationVC.topViewController as? FamilyViewController{
+            
+            if let navigationVC = tabBarChildVC as? UINavigationController, familyVC = navigationVC.topViewController as? FamilyViewController{
                 familyVC.campingTrip = campingTrips[indexPath.row]
+            }else if let navigationVC = tabBarChildVC as? UINavigationController, tripDetailsVC = navigationVC.topViewController as? TripDetailsViewController{
+                tripDetailsVC.campingTrip = campingTrips[indexPath.row]
             }
+            
         }
         presentViewController(tabBar, animated: true, completion: nil)
     }

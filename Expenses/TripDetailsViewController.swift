@@ -10,9 +10,8 @@ import UIKit
 import MapKit
 
 class TripDetailsViewController: UIViewController {
-
-    //MARK:- IBOutlets
     
+    //MARK:- IBOutlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationTitleLabel: UILabel!
     @IBOutlet weak var locationAddressLabel: UILabel!
@@ -21,11 +20,17 @@ class TripDetailsViewController: UIViewController {
     @IBOutlet weak var familiesRSVPSegmentedControl: UISegmentedControl!
     @IBOutlet weak var totalFamiliesRSVPLabel: UILabel!
     
+    //MARK:- Properties
+    var campingTrip: CampingTrip?
+    
     @IBOutlet weak var rsvpButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        print("TripDetailsViewController = \(campingTrip?.id)")
+        
     }
     
     
@@ -38,5 +43,5 @@ class TripDetailsViewController: UIViewController {
     @IBAction func didTapOnRSVPButton(sender: AnyObject) {
         
     }
-
+    
 }

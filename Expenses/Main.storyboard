@@ -27,15 +27,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVM-ao-eam" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="458"/>
                                         <subviews>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sM3-cS-SaP">
-                                                <rect key="frame" x="8" y="20" width="584" height="180"/>
-                                                <color key="backgroundColor" red="0.93760653409090911" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="180" id="oIo-sV-pRk"/>
-                                                </constraints>
-                                            </mapView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRR-j9-8fn" userLabel="Address View">
-                                                <rect key="frame" x="8" y="200" width="584" height="58"/>
+                                                <rect key="frame" x="8" y="190" width="584" height="58"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lake Chabot Regional Park" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DS-Ri-Eoi">
                                                         <rect key="frame" x="8" y="8" width="241" height="24"/>
@@ -66,7 +59,7 @@
                                                 </variation>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qf-8Y-as0" userLabel="DateTimeView">
-                                                <rect key="frame" x="8" y="261" width="584" height="58"/>
+                                                <rect key="frame" x="8" y="251" width="584" height="58"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday 25th December, 2015 4:30 PM To" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLJ-UV-g23">
                                                         <rect key="frame" x="8" y="8" width="568" height="17"/>
@@ -99,7 +92,7 @@
                                                 </variation>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbH-nX-sF0">
-                                                <rect key="frame" x="8" y="322" width="584" height="108"/>
+                                                <rect key="frame" x="8" y="312" width="584" height="108"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="total families coming on this trip." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhY-3g-nE4">
                                                         <rect key="frame" x="8" y="8" width="219" height="18"/>
@@ -143,13 +136,20 @@
                                                     </mask>
                                                 </variation>
                                             </view>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sM3-cS-SaP">
+                                                <rect key="frame" x="8" y="10" width="584" height="180"/>
+                                                <color key="backgroundColor" red="0.93760653409090911" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="180" id="oIo-sV-pRk"/>
+                                                </constraints>
+                                            </mapView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="sM3-cS-SaP" firstAttribute="leading" secondItem="tVM-ao-eam" secondAttribute="leading" constant="8" id="0KT-9w-cNH"/>
                                             <constraint firstItem="DbH-nX-sF0" firstAttribute="trailing" secondItem="7qf-8Y-as0" secondAttribute="trailing" id="2Vi-Sx-fPX"/>
                                             <constraint firstItem="7qf-8Y-as0" firstAttribute="trailing" secondItem="lRR-j9-8fn" secondAttribute="trailing" id="7wb-kw-z5h"/>
                                             <constraint firstItem="lRR-j9-8fn" firstAttribute="trailing" secondItem="sM3-cS-SaP" secondAttribute="trailing" id="Frj-V1-50J"/>
-                                            <constraint firstItem="sM3-cS-SaP" firstAttribute="top" secondItem="tVM-ao-eam" secondAttribute="top" constant="20" symbolic="YES" id="ItT-cf-3sf"/>
+                                            <constraint firstItem="sM3-cS-SaP" firstAttribute="top" secondItem="tVM-ao-eam" secondAttribute="top" constant="10" id="ItT-cf-3sf"/>
                                             <constraint firstAttribute="height" constant="458" id="K37-mE-g9f"/>
                                             <constraint firstItem="DbH-nX-sF0" firstAttribute="top" secondItem="7qf-8Y-as0" secondAttribute="bottom" constant="3" id="TiB-w0-lp1"/>
                                             <constraint firstItem="7qf-8Y-as0" firstAttribute="top" secondItem="lRR-j9-8fn" secondAttribute="bottom" constant="3" id="TsW-8V-TKH"/>

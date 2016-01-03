@@ -97,27 +97,8 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func findFamilyMembersViewController(var viewControllers: [AnyObject]?) -> FamilyMembersViewController?{
-        if let familyMemberVC: FamilyMembersViewController = viewControllers?[0] as? FamilyMembersViewController{
-            return familyMemberVC
-        }
-        if let familyMemberVC: FamilyMembersViewController = viewControllers?[1] as? FamilyMembersViewController{
-            return familyMemberVC
-        }
-        return nil
-    }
     
-    func findFamilyExpensesViewController(var viewControllers: [AnyObject]?) -> FamilyExpensesViewController?{
-        
-        if let familyExpenseVC: FamilyExpensesViewController = viewControllers?[0] as? FamilyExpensesViewController{
-            return familyExpenseVC
-        }
-        if let familyExpenseVC: FamilyExpensesViewController = viewControllers?[1] as? FamilyExpensesViewController{
-            return familyExpenseVC
-        }
-        return nil
-    }
-    
+    //MARK: - Utility Functions
     private func updateFamilies(){
         if let campingTripId = campingTrip?.id{
             ParseManager.fetchFamiliesFor(campingTripId, pageNumber: 0, totalResultPerPage: 10) { (families, error) -> Void in
