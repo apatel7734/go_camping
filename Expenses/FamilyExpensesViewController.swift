@@ -52,6 +52,7 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("expensetableviewcell") as! ExpenseTableViewCell
+        cell.loadData(expenses[indexPath.row])
         
         return cell
     }

@@ -17,7 +17,11 @@ class Expense: PFObject, PFSubclassing {
     
     var amount: NSDecimalNumber?{
         get{
-            return NSDecimalNumber(double: 20.0)
+            if let amount = self[ParseExpense.Amount] as? NSNumber{
+                return NSDecimalNumber(decimal: amount.decimalValue)
+            }else{
+                return nil
+            }
         }
     }
     
