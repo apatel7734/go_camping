@@ -48,11 +48,13 @@ class CampingTrip : PFObject, PFSubclassing{
         }
     }
     
-    class func parseClassName() -> String{
+    
+    
+    static func parseClassName() -> String{
         return ParseTrip.CampingTrip
     }
     
-    override class func initialize(){
+    override static func initialize(){
         superclass()?.load()
         self.registerSubclass()
     }

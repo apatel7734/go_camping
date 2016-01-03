@@ -142,11 +142,11 @@ class AddFamilyUIViewController: UIViewController, UITextFieldDelegate {
         let phone =  phoneNumber
         let email = emailTextField.text!
         
-        let dictionary : [String: AnyObject] = [Family.Keys.Name : familyName,Family.Keys.PhoneNumber: phone, Family.Keys.Email: email]
-        
-        let _ = Family(dictionary: dictionary, context: CoreDataStackManager.sharedInstance.managedObjectContext)
-        
-        CoreDataStackManager.sharedInstance.saveContext()
+//        let dictionary : [String: AnyObject] = [Family.Keys.Name : familyName,Family.Keys.PhoneNumber: phone, Family.Keys.Email: email]
+//        
+//        let _ = Family(dictionary: dictionary, context: CoreDataStackManager.sharedInstance.managedObjectContext)
+//        
+//        CoreDataStackManager.sharedInstance.saveContext()
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

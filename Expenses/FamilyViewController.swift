@@ -14,8 +14,10 @@ import Parse
 class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource ,NSFetchedResultsControllerDelegate{
     
     var currentIndexPath: NSIndexPath?
+    var campingTrip: CampingTrip?
     
     @IBOutlet weak var familyTableView: UITableView!
+    var families = [Family]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +25,8 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         familyTableView.delegate = self
         familyTableView.dataSource = self
         
-        do{
-            try fetchedResultsController.performFetch()
-        }catch{
-            print("error perfoming fetch.")
-        }
-        fetchedResultsController.delegate = self
         configureNavigationBar()
+        updateFamilies()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -58,17 +55,14 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK - tableView datasource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let familyCell = tableView.dequeueReusableCellWithIdentifier("familycell") as! FamilyUITableViewCell
-        let family = fetchedResultsController.objectAtIndexPath(indexPath) as? Family
+        let family = families[indexPath.row]
         
-        if let family  = family {
-            self.configureCell(familyCell, withFamily: family)
-        }
+        familyCell.loadData(family)
         return familyCell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = self.fetchedResultsController.sections![section]
-        return sectionInfo.numberOfObjects
+        return families.count
     }
     
     
@@ -86,26 +80,20 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)
-            if let objectToRemove = self.fetchedResultsController.objectAtIndexPath(indexPath) as? NSManagedObject{
-                
-                CoreDataStackManager.sharedInstance.managedObjectContext.deleteObject(objectToRemove)
-                CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
-                CommonUtility.sharedInstance.updateTotalMembersCountForEvent()
-                CoreDataStackManager.sharedInstance.saveContext()
-                tableView.reloadData()
-            }
+            families.removeAtIndex(indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            tableView.endUpdates()
+            CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
+            CommonUtility.sharedInstance.updateTotalMembersCountForEvent()
         }
     }
     
     
     //MARK - segue methods on + button clicked.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let rootViewController = segue.destinationViewController as? RootViewController;
-        if let rootViewController = rootViewController{
-            if let indexPath = self.currentIndexPath{
-                let family = fetchedResultsController.objectAtIndexPath(indexPath) as? Family
-                rootViewController.family = family
-            }
+        if let rootViewController = segue.destinationViewController as? RootViewController, indexPath = self.currentIndexPath{
+            rootViewController.family = families[indexPath.row]
         }
     }
     
@@ -130,76 +118,14 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return nil
     }
     
-    
-    func configureCell(familyCell: FamilyUITableViewCell, withFamily family: Family){
-        familyCell.familyName.text = family.name
-        familyCell.totalMembers.text = "\(family.members.count)"
-        let familyCalculatedExpense = CommonUtility.sharedInstance.amountDifferenceToPayOrTakeForFamily(family)
-        familyCell.totalExpenses.text = familyCalculatedExpense.currencyFormattedValueWithDollarPrefix()
-        familyCell.familyImage.showFirstCharacterFor(family.name)
-    }
-    
-    //Step 1. add lazy controller to fetch result
-    lazy var fetchedResultsController: NSFetchedResultsController = {
-        
-        let fetchRequest = NSFetchRequest(entityName: "Family")
-        
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        fetchRequest.returnsObjectsAsFaults = false
-        
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-            managedObjectContext: CoreDataStackManager.sharedInstance.managedObjectContext,
-            sectionNameKeyPath: nil,
-            cacheName: nil)
-        
-        return fetchedResultsController
-        
-    }()
-    
-    
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
-        self.familyTableView.beginUpdates()
-    }
-    
-    func controller(controller: NSFetchedResultsController,
-        didChangeSection sectionInfo: NSFetchedResultsSectionInfo,
-        atIndex sectionIndex: Int,
-        forChangeType type: NSFetchedResultsChangeType) {
-            
-            switch type {
-            case .Insert:
-                self.familyTableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-                
-            case .Delete:
-                self.familyTableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-                
-            default:
-                return
+    private func updateFamilies(){
+        if let campingTripId = campingTrip?.id{
+            ParseManager.fetchFamiliesFor(campingTripId, pageNumber: 0, totalResultPerPage: 10) { (families, error) -> Void in
+                if let families = families{
+                    self.families = families
+                    self.familyTableView.reloadData()
+                }
             }
-    }
-    
-    
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        switch type {
-        case .Insert:
-            familyTableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-            
-        case .Delete:
-            familyTableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-            
-        case .Update:
-            let cell = familyTableView.cellForRowAtIndexPath(indexPath!) as! FamilyUITableViewCell
-            let family = controller.objectAtIndexPath(indexPath!) as! Family
-            self.configureCell(cell, withFamily: family)
-            
-        case .Move:
-            familyTableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-            familyTableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
         }
     }
-    
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        self.familyTableView.endUpdates()
-    }
-    
 }

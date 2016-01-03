@@ -2,56 +2,86 @@
 //  Family.swift
 //  Expenses
 //
-//  Created by Ashish Patel on 7/19/15.
-//  Copyright (c) 2015 Ashish Patel. All rights reserved.
+//  Created by Patel, Ashish on 1/1/16.
+//  Copyright © 2016 Ashish Patel. All rights reserved.
 //
 
 import Foundation
-//Step 1. import coredata
-import CoreData
+import Parse
 
-//Step 2. Make Family available to Objective-C code
-@objc(Family)
-
-//Step 3. Make Family Subclass of NSManagedObject
-class Family: NSManagedObject {
+class Family: PFObject, PFSubclassing {
     
-    struct Keys {
-        static let Name = "name"
-        static let TotalExpense = "totalexpense"
-        static let Address = "address"
-        static let PhoneNumber = "phonenumber"
-        static let Email = "email"
+    var id: String?{
+        get{
+            return self.objectId
+        }
     }
     
-    //Step 4. Promot these properties to core data attributes
-    @NSManaged var name: String?
-    @NSManaged var totalExpense: NSNumber?
-    @NSManaged var phoneNumber: NSNumber?
-    @NSManaged var email: String?
-    @NSManaged var address: String?
-    @NSManaged var members: [Member]
-    @NSManaged var expenses: [Expense]
-    
-    
-    // 5. Include this standard Core Data init method.
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    var name: String?{
+        get{
+            return self[ParseFamily.Name] as? String
+        }
     }
     
-    /**
-    * 6. The two argument init method
-    */
+    var totalExpense: NSDecimalNumber?{
+        get{
+            if let totalExpense = self[ParseFamily.TotalExpense] as? NSNumber{
+                return NSDecimalNumber(decimal: totalExpense.decimalValue)
+            }else{
+                return nil
+            }
+            
+        }
+    }
     
-    init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
+    var address: String?{
+        get{
+            return self[ParseFamily.Address] as? String
+        }
+    }
     
-        let entity =  NSEntityDescription.entityForName("Family", inManagedObjectContext: context)!
-        super.init(entity: entity,insertIntoManagedObjectContext: context)
-        
-        name = dictionary[Keys.Name] as? String
-        address = dictionary[Keys.Address] as? String
-        phoneNumber = dictionary[Keys.PhoneNumber] as? NSNumber
-        totalExpense = dictionary[Keys.TotalExpense] as? NSNumber
-        email = dictionary[Keys.Email] as? String
+    var phoneNumber: String?{
+        get{
+            return self[ParseFamily.PhoneNumber] as? String
+        }
+    }
+    
+    var email: String?{
+        get{
+            return self[ParseFamily.Email] as? String
+        }
+    }
+    
+    var campingTripsIds: [String]?{
+        get{
+            return self[ParseFamily.CampingTripIds] as? [String]
+        }
+    }
+    var expenseIds: [String]?{
+        get{
+            return self[ParseFamily.ExpenseIds] as? [String]
+        }
+    }
+    
+    var membersIds: [String]?{
+        get{
+            return self[ParseFamily.MemberIds] as? [String]
+        }
+    }
+    
+    var userId: String?{
+        get{
+            return self[ParseFamily.UserId] as? String
+        }
+    }
+    
+    
+    override static func initialize(){
+        superclass()?.load()
+        self.registerSubclass()
+    }
+    
+    static func parseClassName() -> String {
+        return ParseFamily.Family
     }
 }

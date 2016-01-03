@@ -13,7 +13,16 @@ class FamilyUITableViewCell: UITableViewCell {
     @IBOutlet weak var familyName: UILabel!
     @IBOutlet weak var totalMembers: UILabel!
     @IBOutlet weak var totalExpenses: UILabel!
-
+    
     @IBOutlet weak var familyImage: CircularImageView!
-
+    
+    
+    func loadData(family: Family){
+        self.familyName.text = family.name
+        self.totalMembers.text = "10"
+        let familyCalculatedExpense = CommonUtility.sharedInstance.amountDifferenceToPayOrTakeForFamily(family)
+        self.totalExpenses.text = familyCalculatedExpense.currencyFormattedValueWithDollarPrefix()
+        self.familyImage.showFirstCharacterFor(family.name)
+    }
+    
 }

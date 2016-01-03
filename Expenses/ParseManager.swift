@@ -11,11 +11,10 @@ import Parse
 
 class ParseManager {
     
-    static func campingTrips(pageNumber: Int, totalTripsPerPage: Int, completionBlock: (campingTrips: [CampingTrip]?, error: NSError?) -> Void){
+    static func fetchCampingTrips(pageNumber: Int, totalResultsPerPage: Int, completionBlock: (campingTrips: [CampingTrip]?, error: NSError?) -> Void){
         let query = PFQuery(className: ParseTrip.CampingTrip)
-        query.skip = pageNumber * totalTripsPerPage
+        query.skip = pageNumber * totalResultsPerPage
         query.findObjectsInBackgroundWithBlock { (trips: [PFObject]?, error:NSError?) -> Void in
-            print("Total Objects in background = \(trips?.count)")
             if let campingTrips = trips as? [CampingTrip]{
                 completionBlock(campingTrips: campingTrips, error: nil)
             }else{
@@ -23,5 +22,19 @@ class ParseManager {
             }
         }
     }
+    
+    static func fetchFamiliesFor(campingTripId: String, pageNumber: Int, totalResultPerPage: Int, completionBlock: (families: [Family]?, error: NSError?) -> Void){
+        let query = PFQuery(className: ParseFamily.Family)
+        query.whereKey(ParseFamily.CampingTripIds, equalTo: campingTripId)
+        query.skip = pageNumber * totalResultPerPage
+        query.findObjectsInBackgroundWithBlock { (pfObjects: [PFObject]?, error:NSError?) -> Void in
+            if let families = pfObjects as? [Family]{
+                completionBlock(families: families, error: nil)
+            }else{
+                completionBlock(families: nil, error: NSError(domain: "Error domain", code: 101, userInfo: nil))
+            }
+        }
+    }
+    
     
 }

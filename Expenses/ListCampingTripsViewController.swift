@@ -25,7 +25,7 @@ class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITa
         //this removes empty lines from tableview.
         campingTripsTableView.tableFooterView = UIView()
         configureNavigationBar()
-        ParseManager.campingTrips(0, totalTripsPerPage: 10) { (campingTrips, error) -> Void in
+        ParseManager.fetchCampingTrips(0, totalResultsPerPage: 10) { (campingTrips, error) -> Void in
             if let campingTrips = campingTrips{
                 self.campingTrips = campingTrips
                 self.campingTripsTableView.reloadData()
@@ -49,6 +49,11 @@ class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITa
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBar = storyboard.instantiateViewControllerWithIdentifier("tripDetailAndFamilyTabbar")
+        for tabBarChildVC in tabBar.childViewControllers{
+            if let navigationVC = tabBarChildVC as? UINavigationController,                 familyVC = navigationVC.topViewController as? FamilyViewController{
+                familyVC.campingTrip = campingTrips[indexPath.row]
+            }
+        }
         presentViewController(tabBar, animated: true, completion: nil)
     }
     

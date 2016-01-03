@@ -39,7 +39,7 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        updateViewControllerForAddorEdit()
+        //        updateViewControllerForAddorEdit()
         
         nameTextField.delegate = self
         phoneNumberTextField.delegate = self
@@ -108,7 +108,7 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
         //validate Name
         let nameResponse = ValidationUtil.sharedValidationUtil.isValidName(nameTextField.text)
         if !nameResponse.isValid {
-
+            
             ErrorView.sharedView.showErrorMessage(self.view, message: nameResponse.errorMessage!)
             return false
         }
@@ -144,16 +144,16 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
         var actionType = ActionType.Add
         
         if let _ = member{
-            member?.name = name
-            member?.phoneNumber = Int(phone)
-            member?.email = email
-            member?.age = Int(age)
-            actionType = .Update
-            
-        }else{
-            let memberDict = [Member.Keys.Name: name, Member.Keys.PhoneNumber : phone, Member.Keys.Age : age, Member.Keys.Email : email]
-            
-            self.member = Member(dictionary: memberDict, context: CoreDataStackManager.sharedInstance.managedObjectContext)
+            //            member?.name = name
+            //            member?.phoneNumber = Int(phone)
+            //            member?.email = email
+            //            member?.age = Int(age)
+            //            actionType = .Update
+            //
+            //        }else{
+            //            let memberDict = [Member.Keys.Name: name, Member.Keys.PhoneNumber : phone, Member.Keys.Age : age, Member.Keys.Email : email]
+            //
+            //            self.member = Member(dictionary: memberDict, context: CoreDataStackManager.sharedInstance.managedObjectContext)
         }
         delegate?.didPickFamilyMember(member!, actionType: actionType)
     }
@@ -179,9 +179,9 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
             if let memberPhone = member.phoneNumber{
                 phoneNumber = "\(memberPhone)"
             }
-            if let memberEmail = member.email{
-                emailTextField.text = memberEmail
-            }
+            //            if let memberEmail = member.email{
+            //                emailTextField.text = memberEmail
+            //            }
             if let memberAge = member.age{
                 ageTextField.text = "\(memberAge)"
             }

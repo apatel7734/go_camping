@@ -17,15 +17,15 @@ class CoreDataCoordinator {
     
     internal static let sharedInstance = CoreDataCoordinator()
     
-    func fetchAllFamilies() throws -> [Family] {
-        
-        let fetchRequest = NSFetchRequest(entityName: "Family")
-        do{
-            let results = try CoreDataStackManager.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest)
-            return results as! [Family]
-        }catch{
-            throw CoreDataError.FetchResult
-        }
-    }
+//    func fetchAllFamilies() throws -> [Family] {
+//        
+//        let fetchRequest = NSFetchRequest(entityName: "Family")
+//        do{
+//            let results = try CoreDataStackManager.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest)
+//            return results as! [Family]
+//        }catch{
+//            throw CoreDataError.FetchResult
+//        }
+//    }
     
 }
