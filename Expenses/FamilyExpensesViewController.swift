@@ -25,6 +25,8 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
         
         let emptyFooterView = UIView()
         expenseTableView.tableFooterView = emptyFooterView
+        
+        updateExpenses()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -97,6 +99,17 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
             }
         }
         self.presentViewController(destVC, animated: true, completion: nil)
+    }
+    
+    private func updateExpenses(){
+        if let familyId = family?.id{
+            ParseManager.fetchExpensesFor(familyId, pageNumber: 0, totalResultPerPage: 10, completionBlock: { (expenses, error) -> Void in
+                if let expenses = expenses{
+                    self.expenses = expenses
+                    self.expenseTableView.reloadData()
+                }
+            })
+        }
     }
     
 }

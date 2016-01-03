@@ -12,7 +12,7 @@ import UIKit
 class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITableViewDelegate, AddEditFamilyMembersViewControllerDelegate {
     
     @IBOutlet weak var membersTableView: UITableView!
-
+    
     var campingTrip: CampingTrip?
     var family: Family?
     var members = [Member]()
@@ -22,14 +22,14 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //setup topbar button
-        
         
         //delegates
         membersTableView.dataSource = self
         membersTableView.delegate = self
         
         membersTableView.tableFooterView = UIView()
+        
+        updateMembers()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -101,6 +101,17 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
             CommonUtility.sharedInstance.decrementTotalMembersCountForEvent()
         default:
             print("Not supported yet.")
+        }
+    }
+    
+    private func updateMembers(){
+        if let familyId = family?.id{
+            ParseManager.fetchMembersFor(familyId, pageNumber: 0, totalResultPerPage: 10) { (members, error) -> Void in
+                if let members = members{
+                    self.members = members
+                    self.membersTableView.reloadData()
+                }
+            }
         }
     }
 }

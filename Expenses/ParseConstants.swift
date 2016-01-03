@@ -42,6 +42,7 @@ struct ParseExpense {
     static let Name = "name"
     static let Amount = "amount"
     static let Description = "description"
+    static let FamilyId = "familyId"
 }
 
 struct ParseMember {

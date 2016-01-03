@@ -18,7 +18,7 @@ class ParseManager {
             if let campingTrips = trips as? [CampingTrip]{
                 completionBlock(campingTrips: campingTrips, error: nil)
             }else{
-                completionBlock(campingTrips: nil, error: NSError(domain: "Error domain", code: 101, userInfo: nil))
+                completionBlock(campingTrips: nil, error: NSError(domain: "CampingTrips Error domain", code: 101, userInfo: nil))
             }
         }
     }
@@ -31,7 +31,33 @@ class ParseManager {
             if let families = pfObjects as? [Family]{
                 completionBlock(families: families, error: nil)
             }else{
-                completionBlock(families: nil, error: NSError(domain: "Error domain", code: 101, userInfo: nil))
+                completionBlock(families: nil, error: NSError(domain: "Families Error domain", code: 101, userInfo: nil))
+            }
+        }
+    }
+    
+    static func fetchMembersFor(familyId: String, pageNumber: Int, totalResultPerPage: Int, completionBlock: (members: [Member]?, error: NSError?) -> Void){
+        let query = PFQuery(className: ParseMember.Member)
+        query.whereKey(ParseMember.FamilyId, equalTo: familyId)
+        query.skip = pageNumber * totalResultPerPage
+        query.findObjectsInBackgroundWithBlock { (pfObjects: [PFObject]?, error:NSError?) -> Void in
+            if let members = pfObjects as? [Member]{
+                completionBlock(members: members, error: nil)
+            }else{
+                completionBlock(members: nil, error: NSError(domain: "Members Error domain", code: 101, userInfo: nil))
+            }
+        }
+    }
+    
+    static func fetchExpensesFor(familyId: String, pageNumber: Int, totalResultPerPage: Int, completionBlock: (expenses: [Expense]?, error: NSError?) -> Void){
+        let query = PFQuery(className: ParseExpense.Expense)
+        query.whereKey(ParseExpense.FamilyId, equalTo: familyId)
+        query.skip = pageNumber * totalResultPerPage
+        query.findObjectsInBackgroundWithBlock { (pfObjects: [PFObject]?, error:NSError?) -> Void in
+            if let expenses = pfObjects as? [Expense]{
+                completionBlock(expenses: expenses, error: nil)
+            }else{
+                completionBlock(expenses: nil, error: NSError(domain: "Expenses Error domain", code: 101, userInfo: nil))
             }
         }
     }
