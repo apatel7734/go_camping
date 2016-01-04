@@ -26,13 +26,12 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         familyTableView.dataSource = self
         
         configureNavigationBar()
-        updateFamilies()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        familyTableView.reloadData()
         familyTableView.tableFooterView = UIView()
+        updateFamilies()
     }
     
     func configureNavigationBar(){

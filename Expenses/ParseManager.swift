@@ -62,5 +62,11 @@ class ParseManager {
         }
     }
     
+    static func addFamilyToParse(family: Family, completionBlock: (success: Bool, error: NSError?) -> Void){
+        family.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            completionBlock(success: success, error: error)
+        }
+    }
+    
     
 }

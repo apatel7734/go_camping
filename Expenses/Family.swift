@@ -21,6 +21,10 @@ class Family: PFObject, PFSubclassing {
         get{
             return self[ParseFamily.Name] as? String
         }
+        
+        set(newValue){
+            self[ParseFamily.Name] = newValue
+        }
     }
     
     var totalExpense: NSDecimalNumber?{
@@ -44,11 +48,18 @@ class Family: PFObject, PFSubclassing {
         get{
             return self[ParseFamily.PhoneNumber] as? String
         }
+        set{
+            self[ParseFamily.PhoneNumber] = newValue
+        }
     }
     
     var email: String?{
         get{
             return self[ParseFamily.Email] as? String
+        }
+        
+        set{
+            self[ParseFamily.Email] = newValue
         }
     }
     
@@ -72,6 +83,9 @@ class Family: PFObject, PFSubclassing {
     var userId: String?{
         get{
             return self[ParseFamily.UserId] as? String
+        }
+        set{
+            self[ParseFamily.UserId] = newValue
         }
     }
     

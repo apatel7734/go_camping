@@ -142,13 +142,18 @@ class AddFamilyUIViewController: UIViewController, UITextFieldDelegate {
         let phone =  phoneNumber
         let email = emailTextField.text!
         
-//        let dictionary : [String: AnyObject] = [Family.Keys.Name : familyName,Family.Keys.PhoneNumber: phone, Family.Keys.Email: email]
-//        
-//        let _ = Family(dictionary: dictionary, context: CoreDataStackManager.sharedInstance.managedObjectContext)
-//        
-//        CoreDataStackManager.sharedInstance.saveContext()
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
+        let family = Family()
+        family.name = familyName
+        family.phoneNumber = phone
+        family.email = email
+        ParseManager.addFamilyToParse(family) { (success, error) -> Void in
+            if success{
+                print("Add Family Success!")
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }else if let error = error{
+                print("Add Family Error = \(error)")
+            }
+        }
     }
     
 }
