@@ -12,6 +12,16 @@ class EnterCodeViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var enterCodeTextField: NoCaretTextField!
     var phoneNumber = ""
+    private var verificationCode: String = ""{
+        didSet{
+            if verificationCode.characters.count < 5{
+                enterCodeTextField.text = verificationCode
+                if verificationCode.characters.count == 4 {
+                    doVerifyCodeFromServer()
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,29 +29,43 @@ class EnterCodeViewController: UIViewController,UITextFieldDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        enterCodeTextField.becomeFirstResponder()
         self.navigationController?.navigationBar.configureAsTransparentBar()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        enterCodeTextField.becomeFirstResponder()
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
-        if string.isEmpty || textField.text?.characters.count < 4{
-            return true
+        if string.isEmpty {
+            verificationCode = String(verificationCode.characters.dropLast())
+        }else if verificationCode.characters.count < 4{
+            verificationCode = verificationCode + string
         }
-        submitConfirmationCode()
         
         return false
     }
     
-    private func submitConfirmationCode(){
+    private func doVerifyCodeFromServer(){
+        CustomLoadingView.sharedView.showLoadingViewFor(self.view, withMessage: "verifying code...")
         APICoordinator.submitCode(enterCodeTextField.text!, phoneNumber: phoneNumber) { (response, error) -> Void in
-            self.moveToFamilisVC()
+            CustomLoadingView.sharedView.hideLoadingView()
+            if let error = error{
+                let errors = error.userInfo as Dictionary
+                if let errorMessage = errors["NSLocalizedDescription"] as? String{
+                    ErrorView.sharedView.showErrorMessage(self.view, message: errorMessage)
+                }
+            }else{
+                self.moveToFamilisVC()
+            }
         }
     }
     
     private func moveToFamilisVC(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let familyVC = storyboard.instantiateViewControllerWithIdentifier("FamilyViewController") as? FamilyViewController{
+            self.navigationItem.title = ""
             self.navigationController?.pushViewController(familyVC, animated: true)
         }
     }

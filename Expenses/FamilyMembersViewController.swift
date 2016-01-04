@@ -14,21 +14,28 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     @IBOutlet weak var membersTableView: UITableView!
     
     var family: Family?
+    var pageIndex: Int = 0
     
     //MARK: UIView Callback methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //setup topbar button
-        let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addMembersButtonPressed:")
-        self.navigationController?.topViewController?.navigationItem.rightBarButtonItem = addRightBarButtonItem
+        
         
         //delegates
         membersTableView.dataSource = self
         membersTableView.delegate = self
+        
+        let emptyFooterView = UIView()
+        membersTableView.tableFooterView = emptyFooterView
     }
     
     override func viewWillAppear(animated: Bool) {
+        let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addMembersButtonPressed:")
+        if let navigationController = self.navigationController{
+            navigationController.topViewController?.navigationItem.rightBarButtonItem = addRightBarButtonItem
+        }
         self.navigationController?.topViewController?.navigationItem.title = "Members"
     }
     

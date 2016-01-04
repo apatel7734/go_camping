@@ -31,7 +31,7 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        
+        ErrorView.sharedView.hideErrorView()
         if string.isEmpty && !phoneNumber.isEmpty{
             phoneNumber = String(phoneNumber.characters.dropLast())
         }
@@ -55,15 +55,24 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
     private func moveToEnterCodeScreen(){
         if let enterCodeVC = storyboard?.instantiateViewControllerWithIdentifier("entercodeviewcontroller") as? EnterCodeViewController{
             enterCodeVC.phoneNumber = phoneNumber
+            self.navigationItem.title = ""
             self.navigationController?.pushViewController(enterCodeVC, animated: true)
         }
     }
     
     
     private func submitPhoneNumber(){
+        CustomLoadingView.sharedView.showLoadingViewFor(self.view, withMessage: nil)
         APICoordinator.submitPhoneNumber(phoneNumber) { (response, error) -> Void in
-            print("Response = \(response), Error = \(error)")
-            self.moveToEnterCodeScreen()
+            CustomLoadingView.sharedView.hideLoadingView()
+            if let error = error {
+                let errors = error.userInfo as Dictionary
+                if let errorMessage = errors["NSLocalizedDescription"] as? String{
+                    ErrorView.sharedView.showErrorMessage(self.view, message: errorMessage)
+                }
+            }else{
+                self.moveToEnterCodeScreen()
+            }
         }
     }
     
