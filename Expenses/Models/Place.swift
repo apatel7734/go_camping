@@ -15,6 +15,7 @@ class Place: NSObject {
     var placeId: String!
     var rating: NSNumber?
     var vicinity: String?
+    var geometry: Geometry?
     
     static func getMapping() -> RKObjectMapping {
         let mapping = RKObjectMapping(forClass: Place.self)
@@ -23,6 +24,8 @@ class Place: NSObject {
             "place_id": "placeId",
             "rating": "rating",
             "vicinity": "vicinity"])
+        
+        mapping.addPropertyMapping(RKRelationshipMapping(fromKeyPath: "geometry", toKeyPath: "geometry", withMapping: Geometry.getMapping()))
         
         return mapping
     }

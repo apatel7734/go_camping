@@ -377,19 +377,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4g-pm-QTu">
-                                <rect key="frame" x="284" y="234" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TDP-kz-0no">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="h4g-pm-QTu" firstAttribute="centerX" secondItem="Bgg-04-VSo" secondAttribute="centerX" id="b1O-H4-XjD"/>
-                            <constraint firstItem="h4g-pm-QTu" firstAttribute="centerY" secondItem="Bgg-04-VSo" secondAttribute="centerY" id="chc-zs-JF3"/>
+                            <constraint firstItem="fIO-23-eCo" firstAttribute="top" secondItem="TDP-kz-0no" secondAttribute="bottom" id="Btq-p7-Be1"/>
+                            <constraint firstItem="TDP-kz-0no" firstAttribute="top" secondItem="Vu7-o3-HEx" secondAttribute="bottom" id="Mjk-dm-qiK"/>
+                            <constraint firstAttribute="trailing" secondItem="TDP-kz-0no" secondAttribute="trailing" id="YAZ-ze-8RH"/>
+                            <constraint firstItem="TDP-kz-0no" firstAttribute="leading" secondItem="Bgg-04-VSo" secondAttribute="leading" id="nRl-gB-f4y"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="TDP-kz-0no" id="JHx-CW-UnL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vpT-ti-bjn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -81,6 +81,7 @@ extension CampsiteMainViewController {
     private func searchCampsiteForLocation(location: CLLocation) {
         googleMapApi.getCampingSitesForLocation(location, radius: 4000, success: { (places) in
             self.listVC.campsiteList = places
+            self.mapVC.campsiteList = places
             
             }) { (error) in
             //TODO handle this
