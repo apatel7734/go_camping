@@ -56,47 +56,48 @@ class CommonUtility {
      */
     func totalAmountOwedByFamily(family: Family) -> NSDecimalNumber{
         let perFamilyExpense = totalExpenseEachFamilySupposeToPay()
-        let totalFamilyMembers = family.members.count
-        let returnValue = perFamilyExpense.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: totalFamilyMembers), withBehavior: NSDecimalNumber.defaultHandler())
-        return returnValue
+        //        let totalFamilyMembers = family.members.count
+        //        let returnValue = perFamilyExpense.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: totalFamilyMembers), withBehavior: NSDecimalNumber.defaultHandler())
+        //        return returnValue
+        return 21.0
     }
     
     func updateTotalMembersCountForEvent(){
-        let fetchRequest = NSFetchRequest(entityName: "Member")
-        do{
-            let members = try CoreDataStackManager.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest) as! [Member]
-            NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent = members.count
-        }catch{
-            print("Error in fetching members in updateTotalMembersCountForEvent.")
-        }
+        //        let fetchRequest = NSFetchRequest(entityName: "Member")
+        //        do{
+        //            let members = try CoreDataStackManager.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest) as! [Member]
+        //            NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent = members.count
+        //        }catch{
+        //            print("Error in fetching members in updateTotalMembersCountForEvent.")
+        //        }
     }
     
     
     func updateFamilyTotalExpense(family: Family?){
-        var totalExpense: NSDecimalNumber = NSDecimalNumber.zero()
-        if let expenses = family?.expenses{
-            for expense in expenses{
-                if let expenseAmout = expense.amount{
-                    totalExpense = totalExpense.decimalNumberByAdding(NSDecimalNumber(decimal: expenseAmout.decimalValue))
-                }
-            }
-        }
-        family?.totalExpense = totalExpense
+        //        var totalExpense: NSDecimalNumber = NSDecimalNumber.zero()
+        //        if let expenses = family?.expenses{
+        //            for expense in expenses{
+        //                if let expenseAmout = expense.amount{
+        //                    totalExpense = totalExpense.decimalNumberByAdding(NSDecimalNumber(decimal: expenseAmout.decimalValue))
+        //                }
+        //            }
+        //        }
+        //        family?.totalExpense = totalExpense
     }
     
     func updateTotalExpenseAmountForEvent(){
-        let fetchRequest = NSFetchRequest(entityName: "Expense")
-        do{
-            let expenses = try CoreDataStackManager.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest) as! [Expense]
-            var totalExpenseAmount = NSDecimalNumber.zero()
-            for expense in expenses{
-                if let expenseAmount = expense.amount?.decimalValue{
-                    totalExpenseAmount = totalExpenseAmount.decimalNumberByAdding(NSDecimalNumber(decimal: expenseAmount))
-                }
-            }
-            NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent = totalExpenseAmount
-        }catch{
-            print("Error in fetching expenses in updateTotalExpenseAmountForEvent.")
-        }
+        //        let fetchRequest = NSFetchRequest(entityName: "Expense")
+        //        do{
+        //            let expenses = try CoreDataStackManager.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest) as! [Expense]
+        //            var totalExpenseAmount = NSDecimalNumber.zero()
+        //            for expense in expenses{
+        //                if let expenseAmount = expense.amount?.decimalValue{
+        //                    totalExpenseAmount = totalExpenseAmount.decimalNumberByAdding(NSDecimalNumber(decimal: expenseAmount))
+        //                }
+        //            }
+        //            NSUserDefaultCoordinator.sharedInstance.totalExpenseForEvent = totalExpenseAmount
+        //        }catch{
+        //            print("Error in fetching expenses in updateTotalExpenseAmountForEvent.")
+        //        }
     }
 }

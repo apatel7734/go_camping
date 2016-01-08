@@ -19,6 +19,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource , UIP
     @IBOutlet weak var containerView: UIView!
     var pageViewcontrollers = [UIViewController]()
     var family: Family?
+    var campingTrip: CampingTrip?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +49,14 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource , UIP
             let familyMembersVC = storyboard.instantiateViewControllerWithIdentifier("FamilyMembersViewController") as! FamilyMembersViewController
             familyMembersVC.pageIndex = 0
             familyMembersVC.family = self.family
+            familyMembersVC.campingTrip = self.campingTrip
+            
             pageViewcontrollers.append(familyMembersVC)
             let familyExpenseVC = storyboard.instantiateViewControllerWithIdentifier("FamilyExpensesViewController") as! FamilyExpensesViewController
             familyExpenseVC.pageIndex = 1
             familyExpenseVC.family = self.family
+            familyExpenseVC.campingTrip = self.campingTrip
+            
             pageViewcontrollers.append(familyExpenseVC)
         }
     }

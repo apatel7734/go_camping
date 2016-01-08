@@ -13,22 +13,23 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     @IBOutlet weak var membersTableView: UITableView!
     
+    var campingTrip: CampingTrip?
     var family: Family?
+    var members = [Member]()
     var pageIndex: Int = 0
     
     //MARK: UIView Callback methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //setup topbar button
-        
         
         //delegates
         membersTableView.dataSource = self
         membersTableView.delegate = self
         
-        let emptyFooterView = UIView()
-        membersTableView.tableFooterView = emptyFooterView
+        membersTableView.tableFooterView = UIView()
+        
+        updateMembers()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,8 +43,6 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     
     func didPickFamilyMember(member: Member, actionType: ActionType) {
-        member.family = self.family
-        CoreDataStackManager.sharedInstance.saveContext()
         switch(actionType){
         case .Add:
             CommonUtility.sharedInstance.incrementTotalMembersCountForEvent()
@@ -71,25 +70,19 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     //MARK: UITableViewDelegates
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = family?.members.count{
-            return count
-        }else{
-            return 0
-        }
+        return members.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("membertableviewcell") as! MemberTableViewCell
-        if let members = family?.members{
-            cell.memberNameLabel.text = members[indexPath.row].name
-            cell.memberImageView.showFirstCharacterFor(members[indexPath.row].name)
-        }
+        let member = members[indexPath.row]
+        cell.loadData(member)
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         membersTableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let member = family?.members[indexPath.row]
+        let member = members[indexPath.row]
         presentNextViewcontroller(member)
     }
     
@@ -101,16 +94,24 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         switch(editingStyle){
         case .Delete:
-            if let memberTobeDeleted = family?.members[indexPath.row]{
-                CoreDataStackManager.sharedInstance.managedObjectContext.deleteObject(memberTobeDeleted)
-                CoreDataStackManager.sharedInstance.saveContext()
-                tableView.beginUpdates()
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-                tableView.endUpdates()
-                CommonUtility.sharedInstance.decrementTotalMembersCountForEvent()
-            }
+            members.removeAtIndex(indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            tableView.endUpdates()
+            CommonUtility.sharedInstance.decrementTotalMembersCountForEvent()
         default:
             print("Not supported yet.")
+        }
+    }
+    
+    private func updateMembers(){
+        if let familyId = family?.id{
+            ParseManager.fetchMembersFor(familyId, pageNumber: 0, totalResultPerPage: 10) { (members, error) -> Void in
+                if let members = members{
+                    self.members = members
+                    self.membersTableView.reloadData()
+                }
+            }
         }
     }
 }

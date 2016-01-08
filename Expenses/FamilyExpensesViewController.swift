@@ -13,7 +13,9 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     @IBOutlet weak var expenseTableView: UITableView!
     
     var family: Family?
+    var campingTrip: CampingTrip?
     var pageIndex: Int = 1
+    var expenses = [Expense]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,8 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
         
         let emptyFooterView = UIView()
         expenseTableView.tableFooterView = emptyFooterView
+        
+        updateExpenses()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -36,12 +40,7 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     //MARK: TableViewDataSource, TableViewDelegates
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if let expenses = family?.expenses{
-            return expenses.count
-        }else{
-            return 0
-        }
+        return expenses.count
     }
     
     
@@ -53,10 +52,8 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("expensetableviewcell") as! ExpenseTableViewCell
-        cell.expenseName.text = family?.expenses[indexPath.row].name
-        if let amountStringVal = family?.expenses[indexPath.row].amount?.stringValue{
-            cell.expenseAmountLabel.text = "$\(amountStringVal)"
-        }
+        cell.loadData(expenses[indexPath.row])
+        
         return cell
     }
     
@@ -68,15 +65,13 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         switch(editingStyle){
         case .Delete:
-            if let expenseTobeDeleted = family?.expenses[indexPath.row]{
-                CoreDataStackManager.sharedInstance.managedObjectContext.deleteObject(expenseTobeDeleted)
-                CoreDataStackManager.sharedInstance.saveContext()
-                tableView.beginUpdates()
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-                tableView.endUpdates()
-                CommonUtility.sharedInstance.updateFamilyTotalExpense(family)
-                CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
-            }
+            expenses.removeAtIndex(indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            tableView.endUpdates()
+            CommonUtility.sharedInstance.updateFamilyTotalExpense(family)
+            CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
+            
         default:
             print("Not supported yet.")
         }
@@ -85,9 +80,8 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     
     func didPickExpense(expense: Expense, actionType: ActionType) {
-        expense.family = family
+        
         CommonUtility.sharedInstance.updateFamilyTotalExpense(family)
-        CoreDataStackManager.sharedInstance.saveContext()
         CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
         self.expenseTableView.reloadData()
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -100,12 +94,23 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     func addEditExpenseFor(indexPath: NSIndexPath?){
         let destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilyexpensesvc") as! AddEditFamilyExpensesViewController
         destVC.delegate = self
-        if let expenses = family?.expenses, selectedIndexPath = indexPath{
+        if let selectedIndexPath = indexPath{
             if expenses.count > selectedIndexPath.row{
                 destVC.expense = expenses[selectedIndexPath.row]
             }
         }
         self.presentViewController(destVC, animated: true, completion: nil)
+    }
+    
+    private func updateExpenses(){
+        if let familyId = family?.id{
+            ParseManager.fetchExpensesFor(familyId, pageNumber: 0, totalResultPerPage: 10, completionBlock: { (expenses, error) -> Void in
+                if let expenses = expenses{
+                    self.expenses = expenses
+                    self.expenseTableView.reloadData()
+                }
+            })
+        }
     }
     
 }

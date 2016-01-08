@@ -20,12 +20,14 @@ struct ParseTrip {
 struct ParseFamily {
     static let Family = "Family"
     static let Name = "name"
-    static let ExpenseId = "expenseId"
-    static let MemberId = "memberId"
+    static let ExpenseIds = "expenseIds"
+    static let MemberIds = "memberIds"
     static let TotalExpense = "totalExpense"
     static let Address = "address"
     static let PhoneNumber = "phoneNumber"
     static let Email = "email"
+    static let CampingTripIds = "campingTripIds"
+    static let UserId = "userId"
 }
 
 struct ParseUser {
@@ -33,4 +35,21 @@ struct ParseUser {
     static let UserName = "username"
     static let Email = "email"
     static let Password = "password"
+}
+
+struct ParseExpense {
+    static let Expense = "Expense"
+    static let Name = "name"
+    static let Amount = "amount"
+    static let Description = "description"
+    static let FamilyId = "familyId"
+}
+
+struct ParseMember {
+    static let Member = "Member"
+    static let PhoneNumber = "phoneNumber"
+    static let Name = "name"
+    static let Email = "email"
+    static let FamilyId = "familyId"
+    static let Age = "age"
 }
