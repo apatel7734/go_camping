@@ -50,4 +50,29 @@ class Member: PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return ParseMember.Member
     }
+    
+    func toDictionary() -> [NSObject : AnyObject]{
+        var memberParams = [NSObject : AnyObject]()
+        if let name = name{
+            memberParams[ParseMember.Name] = name
+        }
+        
+        if let age = age{
+            memberParams[ParseMember.Age] = age
+        }
+        
+        if let familyId = familyId{
+            memberParams[ParseMember.FamilyId] = familyId
+        }
+        
+        if let id = id{
+            memberParams[ParseMember.ObjectId] = id
+        }
+        
+        if let phoneNumber = phoneNumber{
+            memberParams[ParseMember.PhoneNumber] = phoneNumber
+        }
+        
+        return memberParams
+    }
 }

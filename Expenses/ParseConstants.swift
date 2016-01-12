@@ -9,6 +9,7 @@
 import Foundation
 
 struct ParseTrip {
+    static let ObjectId = "objectId"
     static let CampingTrip = "CampingTrip"
     static let LocationTitle = "locationTitle"
     static let Title = "title"
@@ -18,6 +19,7 @@ struct ParseTrip {
 }
 
 struct ParseFamily {
+    static let ObjectId = "objectId"
     static let Family = "Family"
     static let Name = "name"
     static let ExpenseIds = "expenseIds"
@@ -31,6 +33,7 @@ struct ParseFamily {
 }
 
 struct ParseUser {
+    static let ObjectId = "objectId"
     static let User = "User"
     static let UserName = "username"
     static let Email = "email"
@@ -38,6 +41,7 @@ struct ParseUser {
 }
 
 struct ParseExpense {
+    static let ObjectId = "objectId"
     static let Expense = "Expense"
     static let Name = "name"
     static let Amount = "amount"
@@ -46,6 +50,7 @@ struct ParseExpense {
 }
 
 struct ParseMember {
+    static let ObjectId = "objectId"
     static let Member = "Member"
     static let PhoneNumber = "phoneNumber"
     static let Name = "name"

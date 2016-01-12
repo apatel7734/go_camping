@@ -68,5 +68,9 @@ class ParseManager {
         }
     }
     
-    
+    static func addNewMember(member: Member, completionBlock: (success: Bool, error: NSError?) -> Void){
+        PFCloud.callFunctionInBackground("", withParameters: member.toDictionary()) { (success: AnyObject?, error: NSError?) -> Void in
+            completionBlock(success: true, error: error)
+        }
+    }
 }

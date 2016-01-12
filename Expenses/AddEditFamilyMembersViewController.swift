@@ -141,21 +141,8 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
         let phone = phoneNumber
         let age = ageTextField.text!
         let email = emailTextField.text!
-        var actionType = ActionType.Add
-        
-        if let _ = member{
-            //            member?.name = name
-            //            member?.phoneNumber = Int(phone)
-            //            member?.email = email
-            //            member?.age = Int(age)
-            //            actionType = .Update
-            //
-            //        }else{
-            //            let memberDict = [Member.Keys.Name: name, Member.Keys.PhoneNumber : phone, Member.Keys.Age : age, Member.Keys.Email : email]
-            //
-            //            self.member = Member(dictionary: memberDict, context: CoreDataStackManager.sharedInstance.managedObjectContext)
-        }
-        delegate?.didPickFamilyMember(member!, actionType: actionType)
+        let member = Member(className: "Member", dictionary: [ParseMember.Name : "Ashish", ParseMember.Age : 30, ParseMember.Email : "email.test.com"])
+        print("Member = \(member)")
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {
@@ -179,9 +166,6 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
             if let memberPhone = member.phoneNumber{
                 phoneNumber = "\(memberPhone)"
             }
-            //            if let memberEmail = member.email{
-            //                emailTextField.text = memberEmail
-            //            }
             if let memberAge = member.age{
                 ageTextField.text = "\(memberAge)"
             }
