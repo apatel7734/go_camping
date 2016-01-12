@@ -68,8 +68,10 @@ class ParseManager {
         }
     }
     
-    static func addNewMember(member: Member, completionBlock: (success: Bool, error: NSError?) -> Void){
-        PFCloud.callFunctionInBackground("", withParameters: member.toDictionary()) { (success: AnyObject?, error: NSError?) -> Void in
+    static func addNewMember(memberParams: [NSObject : AnyObject], completionBlock: (success: Bool, error: NSError?) -> Void){
+        print("memberParams = \(memberParams)")
+        PFCloud.callFunctionInBackground("addNewMember", withParameters: memberParams) { (success: AnyObject?, error: NSError?) -> Void in
+            print("Error = \(error)")
             completionBlock(success: true, error: error)
         }
     }

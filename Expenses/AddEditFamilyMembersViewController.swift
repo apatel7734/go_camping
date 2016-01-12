@@ -15,6 +15,9 @@ protocol AddEditFamilyMembersViewControllerDelegate{
 class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate {
     
     var delegate: AddEditFamilyMembersViewControllerDelegate?
+    var family: Family?
+    var campingTrip: CampingTrip?
+    var member: Member?
     
     //MARK:@IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -33,9 +36,6 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
         }
     }
     
-    
-    var member: Member?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -50,7 +50,6 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
     @IBAction func updateActionButtonPressed(sender: AnyObject) {
         if dataValidTobeSaved(){
             addOrUpdateFamilyMember()
-            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
@@ -137,12 +136,12 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
     }
     
     func addOrUpdateFamilyMember(){
-        let name = nameTextField.text!
-        let phone = phoneNumber
-        let age = ageTextField.text!
-        let email = emailTextField.text!
-        let member = Member(className: "Member", dictionary: [ParseMember.Name : "Ashish", ParseMember.Age : 30, ParseMember.Email : "email.test.com"])
-        print("Member = \(member)")
+        if let familyId = family?.id, campingTripId = campingTrip?.id{
+            let memberParams = CommonUtility.sharedInstance.memberParams(familyId, campingTripId: campingTripId,  name: nameTextField.text, age: ageTextField.text, email: emailTextField.text, phoneNumber: self.phoneNumber)
+            ParseManager.addNewMember(memberParams) { (success, error) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {

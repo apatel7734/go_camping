@@ -13,6 +13,31 @@ class CommonUtility {
     
     internal static let sharedInstance = CommonUtility()
     
+    func memberParams(familyId: String, campingTripId: String, name: String?, age: String?, email: String?, phoneNumber: String?) -> [NSObject: AnyObject]{
+        
+        var membersParam = [NSObject:AnyObject]()
+        
+        if let name = name{
+            membersParam[ParseMember.Name] = name
+        }
+        if let age = age, intValue = Int(age){
+            membersParam[ParseMember.Age] = intValue
+        }
+        
+        if let email = email{
+            membersParam[ParseMember.Email] = email
+        }
+        
+        if let phoneNumber = phoneNumber{
+            membersParam[ParseMember.PhoneNumber] = phoneNumber
+        }
+        
+        membersParam[ParseMember.FamilyId] = familyId
+        membersParam[ParseTrip.CampingTripId] = campingTripId
+        
+        return membersParam
+    }
+    
     func incrementTotalMembersCountForEvent(){
         var currentTotalMembersCount = NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent
         currentTotalMembersCount++

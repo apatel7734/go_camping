@@ -63,6 +63,8 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         if let member = member{
             destVC.member = member
         }
+        destVC.family = family
+        destVC.campingTrip = campingTrip
         destVC.delegate = self
         self.presentViewController(destVC, animated: true, completion: nil)
     }
