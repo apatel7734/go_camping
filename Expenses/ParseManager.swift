@@ -69,8 +69,15 @@ class ParseManager {
     }
     
     static func addNewMember(memberParams: [NSObject : AnyObject], completionBlock: (success: Bool, error: NSError?) -> Void){
-        print("memberParams = \(memberParams)")
         PFCloud.callFunctionInBackground("addNewMember", withParameters: memberParams) { (success: AnyObject?, error: NSError?) -> Void in
+            print("Error = \(error)")
+            completionBlock(success: true, error: error)
+        }
+    }
+    
+    static func deleteMember(memberId: String, campingTripId:String , completionBlock: (success: Bool, error: NSError?) -> Void){
+        let memberParams: [NSObject : AnyObject] = [ParseMember.MemberId : memberId, ParseTrip.CampingTripId : campingTripId]
+        PFCloud.callFunctionInBackground("deleteMember", withParameters: memberParams) { (success: AnyObject?, error: NSError?) -> Void in
             print("Error = \(error)")
             completionBlock(success: true, error: error)
         }

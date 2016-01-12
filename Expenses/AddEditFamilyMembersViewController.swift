@@ -54,6 +54,7 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
     }
     
     
+    
     //MARK - UITextFieldDelegate method
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         switch(textField){

@@ -58,4 +58,5 @@ struct ParseMember {
     static let Email = "email"
     static let FamilyId = "familyId"
     static let Age = "age"
+    static let MemberId = "memberId"
 }

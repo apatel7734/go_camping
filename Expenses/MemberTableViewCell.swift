@@ -28,5 +28,4 @@ class MemberTableViewCell: UITableViewCell {
         self.memberNameLabel.text = member.name
         self.memberImageView.showFirstCharacterFor(member.name)
     }
-    
 }
