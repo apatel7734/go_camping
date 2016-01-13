@@ -137,6 +137,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         presentedViewController.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    func requestAccess(completionBlock: (accssGranted: Bool) -> Void){
+        let authorizationStatus = CNContactStore.authorizationStatusForEntityType(CNEntityType.Contacts)
+        switch(authorizationStatus){
+        case .Authorized:
+            completionBlock(accssGranted: true)
+            
+        case .Denied, .NotDetermined:
+            self.contactStore.requestAccessForEntityType(CNEntityType.Contacts, completionHandler: { (access, accessError) -> Void in
+                if access {
+                    completionBlock(accssGranted: true)
+                }else{
+                    if authorizationStatus == .Denied{
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            let message = "\(accessError!.localizedDescription)\n\nPlease allow the app to access your contacts through the Settings."
+                            self.showMessage(message)
+                        })
+                    }
+                }
+            })
+            
+        default:
+            completionBlock(accssGranted: false)
+        }
+    }
+    
     private func setupParse(launchOptions: [NSObject : AnyObject]?){
         Parse.enableLocalDatastore()
         Parse.setApplicationId("iBZKa2LCHSSyBx2j342ckwwwNmD5SaPAdac1KJXN", clientKey: "7VmzkRWGuUqlBwzN3y1l3Y8GvCjxQXHwVTcIwWcf")

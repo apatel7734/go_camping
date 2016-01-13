@@ -44,7 +44,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func didTapAddButton(){
-        performSegueWithIdentifier("presentaddnewfamily", sender: self)
+        performSegueWithIdentifier("inviteFamiliesPushSegue", sender: self)
     }
     
     func didTapCancelBarButton(){
