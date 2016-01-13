@@ -85,7 +85,6 @@ class AddEditFamilyExpensesViewController: UIViewController {
     }
     
     func addOrUpdateFamilyExpense(){
-        
         if let familyId = family?.id, campingTripId = campingTrip?.id, amount = amountTextfield.text{
             let amountDecimalValue = NSDecimalNumber(string: amount)
             let expenseParams = CommonUtility.sharedInstance.expenseParams(familyId, campingTripId: campingTripId, name: nameTextField.text, amount: amountDecimalValue, description: descTextField.text)
@@ -93,6 +92,7 @@ class AddEditFamilyExpensesViewController: UIViewController {
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
         }
-        
     }
+    
+    
 }

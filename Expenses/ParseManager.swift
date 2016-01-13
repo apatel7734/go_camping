@@ -89,8 +89,8 @@ class ParseManager {
         }
     }
     
-    static func removeExpense(expenseId: String, campingTripId:String , completionBlock: (success: Bool, error: NSError?) -> Void){
-        let expenseParams: [NSObject : AnyObject] = [ParseMember.MemberId : expenseId, ParseTrip.CampingTripId : campingTripId]
+    static func deleteExpense(expenseId: String, campingTripId:String , completionBlock: (success: Bool, error: NSError?) -> Void){
+        let expenseParams: [NSObject : AnyObject] = [ParseExpense.ExpenseId : expenseId, ParseTrip.CampingTripId : campingTripId]
         PFCloud.callFunctionInBackground("deleteExpense", withParameters: expenseParams) { (success: AnyObject?, error: NSError?) -> Void in
             print("Error = \(error)")
             completionBlock(success: true, error: error)

@@ -52,6 +52,10 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("expensetableviewcell") as! ExpenseTableViewCell
+
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressedCell:")
+        cell.addGestureRecognizer(longPressGestureRecognizer)
+        
         cell.loadData(expenses[indexPath.row])
         
         return cell
@@ -90,6 +94,35 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
                 }
             })
         }
+    }
+    
+    func longPressedCell(longPressedGesuture: UILongPressGestureRecognizer){
+        if let cell = longPressedGesuture.view as? ExpenseTableViewCell{
+            if let indexPath = self.expenseTableView.indexPathForCell(cell), campingTripId = campingTrip?.id, expenseId = expenses[indexPath.row].id{
+                showAlertAction(indexPath, expenseId: expenseId, campingTripId: campingTripId)
+            }
+        }
+    }
+    
+    private func showAlertAction(indexPath: NSIndexPath, expenseId: String, campingTripId: String){
+        let optionMenu = UIAlertController(title: nil, message: "Choose option.", preferredStyle: .ActionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Destructive) { (alertAction: UIAlertAction) -> Void in
+            //handle DeleteAction here.
+            ParseManager.deleteExpense(expenseId, campingTripId: campingTripId, completionBlock: { (success, error) -> Void in
+                self.expenses.removeAtIndex(indexPath.row)
+                self.expenseTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            })
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (alertAction: UIAlertAction) -> Void in
+            //handle cancel here.
+            print("Do Nothing.")
+        }
+        
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        self.presentViewController(optionMenu, animated: true, completion: nil)
     }
     
 }
