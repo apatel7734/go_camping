@@ -93,6 +93,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let rootViewController = segue.destinationViewController as? RootViewController, indexPath = self.currentIndexPath{
             rootViewController.family = families[indexPath.row]
+            rootViewController.campingTrip = campingTrip
         }
     }
     

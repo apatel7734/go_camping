@@ -8,13 +8,11 @@
 
 import UIKit
 
-protocol AddEditFamilyMembersViewControllerDelegate{
-    func didPickFamilyMember(member: Member, actionType: ActionType)
-}
-
 class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate {
     
-    var delegate: AddEditFamilyMembersViewControllerDelegate?
+    var family: Family?
+    var campingTrip: CampingTrip?
+    var member: Member?
     
     //MARK:@IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -33,9 +31,6 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
         }
     }
     
-    
-    var member: Member?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -50,9 +45,9 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
     @IBAction func updateActionButtonPressed(sender: AnyObject) {
         if dataValidTobeSaved(){
             addOrUpdateFamilyMember()
-            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
+    
     
     
     //MARK - UITextFieldDelegate method
@@ -137,25 +132,12 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
     }
     
     func addOrUpdateFamilyMember(){
-        let name = nameTextField.text!
-        let phone = phoneNumber
-        let age = ageTextField.text!
-        let email = emailTextField.text!
-        var actionType = ActionType.Add
-        
-        if let _ = member{
-            //            member?.name = name
-            //            member?.phoneNumber = Int(phone)
-            //            member?.email = email
-            //            member?.age = Int(age)
-            //            actionType = .Update
-            //
-            //        }else{
-            //            let memberDict = [Member.Keys.Name: name, Member.Keys.PhoneNumber : phone, Member.Keys.Age : age, Member.Keys.Email : email]
-            //
-            //            self.member = Member(dictionary: memberDict, context: CoreDataStackManager.sharedInstance.managedObjectContext)
+        if let familyId = family?.id, campingTripId = campingTrip?.id{
+            let memberParams = CommonUtility.sharedInstance.memberParams(familyId, campingTripId: campingTripId,  name: nameTextField.text, age: ageTextField.text, email: emailTextField.text, phoneNumber: self.phoneNumber)
+            ParseManager.addNewMember(memberParams) { (success, error) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
         }
-        delegate?.didPickFamilyMember(member!, actionType: actionType)
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {
@@ -179,9 +161,6 @@ class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate 
             if let memberPhone = member.phoneNumber{
                 phoneNumber = "\(memberPhone)"
             }
-            //            if let memberEmail = member.email{
-            //                emailTextField.text = memberEmail
-            //            }
             if let memberAge = member.age{
                 ageTextField.text = "\(memberAge)"
             }

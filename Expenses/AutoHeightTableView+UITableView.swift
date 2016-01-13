@@ -13,7 +13,5 @@ extension UITableView {
     public override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.rowHeight = UITableViewAutomaticDimension;
-        self.estimatedRowHeight = 100.0;
     }
 }

@@ -14,14 +14,18 @@ protocol AddEditFamilyExpensesViewControllerDelegate{
 
 class AddEditFamilyExpensesViewController: UIViewController {
     
+    
+    var delegate: AddEditFamilyExpensesViewControllerDelegate?
+    var expense: Expense?
+    var family: Family?
+    var campingTrip: CampingTrip?
+    
+    //MARK: - IBOutlets
     @IBOutlet weak var nameTextField: CustomTextField!
     @IBOutlet weak var descTextField: CustomTextField!
     @IBOutlet weak var amountTextfield: CustomTextField!
     
     @IBOutlet weak var addUpdateButton: CustomButton!
-    
-    var delegate: AddEditFamilyExpensesViewControllerDelegate?
-    var expense: Expense?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +58,7 @@ class AddEditFamilyExpensesViewController: UIViewController {
     func displayExpensesInfo(expense: Expense){
         nameTextField.text = expense.name
         descTextField.text = expense.desc
-//        amountTextfield.text = expense.amount?.stringValue
+        //        amountTextfield.text = expense.amount?.stringValue
     }
     
     func updateLabels(){
@@ -81,22 +85,14 @@ class AddEditFamilyExpensesViewController: UIViewController {
     }
     
     func addOrUpdateFamilyExpense(){
-        let name = nameTextField.text!
-        let desc = descTextField.text!
-        let amount = NSDecimalNumber(string: amountTextfield.text)
-        var actionType = ActionType.Add
-        
-//        if let expense = expense{
-//            expense.name = name
-//            expense.amount = amount
-//            expense.desc = desc
-//            //save original expense amount
-//            actionType = .Update
-//        }else{
-//            let expenseDictionary = [Expense.Keys.Name: name, Expense.Keys.Desc: desc, Expense.Keys.Amount: amount]
-//            self.expense = Expense(dictionary: expenseDictionary, context: CoreDataStackManager.sharedInstance.managedObjectContext)
-//            actionType = .Add
-//        }
-        delegate?.didPickExpense(expense!, actionType: actionType)
+        if let familyId = family?.id, campingTripId = campingTrip?.id, amount = amountTextfield.text{
+            let amountDecimalValue = NSDecimalNumber(string: amount)
+            let expenseParams = CommonUtility.sharedInstance.expenseParams(familyId, campingTripId: campingTripId, name: nameTextField.text, amount: amountDecimalValue, description: descTextField.text)
+            ParseManager.addNewExpense(expenseParams, completionBlock: { (success, error) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+        }
     }
+    
+    
 }

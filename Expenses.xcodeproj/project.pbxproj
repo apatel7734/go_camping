@@ -14,6 +14,13 @@
 		098037E11B6C077E00E52846 /* AddFamilyUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E01B6C077E00E52846 /* AddFamilyUIViewController.swift */; };
 		098037E31B6C188400E52846 /* FamilyMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E21B6C188400E52846 /* FamilyMembersViewController.swift */; };
 		098037E51B6C189200E52846 /* FamilyExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098037E41B6C189200E52846 /* FamilyExpensesViewController.swift */; };
+		0984CF731C459AAD001E5EA2 /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572EA1BEB0B2C0024CB88 /* ApiController.swift */; };
+		0984CF741C459ADF001E5EA2 /* ApiStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572ED1BEB0BB80024CB88 /* ApiStatusCode.swift */; };
+		0984CF751C459AEB001E5EA2 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440EF5861BFE809300AE274E /* Geometry.swift */; };
+		0984CF761C459AF3001E5EA2 /* FakeApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572FA1BEB1C360024CB88 /* FakeApiController.swift */; };
+		0984CF771C459B95001E5EA2 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F61BEB19E20024CB88 /* ApiError.swift */; };
+		0984CF781C459BD0001E5EA2 /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E4501BFAB29400384945 /* PlaceDetail.swift */; };
+		0984CF791C459BE0001E5EA2 /* Geocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5621DD71BF1DA1500E8CA4D /* Geocoding.swift */; };
 		0992591D1B8A783E00CFA81F /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0992591C1B8A783E00CFA81F /* MemberTableViewCell.swift */; };
 		0992591F1B8AA2DE00CFA81F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0992591E1B8AA2DE00CFA81F /* Enums.swift */; };
 		099F6C7F1B94BDFC00BD8D9C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099F6C7E1B94BDFC00BD8D9C /* Constants.swift */; };
@@ -339,10 +346,6 @@
 		09AC0BDE1B5C3684000849C4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				48A7EAFE1BCB2632002D2248 /* CoreDataStackManager.swift */,
-				09AC0BDF1B5C36A4000849C4 /* Family.swift */,
-				09AC0BE11B5C36CF000849C4 /* Member.swift */,
-				09AC0BE31B5C36DF000849C4 /* Expense.swift */,
 				B5621DD51BF1D9FF00E8CA4D /* Place.swift */,
 				B5621DD71BF1DA1500E8CA4D /* Geocoding.swift */,
 				440EF5861BFE809300AE274E /* Geometry.swift */,
@@ -726,6 +729,7 @@
 				485F9CA21C2603AA00A4CB38 /* UIKitExtensions.swift in Sources */,
 				485F9C9E1C25F93600A4CB38 /* EnterCodeViewController.swift in Sources */,
 				B55572EB1BEB0B2C0024CB88 /* ApiController.swift in Sources */,
+				0984CF761C459AF3001E5EA2 /* FakeApiController.swift in Sources */,
 				B58097761BF455B800A474A6 /* CampsiteListCell.swift in Sources */,
 				486BE92C1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift in Sources */,
 				0992591F1B8AA2DE00CFA81F /* Enums.swift in Sources */,
@@ -740,7 +744,6 @@
 				481B63C31BEF355D00FAB95D /* EnterPhoneNumberViewController.swift in Sources */,
 				48E4C9531C32426100052FD5 /* RootViewController.swift in Sources */,
 				486BE9281BE55EF400241EA3 /* CoreDataCoordinator.swift in Sources */,
-				09AC0BE41B5C36DF000849C4 /* Expense.swift in Sources */,
 				44A20BF41C3B3E1D00B48F73 /* CampsiteMapViewController.swift in Sources */,
 				09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */,
 				09AC0BBF1B5C3670000849C4 /* ExpensesData.xcdatamodeld in Sources */,
@@ -751,8 +754,6 @@
 				099F6C7F1B94BDFC00BD8D9C /* Constants.swift in Sources */,
 				48CD12081C377074009066BB /* Family.swift in Sources */,
 				098037E51B6C189200E52846 /* FamilyExpensesViewController.swift in Sources */,
-				48A7EAFF1BCB2632002D2248 /* CoreDataStackManager.swift in Sources */,
-				09AC0BE01B5C36A4000849C4 /* Family.swift in Sources */,
 				44DF6FCD1C28A13200ED7CB4 /* CampsiteDetailPhotoCell.swift in Sources */,
 				B55572EE1BEB0BB80024CB88 /* ApiStatusCode.swift in Sources */,
 				09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */,
@@ -788,13 +789,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0984CF781C459BD0001E5EA2 /* PlaceDetail.swift in Sources */,
+				0984CF771C459B95001E5EA2 /* ApiError.swift in Sources */,
+				0984CF791C459BE0001E5EA2 /* Geocoding.swift in Sources */,
 				B55572FF1BEB1CB00024CB88 /* GoogleMapApiTests.swift in Sources */,
 				B5621DDA1BF1E05D00E8CA4D /* Place.swift in Sources */,
 				B55572F21BEB0C070024CB88 /* GoogleMapApi.swift in Sources */,
+				0984CF741C459ADF001E5EA2 /* ApiStatusCode.swift in Sources */,
 				09AC0BD51B5C3671000849C4 /* ExpensesTests.swift in Sources */,
+				0984CF731C459AAD001E5EA2 /* ApiController.swift in Sources */,
 				B5F3733D1BF1CFCB0073409B /* CampsiteMapViewController.swift in Sources */,
 				B55572FC1BEB1C360024CB88 /* FakeApiController.swift in Sources */,
 				B55573001BEB1F9B0024CB88 /* Constants.swift in Sources */,
+				0984CF751C459AEB001E5EA2 /* Geometry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

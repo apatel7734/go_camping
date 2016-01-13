@@ -19,9 +19,10 @@ class FamilyUITableViewCell: UITableViewCell {
     
     func loadData(family: Family){
         self.familyName.text = family.name
-        self.totalMembers.text = "10"
-        let familyCalculatedExpense = CommonUtility.sharedInstance.amountDifferenceToPayOrTakeForFamily(family)
-        self.totalExpenses.text = familyCalculatedExpense.currencyFormattedValueWithDollarPrefix()
+        if let count = family.membersIds?.count{
+            self.totalMembers.text = "\(count)"
+        }
+        self.totalExpenses.text = family.totalOwedExpense?.currencyFormattedValueWithDollarPrefix()
         self.familyImage.showFirstCharacterFor(family.name)
     }
     
