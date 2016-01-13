@@ -32,6 +32,7 @@ struct ParseFamily {
     static let CampingTripIds = "campingTripIds"
     static let UserId = "userId"
     static let FamilyId = "familyId"
+    static let TotalOwedExpense = "totalOwedExpense"
 }
 
 struct ParseUser {

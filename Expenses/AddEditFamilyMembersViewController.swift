@@ -8,13 +8,8 @@
 
 import UIKit
 
-protocol AddEditFamilyMembersViewControllerDelegate{
-    func didPickFamilyMember(member: Member, actionType: ActionType)
-}
-
 class AddEditFamilyMembersViewController: UIViewController, UITextFieldDelegate {
     
-    var delegate: AddEditFamilyMembersViewControllerDelegate?
     var family: Family?
     var campingTrip: CampingTrip?
     var member: Member?

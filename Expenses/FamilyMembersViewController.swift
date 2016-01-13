@@ -9,7 +9,7 @@
 import UIKit
 
 
-class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITableViewDelegate, AddEditFamilyMembersViewControllerDelegate {
+class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var membersTableView: UITableView!
     
@@ -40,19 +40,6 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         self.navigationController?.topViewController?.navigationItem.title = "Members"
     }
     
-    
-    
-    func didPickFamilyMember(member: Member, actionType: ActionType) {
-        switch(actionType){
-        case .Add:
-            CommonUtility.sharedInstance.incrementTotalMembersCountForEvent()
-        case .Update:
-            //nothing to update
-            break
-        }
-        self.membersTableView.reloadData()
-    }
-    
     //MARK: @IBActions
     func addMembersButtonPressed(sender: UIBarButtonItem){
         presentNextViewcontroller(nil)
@@ -65,7 +52,6 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         }
         destVC.family = family
         destVC.campingTrip = campingTrip
-        destVC.delegate = self
         self.presentViewController(destVC, animated: true, completion: nil)
     }
     
@@ -90,26 +76,6 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         let member = members[indexPath.row]
         presentNextViewcontroller(member)
     }
-    
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        switch(editingStyle){
-        case .Delete:
-            members.removeAtIndex(indexPath.row)
-            tableView.beginUpdates()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            tableView.endUpdates()
-            CommonUtility.sharedInstance.decrementTotalMembersCountForEvent()
-        default:
-            print("Not supported yet.")
-        }
-    }
-    
-    
     
     private func updateMembers(){
         if let familyId = family?.id{

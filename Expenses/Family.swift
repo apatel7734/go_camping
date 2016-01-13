@@ -38,6 +38,16 @@ class Family: PFObject, PFSubclassing {
         }
     }
     
+    var totalOwedExpense: NSDecimalNumber?{
+        get{
+            if let totalOwedExpense = self[ParseFamily.TotalOwedExpense] as? NSNumber{
+                return NSDecimalNumber(decimal: totalOwedExpense.decimalValue)
+            }else{
+                return nil
+            }
+        }
+    }
+    
     var address: String?{
         get{
             return self[ParseFamily.Address] as? String
