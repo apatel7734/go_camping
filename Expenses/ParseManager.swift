@@ -38,7 +38,7 @@ class ParseManager {
     
     static func fetchMembersFor(familyId: String, pageNumber: Int, totalResultPerPage: Int, completionBlock: (members: [Member]?, error: NSError?) -> Void){
         let query = PFQuery(className: ParseMember.Member)
-        query.whereKey(ParseMember.FamilyId, equalTo: familyId)
+        query.whereKey(ParseFamily.FamilyId, equalTo: familyId)
         query.skip = pageNumber * totalResultPerPage
         query.findObjectsInBackgroundWithBlock { (pfObjects: [PFObject]?, error:NSError?) -> Void in
             if let members = pfObjects as? [Member]{
@@ -70,7 +70,6 @@ class ParseManager {
     
     static func addNewMember(memberParams: [NSObject : AnyObject], completionBlock: (success: Bool, error: NSError?) -> Void){
         PFCloud.callFunctionInBackground("addNewMember", withParameters: memberParams) { (success: AnyObject?, error: NSError?) -> Void in
-            print("Error = \(error)")
             completionBlock(success: true, error: error)
         }
     }
@@ -78,6 +77,21 @@ class ParseManager {
     static func deleteMember(memberId: String, campingTripId:String , completionBlock: (success: Bool, error: NSError?) -> Void){
         let memberParams: [NSObject : AnyObject] = [ParseMember.MemberId : memberId, ParseTrip.CampingTripId : campingTripId]
         PFCloud.callFunctionInBackground("deleteMember", withParameters: memberParams) { (success: AnyObject?, error: NSError?) -> Void in
+            completionBlock(success: true, error: error)
+        }
+    }
+    
+    
+    static func addNewExpense(expenseParams: [NSObject : AnyObject], completionBlock: (success: Bool, error: NSError?) -> Void){
+        PFCloud.callFunctionInBackground("addNewExpense", withParameters: expenseParams) { (success: AnyObject?, error: NSError?) -> Void in
+            print("Error = \(error)")
+            completionBlock(success: true, error: error)
+        }
+    }
+    
+    static func removeExpense(expenseId: String, campingTripId:String , completionBlock: (success: Bool, error: NSError?) -> Void){
+        let expenseParams: [NSObject : AnyObject] = [ParseMember.MemberId : expenseId, ParseTrip.CampingTripId : campingTripId]
+        PFCloud.callFunctionInBackground("deleteExpense", withParameters: expenseParams) { (success: AnyObject?, error: NSError?) -> Void in
             print("Error = \(error)")
             completionBlock(success: true, error: error)
         }

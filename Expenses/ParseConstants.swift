@@ -31,6 +31,7 @@ struct ParseFamily {
     static let Email = "email"
     static let CampingTripIds = "campingTripIds"
     static let UserId = "userId"
+    static let FamilyId = "familyId"
 }
 
 struct ParseUser {
@@ -48,6 +49,7 @@ struct ParseExpense {
     static let Amount = "amount"
     static let Description = "description"
     static let FamilyId = "familyId"
+    static let ExpenseId = "expenseId"
 }
 
 struct ParseMember {
@@ -56,7 +58,6 @@ struct ParseMember {
     static let PhoneNumber = "phoneNumber"
     static let Name = "name"
     static let Email = "email"
-    static let FamilyId = "familyId"
     static let Age = "age"
     static let MemberId = "memberId"
 }

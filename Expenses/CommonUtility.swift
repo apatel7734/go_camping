@@ -32,10 +32,33 @@ class CommonUtility {
             membersParam[ParseMember.PhoneNumber] = phoneNumber
         }
         
-        membersParam[ParseMember.FamilyId] = familyId
+        membersParam[ParseFamily.FamilyId] = familyId
         membersParam[ParseTrip.CampingTripId] = campingTripId
         
         return membersParam
+    }
+    
+    
+    func expenseParams(familyId: String, campingTripId: String, name: String?, amount: NSDecimalNumber?, description: String?) -> [NSObject: AnyObject]{
+        
+        var expenseParams = [NSObject:AnyObject]()
+        
+        if let name = name{
+            expenseParams[ParseExpense.Name] = name
+        }
+        if let amount = amount{
+            expenseParams[ParseExpense.Amount] = amount
+        }
+        
+        if let description = description{
+            expenseParams[ParseExpense.Description] = description
+        }
+    
+        
+        expenseParams[ParseFamily.FamilyId] = familyId
+        expenseParams[ParseTrip.CampingTripId] = campingTripId
+        
+        return expenseParams
     }
     
     func incrementTotalMembersCountForEvent(){

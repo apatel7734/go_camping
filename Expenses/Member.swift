@@ -37,7 +37,7 @@ class Member: PFObject, PFSubclassing {
     
     var familyId: String?{
         get{
-            return self[ParseMember.FamilyId] as? String
+            return self[ParseFamily.FamilyId] as? String
         }
     }
     
@@ -62,7 +62,7 @@ class Member: PFObject, PFSubclassing {
         }
         
         if let familyId = familyId{
-            memberParams[ParseMember.FamilyId] = familyId
+            memberParams[ParseFamily.FamilyId] = familyId
         }
         
         if let id = id{

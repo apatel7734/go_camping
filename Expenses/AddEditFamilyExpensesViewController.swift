@@ -85,22 +85,14 @@ class AddEditFamilyExpensesViewController: UIViewController {
     }
     
     func addOrUpdateFamilyExpense(){
-        let name = nameTextField.text!
-        let desc = descTextField.text!
-        let amount = NSDecimalNumber(string: amountTextfield.text)
-        var actionType = ActionType.Add
         
-        //        if let expense = expense{
-        //            expense.name = name
-        //            expense.amount = amount
-        //            expense.desc = desc
-        //            //save original expense amount
-        //            actionType = .Update
-        //        }else{
-        //            let expenseDictionary = [Expense.Keys.Name: name, Expense.Keys.Desc: desc, Expense.Keys.Amount: amount]
-        //            self.expense = Expense(dictionary: expenseDictionary, context: CoreDataStackManager.sharedInstance.managedObjectContext)
-        //            actionType = .Add
-        //        }
-        delegate?.didPickExpense(expense!, actionType: actionType)
+        if let familyId = family?.id, campingTripId = campingTrip?.id, amount = amountTextfield.text{
+            let amountDecimalValue = NSDecimalNumber(string: amount)
+            let expenseParams = CommonUtility.sharedInstance.expenseParams(familyId, campingTripId: campingTripId, name: nameTextField.text, amount: amountDecimalValue, description: descTextField.text)
+            ParseManager.addNewExpense(expenseParams, completionBlock: { (success, error) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+        }
+        
     }
 }

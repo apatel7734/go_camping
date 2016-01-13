@@ -57,28 +57,6 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
         return cell
     }
     
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        switch(editingStyle){
-        case .Delete:
-            expenses.removeAtIndex(indexPath.row)
-            tableView.beginUpdates()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            tableView.endUpdates()
-            CommonUtility.sharedInstance.updateFamilyTotalExpense(family)
-            CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
-            
-        default:
-            print("Not supported yet.")
-        }
-    }
-    
-    
-    
     func didPickExpense(expense: Expense, actionType: ActionType) {
         
         CommonUtility.sharedInstance.updateFamilyTotalExpense(family)
@@ -94,11 +72,12 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     func addEditExpenseFor(indexPath: NSIndexPath?){
         let destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilyexpensesvc") as! AddEditFamilyExpensesViewController
         destVC.delegate = self
-        if let selectedIndexPath = indexPath{
-            if expenses.count > selectedIndexPath.row{
-                destVC.expense = expenses[selectedIndexPath.row]
-            }
+        if let selectedIndexPath = indexPath where expenses.count > selectedIndexPath.row{
+            destVC.expense = expenses[selectedIndexPath.row]
         }
+        
+        destVC.family = family
+        destVC.campingTrip = campingTrip
         self.presentViewController(destVC, animated: true, completion: nil)
     }
     
