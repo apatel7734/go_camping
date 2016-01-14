@@ -8,17 +8,45 @@
 
 import UIKit
 
+protocol CampsiteDetailInfoCellDelegate: class {
+    
+    func phoneButtonTapped(phoneNumber: String!)
+    func websiteButtonTapped(website: NSURL!)
+}
+
 class CampsiteDetailInfoCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var websiteLabel: UILabel!
+    @IBOutlet weak var phoneButton: UIButton!
+    @IBOutlet weak var websiteButton: UIButton!
     
-    func configureCellWithPlaceDetail(place: PlaceDetail?) {
+    weak var delegate: CampsiteDetailInfoCellDelegate?
+    
+    var place: PlaceDetail?
+    
+    func configureCellWithPlaceDetail(place: PlaceDetail?, delegate: CampsiteDetailInfoCellDelegate? = nil) {
+        self.place = place
+        self.delegate = delegate
+        
         nameLabel.text = place?.name
         addressLabel.text = place?.address
-        phoneLabel.text = place?.phoneNumber
-        websiteLabel.text = place?.website
+        phoneButton.setTitle(place?.phoneNumber, forState: .Normal)
+        websiteButton.setTitle(place?.website, forState: .Normal)
+        
+        phoneButton.addTarget(self, action: "phoneButtonTapped", forControlEvents: .TouchUpInside)
+        websiteButton.addTarget(self, action: "websiteButtonTapped", forControlEvents: .TouchUpInside)
+    }
+    
+    func phoneButtonTapped() {
+        if let phoneNumber = place?.phoneNumber {
+            delegate?.phoneButtonTapped(phoneNumber)
+        }
+    }
+    
+    func websiteButtonTapped() {
+        if let website = place?.website, url = NSURL(string: website) {
+            delegate?.websiteButtonTapped(url)
+        }
     }
 }
