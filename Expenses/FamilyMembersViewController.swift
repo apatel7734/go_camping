@@ -9,7 +9,7 @@
 import UIKit
 
 
-class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITableViewDelegate, AddEditFamilyMembersViewControllerDelegate {
+class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var membersTableView: UITableView!
     
@@ -40,19 +40,6 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         self.navigationController?.topViewController?.navigationItem.title = "Members"
     }
     
-    
-    
-    func didPickFamilyMember(member: Member, actionType: ActionType) {
-        switch(actionType){
-        case .Add:
-            CommonUtility.sharedInstance.incrementTotalMembersCountForEvent()
-        case .Update:
-            //nothing to update
-            break
-        }
-        self.membersTableView.reloadData()
-    }
-    
     //MARK: @IBActions
     func addMembersButtonPressed(sender: UIBarButtonItem){
         presentNextViewcontroller(nil)
@@ -63,7 +50,8 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         if let member = member{
             destVC.member = member
         }
-        destVC.delegate = self
+        destVC.family = family
+        destVC.campingTrip = campingTrip
         self.presentViewController(destVC, animated: true, completion: nil)
     }
     
@@ -75,6 +63,9 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("membertableviewcell") as! MemberTableViewCell
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressedCell:")
+        cell.addGestureRecognizer(longPressGestureRecognizer)
+        
         let member = members[indexPath.row]
         cell.loadData(member)
         return cell
@@ -84,24 +75,6 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         membersTableView.deselectRowAtIndexPath(indexPath, animated: true)
         let member = members[indexPath.row]
         presentNextViewcontroller(member)
-    }
-    
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        switch(editingStyle){
-        case .Delete:
-            members.removeAtIndex(indexPath.row)
-            tableView.beginUpdates()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            tableView.endUpdates()
-            CommonUtility.sharedInstance.decrementTotalMembersCountForEvent()
-        default:
-            print("Not supported yet.")
-        }
     }
     
     private func updateMembers(){
@@ -114,4 +87,36 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
             }
         }
     }
+    
+    func longPressedCell(longPressedGesuture: UILongPressGestureRecognizer){
+        if let cell = longPressedGesuture.view as? MemberTableViewCell{
+            if let indexPath = self.membersTableView.indexPathForCell(cell), campingTripId = campingTrip?.id, memberId = members[indexPath.row].id{
+                showAlertAction(indexPath, memberId: memberId, campingTripId: campingTripId)
+            }
+        }
+    }
+    
+    
+    private func showAlertAction(indexPath: NSIndexPath, memberId: String, campingTripId: String){
+        let optionMenu = UIAlertController(title: nil, message: "Choose option.", preferredStyle: .ActionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Destructive) { (alertAction: UIAlertAction) -> Void in
+            //handle DeleteAction here.
+            ParseManager.deleteMember(memberId, campingTripId: campingTripId, completionBlock: { (success, error) -> Void in
+                self.members.removeAtIndex(indexPath.row)
+                self.membersTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            })
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (alertAction: UIAlertAction) -> Void in
+            //handle cancel here.
+            print("Do Nothing.")
+        }
+        
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
+    
 }

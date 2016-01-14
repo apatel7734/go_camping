@@ -13,6 +13,54 @@ class CommonUtility {
     
     internal static let sharedInstance = CommonUtility()
     
+    func memberParams(familyId: String, campingTripId: String, name: String?, age: String?, email: String?, phoneNumber: String?) -> [NSObject: AnyObject]{
+        
+        var membersParam = [NSObject:AnyObject]()
+        
+        if let name = name{
+            membersParam[ParseMember.Name] = name
+        }
+        if let age = age, intValue = Int(age){
+            membersParam[ParseMember.Age] = intValue
+        }
+        
+        if let email = email{
+            membersParam[ParseMember.Email] = email
+        }
+        
+        if let phoneNumber = phoneNumber{
+            membersParam[ParseMember.PhoneNumber] = phoneNumber
+        }
+        
+        membersParam[ParseFamily.FamilyId] = familyId
+        membersParam[ParseTrip.CampingTripId] = campingTripId
+        
+        return membersParam
+    }
+    
+    
+    func expenseParams(familyId: String, campingTripId: String, name: String?, amount: NSDecimalNumber?, description: String?) -> [NSObject: AnyObject]{
+        
+        var expenseParams = [NSObject:AnyObject]()
+        
+        if let name = name{
+            expenseParams[ParseExpense.Name] = name
+        }
+        if let amount = amount{
+            expenseParams[ParseExpense.Amount] = amount
+        }
+        
+        if let description = description{
+            expenseParams[ParseExpense.Description] = description
+        }
+    
+        
+        expenseParams[ParseFamily.FamilyId] = familyId
+        expenseParams[ParseTrip.CampingTripId] = campingTripId
+        
+        return expenseParams
+    }
+    
     func incrementTotalMembersCountForEvent(){
         var currentTotalMembersCount = NSUserDefaultCoordinator.sharedInstance.totalMembersCountForEvent
         currentTotalMembersCount++

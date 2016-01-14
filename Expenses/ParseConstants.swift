@@ -9,15 +9,18 @@
 import Foundation
 
 struct ParseTrip {
+    static let ObjectId = "objectId"
     static let CampingTrip = "CampingTrip"
     static let LocationTitle = "locationTitle"
     static let Title = "title"
     static let DateFrom = "dateFrom"
     static let DateTo = "dateTo"
     static let Address = "locationAddress"
+    static let CampingTripId = "campingTripId"
 }
 
 struct ParseFamily {
+    static let ObjectId = "objectId"
     static let Family = "Family"
     static let Name = "name"
     static let ExpenseIds = "expenseIds"
@@ -28,9 +31,12 @@ struct ParseFamily {
     static let Email = "email"
     static let CampingTripIds = "campingTripIds"
     static let UserId = "userId"
+    static let FamilyId = "familyId"
+    static let TotalOwedExpense = "totalOwedExpense"
 }
 
 struct ParseUser {
+    static let ObjectId = "objectId"
     static let User = "User"
     static let UserName = "username"
     static let Email = "email"
@@ -38,18 +44,21 @@ struct ParseUser {
 }
 
 struct ParseExpense {
+    static let ObjectId = "objectId"
     static let Expense = "Expense"
     static let Name = "name"
     static let Amount = "amount"
     static let Description = "description"
     static let FamilyId = "familyId"
+    static let ExpenseId = "expenseId"
 }
 
 struct ParseMember {
+    static let ObjectId = "objectId"
     static let Member = "Member"
     static let PhoneNumber = "phoneNumber"
     static let Name = "name"
     static let Email = "email"
-    static let FamilyId = "familyId"
     static let Age = "age"
+    static let MemberId = "memberId"
 }
