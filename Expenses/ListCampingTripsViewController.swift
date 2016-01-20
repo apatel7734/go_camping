@@ -70,3 +70,14 @@ class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITa
     }
     
 }
+
+// MARK: - Action methods
+extension ListCampingTripsViewController {
+    
+    @IBAction func createButtonTapped(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "Campsite", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("CampsiteMainViewController")
+        
+        showViewController(vc, sender: self)
+    }
+}

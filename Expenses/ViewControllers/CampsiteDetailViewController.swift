@@ -69,6 +69,23 @@ extension CampsiteDetailViewController {
     }
 }
 
+// MARK: - InfoCell action methods
+extension CampsiteDetailViewController: CampsiteDetailInfoCellDelegate {
+    
+    func phoneButtonTapped(phoneNumber: String!) {
+        let alert = UIAlertController(title: "Call \(phoneNumber)", message: "Do you want to make a call ?", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Call", style: .Default, handler: { (action) in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func websiteButtonTapped(website: NSURL!) {
+        UIApplication.sharedApplication().openURL(website)
+    }
+}
+
 // MARK: - Private methods
 extension CampsiteDetailViewController {
     
@@ -90,7 +107,7 @@ extension CampsiteDetailViewController {
             
         case DetailRow.InfoRow.rawValue:
             let infoCell = cell as! CampsiteDetailInfoCell
-            infoCell.configureCellWithPlaceDetail(placeDetail)
+            infoCell.configureCellWithPlaceDetail(placeDetail, delegate: self)
             break
             
         default:
