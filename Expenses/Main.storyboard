@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -541,10 +540,10 @@
             </objects>
             <point key="canvasLocation" x="675" y="580"/>
         </scene>
-        <!--Invite Families-->
+        <!--Families-->
         <scene sceneID="ipi-kY-1Fm">
             <objects>
-                <viewController title="Invite Families" id="2Jo-db-BcO" customClass="InviteFamiliesViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Families" id="2Jo-db-BcO" customClass="InviteFamiliesViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J0F-3R-tzu"/>
                         <viewControllerLayoutGuide type="bottom" id="VV7-w0-yNC"/>
@@ -554,7 +553,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aS9-gB-r30">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="496"/>
                                 <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactInviteeTableViewCell" id="t7U-Jw-LPf" customClass="ContactsInviteeTableViewCell" customModule="Expenses" customModuleProvider="target">
@@ -578,7 +577,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="510-461-7034" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTG-dq-HvR">
-                                                    <rect key="frame" x="69" y="39.5" width="503" height="18"/>
+                                                    <rect key="frame" x="69" y="39" width="503" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -610,17 +609,54 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ofG-R4-V83">
+                                <rect key="frame" x="30" y="504" width="540" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mk-6K-FZD">
+                                        <rect key="frame" x="0.0" y="4" width="265" height="36"/>
+                                        <color key="backgroundColor" red="0.0039215686274509803" green="0.54509803921568623" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Create">
+                                            <color key="titleColor" red="0.93760653410000006" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapOnAddNewContactButton:" destination="2Jo-db-BcO" eventType="touchUpInside" id="C2a-1b-f81"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wl5-1B-NxZ">
+                                        <rect key="frame" x="275" y="4" width="265" height="36"/>
+                                        <color key="backgroundColor" red="0.0039215686274509803" green="0.54509803921568623" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Select">
+                                            <color key="titleColor" red="0.93760653410000006" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapSelectContactButton:" destination="2Jo-db-BcO" eventType="touchUpInside" id="Mv4-XY-MGG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3LC-CE-XCZ"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.019607843140000001" green="0.15686274510000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="aS9-gB-r30" firstAttribute="top" secondItem="J0F-3R-tzu" secondAttribute="bottom" constant="-64" id="3ad-Ys-ubq"/>
-                            <constraint firstItem="VV7-w0-yNC" firstAttribute="top" secondItem="aS9-gB-r30" secondAttribute="bottom" id="AvO-Jp-3lM"/>
                             <constraint firstItem="aS9-gB-r30" firstAttribute="leading" secondItem="AbJ-o9-CvF" secondAttribute="leading" id="Nao-6Y-Ulq"/>
+                            <constraint firstItem="ofG-R4-V83" firstAttribute="leading" secondItem="AbJ-o9-CvF" secondAttribute="leadingMargin" constant="10" id="RAu-2Q-ZSK"/>
                             <constraint firstAttribute="trailing" secondItem="aS9-gB-r30" secondAttribute="trailing" id="S6u-eI-JVd"/>
+                            <constraint firstItem="VV7-w0-yNC" firstAttribute="top" secondItem="ofG-R4-V83" secondAttribute="bottom" constant="8" id="Ya9-D1-kIa"/>
+                            <constraint firstItem="ofG-R4-V83" firstAttribute="top" secondItem="aS9-gB-r30" secondAttribute="bottom" constant="8" id="eGp-vl-hld"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ofG-R4-V83" secondAttribute="trailing" constant="10" id="hio-ak-TUA"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addNewContactButton" destination="5mk-6K-FZD" id="ke6-9T-1FC"/>
                         <outlet property="contactsTableView" destination="aS9-gB-r30" id="Jwn-fd-FeB"/>
+                        <outlet property="selectExistingContactButton" destination="Wl5-1B-NxZ" id="JgV-A0-GaK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMy-Ou-Lsz" userLabel="First Responder" sceneMemberID="firstResponder"/>

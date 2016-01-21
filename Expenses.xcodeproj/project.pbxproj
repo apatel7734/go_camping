@@ -50,11 +50,14 @@
 		481B63BF1BEF33E200FAB95D /* SignupLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481B63BE1BEF33E200FAB95D /* SignupLogin.storyboard */; };
 		481B63C31BEF355D00FAB95D /* EnterPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */; };
 		481B63C51BF0571D00FAB95D /* APICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B63C41BF0571D00FAB95D /* APICoordinator.swift */; };
+		481E57AF1C47523600F11146 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481E57AD1C47523600F11146 /* Contacts.framework */; };
+		481E57B01C47523600F11146 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481E57AE1C47523600F11146 /* ContactsUI.framework */; };
 		4823770A1C2B541D00DAC89C /* ListCampingTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482377091C2B541D00DAC89C /* ListCampingTripsViewController.swift */; };
 		483B05B91C2A872B0070178C /* ManageTrip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483B05B81C2A872B0070178C /* ManageTrip.storyboard */; };
 		483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483E4E711BE1426E0073F9DB /* CommonUtility.swift */; };
 		4854EC5E1C46162D00C3984D /* InviteFamiliesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4854EC5D1C46162D00C3984D /* InviteFamiliesViewController.swift */; };
 		4854EC601C461BAE00C3984D /* ContactsInviteeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4854EC5F1C461BAE00C3984D /* ContactsInviteeTableViewCell.swift */; };
+		4854EC621C46210800C3984D /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4854EC611C46210800C3984D /* ContactsManager.swift */; };
 		485F9C9C1C25F92900A4CB38 /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F9C9B1C25F92900A4CB38 /* PhoneNumberViewController.swift */; };
 		485F9C9E1C25F93600A4CB38 /* EnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F9C9D1C25F93600A4CB38 /* EnterCodeViewController.swift */; };
 		485F9CA01C25FE7900A4CB38 /* NoCaretTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F9C9F1C25FE7900A4CB38 /* NoCaretTextField.swift */; };
@@ -161,11 +164,14 @@
 		481B63BE1BEF33E200FAB95D /* SignupLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignupLogin.storyboard; sourceTree = "<group>"; };
 		481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		481B63C41BF0571D00FAB95D /* APICoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICoordinator.swift; sourceTree = "<group>"; };
+		481E57AD1C47523600F11146 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		481E57AE1C47523600F11146 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		482377091C2B541D00DAC89C /* ListCampingTripsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCampingTripsViewController.swift; sourceTree = "<group>"; };
 		483B05B81C2A872B0070178C /* ManageTrip.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManageTrip.storyboard; sourceTree = "<group>"; };
 		483E4E711BE1426E0073F9DB /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		4854EC5D1C46162D00C3984D /* InviteFamiliesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFamiliesViewController.swift; sourceTree = "<group>"; };
 		4854EC5F1C461BAE00C3984D /* ContactsInviteeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsInviteeTableViewCell.swift; sourceTree = "<group>"; };
+		4854EC611C46210800C3984D /* ContactsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		485F9C9B1C25F92900A4CB38 /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
 		485F9C9D1C25F93600A4CB38 /* EnterCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeViewController.swift; sourceTree = "<group>"; };
 		485F9C9F1C25FE7900A4CB38 /* NoCaretTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCaretTextField.swift; sourceTree = "<group>"; };
@@ -226,6 +232,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481E57AF1C47523600F11146 /* Contacts.framework in Frameworks */,
+				481E57B01C47523600F11146 /* ContactsUI.framework in Frameworks */,
 				481736EB1C309F0200686992 /* MapKit.framework in Frameworks */,
 				4892A72D1BEDC103007A6366 /* libsqlite3.tbd in Frameworks */,
 				4892A72B1BEDC0F7007A6366 /* libz.tbd in Frameworks */,
@@ -378,6 +386,7 @@
 				486BE92B1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift */,
 				481B63C41BF0571D00FAB95D /* APICoordinator.swift */,
 				B58097781BF4594A00A474A6 /* AutoHeightTableView+UITableView.swift */,
+				4854EC611C46210800C3984D /* ContactsManager.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -459,6 +468,8 @@
 		4892A7151BEDC06B007A6366 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				481E57AD1C47523600F11146 /* Contacts.framework */,
+				481E57AE1C47523600F11146 /* ContactsUI.framework */,
 				481736EA1C309F0200686992 /* MapKit.framework */,
 				4892A72C1BEDC103007A6366 /* libsqlite3.tbd */,
 				4892A72A1BEDC0F7007A6366 /* libz.tbd */,
@@ -769,6 +780,7 @@
 				48A9B12B1BDD69900050BEAF /* ValidationUtil.swift in Sources */,
 				486BE92A1BE5817100241EA3 /* NSUserDefaultCoordinator.swift in Sources */,
 				440EF5811BFE580F00AE274E /* CampsiteDetailViewController.swift in Sources */,
+				4854EC621C46210800C3984D /* ContactsManager.swift in Sources */,
 				B58097791BF4594A00A474A6 /* AutoHeightTableView+UITableView.swift in Sources */,
 				4854EC601C461BAE00C3984D /* ContactsInviteeTableViewCell.swift in Sources */,
 				4854EC5E1C46162D00C3984D /* InviteFamiliesViewController.swift in Sources */,
@@ -929,7 +941,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Expenses/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.avgtechie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -949,7 +961,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Expenses/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.avgtechie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

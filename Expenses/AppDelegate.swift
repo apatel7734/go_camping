@@ -11,7 +11,6 @@ import CoreData
 import Parse
 import Contacts
 
-@available(iOS 9.0, *)
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -124,42 +123,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     static func getAppDelegate() -> AppDelegate{
         return UIApplication.sharedApplication().delegate as! AppDelegate
-    }
-    
-    func showMessage(message: String){
-        let alertController = UIAlertController(title: "GoCamping", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let dismissAction =  UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (alertAction: UIAlertAction) -> Void in
-        }
-        
-        alertController.addAction(dismissAction)
-        let pushedViewControllers = (self.window?.rootViewController as! UINavigationController).viewControllers
-        let presentedViewController = pushedViewControllers[pushedViewControllers.count - 1]
-        presentedViewController.presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    func requestAccess(completionBlock: (accssGranted: Bool) -> Void){
-        let authorizationStatus = CNContactStore.authorizationStatusForEntityType(CNEntityType.Contacts)
-        switch(authorizationStatus){
-        case .Authorized:
-            completionBlock(accssGranted: true)
-            
-        case .Denied, .NotDetermined:
-            self.contactStore.requestAccessForEntityType(CNEntityType.Contacts, completionHandler: { (access, accessError) -> Void in
-                if access {
-                    completionBlock(accssGranted: true)
-                }else{
-                    if authorizationStatus == .Denied{
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            let message = "\(accessError!.localizedDescription)\n\nPlease allow the app to access your contacts through the Settings."
-                            self.showMessage(message)
-                        })
-                    }
-                }
-            })
-            
-        default:
-            completionBlock(accssGranted: false)
-        }
     }
     
     private func setupParse(launchOptions: [NSObject : AnyObject]?){
