@@ -23,8 +23,6 @@ class CampsiteMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.navigationBarHidden = true
-        
         searchField.delegate = self
     }
     
