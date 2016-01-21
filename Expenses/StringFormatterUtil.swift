@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class StringFormatterUtil{
     
     static let sharedInstance = StringFormatterUtil()

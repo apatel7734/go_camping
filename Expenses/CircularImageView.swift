@@ -32,6 +32,7 @@ class CircularImageView: UIImageView {
         if let userName = userName{
             for strChar in userName.characters{
                 label.text = "\(strChar)"
+                label.textColor = UIColor.whiteColor()
                 break;
             }
         }

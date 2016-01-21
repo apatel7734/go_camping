@@ -10,7 +10,7 @@ import Foundation
 import Contacts
 
 class ContactsManager {
-
+    
     /*
     let predicate = CNContact.predicateForContactsMatchingName(self.txtLastName.text!)
     let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactEmailAddressesKey, CNContactBirthdayKey]
@@ -19,6 +19,24 @@ class ContactsManager {
     */
     static func fetchContacts(){
         
+    }
+    
+    
+    static func commaSeparatedPhoneNumbers(contact: CNContact) -> String{
+        var phoneNumbers = ""
+        let firstIndex = contact.phoneNumbers.startIndex
+        let lastIndex = contact.phoneNumbers.endIndex-1
+        
+        for index: Int in firstIndex...lastIndex{
+            if let phoneNumber = contact.phoneNumbers[index].value as? CNPhoneNumber{
+                phoneNumbers.appendContentsOf(phoneNumber.stringValue)
+                if index != lastIndex{
+                    phoneNumbers.appendContentsOf(", ")
+                }
+            }
+        }
+        
+        return phoneNumbers
     }
     
 }
