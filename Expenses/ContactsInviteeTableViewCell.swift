@@ -43,7 +43,7 @@ class ContactsInviteeTableViewCell: UITableViewCell {
             inviteeImageView.backgroundColor = UIColor.darkBlue()
         }
         if contact.phoneNumbers.count < 2 {
-            self.accessoryType = UITableViewCellAccessoryType.None
+            self.accessoryType = UITableViewCellAccessoryType.Checkmark
         }else{
             self.accessoryType = UITableViewCellAccessoryType.DetailButton
         }
