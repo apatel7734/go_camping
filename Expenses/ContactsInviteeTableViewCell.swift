@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Contacts
 
 
 class ContactsInviteeTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var inviteeImageView: CircularImageView!
     
     @IBOutlet weak var inviteeFullNameLabel: UILabel!
@@ -21,16 +22,17 @@ class ContactsInviteeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     
-    func loadData(){
-        
+    func loadData(contact: CNContact){
+        let fullName = CNContactFormatter.stringFromContact(contact, style: .FullName)
+        self.inviteeFullNameLabel.text = fullName
     }
-
+    
 }

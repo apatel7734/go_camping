@@ -54,13 +54,13 @@ class InviteFamiliesViewController: UIViewController,UITableViewDelegate, UITabl
     
     //MARK: - TableView Methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return contacts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("contactInviteeTableViewCell") as!ContactsInviteeTableViewCell
-        
+        cell.loadData(contacts[indexPath.row])
         
         return cell
     }
@@ -82,27 +82,19 @@ class InviteFamiliesViewController: UIViewController,UITableViewDelegate, UITabl
     private func showContactPicker(){
         let contactPicker = CNContactPickerViewController()
         contactPicker.displayedPropertyKeys = [CNContactPhoneNumbersKey,CNContactGivenNameKey, CNContactFamilyNameKey]
+        contactPicker.predicateForEnablingContact = NSPredicate(format: "phoneNumbers.@count > 0 AND NOT (identifier in %@)", self.contacts.map{ $0.identifier })
         contactPicker.delegate = self
         presentViewController(contactPicker, animated: true, completion: nil)
     }
     
     func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
+        
         didFetchContacts(contacts)
     }
     
     func didFetchContacts(contacts: [CNContact]) {
-        for contact in contacts {
-            self.contacts.append(contact)
-            let fullName = CNContactFormatter.stringFromContact(contact, style: .FullName)
-            let phoneNumberAvailable = contact.isKeyAvailable(CNContactPhoneNumbersKey)
-            print("Contact.FullName = \(fullName), phoneNumberAvailable = \(phoneNumberAvailable), contact.imageDataAvailable = \(contact.imageDataAvailable)")
-            for phoneNumber: CNLabeledValue in contact.phoneNumbers{
-                print("phoneNumber.label = \(phoneNumber.label), phoneNumber.value = \(phoneNumber.value)")
-            }
-            print("******* End ******")
-        }
-        
-        //        self.contactsTableView.reloadData()
+        self.contacts.appendContentsOf(contacts)
+        self.contactsTableView.reloadData()
     }
     
     

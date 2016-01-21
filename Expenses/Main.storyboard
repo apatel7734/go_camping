@@ -540,10 +540,10 @@
             </objects>
             <point key="canvasLocation" x="675" y="580"/>
         </scene>
-        <!--Families-->
+        <!--Invite Families View Controller-->
         <scene sceneID="ipi-kY-1Fm">
             <objects>
-                <viewController title="Families" id="2Jo-db-BcO" customClass="InviteFamiliesViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Jo-db-BcO" customClass="InviteFamiliesViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J0F-3R-tzu"/>
                         <viewControllerLayoutGuide type="bottom" id="VV7-w0-yNC"/>
