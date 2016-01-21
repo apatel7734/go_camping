@@ -33,19 +33,22 @@ class ContactsInviteeTableViewCell: UITableViewCell {
     func loadData(contact: CNContact){
         let fullName = CNContactFormatter.stringFromContact(contact, style: .FullName)
         self.inviteeFullNameLabel.text = fullName
-        var phoneNumbers:[String] = []
-        for phoneNumberLabeledValue in contact.phoneNumbers{
-            if let phoneNumber = phoneNumberLabeledValue.value as? CNPhoneNumber{
-                phoneNumbers.append(phoneNumber.stringValue)
-            }
-        }
+        
         inviteePhoneNumberLabel.text = ContactsManager.commaSeparatedPhoneNumbers(contact)
+        
         if let imageData = contact.imageData{
             inviteeImageView.image = UIImage(data: imageData)
         }else{
             inviteeImageView.showFirstCharacterFor(fullName)
             inviteeImageView.backgroundColor = UIColor.darkBlue()
         }
+        if contact.phoneNumbers.count < 2 {
+            self.accessoryType = UITableViewCellAccessoryType.None
+        }else{
+            self.accessoryType = UITableViewCellAccessoryType.DetailButton
+        }
+        
+        
     }
     
 }

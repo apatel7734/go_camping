@@ -65,6 +65,10 @@ class InviteFamiliesViewController: UIViewController,UITableViewDelegate, UITabl
         return cell
     }
     
+    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        print("Accessary button tapped # \(indexPath.row)")
+    }
+    
     //MARK: - IBActions
     
     @IBAction func didTapSelectContactButton(sender: UIButton) {
