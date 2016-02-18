@@ -101,7 +101,8 @@
 		B5621DD81BF1DA1500E8CA4D /* Geocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5621DD71BF1DA1500E8CA4D /* Geocoding.swift */; };
 		B5621DDA1BF1E05D00E8CA4D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5621DD51BF1D9FF00E8CA4D /* Place.swift */; };
 		B58097761BF455B800A474A6 /* CampsiteListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58097751BF455B800A474A6 /* CampsiteListCell.swift */; };
-		B58097791BF4594A00A474A6 /* AutoHeightTableView+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58097781BF4594A00A474A6 /* AutoHeightTableView+UITableView.swift */; };
+		B5B744991C75D2EE00DD88F2 /* CampsiteCreateTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744981C75D2EE00DD88F2 /* CampsiteCreateTripCell.swift */; };
+		B5B7449A1C75D2EE00DD88F2 /* CampsiteCreateTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744981C75D2EE00DD88F2 /* CampsiteCreateTripCell.swift */; };
 		B5F373311BF1B77F0073409B /* Campsite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F373301BF1B77F0073409B /* Campsite.storyboard */; };
 		B5F373331BF1B9A40073409B /* CampsiteMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F373321BF1B9A40073409B /* CampsiteMainViewController.swift */; };
 		B5F373361BF1CF350073409B /* CampsiteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F373351BF1CF350073409B /* CampsiteListViewController.swift */; };
@@ -208,7 +209,7 @@
 		B5621DD51BF1D9FF00E8CA4D /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
 		B5621DD71BF1DA1500E8CA4D /* Geocoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geocoding.swift; path = Models/Geocoding.swift; sourceTree = "<group>"; };
 		B58097751BF455B800A474A6 /* CampsiteListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampsiteListCell.swift; sourceTree = "<group>"; };
-		B58097781BF4594A00A474A6 /* AutoHeightTableView+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AutoHeightTableView+UITableView.swift"; sourceTree = "<group>"; };
+		B5B744981C75D2EE00DD88F2 /* CampsiteCreateTripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampsiteCreateTripCell.swift; sourceTree = "<group>"; };
 		B5F373301BF1B77F0073409B /* Campsite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Campsite.storyboard; sourceTree = "<group>"; };
 		B5F373321BF1B9A40073409B /* CampsiteMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampsiteMainViewController.swift; path = ViewControllers/CampsiteMainViewController.swift; sourceTree = "<group>"; };
 		B5F373351BF1CF350073409B /* CampsiteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampsiteListViewController.swift; path = ViewControllers/CampsiteListViewController.swift; sourceTree = "<group>"; };
@@ -373,7 +374,6 @@
 				486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */,
 				486BE92B1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift */,
 				481B63C41BF0571D00FAB95D /* APICoordinator.swift */,
-				B58097781BF4594A00A474A6 /* AutoHeightTableView+UITableView.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -498,6 +498,7 @@
 				440EF5831BFE777C00AE274E /* CampsiteDetailMapCell.swift */,
 				440EF5891BFE929D00AE274E /* CampsiteDetailInfoCell.swift */,
 				44DF6FCC1C28A13100ED7CB4 /* CampsiteDetailPhotoCell.swift */,
+				B5B744981C75D2EE00DD88F2 /* CampsiteCreateTripCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -763,12 +764,12 @@
 				48A9B12B1BDD69900050BEAF /* ValidationUtil.swift in Sources */,
 				486BE92A1BE5817100241EA3 /* NSUserDefaultCoordinator.swift in Sources */,
 				440EF5811BFE580F00AE274E /* CampsiteDetailViewController.swift in Sources */,
-				B58097791BF4594A00A474A6 /* AutoHeightTableView+UITableView.swift in Sources */,
 				4404E4511BFAB29400384945 /* PlaceDetail.swift in Sources */,
 				B5621DD61BF1D9FF00E8CA4D /* Place.swift in Sources */,
 				48B514501BD6A85400479F64 /* ExpenseTableViewCell.swift in Sources */,
 				485F9C9C1C25F92900A4CB38 /* PhoneNumberViewController.swift in Sources */,
 				09AA76321B86C0940073FC0B /* CircularImageView.swift in Sources */,
+				B5B744991C75D2EE00DD88F2 /* CampsiteCreateTripCell.swift in Sources */,
 				48CD120C1C377082009066BB /* Member.swift in Sources */,
 				440EF5841BFE777C00AE274E /* CampsiteDetailMapCell.swift in Sources */,
 				483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */,
@@ -799,6 +800,7 @@
 				09AC0BD51B5C3671000849C4 /* ExpensesTests.swift in Sources */,
 				0984CF731C459AAD001E5EA2 /* ApiController.swift in Sources */,
 				B5F3733D1BF1CFCB0073409B /* CampsiteMapViewController.swift in Sources */,
+				B5B7449A1C75D2EE00DD88F2 /* CampsiteCreateTripCell.swift in Sources */,
 				B55572FC1BEB1C360024CB88 /* FakeApiController.swift in Sources */,
 				B55573001BEB1F9B0024CB88 /* Constants.swift in Sources */,
 				0984CF751C459AEB001E5EA2 /* Geometry.swift in Sources */,

@@ -25,6 +25,12 @@ class CampsiteDetailInfoCell: UITableViewCell {
     
     var place: PlaceDetail?
     
+    private var originalVerticalConstraint: [NSLayoutConstraint]?
+    
+    override func awakeFromNib() {
+         originalVerticalConstraint = phoneButton.constraintsAffectingLayoutForAxis(.Vertical)
+    }
+    
     func configureCellWithPlaceDetail(place: PlaceDetail?, delegate: CampsiteDetailInfoCellDelegate? = nil) {
         self.place = place
         self.delegate = delegate
@@ -33,6 +39,15 @@ class CampsiteDetailInfoCell: UITableViewCell {
         addressLabel.text = place?.address
         phoneButton.setTitle(place?.phoneNumber, forState: .Normal)
         websiteButton.setTitle(place?.website, forState: .Normal)
+        
+        if let constraint = originalVerticalConstraint {
+            if place?.phoneNumber == nil {
+                phoneButton.removeConstraints(constraint)
+                phoneButton.frame = CGRectZero
+            } else {
+                phoneButton.addConstraints(constraint)
+            }
+        }
         
         phoneButton.addTarget(self, action: "phoneButtonTapped", forControlEvents: .TouchUpInside)
         websiteButton.addTarget(self, action: "websiteButtonTapped", forControlEvents: .TouchUpInside)

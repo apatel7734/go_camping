@@ -15,6 +15,7 @@ class CampsiteDetailViewController: UITableViewController {
         case MapRow = 0
         case InfoRow
         case PhotoRow
+        case CreateTripRow
         case DetailRowLength
     }
     
@@ -25,6 +26,9 @@ class CampsiteDetailViewController: UITableViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBarHidden = false
+        
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         GoogleMapApi(apiController: ApiController.sharedInstance).getPlaceDetailForPlaceId(place.placeId, success: { (placeDetail) in
             self.placeDetail = placeDetail
@@ -52,7 +56,11 @@ extension CampsiteDetailViewController {
             return 200
             
         case DetailRow.PhotoRow.rawValue:
-            return 100
+            if let photos = placeDetail?.photos {
+                return photos.count == 0 ? 0 : 100
+            } else {
+                return 0
+            }
             
         default:
             return UITableViewAutomaticDimension
@@ -126,6 +134,9 @@ extension CampsiteDetailViewController {
         case DetailRow.PhotoRow.rawValue:
             return "photoCollectionCell"
         
+        case DetailRow.CreateTripRow.rawValue:
+            return "createTripCell"
+            
         default:
             return ""
         }
