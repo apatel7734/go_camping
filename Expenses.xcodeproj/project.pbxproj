@@ -55,6 +55,22 @@
 		483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483E4E711BE1426E0073F9DB /* CommonUtility.swift */; };
 		4856F8C81C7A6C02003F4C75 /* GTMSessionFetcherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F8C71C7A6C02003F4C75 /* GTMSessionFetcherService.m */; };
 		4856F8CB1C7A6EB2003F4C75 /* GTMSessionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F8CA1C7A6EB2003F4C75 /* GTMSessionFetcher.m */; };
+		4856F9241C7A703E003F4C75 /* GTLGocampingCampingTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F9041C7A703E003F4C75 /* GTLGocampingCampingTrip.m */; };
+		4856F9251C7A703E003F4C75 /* GTLGocampingCampingTripCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F9061C7A703E003F4C75 /* GTLGocampingCampingTripCollection.m */; };
+		4856F9261C7A703E003F4C75 /* GTLGocampingCampingTripValidationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F9081C7A703E003F4C75 /* GTLGocampingCampingTripValidationResult.m */; };
+		4856F9271C7A703E003F4C75 /* GTLGocampingCampingTripWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F90A1C7A703E003F4C75 /* GTLGocampingCampingTripWrapper.m */; };
+		4856F9281C7A703E003F4C75 /* GTLGocampingConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F90C1C7A703E003F4C75 /* GTLGocampingConstants.m */; };
+		4856F9291C7A703E003F4C75 /* GTLGocampingExpense.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F90E1C7A703E003F4C75 /* GTLGocampingExpense.m */; };
+		4856F92A1C7A703E003F4C75 /* GTLGocampingExpenseCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F9101C7A703E003F4C75 /* GTLGocampingExpenseCollection.m */; };
+		4856F92B1C7A703E003F4C75 /* GTLGocampingFamiliesWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F9121C7A703E003F4C75 /* GTLGocampingFamiliesWrapper.m */; };
+		4856F92C1C7A703E003F4C75 /* GTLGocampingFamily.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F9141C7A703E003F4C75 /* GTLGocampingFamily.m */; };
+		4856F92D1C7A703E003F4C75 /* GTLGocampingFamilyRSVPWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F9161C7A703E003F4C75 /* GTLGocampingFamilyRSVPWrapper.m */; };
+		4856F92E1C7A703E003F4C75 /* GTLGocampingGeoPt.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F9181C7A703E003F4C75 /* GTLGocampingGeoPt.m */; };
+		4856F92F1C7A703E003F4C75 /* GTLGocampingMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F91A1C7A703E003F4C75 /* GTLGocampingMember.m */; };
+		4856F9301C7A703E003F4C75 /* GTLGocampingMemberCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F91C1C7A703E003F4C75 /* GTLGocampingMemberCollection.m */; };
+		4856F9311C7A703E003F4C75 /* GTLGocampingUserAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F91E1C7A703E003F4C75 /* GTLGocampingUserAccount.m */; };
+		4856F9321C7A703E003F4C75 /* GTLQueryGocamping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F9201C7A703E003F4C75 /* GTLQueryGocamping.m */; };
+		4856F9331C7A703E003F4C75 /* GTLServiceGocamping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856F9221C7A703E003F4C75 /* GTLServiceGocamping.m */; };
 		485F9C9C1C25F92900A4CB38 /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F9C9B1C25F92900A4CB38 /* PhoneNumberViewController.swift */; };
 		485F9C9E1C25F93600A4CB38 /* EnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F9C9D1C25F93600A4CB38 /* EnterCodeViewController.swift */; };
 		485F9CA01C25FE7900A4CB38 /* NoCaretTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F9C9F1C25FE7900A4CB38 /* NoCaretTextField.swift */; };
@@ -189,6 +205,39 @@
 		4856F8C71C7A6C02003F4C75 /* GTMSessionFetcherService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMSessionFetcherService.m; sourceTree = "<group>"; };
 		4856F8C91C7A6EB2003F4C75 /* GTMSessionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMSessionFetcher.h; sourceTree = "<group>"; };
 		4856F8CA1C7A6EB2003F4C75 /* GTMSessionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMSessionFetcher.m; sourceTree = "<group>"; };
+		4856F9011C7A703E003F4C75 /* GTLGocamping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocamping.h; sourceTree = "<group>"; };
+		4856F9031C7A703E003F4C75 /* GTLGocampingCampingTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingCampingTrip.h; sourceTree = "<group>"; };
+		4856F9041C7A703E003F4C75 /* GTLGocampingCampingTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingCampingTrip.m; sourceTree = "<group>"; };
+		4856F9051C7A703E003F4C75 /* GTLGocampingCampingTripCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingCampingTripCollection.h; sourceTree = "<group>"; };
+		4856F9061C7A703E003F4C75 /* GTLGocampingCampingTripCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingCampingTripCollection.m; sourceTree = "<group>"; };
+		4856F9071C7A703E003F4C75 /* GTLGocampingCampingTripValidationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingCampingTripValidationResult.h; sourceTree = "<group>"; };
+		4856F9081C7A703E003F4C75 /* GTLGocampingCampingTripValidationResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingCampingTripValidationResult.m; sourceTree = "<group>"; };
+		4856F9091C7A703E003F4C75 /* GTLGocampingCampingTripWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingCampingTripWrapper.h; sourceTree = "<group>"; };
+		4856F90A1C7A703E003F4C75 /* GTLGocampingCampingTripWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingCampingTripWrapper.m; sourceTree = "<group>"; };
+		4856F90B1C7A703E003F4C75 /* GTLGocampingConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingConstants.h; sourceTree = "<group>"; };
+		4856F90C1C7A703E003F4C75 /* GTLGocampingConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingConstants.m; sourceTree = "<group>"; };
+		4856F90D1C7A703E003F4C75 /* GTLGocampingExpense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingExpense.h; sourceTree = "<group>"; };
+		4856F90E1C7A703E003F4C75 /* GTLGocampingExpense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingExpense.m; sourceTree = "<group>"; };
+		4856F90F1C7A703E003F4C75 /* GTLGocampingExpenseCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingExpenseCollection.h; sourceTree = "<group>"; };
+		4856F9101C7A703E003F4C75 /* GTLGocampingExpenseCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingExpenseCollection.m; sourceTree = "<group>"; };
+		4856F9111C7A703E003F4C75 /* GTLGocampingFamiliesWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingFamiliesWrapper.h; sourceTree = "<group>"; };
+		4856F9121C7A703E003F4C75 /* GTLGocampingFamiliesWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingFamiliesWrapper.m; sourceTree = "<group>"; };
+		4856F9131C7A703E003F4C75 /* GTLGocampingFamily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingFamily.h; sourceTree = "<group>"; };
+		4856F9141C7A703E003F4C75 /* GTLGocampingFamily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingFamily.m; sourceTree = "<group>"; };
+		4856F9151C7A703E003F4C75 /* GTLGocampingFamilyRSVPWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingFamilyRSVPWrapper.h; sourceTree = "<group>"; };
+		4856F9161C7A703E003F4C75 /* GTLGocampingFamilyRSVPWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingFamilyRSVPWrapper.m; sourceTree = "<group>"; };
+		4856F9171C7A703E003F4C75 /* GTLGocampingGeoPt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingGeoPt.h; sourceTree = "<group>"; };
+		4856F9181C7A703E003F4C75 /* GTLGocampingGeoPt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingGeoPt.m; sourceTree = "<group>"; };
+		4856F9191C7A703E003F4C75 /* GTLGocampingMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingMember.h; sourceTree = "<group>"; };
+		4856F91A1C7A703E003F4C75 /* GTLGocampingMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingMember.m; sourceTree = "<group>"; };
+		4856F91B1C7A703E003F4C75 /* GTLGocampingMemberCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingMemberCollection.h; sourceTree = "<group>"; };
+		4856F91C1C7A703E003F4C75 /* GTLGocampingMemberCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingMemberCollection.m; sourceTree = "<group>"; };
+		4856F91D1C7A703E003F4C75 /* GTLGocampingUserAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLGocampingUserAccount.h; sourceTree = "<group>"; };
+		4856F91E1C7A703E003F4C75 /* GTLGocampingUserAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLGocampingUserAccount.m; sourceTree = "<group>"; };
+		4856F91F1C7A703E003F4C75 /* GTLQueryGocamping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLQueryGocamping.h; sourceTree = "<group>"; };
+		4856F9201C7A703E003F4C75 /* GTLQueryGocamping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLQueryGocamping.m; sourceTree = "<group>"; };
+		4856F9211C7A703E003F4C75 /* GTLServiceGocamping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLServiceGocamping.h; sourceTree = "<group>"; };
+		4856F9221C7A703E003F4C75 /* GTLServiceGocamping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLServiceGocamping.m; sourceTree = "<group>"; };
 		485F9C9B1C25F92900A4CB38 /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
 		485F9C9D1C25F93600A4CB38 /* EnterCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeViewController.swift; sourceTree = "<group>"; };
 		485F9C9F1C25FE7900A4CB38 /* NoCaretTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCaretTextField.swift; sourceTree = "<group>"; };
@@ -372,9 +421,10 @@
 		09AC0BB81B5C3670000849C4 /* Expenses */ = {
 			isa = PBXGroup;
 			children = (
+				4856F9001C7A703E003F4C75 /* Google Endpoints */,
 				488B53811C7A687200C369E3 /* GTL Source */,
 				481B63BD1BEF33B900FAB95D /* Storyboards */,
-				B55572E91BEB0AF90024CB88 /* Apis */,
+				B55572E91BEB0AF90024CB88 /* APIs */,
 				09AA76331B86CFAE0073FC0B /* Resources */,
 				09A18CA41B854DA60093932F /* CustomViews */,
 				09AC0BE81B5C3E73000849C4 /* ViewControllers */,
@@ -523,6 +573,46 @@
 			name = CampingTrips;
 			sourceTree = "<group>";
 		};
+		4856F9001C7A703E003F4C75 /* Google Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				4856F9011C7A703E003F4C75 /* GTLGocamping.h */,
+				4856F9031C7A703E003F4C75 /* GTLGocampingCampingTrip.h */,
+				4856F9041C7A703E003F4C75 /* GTLGocampingCampingTrip.m */,
+				4856F9051C7A703E003F4C75 /* GTLGocampingCampingTripCollection.h */,
+				4856F9061C7A703E003F4C75 /* GTLGocampingCampingTripCollection.m */,
+				4856F9071C7A703E003F4C75 /* GTLGocampingCampingTripValidationResult.h */,
+				4856F9081C7A703E003F4C75 /* GTLGocampingCampingTripValidationResult.m */,
+				4856F9091C7A703E003F4C75 /* GTLGocampingCampingTripWrapper.h */,
+				4856F90A1C7A703E003F4C75 /* GTLGocampingCampingTripWrapper.m */,
+				4856F90B1C7A703E003F4C75 /* GTLGocampingConstants.h */,
+				4856F90C1C7A703E003F4C75 /* GTLGocampingConstants.m */,
+				4856F90D1C7A703E003F4C75 /* GTLGocampingExpense.h */,
+				4856F90E1C7A703E003F4C75 /* GTLGocampingExpense.m */,
+				4856F90F1C7A703E003F4C75 /* GTLGocampingExpenseCollection.h */,
+				4856F9101C7A703E003F4C75 /* GTLGocampingExpenseCollection.m */,
+				4856F9111C7A703E003F4C75 /* GTLGocampingFamiliesWrapper.h */,
+				4856F9121C7A703E003F4C75 /* GTLGocampingFamiliesWrapper.m */,
+				4856F9131C7A703E003F4C75 /* GTLGocampingFamily.h */,
+				4856F9141C7A703E003F4C75 /* GTLGocampingFamily.m */,
+				4856F9151C7A703E003F4C75 /* GTLGocampingFamilyRSVPWrapper.h */,
+				4856F9161C7A703E003F4C75 /* GTLGocampingFamilyRSVPWrapper.m */,
+				4856F9171C7A703E003F4C75 /* GTLGocampingGeoPt.h */,
+				4856F9181C7A703E003F4C75 /* GTLGocampingGeoPt.m */,
+				4856F9191C7A703E003F4C75 /* GTLGocampingMember.h */,
+				4856F91A1C7A703E003F4C75 /* GTLGocampingMember.m */,
+				4856F91B1C7A703E003F4C75 /* GTLGocampingMemberCollection.h */,
+				4856F91C1C7A703E003F4C75 /* GTLGocampingMemberCollection.m */,
+				4856F91D1C7A703E003F4C75 /* GTLGocampingUserAccount.h */,
+				4856F91E1C7A703E003F4C75 /* GTLGocampingUserAccount.m */,
+				4856F91F1C7A703E003F4C75 /* GTLQueryGocamping.h */,
+				4856F9201C7A703E003F4C75 /* GTLQueryGocamping.m */,
+				4856F9211C7A703E003F4C75 /* GTLServiceGocamping.h */,
+				4856F9221C7A703E003F4C75 /* GTLServiceGocamping.m */,
+			);
+			path = "Google Endpoints";
+			sourceTree = "<group>";
+		};
 		488B53811C7A687200C369E3 /* GTL Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -600,7 +690,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B55572E91BEB0AF90024CB88 /* Apis */ = {
+		B55572E91BEB0AF90024CB88 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
 				B55572EA1BEB0B2C0024CB88 /* ApiController.swift */,
@@ -608,6 +698,7 @@
 				B55572ED1BEB0BB80024CB88 /* ApiStatusCode.swift */,
 				B55572F61BEB19E20024CB88 /* ApiError.swift */,
 			);
+			name = APIs;
 			path = Apis;
 			sourceTree = "<group>";
 		};
@@ -850,12 +941,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4856F9321C7A703E003F4C75 /* GTLQueryGocamping.m in Sources */,
 				48CD120A1C37707C009066BB /* Expense.swift in Sources */,
 				44DF6FCF1C28A7E300ED7CB4 /* GoogleMapApi.swift in Sources */,
+				4856F92D1C7A703E003F4C75 /* GTLGocampingFamilyRSVPWrapper.m in Sources */,
 				09A18CA81B854E010093932F /* CustomTextField.swift in Sources */,
 				B55572F71BEB19E20024CB88 /* ApiError.swift in Sources */,
 				09A18CA61B854DE50093932F /* CustomButton.swift in Sources */,
 				485F9CA21C2603AA00A4CB38 /* UIKitExtensions.swift in Sources */,
+				4856F9301C7A703E003F4C75 /* GTLGocampingMemberCollection.m in Sources */,
 				485F9C9E1C25F93600A4CB38 /* EnterCodeViewController.swift in Sources */,
 				B55572EB1BEB0B2C0024CB88 /* ApiController.swift in Sources */,
 				0984CF761C459AF3001E5EA2 /* FakeApiController.swift in Sources */,
@@ -872,7 +966,9 @@
 				09AC0BEA1B5C3EAD000849C4 /* FamilyUITableViewCell.swift in Sources */,
 				48CD12061C370ABE009066BB /* CampingTrip.swift in Sources */,
 				092DCF4F1B87BA230050F893 /* AddEditFamilyMembersViewController.swift in Sources */,
+				4856F92A1C7A703E003F4C75 /* GTLGocampingExpenseCollection.m in Sources */,
 				09AA76371B86D0510073FC0B /* HeaderLableView.swift in Sources */,
+				4856F9311C7A703E003F4C75 /* GTLGocampingUserAccount.m in Sources */,
 				488B53BB1C7A688E00C369E3 /* GTLBase64.m in Sources */,
 				B5F373361BF1CF350073409B /* CampsiteListViewController.swift in Sources */,
 				481B63C31BEF355D00FAB95D /* EnterPhoneNumberViewController.swift in Sources */,
@@ -887,7 +983,9 @@
 				488B53B41C7A688E00C369E3 /* GTLUploadParameters.m in Sources */,
 				488B53B61C7A688E00C369E3 /* GTLErrorObject.m in Sources */,
 				48CB64CF1C27A94400791A22 /* CustomLoadingView.swift in Sources */,
+				4856F92B1C7A703E003F4C75 /* GTLGocampingFamiliesWrapper.m in Sources */,
 				481B63C51BF0571D00FAB95D /* APICoordinator.swift in Sources */,
+				4856F92E1C7A703E003F4C75 /* GTLGocampingGeoPt.m in Sources */,
 				4823770A1C2B541D00DAC89C /* ListCampingTripsViewController.swift in Sources */,
 				092DCF511B87BA320050F893 /* AddEditFamilyExpensesViewController.swift in Sources */,
 				488B53B71C7A688E00C369E3 /* GTLRuntimeCommon.m in Sources */,
@@ -895,6 +993,8 @@
 				48CD12081C377074009066BB /* Family.swift in Sources */,
 				488B53AF1C7A688E00C369E3 /* GTLObject.m in Sources */,
 				098037E51B6C189200E52846 /* FamilyExpensesViewController.swift in Sources */,
+				4856F9281C7A703E003F4C75 /* GTLGocampingConstants.m in Sources */,
+				4856F9251C7A703E003F4C75 /* GTLGocampingCampingTripCollection.m in Sources */,
 				44DF6FCD1C28A13200ED7CB4 /* CampsiteDetailPhotoCell.swift in Sources */,
 				488B53BD1C7A688E00C369E3 /* GTMHTTPFetcher.m in Sources */,
 				B55572EE1BEB0BB80024CB88 /* ApiStatusCode.swift in Sources */,
@@ -903,6 +1003,8 @@
 				440EF5871BFE809300AE274E /* Geometry.swift in Sources */,
 				B5F373331BF1B9A40073409B /* CampsiteMainViewController.swift in Sources */,
 				B5621DD81BF1DA1500E8CA4D /* Geocoding.swift in Sources */,
+				4856F9271C7A703E003F4C75 /* GTLGocampingCampingTripWrapper.m in Sources */,
+				4856F92F1C7A703E003F4C75 /* GTLGocampingMember.m in Sources */,
 				488B53C21C7A688E00C369E3 /* GTMMIMEDocument.m in Sources */,
 				48A9B12B1BDD69900050BEAF /* ValidationUtil.swift in Sources */,
 				488B53B21C7A688E00C369E3 /* GTLService.m in Sources */,
@@ -911,6 +1013,7 @@
 				440EF5811BFE580F00AE274E /* CampsiteDetailViewController.swift in Sources */,
 				4856F8CB1C7A6EB2003F4C75 /* GTMSessionFetcher.m in Sources */,
 				B58097791BF4594A00A474A6 /* AutoHeightTableView+UITableView.swift in Sources */,
+				4856F92C1C7A703E003F4C75 /* GTLGocampingFamily.m in Sources */,
 				4404E4511BFAB29400384945 /* PlaceDetail.swift in Sources */,
 				B5621DD61BF1D9FF00E8CA4D /* Place.swift in Sources */,
 				48B514501BD6A85400479F64 /* ExpenseTableViewCell.swift in Sources */,
@@ -920,15 +1023,19 @@
 				440EF5841BFE777C00AE274E /* CampsiteDetailMapCell.swift in Sources */,
 				4856F8C81C7A6C02003F4C75 /* GTMSessionFetcherService.m in Sources */,
 				483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */,
+				4856F9261C7A703E003F4C75 /* GTLGocampingCampingTripValidationResult.m in Sources */,
 				481736ED1C30AB7A00686992 /* TripDetailsViewController.swift in Sources */,
+				4856F9331C7A703E003F4C75 /* GTLServiceGocamping.m in Sources */,
 				0992591D1B8A783E00CFA81F /* MemberTableViewCell.swift in Sources */,
 				488B53BA1C7A688E00C369E3 /* GTLUtilities.m in Sources */,
+				4856F9241C7A703E003F4C75 /* GTLGocampingCampingTrip.m in Sources */,
 				488EDD011BE891ED00261531 /* ErrorView.swift in Sources */,
 				488B53B51C7A688E00C369E3 /* GTLDateTime.m in Sources */,
 				488B53B91C7A688E00C369E3 /* GTLJSONParser.m in Sources */,
 				488B53C31C7A688E00C369E3 /* GTMReadMonitorInputStream.m in Sources */,
 				098037E11B6C077E00E52846 /* AddFamilyUIViewController.swift in Sources */,
 				485F9CA01C25FE7900A4CB38 /* NoCaretTextField.swift in Sources */,
+				4856F9291C7A703E003F4C75 /* GTLGocampingExpense.m in Sources */,
 				098037DF1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift in Sources */,
 				440EF58A1BFE929D00AE274E /* CampsiteDetailInfoCell.swift in Sources */,
 				487B67291C2B6FB400106137 /* CampingTripsTableViewCell.swift in Sources */,
