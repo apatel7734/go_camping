@@ -126,6 +126,8 @@
 		48CD12081C377074009066BB /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD12071C377074009066BB /* Family.swift */; };
 		48CD120A1C37707C009066BB /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD12091C37707C009066BB /* Expense.swift */; };
 		48CD120C1C377082009066BB /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD120B1C377082009066BB /* Member.swift */; };
+		48CF1F5C1C7A75AD001C3170 /* CloudEndpointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CF1F5B1C7A75AD001C3170 /* CloudEndpointManager.swift */; };
+		48CF1F5E1C7A8F4C001C3170 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CF1F5D1C7A8F4C001C3170 /* SignupViewController.swift */; };
 		48E4C9531C32426100052FD5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E4C9521C32426100052FD5 /* RootViewController.swift */; };
 		731EC9ACF6BD80E0F8776025 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F120543BBC8700687328C8 /* Pods.framework */; };
 		A8ED07A7AE490031161DDDDF /* Pods_ExpensesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B78AB995FF88485C5BB74291 /* Pods_ExpensesTests.framework */; };
@@ -317,6 +319,8 @@
 		48CD12071C377074009066BB /* Family.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
 		48CD12091C37707C009066BB /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		48CD120B1C377082009066BB /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		48CF1F5B1C7A75AD001C3170 /* CloudEndpointManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudEndpointManager.swift; sourceTree = "<group>"; };
+		48CF1F5D1C7A8F4C001C3170 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		48E4C9521C32426100052FD5 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		62F120543BBC8700687328C8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95B76239F85FDEDCA27D1F3F /* Pods-ExpensesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpensesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExpensesTests/Pods-ExpensesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -541,6 +545,7 @@
 				481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */,
 				485F9C9B1C25F92900A4CB38 /* PhoneNumberViewController.swift */,
 				485F9C9D1C25F93600A4CB38 /* EnterCodeViewController.swift */,
+				48CF1F5D1C7A8F4C001C3170 /* SignupViewController.swift */,
 			);
 			name = Signup;
 			sourceTree = "<group>";
@@ -697,6 +702,7 @@
 				B55572F01BEB0C070024CB88 /* GoogleMapApi.swift */,
 				B55572ED1BEB0BB80024CB88 /* ApiStatusCode.swift */,
 				B55572F61BEB19E20024CB88 /* ApiError.swift */,
+				48CF1F5B1C7A75AD001C3170 /* CloudEndpointManager.swift */,
 			);
 			name = APIs;
 			path = Apis;
@@ -988,6 +994,7 @@
 				4856F92E1C7A703E003F4C75 /* GTLGocampingGeoPt.m in Sources */,
 				4823770A1C2B541D00DAC89C /* ListCampingTripsViewController.swift in Sources */,
 				092DCF511B87BA320050F893 /* AddEditFamilyExpensesViewController.swift in Sources */,
+				48CF1F5C1C7A75AD001C3170 /* CloudEndpointManager.swift in Sources */,
 				488B53B71C7A688E00C369E3 /* GTLRuntimeCommon.m in Sources */,
 				099F6C7F1B94BDFC00BD8D9C /* Constants.swift in Sources */,
 				48CD12081C377074009066BB /* Family.swift in Sources */,
@@ -1036,6 +1043,7 @@
 				098037E11B6C077E00E52846 /* AddFamilyUIViewController.swift in Sources */,
 				485F9CA01C25FE7900A4CB38 /* NoCaretTextField.swift in Sources */,
 				4856F9291C7A703E003F4C75 /* GTLGocampingExpense.m in Sources */,
+				48CF1F5E1C7A8F4C001C3170 /* SignupViewController.swift in Sources */,
 				098037DF1B6BF8E700E52846 /* FamilyDetailsUIViewController.swift in Sources */,
 				440EF58A1BFE929D00AE274E /* CampsiteDetailInfoCell.swift in Sources */,
 				487B67291C2B6FB400106137 /* CampingTripsTableViewCell.swift in Sources */,
