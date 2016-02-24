@@ -63,11 +63,29 @@ class ValidationUtil {
     
     func isValidPhoneNumber(phoneNumber: String?) -> ValidationResponse{
         var isValid: Bool = false
+        
+        guard let phoneNumber = phoneNumber else{
+            return ValidationResponse(isValidResponse: isValid, message: "Phone number should only contain 10 digits.")
+        }
+        let number = phoneNumber.removeWhiteSpaces()
         //validate phone number here.
-        if(phoneNumber?.characters.count == 10){
+        if(number.characters.count == 10 ){
             isValid = true
         }
         return ValidationResponse(isValidResponse: isValid, message: "Phone number should only contain 10 digits.");
+    }
+    
+    func isValidPassword(password: String?) -> Bool{
+        var isValid: Bool = false
+        guard let password = password else {
+            return isValid
+        }
+        
+        if !password.isEmpty && password.characters.count > 4 && password.characters.count < 6{
+            isValid = true
+        }
+        
+        return isValid
     }
     
     lazy var emailPredicate: NSPredicate = {

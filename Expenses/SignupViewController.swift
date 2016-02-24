@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var signupButton: UIButton!
@@ -16,18 +16,72 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var phoneNumberTextField: UITextField!
-
+    
     @IBOutlet weak var passwordTextField: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        phoneNumberTextField.delegate = self
+        nameTextField.delegate = self
+        passwordTextField.delegate = self
     }
-
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == phoneNumberTextField{
+            let newNumber = phoneNumberTextField.text?.formatPhoneNumberWithSpaces()
+            if(!ValidationUtil.sharedValidationUtil.isValidPhoneNumber(newNumber).isValid){
+                phoneNumberTextField.text = newNumber
+                return true
+            }
+            return false
+        }
+        
+        return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        switch(textField){
+        case nameTextField:
+            phoneNumberTextField.becomeFirstResponder()
+            
+        case phoneNumberTextField:
+            passwordTextField.becomeFirstResponder()
+            
+        case passwordTextField:
+            view.endEditing(true)
+            
+        default:
+            break;
+        }
+        return true
+    }
+    
+    
     @IBAction func didTapOnSignupButton(sender: AnyObject) {
-        
-        
+        let userAccount = GTLGocampingUserAccount()
+        guard let phoneNumber = phoneNumberTextField.text, numberInt = Int(phoneNumber.removeWhiteSpaces()) else {
+            print("Error, phoneNumber can't be empty.")
+            return
+        }
+        userAccount.phoneNumber = NSNumber(integer: numberInt)
+        userAccount.fullName = nameTextField.text!
+
+        let query = GTLQueryGocamping.queryForRegisterUserWithObject(userAccount);
+        let service  = GTLServiceGocamping()
+        service.executeQuery(query) { (tkt: GTLServiceTicket!, object: AnyObject!, error: NSError!) -> Void in
+            if (error != nil) {
+                //display error.
+                print("There was an error.")
+            }else{
+                //save logged in user
+                NSUserDefaultCoordinator.sharedInstance.loggedInUser = userAccount
+                //go to next step.
+                let storyboard = UIStoryboard(name: "ManageTrip", bundle: nil)
+                self.presentViewController(storyboard.instantiateInitialViewController()!, animated: true, completion: nil)
+            }
+            
+        }
     }
 }

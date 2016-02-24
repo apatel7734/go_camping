@@ -12,11 +12,36 @@ struct NSUserDefaultConstants {
     static let totalExpenseForEvent = "TotalExpenseForEvent"
     static let totalMembersCountForEvent = "TotalMembersCountForEvent"
     static let originalLastModifiedExpenseAmount = "OriginalLastModifiedExpenseAmount"
+    
+    //User Account Info
+    static let UserPhonenumber = "userphonenumber"
+    static let UserEmail = "useremailaddress"
+    static let UserFullName = "userfullname"
 }
 
 class NSUserDefaultCoordinator {
-    
     internal static let sharedInstance = NSUserDefaultCoordinator()
+    private var user: GTLGocampingUserAccount!
+    
+    var loggedInUser: GTLGocampingUserAccount{
+        set(newUser){
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setInteger(newUser.phoneNumber.integerValue, forKey: NSUserDefaultConstants.UserPhonenumber)
+            defaults.setObject(newUser.fullName, forKey: NSUserDefaultConstants.UserFullName)
+            defaults.setObject(newUser.email, forKey: NSUserDefaultConstants.UserEmail)
+        }
+        
+        get{
+            if user == nil{
+                user = GTLGocampingUserAccount()
+                let defaults = NSUserDefaults.standardUserDefaults()
+                user.phoneNumber = defaults.integerForKey(NSUserDefaultConstants.UserPhonenumber)
+                user.fullName = defaults.stringForKey(NSUserDefaultConstants.UserFullName)
+                user.email = defaults.stringForKey(NSUserDefaultConstants.UserEmail)
+            }
+            return user
+        }
+    }
     
     var totalExpenseForEvent :NSDecimalNumber{
         get{
