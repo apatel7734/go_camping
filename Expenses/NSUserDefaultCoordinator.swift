@@ -23,24 +23,39 @@ class NSUserDefaultCoordinator {
     internal static let sharedInstance = NSUserDefaultCoordinator()
     private var user: GTLGocampingUserAccount!
     
-    var loggedInUser: GTLGocampingUserAccount{
+    var loggedInUser: GTLGocampingUserAccount?{
         set(newUser){
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setInteger(newUser.phoneNumber.integerValue, forKey: NSUserDefaultConstants.UserPhonenumber)
-            defaults.setObject(newUser.fullName, forKey: NSUserDefaultConstants.UserFullName)
-            defaults.setObject(newUser.email, forKey: NSUserDefaultConstants.UserEmail)
+            
+            guard let newUser = newUser else{
+                setLoggedinUserDefaults(0, fullName: nil, email: nil)
+                return
+            }
+            setLoggedinUserDefaults(newUser.phoneNumber.integerValue, fullName: newUser.fullName, email: newUser.email)
         }
         
         get{
             if user == nil{
-                user = GTLGocampingUserAccount()
                 let defaults = NSUserDefaults.standardUserDefaults()
-                user.phoneNumber = defaults.integerForKey(NSUserDefaultConstants.UserPhonenumber)
-                user.fullName = defaults.stringForKey(NSUserDefaultConstants.UserFullName)
-                user.email = defaults.stringForKey(NSUserDefaultConstants.UserEmail)
+                let phoneNumber = defaults.integerForKey(NSUserDefaultConstants.UserPhonenumber)
+                let fullName = defaults.stringForKey(NSUserDefaultConstants.UserFullName)
+                let email = defaults.stringForKey(NSUserDefaultConstants.UserEmail)
+                if phoneNumber != 0 {
+                    user = GTLGocampingUserAccount()
+                    user.phoneNumber = phoneNumber
+                    user.fullName = fullName
+                    user.email = email
+                }
             }
+            
             return user
         }
+    }
+    
+    private func setLoggedinUserDefaults(phoneNumber: Int, fullName: String?, email: String?){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(phoneNumber, forKey: NSUserDefaultConstants.UserPhonenumber)
+        defaults.setObject(fullName, forKey: NSUserDefaultConstants.UserFullName)
+        defaults.setObject(email, forKey: NSUserDefaultConstants.UserEmail)
     }
     
     var totalExpenseForEvent :NSDecimalNumber{
