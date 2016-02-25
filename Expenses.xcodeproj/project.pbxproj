@@ -42,6 +42,8 @@
 		440EF5841BFE777C00AE274E /* CampsiteDetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440EF5831BFE777C00AE274E /* CampsiteDetailMapCell.swift */; };
 		440EF5871BFE809300AE274E /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440EF5861BFE809300AE274E /* Geometry.swift */; };
 		440EF58A1BFE929D00AE274E /* CampsiteDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440EF5891BFE929D00AE274E /* CampsiteDetailInfoCell.swift */; };
+		4476BB051C7EA35900C37E80 /* PopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4476BB041C7EA35900C37E80 /* PopoverPresentationController.swift */; };
+		4476BB061C7EA35900C37E80 /* PopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4476BB041C7EA35900C37E80 /* PopoverPresentationController.swift */; };
 		44A20BF41C3B3E1D00B48F73 /* CampsiteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F3733B1BF1CFCB0073409B /* CampsiteMapViewController.swift */; };
 		44DF6FCD1C28A13200ED7CB4 /* CampsiteDetailPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DF6FCC1C28A13100ED7CB4 /* CampsiteDetailPhotoCell.swift */; };
 		44DF6FCF1C28A7E300ED7CB4 /* GoogleMapApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55572F01BEB0C070024CB88 /* GoogleMapApi.swift */; };
@@ -154,6 +156,7 @@
 		440EF5831BFE777C00AE274E /* CampsiteDetailMapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampsiteDetailMapCell.swift; sourceTree = "<group>"; };
 		440EF5861BFE809300AE274E /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Models/Geometry.swift; sourceTree = "<group>"; };
 		440EF5891BFE929D00AE274E /* CampsiteDetailInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampsiteDetailInfoCell.swift; sourceTree = "<group>"; };
+		4476BB041C7EA35900C37E80 /* PopoverPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationController.swift; sourceTree = "<group>"; };
 		44DF6FCC1C28A13100ED7CB4 /* CampsiteDetailPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampsiteDetailPhotoCell.swift; sourceTree = "<group>"; };
 		481736EA1C309F0200686992 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		481736EC1C30AB7A00686992 /* TripDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailsViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +268,7 @@
 				485F9CA11C2603AA00A4CB38 /* UIKitExtensions.swift */,
 				48CB64CE1C27A94400791A22 /* CustomLoadingView.swift */,
 				48CB64D21C27AEE600791A22 /* CustomLoadingView.xib */,
+				4476BB041C7EA35900C37E80 /* PopoverPresentationController.swift */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -733,6 +737,7 @@
 				0984CF761C459AF3001E5EA2 /* FakeApiController.swift in Sources */,
 				B58097761BF455B800A474A6 /* CampsiteListCell.swift in Sources */,
 				486BE92C1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift in Sources */,
+				4476BB051C7EA35900C37E80 /* PopoverPresentationController.swift in Sources */,
 				0992591F1B8AA2DE00CFA81F /* Enums.swift in Sources */,
 				48CD12041C370424009066BB /* ParseConstants.swift in Sources */,
 				09AC0BE71B5C3A3A000849C4 /* NSDateExtension.swift in Sources */,
@@ -801,6 +806,7 @@
 				0984CF731C459AAD001E5EA2 /* ApiController.swift in Sources */,
 				B5F3733D1BF1CFCB0073409B /* CampsiteMapViewController.swift in Sources */,
 				B5B7449A1C75D2EE00DD88F2 /* CampsiteCreateTripCell.swift in Sources */,
+				4476BB061C7EA35900C37E80 /* PopoverPresentationController.swift in Sources */,
 				B55572FC1BEB1C360024CB88 /* FakeApiController.swift in Sources */,
 				B55573001BEB1F9B0024CB88 /* Constants.swift in Sources */,
 				0984CF751C459AEB001E5EA2 /* Geometry.swift in Sources */,

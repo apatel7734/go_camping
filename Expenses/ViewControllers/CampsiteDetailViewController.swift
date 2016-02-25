@@ -9,13 +9,12 @@
 import UIKit
 import CoreLocation
 
-class CampsiteDetailViewController: UITableViewController {
+class CampsiteDetailViewController: UITableViewController, UIPopoverPresentationControllerDelegate, UIViewControllerTransitioningDelegate {
 
     private enum DetailRow: Int {
         case MapRow = 0
         case InfoRow
         case PhotoRow
-        case CreateTripRow
         case DetailRowLength
     }
     
@@ -36,6 +35,22 @@ class CampsiteDetailViewController: UITableViewController {
             }) { (error) in
             
         }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .OverCurrentContext
+    }
+    
+    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
+        return PopoverPresentationController(presentedViewController: presented, presentingViewController: source)
+    }
+    
+    @IBAction func createTripButtonTapped(sender: AnyObject) {
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("CreateTripPopoverViewController")
+        vc!.transitioningDelegate = self
+        vc!.modalPresentationStyle = .Custom
+        
+        presentViewController(vc!, animated: true, completion: nil)
     }
 }
 
@@ -134,9 +149,6 @@ extension CampsiteDetailViewController {
         case DetailRow.PhotoRow.rawValue:
             return "photoCollectionCell"
         
-        case DetailRow.CreateTripRow.rawValue:
-            return "createTripCell"
-            
         default:
             return ""
         }
