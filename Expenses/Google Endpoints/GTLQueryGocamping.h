@@ -13,7 +13,7 @@
 // Description:
 //   This is an API
 // Classes:
-//   GTLQueryGocamping (17 custom class methods, 7 custom properties)
+//   GTLQueryGocamping (18 custom class methods, 9 custom properties)
 
 #if GTL_BUILT_AS_FRAMEWORK
   #import "GTL/GTLQuery.h"
@@ -45,6 +45,8 @@
 @property (nonatomic, assign) long long familyId;
 @property (nonatomic, assign) long long familyID;
 @property (nonatomic, assign) long long memberId;
+@property (nonatomic, copy) NSString *password;
+@property (nonatomic, assign) long long phoneNumber;
 @property (nonatomic, assign) long long registeredPhoneNumber;
 
 #pragma mark - Service level methods
@@ -132,6 +134,13 @@
 //   kGTLAuthScopeGocampingUserinfoEmail
 + (instancetype)queryForInviteFamiliesWithObject:(GTLGocampingFamiliesWrapper *)object
                                    campingTripId:(long long)campingTripId;
+
+// Method: gocamping.login
+//  Authorization scope(s):
+//   kGTLAuthScopeGocampingUserinfoEmail
+// Fetches a GTLGocampingUserAccount.
++ (instancetype)queryForLoginWithPhoneNumber:(long long)phoneNumber
+                                    password:(NSString *)password;
 
 // Method: gocamping.registerUser
 //  Authorization scope(s):

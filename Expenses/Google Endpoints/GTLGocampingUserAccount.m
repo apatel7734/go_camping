@@ -13,7 +13,7 @@
 // Description:
 //   This is an API
 // Classes:
-//   GTLGocampingUserAccount (0 custom class methods, 5 custom properties)
+//   GTLGocampingUserAccount (0 custom class methods, 6 custom properties)
 
 #import "GTLGocampingUserAccount.h"
 
@@ -23,7 +23,7 @@
 //
 
 @implementation GTLGocampingUserAccount
-@dynamic campingTripsKeys, email, fullName, membersKeys, phoneNumber;
+@dynamic campingTripsKeys, email, fullName, membersKeys, password, phoneNumber;
 
 + (NSDictionary *)arrayPropertyToClassMap {
   NSDictionary *map = @{

@@ -13,7 +13,7 @@
 // Description:
 //   This is an API
 // Classes:
-//   GTLGocampingUserAccount (0 custom class methods, 5 custom properties)
+//   GTLGocampingUserAccount (0 custom class methods, 6 custom properties)
 
 #if GTL_BUILT_AS_FRAMEWORK
   #import "GTL/GTLObject.h"
@@ -31,5 +31,6 @@
 @property (nonatomic, copy) NSString *email;
 @property (nonatomic, copy) NSString *fullName;
 @property (nonatomic, retain) NSArray *membersKeys;  // of NSNumber (longLongValue)
+@property (nonatomic, copy) NSString *password;
 @property (nonatomic, retain) NSNumber *phoneNumber;  // longLongValue
 @end

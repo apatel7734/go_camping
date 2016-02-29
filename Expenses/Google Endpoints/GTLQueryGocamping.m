@@ -13,7 +13,7 @@
 // Description:
 //   This is an API
 // Classes:
-//   GTLQueryGocamping (17 custom class methods, 7 custom properties)
+//   GTLQueryGocamping (18 custom class methods, 9 custom properties)
 
 #import "GTLQueryGocamping.h"
 
@@ -32,7 +32,7 @@
 @implementation GTLQueryGocamping
 
 @dynamic campingTripId, expenseID, familyId, familyID, fields, memberId,
-         registeredPhoneNumber;
+         password, phoneNumber, registeredPhoneNumber;
 
 #pragma mark - Service level methods
 // These create a GTLQueryGocamping object.
@@ -172,6 +172,16 @@
   GTLQueryGocamping *query = [self queryWithMethodName:methodName];
   query.bodyObject = object;
   query.campingTripId = campingTripId;
+  return query;
+}
+
++ (instancetype)queryForLoginWithPhoneNumber:(long long)phoneNumber
+                                    password:(NSString *)password {
+  NSString *methodName = @"gocamping.login";
+  GTLQueryGocamping *query = [self queryWithMethodName:methodName];
+  query.phoneNumber = phoneNumber;
+  query.password = password;
+  query.expectedObjectClass = [GTLGocampingUserAccount class];
   return query;
 }
 

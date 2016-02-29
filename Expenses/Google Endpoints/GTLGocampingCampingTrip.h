@@ -30,8 +30,8 @@
 
 @interface GTLGocampingCampingTrip : GTLObject
 @property (nonatomic, copy) NSString *addressString;
-@property (nonatomic, retain) GTLDateTime *dateFrom;
-@property (nonatomic, retain) GTLDateTime *dateTo;
+@property (nonatomic, retain) NSNumber *dateFrom;  // longLongValue
+@property (nonatomic, retain) NSNumber *dateTo;  // longLongValue
 @property (nonatomic, retain) NSArray *familiesIds;  // of NSNumber (longLongValue)
 
 // identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
