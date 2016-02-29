@@ -19,11 +19,6 @@ class CampsiteMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
     private func showPlacesOnMap() {
         guard let aCampsiteList = campsiteList else {
             return

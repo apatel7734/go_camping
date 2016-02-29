@@ -42,7 +42,10 @@ class CampsiteDetailViewController: UITableViewController, UIPopoverPresentation
     }
     
     func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
-        return PopoverPresentationController(presentedViewController: presented, presentingViewController: source)
+        let popover = PopoverPresentationController(presentedViewController: presented, presentingViewController: source)
+        popover.setXOffset(20.0)
+        popover.setYOffset(220.0)
+        return popover
     }
     
     @IBAction func createTripButtonTapped(sender: AnyObject) {

@@ -11,6 +11,8 @@ import UIKit
 class PopoverPresentationController: UIPresentationController {
     
     private var dimmingView: UIView!
+    private var xOffset: CGFloat = 0
+    private var yOffset: CGFloat = 0
     
     override init(presentedViewController: UIViewController, presentingViewController: UIViewController) {
         super.init(presentedViewController: presentedViewController, presentingViewController: presentingViewController)
@@ -29,6 +31,14 @@ class PopoverPresentationController: UIPresentationController {
         dimmingView.addGestureRecognizer(tapRecognizer)
     }
     
+    func setXOffset(offset: CGFloat) {
+        xOffset = offset
+    }
+    
+    func setYOffset(offset: CGFloat) {
+        yOffset = offset
+    }
+    
     func dimmingViewTapped() {
         presentingViewController.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -44,14 +54,14 @@ extension PopoverPresentationController {
     }
     
     override func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        return CGSizeMake(parentSize.width - 40.0, parentSize.height - 120.0)
+        return CGSizeMake(parentSize.width - xOffset * 2, parentSize.height - yOffset * 2)
     }
     
     override func frameOfPresentedViewInContainerView() -> CGRect {
         var presentedViewFrame = CGRectZero
         presentedViewFrame.size = sizeForChildContentContainer(presentedViewController, withParentContainerSize: containerView!.bounds.size)
-        presentedViewFrame.origin.x = 20.0
-        presentedViewFrame.origin.y = 60.0
+        presentedViewFrame.origin.x = xOffset
+        presentedViewFrame.origin.y = yOffset
         
         return presentedViewFrame
     }
@@ -66,7 +76,7 @@ extension PopoverPresentationController {
         
         containerView?.insertSubview(dimmingView, atIndex: 0)
         presentedViewController.transitionCoordinator()?.animateAlongsideTransition({ (coor) in
-            self.dimmingView.alpha = 0.9
+            self.dimmingView.alpha = 1.0
             }, completion: nil)
     }
     
