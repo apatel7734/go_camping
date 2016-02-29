@@ -515,6 +515,11 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="300"/>
+                    <connections>
+                        <outlet property="endDateField" destination="fsd-RY-Fei" id="g7C-RM-hps"/>
+                        <outlet property="startDateField" destination="D2B-TJ-7MH" id="5xp-F5-Xcb"/>
+                        <outlet property="titleField" destination="njQ-Bg-ux4" id="pL2-86-0Ec"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TRh-gC-rlV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
