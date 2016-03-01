@@ -101,6 +101,8 @@
 		B5621DD81BF1DA1500E8CA4D /* Geocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5621DD71BF1DA1500E8CA4D /* Geocoding.swift */; };
 		B5621DDA1BF1E05D00E8CA4D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5621DD51BF1D9FF00E8CA4D /* Place.swift */; };
 		B58097761BF455B800A474A6 /* CampsiteListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58097751BF455B800A474A6 /* CampsiteListCell.swift */; };
+		B58A5F2B1C85EFF500D45F06 /* DateFormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58A5F2A1C85EFF500D45F06 /* DateFormatterUtil.swift */; };
+		B58A5F2C1C85EFF500D45F06 /* DateFormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58A5F2A1C85EFF500D45F06 /* DateFormatterUtil.swift */; };
 		B5D2A7451C8421D00068323F /* CampsiteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2A7411C8421D00068323F /* CampsiteDetailViewController.swift */; };
 		B5D2A7461C8421D00068323F /* CampsiteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2A7421C8421D00068323F /* CampsiteListViewController.swift */; };
 		B5D2A7471C8421D00068323F /* CampsiteMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2A7431C8421D00068323F /* CampsiteMainViewController.swift */; };
@@ -210,6 +212,7 @@
 		B5621DD51BF1D9FF00E8CA4D /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
 		B5621DD71BF1DA1500E8CA4D /* Geocoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geocoding.swift; path = Models/Geocoding.swift; sourceTree = "<group>"; };
 		B58097751BF455B800A474A6 /* CampsiteListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampsiteListCell.swift; sourceTree = "<group>"; };
+		B58A5F2A1C85EFF500D45F06 /* DateFormatterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatterUtil.swift; path = Utility/DateFormatterUtil.swift; sourceTree = "<group>"; };
 		B5D2A7411C8421D00068323F /* CampsiteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampsiteDetailViewController.swift; sourceTree = "<group>"; };
 		B5D2A7421C8421D00068323F /* CampsiteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampsiteListViewController.swift; sourceTree = "<group>"; };
 		B5D2A7431C8421D00068323F /* CampsiteMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampsiteMainViewController.swift; sourceTree = "<group>"; };
@@ -377,6 +380,7 @@
 				486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */,
 				486BE92B1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift */,
 				481B63C41BF0571D00FAB95D /* APICoordinator.swift */,
+				B58A5F2A1C85EFF500D45F06 /* DateFormatterUtil.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -747,6 +751,7 @@
 				486BE92C1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift in Sources */,
 				4476BB051C7EA35900C37E80 /* PopoverPresentationController.swift in Sources */,
 				0992591F1B8AA2DE00CFA81F /* Enums.swift in Sources */,
+				B58A5F2B1C85EFF500D45F06 /* DateFormatterUtil.swift in Sources */,
 				48CD12041C370424009066BB /* ParseConstants.swift in Sources */,
 				09AC0BE71B5C3A3A000849C4 /* NSDateExtension.swift in Sources */,
 				48CD12021C37040F009066BB /* ParseManager.swift in Sources */,
@@ -813,6 +818,7 @@
 				09AC0BD51B5C3671000849C4 /* ExpensesTests.swift in Sources */,
 				0984CF731C459AAD001E5EA2 /* ApiController.swift in Sources */,
 				4476BB061C7EA35900C37E80 /* PopoverPresentationController.swift in Sources */,
+				B58A5F2C1C85EFF500D45F06 /* DateFormatterUtil.swift in Sources */,
 				B55572FC1BEB1C360024CB88 /* FakeApiController.swift in Sources */,
 				B55573001BEB1F9B0024CB88 /* Constants.swift in Sources */,
 				0984CF751C459AEB001E5EA2 /* Geometry.swift in Sources */,

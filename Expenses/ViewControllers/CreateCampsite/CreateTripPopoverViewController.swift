@@ -34,6 +34,17 @@ class CreateTripPopoverViewController: UIViewController {
     }
     
     func accessoryDoneButtonTapped(sender: UIView) {
-        print(sender)
+        if startDateField.isFirstResponder() {
+            let datePicker = startDateField.inputView as! UIDatePicker
+            startDateField.text = DateFormatterUtil.mediumDateFormatter.stringFromDate(datePicker.date)
+        
+            startDateField.resignFirstResponder()
+            
+        } else if endDateField.isFirstResponder() {
+            let datePicker = endDateField.inputView as! UIDatePicker
+            endDateField.text = DateFormatterUtil.mediumDateFormatter.stringFromDate(datePicker.date)
+    
+            endDateField.resignFirstResponder()
+        }
     }
 }
