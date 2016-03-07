@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class CampsiteDetailViewController: UITableViewController {
+class CampsiteDetailViewController: UITableViewController, UIPopoverPresentationControllerDelegate, UIViewControllerTransitioningDelegate {
 
     private enum DetailRow: Int {
         case MapRow = 0
@@ -26,12 +26,34 @@ class CampsiteDetailViewController: UITableViewController {
 
         navigationController?.navigationBarHidden = false
         
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         GoogleMapApi(apiController: ApiController.sharedInstance).getPlaceDetailForPlaceId(place.placeId, success: { (placeDetail) in
             self.placeDetail = placeDetail
             self.tableView.reloadData()
             }) { (error) in
             
         }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .OverCurrentContext
+    }
+    
+    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
+        let popover = PopoverPresentationController(presentedViewController: presented, presentingViewController: source)
+        popover.setXOffset(20.0)
+        popover.setYOffset(220.0)
+        return popover
+    }
+    
+    @IBAction func createTripButtonTapped(sender: AnyObject) {
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("CreateTripPopoverViewController")
+        vc!.transitioningDelegate = self
+        vc!.modalPresentationStyle = .Custom
+        
+        presentViewController(vc!, animated: true, completion: nil)
     }
 }
 
@@ -52,7 +74,11 @@ extension CampsiteDetailViewController {
             return 200
             
         case DetailRow.PhotoRow.rawValue:
-            return 100
+            if let photos = placeDetail?.photos {
+                return photos.count == 0 ? 0 : 100
+            } else {
+                return 0
+            }
             
         default:
             return UITableViewAutomaticDimension
