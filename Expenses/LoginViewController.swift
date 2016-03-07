@@ -29,5 +29,11 @@ class LoginViewController: UIViewController {
     }
     
     
+    @IBAction func didTaponSignupButton(sender: AnyObject) {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     
 }
