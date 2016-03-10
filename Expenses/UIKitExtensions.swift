@@ -25,7 +25,7 @@ extension UIColor{
     class func darkBlue() -> UIColor {
         return UIColor.colorWithHexString("#273B49")
     }
-
+    
 }
 
 
@@ -49,6 +49,9 @@ extension String{
         return formattedPhoneNumber
     }
     
+    func removeWhiteSpaces() -> String{
+        return self.stringByReplacingOccurrencesOfString(" ", withString: "");
+    }
 }
 
 
