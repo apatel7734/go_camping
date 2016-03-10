@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
+class ListCampingTripsViewController: UIViewController{
     
     @IBOutlet weak var campingTripsTableView: UITableView!
-    var campingTrips = [CampingTrip]()
+    var campingTrips = [GTLGocampingCampingTrip]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +25,38 @@ class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITa
         //this removes empty lines from tableview.
         campingTripsTableView.tableFooterView = UIView()
         configureNavigationBar()
-        ParseManager.fetchCampingTrips(0, totalResultsPerPage: 10) { (campingTrips, error) -> Void in
-            if let campingTrips = campingTrips{
-                self.campingTrips = campingTrips
-                self.campingTripsTableView.reloadData()
-            }
-        }
+        
+        fetchCampingTripData()
     }
     
     private func configureNavigationBar(){
         self.navigationController?.navigationBar.configureAsBlueBar()
     }
     
+    private func fetchCampingTripData(){
+        let user = NSUserDefaultCoordinator.sharedInstance.loggedInUser
+        let getCampingTripsQuery = GTLQueryGocamping.queryForGetCampingTripsWithObject(user)
+        let service  = GTLServiceGocamping()
+        
+        service.executeQuery(getCampingTripsQuery) { (tkt: GTLServiceTicket!, object: AnyObject!, error: NSError!) -> Void in
+            if (error != nil) {
+                //display error.
+                print("Error = \(error)")
+            }else{
+                if let campingTripCollection = object as? GTLGocampingCampingTripCollection{
+                    if let campingTrips = campingTripCollection.items() as? [GTLGocampingCampingTrip]{
+                        self.campingTrips = campingTrips
+                        self.campingTripsTableView.reloadData()
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+//MARK: - TableView Delegate and DataSource
+extension ListCampingTripsViewController: UITableViewDelegate,UITableViewDataSource{
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -52,9 +72,9 @@ class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITa
         for tabBarChildVC in tabBar.childViewControllers{
             
             if let navigationVC = tabBarChildVC as? UINavigationController, familyVC = navigationVC.topViewController as? FamilyViewController{
-                familyVC.campingTrip = campingTrips[indexPath.row]
+                //                familyVC.campingTrip = campingTrips[indexPath.row]
             }else if let navigationVC = tabBarChildVC as? UINavigationController, tripDetailsVC = navigationVC.topViewController as? TripDetailsViewController{
-                tripDetailsVC.campingTrip = campingTrips[indexPath.row]
+                //                tripDetailsVC.campingTrip = campingTrips[indexPath.row]
             }
             
         }
@@ -68,7 +88,6 @@ class ListCampingTripsViewController: UIViewController,UITableViewDelegate, UITa
         
         return cell
     }
-    
 }
 
 // MARK: - Action methods

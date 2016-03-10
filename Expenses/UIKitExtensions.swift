@@ -9,6 +9,17 @@
 import Foundation
 import UIKit
 
+extension NSNumber{
+    func millisecondsToDate() -> String{
+        let seconds = self.doubleValue / 1000.0
+        let aDate = NSDate(timeIntervalSince1970: seconds)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMM dd YYYY, EEE hh:mm"
+        return dateFormatter.stringFromDate(aDate)
+    }
+    
+}
+
 extension UIColor{
     class func colorWithHexString(hexString: String, alpha: CGFloat = 1.0) -> UIColor {
         var rgbValue: UInt32 = 0

@@ -24,18 +24,15 @@ class CampingTripsTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func displayData(campingTrip: CampingTrip){
+    func displayData(campingTrip: GTLGocampingCampingTrip){
         campingTripTitleLabel.text = campingTrip.title
-        
         if let dateFrom = campingTrip.dateFrom{
-            campingTripFromDateLabel.text = "\(dateFrom) To"
+            campingTripFromDateLabel.text = "\(dateFrom.millisecondsToDate()) To"
         }
-        
-        if let dateTo = campingTrip.dateTo{
-            campingTripToDateLabel.text = dateTo
+        if let dateTo:NSNumber = campingTrip.dateTo{
+            campingTripToDateLabel.text = dateTo.millisecondsToDate()
         }
-        
-        campingTripAddressLabel.text = campingTrip.address
+        campingTripAddressLabel.text = campingTrip.addressString
     }
     
     
