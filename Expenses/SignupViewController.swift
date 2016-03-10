@@ -11,6 +11,7 @@ import UIKit
 class SignupViewController: UIViewController, UITextFieldDelegate {
     
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var signupButton: UIButton!
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -25,6 +26,8 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         phoneNumberTextField.delegate = self
         nameTextField.delegate = self
         passwordTextField.delegate = self
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
