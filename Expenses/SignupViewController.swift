@@ -84,7 +84,6 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                 let storyboard = UIStoryboard(name: "ManageTrip", bundle: nil)
                 self.presentViewController(storyboard.instantiateInitialViewController()!, animated: true, completion: nil)
             }
-            
         }
     }
 }
