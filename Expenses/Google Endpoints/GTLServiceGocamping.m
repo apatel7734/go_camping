@@ -33,6 +33,7 @@
     [GTLGocampingExpenseCollection class],
     [GTLGocampingFamiliesWrapper class],
     [GTLGocampingFamily class],
+    [GTLGocampingFamilyCollection class],
     [GTLGocampingFamilyRSVPWrapper class],
     [GTLGocampingGeoPt class],
     [GTLGocampingMember class],

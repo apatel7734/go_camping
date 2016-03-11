@@ -13,7 +13,7 @@
 // Description:
 //   This is an API
 // Classes:
-//   GTLQueryGocamping (18 custom class methods, 9 custom properties)
+//   GTLQueryGocamping (19 custom class methods, 9 custom properties)
 
 #import "GTLQueryGocamping.h"
 
@@ -24,6 +24,7 @@
 #import "GTLGocampingExpenseCollection.h"
 #import "GTLGocampingFamiliesWrapper.h"
 #import "GTLGocampingFamily.h"
+#import "GTLGocampingFamilyCollection.h"
 #import "GTLGocampingFamilyRSVPWrapper.h"
 #import "GTLGocampingMember.h"
 #import "GTLGocampingMemberCollection.h"
@@ -143,6 +144,14 @@
   GTLQueryGocamping *query = [self queryWithMethodName:methodName];
   query.bodyObject = object;
   query.expectedObjectClass = [GTLGocampingCampingTripCollection class];
+  return query;
+}
+
++ (instancetype)queryForGetFamiliesForCampingTripWithCampingTripId:(long long)campingTripId {
+  NSString *methodName = @"gocamping.getFamiliesForCampingTrip";
+  GTLQueryGocamping *query = [self queryWithMethodName:methodName];
+  query.campingTripId = campingTripId;
+  query.expectedObjectClass = [GTLGocampingFamilyCollection class];
   return query;
 }
 
