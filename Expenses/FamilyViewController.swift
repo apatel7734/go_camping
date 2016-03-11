@@ -14,7 +14,7 @@ import Parse
 class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource ,NSFetchedResultsControllerDelegate{
     
     var currentIndexPath: NSIndexPath?
-    var campingTrip: CampingTrip?
+    var campingTrip: GTLGocampingCampingTrip?
     
     @IBOutlet weak var familyTableView: UITableView!
     var families = [Family]()
@@ -31,7 +31,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         familyTableView.tableFooterView = UIView()
-        updateFamilies()
+        //        updateFamilies()
     }
     
     func configureNavigationBar(){
@@ -92,21 +92,38 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK - segue methods on + button clicked.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let rootViewController = segue.destinationViewController as? RootViewController, indexPath = self.currentIndexPath{
-            rootViewController.family = families[indexPath.row]
-            rootViewController.campingTrip = campingTrip
+//            rootViewController.family = families[indexPath.row]
+//            rootViewController.campingTrip = campingTrip
         }
     }
     
     
-    //MARK: - Utility Functions
-    private func updateFamilies(){
-        if let campingTripId = campingTrip?.id{
-            ParseManager.fetchFamiliesFor(campingTripId, pageNumber: 0, totalResultPerPage: 10) { (families, error) -> Void in
-                if let families = families{
-                    self.families = families
-                    self.familyTableView.reloadData()
+    private func familiesForCampingtripId(campingTrip : GTLGocampingCampingTrip){
+        if let tripId: Int64 = Int64(campingTrip.identifier.integerValue){
+            let query = GTLQueryGocamping.queryForGetFamiliesForCampingTripWithCampingTripId(tripId)
+            let service  = GTLServiceGocamping()
+            service.executeQuery(query) { (tkt: GTLServiceTicket!, object: AnyObject!, error: NSError!) -> Void in
+                if (error != nil) {
+                    //display error.
+                    print("Error : \(error)")
+                }else{
+                    //save logged in user
+                    print("Family - \(object)")
                 }
             }
         }
+        
     }
+    
+    //MARK: - Utility Functions
+    //    private func updateFamilies(){
+    //        if let campingTripId = campingTrip?.id{
+    //            ParseManager.fetchFamiliesFor(campingTripId, pageNumber: 0, totalResultPerPage: 10) { (families, error) -> Void in
+    //                if let families = families{
+    //                    self.families = families
+    //                    self.familyTableView.reloadData()
+    //                }
+    //            }
+    //        }
+    //    }
 }
