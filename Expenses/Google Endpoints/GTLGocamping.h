@@ -29,7 +29,6 @@
 #import "GTLGocampingMember.h"
 #import "GTLGocampingMemberCollection.h"
 #import "GTLGocampingUserAccount.h"
-#import "GTLGocampingFamilyCollection.m"
 
 #import "GTLQueryGocamping.h"
 #import "GTLServiceGocamping.h"
