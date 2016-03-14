@@ -17,13 +17,14 @@ class FamilyUITableViewCell: UITableViewCell {
     @IBOutlet weak var familyImage: CircularImageView!
     
     
-    func loadData(family: Family){
-        self.familyName.text = family.name
-        if let count = family.membersIds?.count{
-            self.totalMembers.text = "\(count)"
+    func loadData(family: GTLGocampingFamily){
+
+        self.familyName.text = family.fullName
+        if let memberIds = family.memberIds{
+            self.totalMembers.text = "\(memberIds.count)"
         }
-        self.totalExpenses.text = family.totalOwedExpense?.currencyFormattedValueWithDollarPrefix()
-        self.familyImage.showFirstCharacterFor(family.name)
+        self.totalExpenses.text = NSDecimalNumber(decimal: family.totalOwedExpenseAmount.decimalValue).currencyFormattedValueWithDollarPrefix()
+        self.familyImage.showFirstCharacterFor(family.fullName)
     }
     
 }

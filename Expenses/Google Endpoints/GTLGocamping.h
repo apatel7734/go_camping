@@ -23,6 +23,7 @@
 #import "GTLGocampingExpenseCollection.h"
 #import "GTLGocampingFamiliesWrapper.h"
 #import "GTLGocampingFamily.h"
+#import "GTLGocampingFamilyCollection.h"
 #import "GTLGocampingFamilyRSVPWrapper.h"
 #import "GTLGocampingGeoPt.h"
 #import "GTLGocampingMember.h"

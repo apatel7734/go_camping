@@ -7,6 +7,7 @@
 
 #import "GTLGocampingCampingTrip.h"
 #import "GTLGocampingCampingTripCollection.h"
+#import "GTLGocampingFamilyCollection.h"
 #import "GTLGocampingCampingTripValidationResult.h"
 #import "GTLGocampingCampingTripWrapper.h"
 #import "GTLGocampingExpense.h"

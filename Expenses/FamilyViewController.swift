@@ -8,30 +8,35 @@
 
 import UIKit
 import CoreData
-import Parse
-//pushfamily
 
 class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource ,NSFetchedResultsControllerDelegate{
     
     var currentIndexPath: NSIndexPath?
-    var campingTrip: CampingTrip?
+    var campingTrip: GTLGocampingCampingTrip?
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var familyTableView: UITableView!
-    var families = [Family]()
+    var families = [GTLGocampingFamily]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         familyTableView.delegate = self
         familyTableView.dataSource = self
-        
         configureNavigationBar()
+        
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
+        
+        if let trip = campingTrip{
+            familiesForCampingtripId(trip)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         familyTableView.tableFooterView = UIView()
-        updateFamilies()
+        //        updateFamilies()
     }
     
     func configureNavigationBar(){
@@ -55,7 +60,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let familyCell = tableView.dequeueReusableCellWithIdentifier("familycell") as! FamilyUITableViewCell
         let family = families[indexPath.row]
-        
         familyCell.loadData(family)
         return familyCell
     }
@@ -92,21 +96,34 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK - segue methods on + button clicked.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let rootViewController = segue.destinationViewController as? RootViewController, indexPath = self.currentIndexPath{
-            rootViewController.family = families[indexPath.row]
-            rootViewController.campingTrip = campingTrip
+            //            rootViewController.family = families[indexPath.row]
+            //            rootViewController.campingTrip = campingTrip
         }
     }
     
     
-    //MARK: - Utility Functions
-    private func updateFamilies(){
-        if let campingTripId = campingTrip?.id{
-            ParseManager.fetchFamiliesFor(campingTripId, pageNumber: 0, totalResultPerPage: 10) { (families, error) -> Void in
-                if let families = families{
-                    self.families = families
-                    self.familyTableView.reloadData()
+    private func familiesForCampingtripId(campingTrip : GTLGocampingCampingTrip){
+        if let tripId: Int64 = Int64(campingTrip.identifier.integerValue){
+            let query = GTLQueryGocamping.queryForGetFamiliesForCampingTripWithCampingTripId(tripId)
+            let service  = GTLServiceGocamping()
+            activityIndicator.startAnimating()
+            service.executeQuery(query) { (tkt: GTLServiceTicket!, object: AnyObject!, error: NSError!) -> Void in
+                self.activityIndicator.stopAnimating()
+                if (error != nil) {
+                    //display error.
+                    print("Error : \(error)")
+                }else{
+                    //save logged in user
+                    if let familyCollection = object as? GTLGocampingFamilyCollection{
+                        if let families = familyCollection.items() as? [GTLGocampingFamily]{
+                            self.families = families
+                            self.familyTableView.reloadData()
+                        }
+                    }
+                    
                 }
             }
         }
     }
 }
+

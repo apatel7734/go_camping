@@ -13,7 +13,7 @@
 // Description:
 //   This is an API
 // Classes:
-//   GTLQueryGocamping (18 custom class methods, 9 custom properties)
+//   GTLQueryGocamping (19 custom class methods, 9 custom properties)
 
 #if GTL_BUILT_AS_FRAMEWORK
   #import "GTL/GTLQuery.h"
@@ -116,6 +116,12 @@
 //   kGTLAuthScopeGocampingUserinfoEmail
 // Fetches a GTLGocampingCampingTripCollection.
 + (instancetype)queryForGetCampingTripsWithObject:(GTLGocampingUserAccount *)object;
+
+// Method: gocamping.getFamiliesForCampingTrip
+//  Authorization scope(s):
+//   kGTLAuthScopeGocampingUserinfoEmail
+// Fetches a GTLGocampingFamilyCollection.
++ (instancetype)queryForGetFamiliesForCampingTripWithCampingTripId:(long long)campingTripId;
 
 // Method: gocamping.getFamily
 //  Authorization scope(s):

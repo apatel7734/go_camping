@@ -18,7 +18,7 @@
 
 
 //#import "GTLGocampingConstants.m"
-//
+
 //#import "GTLGocampingCampingTrip.m"
 //#import "GTLGocampingCampingTripCollection.m"
 //#import "GTLGocampingCampingTripValidationResult.m"
@@ -27,11 +27,12 @@
 //#import "GTLGocampingExpenseCollection.m"
 //#import "GTLGocampingFamiliesWrapper.m"
 //#import "GTLGocampingFamily.m"
+//#import "GTLGocampingFamilyCollection.m"
 //#import "GTLGocampingFamilyRSVPWrapper.m"
 //#import "GTLGocampingGeoPt.m"
 //#import "GTLGocampingMember.m"
 //#import "GTLGocampingMemberCollection.m"
 //#import "GTLGocampingUserAccount.m"
-//
+
 //#import "GTLQueryGocamping.m"
 //#import "GTLServiceGocamping.m"

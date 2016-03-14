@@ -21,7 +21,7 @@ class TripDetailsViewController: UIViewController {
     @IBOutlet weak var totalFamiliesRSVPLabel: UILabel!
     
     //MARK:- Properties
-    var campingTrip: CampingTrip?
+    var campingTrip: GTLGocampingCampingTrip?
     
     @IBOutlet weak var rsvpButton: UIButton!
     
@@ -29,11 +29,18 @@ class TripDetailsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        print("TripDetailsViewController = \(campingTrip?.id)")
-        
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        displayData()
+    }
     
+    private func displayData(){
+        locationTitleLabel.text = self.campingTrip?.title
+        fromDate.text = campingTrip?.dateFrom.millisecondsToDate()
+        toDate.text = campingTrip?.dateTo.millisecondsToDate()
+    }
     
     private func initMap(){
         
@@ -43,5 +50,6 @@ class TripDetailsViewController: UIViewController {
     @IBAction func didTapOnRSVPButton(sender: AnyObject) {
         
     }
+    
     
 }

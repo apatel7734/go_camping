@@ -12,6 +12,7 @@ class ListCampingTripsViewController: UIViewController{
     
     @IBOutlet weak var campingTripsTableView: UITableView!
     var campingTrips = [GTLGocampingCampingTrip]()
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,9 @@ class ListCampingTripsViewController: UIViewController{
         campingTripsTableView.tableFooterView = UIView()
         configureNavigationBar()
         
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
+        
         fetchCampingTripData()
     }
     
@@ -37,8 +41,11 @@ class ListCampingTripsViewController: UIViewController{
         let user = NSUserDefaultCoordinator.sharedInstance.loggedInUser
         let getCampingTripsQuery = GTLQueryGocamping.queryForGetCampingTripsWithObject(user)
         let service  = GTLServiceGocamping()
+
+        self.activityIndicator.startAnimating()
         
         service.executeQuery(getCampingTripsQuery) { (tkt: GTLServiceTicket!, object: AnyObject!, error: NSError!) -> Void in
+            self.activityIndicator.stopAnimating()
             if (error != nil) {
                 //display error.
                 print("Error = \(error)")
@@ -72,9 +79,9 @@ extension ListCampingTripsViewController: UITableViewDelegate,UITableViewDataSou
         for tabBarChildVC in tabBar.childViewControllers{
             
             if let navigationVC = tabBarChildVC as? UINavigationController, familyVC = navigationVC.topViewController as? FamilyViewController{
-                //                familyVC.campingTrip = campingTrips[indexPath.row]
+                                familyVC.campingTrip = campingTrips[indexPath.row]
             }else if let navigationVC = tabBarChildVC as? UINavigationController, tripDetailsVC = navigationVC.topViewController as? TripDetailsViewController{
-                //                tripDetailsVC.campingTrip = campingTrips[indexPath.row]
+                tripDetailsVC.campingTrip = campingTrips[indexPath.row]
             }
             
         }

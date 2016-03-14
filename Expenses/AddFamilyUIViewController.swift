@@ -138,22 +138,25 @@ class AddFamilyUIViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        let familyName = familyNameTextField.text!
-        let phone =  phoneNumber
-        let email = emailTextField.text!
+//        let family = Family()
+//        family.name = familyName
+//        family.phoneNumber = phone
+//        family.email = email
+//        ParseManager.addFamilyToParse(family) { (success, error) -> Void in
+//            if success{
+//                print("Add Family Success!")
+//                self.dismissViewControllerAnimated(true, completion: nil)
+//            }else if let error = error{
+//                print("Add Family Error = \(error)")
+//            }
+//        }
         
-        let family = Family()
-        family.name = familyName
-        family.phoneNumber = phone
-        family.email = email
-        ParseManager.addFamilyToParse(family) { (success, error) -> Void in
-            if success{
-                print("Add Family Success!")
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }else if let error = error{
-                print("Add Family Error = \(error)")
-            }
-        }
+        
+        let family = GTLGocampingFamily()
+        family.fullName = familyNameTextField.text!
+        family.phoneNumber = phoneNumber
+        family.email = emailTextField.text!
+        
     }
     
 }
