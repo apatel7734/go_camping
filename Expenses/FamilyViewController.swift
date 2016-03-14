@@ -14,6 +14,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var currentIndexPath: NSIndexPath?
     var campingTrip: GTLGocampingCampingTrip?
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var familyTableView: UITableView!
     var families = [GTLGocampingFamily]()
     
@@ -23,6 +24,9 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         familyTableView.delegate = self
         familyTableView.dataSource = self
         configureNavigationBar()
+        
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
         
         if let trip = campingTrip{
             familiesForCampingtripId(trip)
@@ -102,7 +106,9 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let tripId: Int64 = Int64(campingTrip.identifier.integerValue){
             let query = GTLQueryGocamping.queryForGetFamiliesForCampingTripWithCampingTripId(tripId)
             let service  = GTLServiceGocamping()
+            activityIndicator.startAnimating()
             service.executeQuery(query) { (tkt: GTLServiceTicket!, object: AnyObject!, error: NSError!) -> Void in
+                self.activityIndicator.stopAnimating()
                 if (error != nil) {
                     //display error.
                     print("Error : \(error)")

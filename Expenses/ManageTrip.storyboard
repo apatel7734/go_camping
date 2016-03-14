@@ -99,13 +99,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1LS-zS-V1i">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="QHL-wM-zNb" firstAttribute="top" secondItem="B1p-ar-ing" secondAttribute="bottom" id="1OO-YH-SYY"/>
+                            <constraint firstItem="1LS-zS-V1i" firstAttribute="centerX" secondItem="4iz-q0-os0" secondAttribute="centerX" id="VV9-tS-fcO"/>
                             <constraint firstAttribute="trailing" secondItem="B1p-ar-ing" secondAttribute="trailing" id="f3q-GW-c8r"/>
                             <constraint firstItem="B1p-ar-ing" firstAttribute="top" secondItem="6Xl-Uw-h7n" secondAttribute="bottom" constant="-64" id="hOq-bX-0xe"/>
                             <constraint firstItem="B1p-ar-ing" firstAttribute="leading" secondItem="4iz-q0-os0" secondAttribute="leading" id="uSg-Xj-46w"/>
+                            <constraint firstItem="1LS-zS-V1i" firstAttribute="centerY" secondItem="4iz-q0-os0" secondAttribute="centerY" id="ue9-7U-HIo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Camping Trips" id="Dy6-cK-2do">
@@ -116,6 +121,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="1LS-zS-V1i" id="HjD-jj-hG5"/>
                         <outlet property="campingTripsTableView" destination="B1p-ar-ing" id="Drw-xl-3oY"/>
                     </connections>
                 </viewController>
