@@ -8,8 +8,6 @@
 
 import UIKit
 import CoreData
-import Parse
-//pushfamily
 
 class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource ,NSFetchedResultsControllerDelegate{
     
@@ -58,7 +56,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let familyCell = tableView.dequeueReusableCellWithIdentifier("familycell") as! FamilyUITableViewCell
         let family = families[indexPath.row]
-        print("Family = \(family)")
         familyCell.loadData(family)
         return familyCell
     }
@@ -103,7 +100,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     private func familiesForCampingtripId(campingTrip : GTLGocampingCampingTrip){
         if let tripId: Int64 = Int64(campingTrip.identifier.integerValue){
-            print("TripID = \(tripId)")
             let query = GTLQueryGocamping.queryForGetFamiliesForCampingTripWithCampingTripId(tripId)
             let service  = GTLServiceGocamping()
             service.executeQuery(query) { (tkt: GTLServiceTicket!, object: AnyObject!, error: NSError!) -> Void in
@@ -124,16 +120,4 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 }
-
-//MARK: - Utility Functions
-//    private func updateFamilies(){
-//        if let campingTripId = campingTrip?.id{
-//            ParseManager.fetchFamiliesFor(campingTripId, pageNumber: 0, totalResultPerPage: 10) { (families, error) -> Void in
-//                if let families = families{
-//                    self.families = families
-//                    self.familyTableView.reloadData()
-//                }
-//            }
-//        }
-//    }
 

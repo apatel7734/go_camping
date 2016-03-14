@@ -74,7 +74,7 @@ extension ListCampingTripsViewController: UITableViewDelegate,UITableViewDataSou
             if let navigationVC = tabBarChildVC as? UINavigationController, familyVC = navigationVC.topViewController as? FamilyViewController{
                                 familyVC.campingTrip = campingTrips[indexPath.row]
             }else if let navigationVC = tabBarChildVC as? UINavigationController, tripDetailsVC = navigationVC.topViewController as? TripDetailsViewController{
-                //                tripDetailsVC.campingTrip = campingTrips[indexPath.row]
+                tripDetailsVC.campingTrip = campingTrips[indexPath.row]
             }
             
         }

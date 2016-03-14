@@ -199,7 +199,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="Trip Detail" id="RYj-j9-EMs"/>
                     <connections>
+                        <outlet property="familiesRSVPSegmentedControl" destination="LUG-9E-r9m" id="Lxl-dO-jsx"/>
+                        <outlet property="fromDate" destination="fLJ-UV-g23" id="gvF-4f-PXh"/>
+                        <outlet property="locationAddressLabel" destination="3Sw-X3-Mkj" id="943-Eb-9gh"/>
+                        <outlet property="locationTitleLabel" destination="0DS-Ri-Eoi" id="uDA-nH-6yS"/>
                         <outlet property="mapView" destination="sM3-cS-SaP" id="WWa-In-GxQ"/>
+                        <outlet property="rsvpButton" destination="eEU-JM-QF4" id="vAN-aa-ZLw"/>
+                        <outlet property="toDate" destination="FFa-uq-Yzv" id="2sl-YC-gWS"/>
+                        <outlet property="totalFamiliesRSVPLabel" destination="OOy-O3-M7m" id="lco-4z-isv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n40-zb-g2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
