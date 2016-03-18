@@ -20,6 +20,9 @@ class TripDetailsViewController: UIViewController {
     @IBOutlet weak var familiesRSVPSegmentedControl: UISegmentedControl!
     @IBOutlet weak var totalFamiliesRSVPLabel: UILabel!
     
+    let regionRadius: CLLocationDistance = 1000
+    var locationManager: CLLocationManager!
+    
     //MARK:- Properties
     var campingTrip: GTLGocampingCampingTrip?
     
@@ -28,6 +31,7 @@ class TripDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        initMap()
         
     }
     
@@ -43,12 +47,33 @@ class TripDetailsViewController: UIViewController {
     }
     
     private func initMap(){
+        locationManager = CLLocationManager()
+        checkLocationAuthorizationStatus()
+        
+        
+        if let longitude = self.campingTrip?.locationPoint.longitude.doubleValue, let latitude = self.campingTrip?.locationPoint.latitude.doubleValue{
+            let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            centerMapOnLocation(location)
+        }
         
     }
     
     
     @IBAction func didTapOnRSVPButton(sender: AnyObject) {
         
+    }
+    
+    func centerMapOnLocation(location: CLLocationCoordinate2D){
+        let region = MKCoordinateRegionMakeWithDistance(location, regionRadius * 2, regionRadius * 2)
+        mapView.setRegion(region, animated: true)
+    }
+    
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+            mapView.showsUserLocation = true
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
     
     
