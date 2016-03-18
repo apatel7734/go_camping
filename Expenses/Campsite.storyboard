@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
@@ -10,7 +9,7 @@
             <objects>
                 <tableViewController id="A9G-gq-q5w" customClass="CampsiteListViewController" customModule="Expenses" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="vdy-Zj-l8g">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="532"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -128,7 +127,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="167" id="MXg-Pm-7o3" customClass="CampsiteDetailMapCell" customModule="Expenses" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="167" id="MXg-Pm-7o3" customClass="CampsiteDetailMapCell" customModule="Expenses" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="167"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MXg-Pm-7o3" id="wnt-cr-Sd2">
@@ -151,7 +150,7 @@
                                     <outlet property="mapView" destination="qlo-4b-8Jh" id="O5D-Je-kDm"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCell" rowHeight="100" id="Nx0-Pe-Cgq" customClass="CampsiteDetailInfoCell" customModule="Expenses" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="infoCell" rowHeight="100" id="Nx0-Pe-Cgq" customClass="CampsiteDetailInfoCell" customModule="Expenses" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="195" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nx0-Pe-Cgq" id="Hd0-6J-yKo">
@@ -170,18 +169,18 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kth-Nb-dOi">
-                                            <rect key="frame" x="8" y="53" width="584" height="19"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kth-Nb-dOi" customClass="AutoHeightButton" customModule="Expenses" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="51" width="584" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <inset key="contentEdgeInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
+                                            <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="2"/>
                                             <state key="normal" title="Phone number">
                                                 <color key="titleColor" red="0.10196078431372549" green="0.0039215686274509803" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Wr-61-RHw">
-                                            <rect key="frame" x="8" y="76" width="584" height="19"/>
+                                            <rect key="frame" x="8" y="74" width="584" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <inset key="contentEdgeInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
+                                            <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="2"/>
                                             <state key="normal" title="Website">
                                                 <color key="titleColor" red="0.1019607843" green="0.0039215686269999999" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
@@ -195,17 +194,19 @@
                                         <constraint firstItem="7mE-vQ-TYe" firstAttribute="top" secondItem="4ST-Ng-Uec" secondAttribute="bottom" constant="4" id="P1k-Cn-8Er"/>
                                         <constraint firstAttribute="trailing" secondItem="4ST-Ng-Uec" secondAttribute="trailing" constant="8" id="UG7-R9-X0L"/>
                                         <constraint firstItem="Kth-Nb-dOi" firstAttribute="leading" secondItem="4ST-Ng-Uec" secondAttribute="leading" id="Wfy-2Z-yrD"/>
-                                        <constraint firstItem="Kth-Nb-dOi" firstAttribute="top" secondItem="7mE-vQ-TYe" secondAttribute="bottom" constant="4" id="aEy-hF-25B"/>
+                                        <constraint firstItem="Kth-Nb-dOi" firstAttribute="top" secondItem="7mE-vQ-TYe" secondAttribute="bottom" constant="2" id="aEy-hF-25B"/>
+                                        <constraint firstAttribute="bottom" secondItem="1Wr-61-RHw" secondAttribute="bottom" constant="4" id="bhP-bn-BW1"/>
                                         <constraint firstItem="1Wr-61-RHw" firstAttribute="leading" secondItem="4ST-Ng-Uec" secondAttribute="leading" id="fvy-p6-GlH"/>
                                         <constraint firstItem="Kth-Nb-dOi" firstAttribute="trailing" secondItem="4ST-Ng-Uec" secondAttribute="trailing" id="iYO-Lq-jrk"/>
                                         <constraint firstItem="4ST-Ng-Uec" firstAttribute="leading" secondItem="Hd0-6J-yKo" secondAttribute="leading" constant="8" id="kCz-JK-bsN"/>
                                         <constraint firstAttribute="bottom" secondItem="1Wr-61-RHw" secondAttribute="bottom" constant="4" id="kmv-Uv-RjT"/>
                                         <constraint firstAttribute="bottom" secondItem="1Wr-61-RHw" secondAttribute="bottom" constant="4.5" id="lKb-bh-5cc"/>
-                                        <constraint firstItem="1Wr-61-RHw" firstAttribute="top" secondItem="Kth-Nb-dOi" secondAttribute="bottom" constant="4" id="ymK-Cr-8A2"/>
+                                        <constraint firstItem="1Wr-61-RHw" firstAttribute="top" secondItem="Kth-Nb-dOi" secondAttribute="bottom" constant="2" id="ymK-Cr-8A2"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="kmv-Uv-RjT"/>
+                                            <exclude reference="lKb-bh-5cc"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -216,7 +217,7 @@
                                     <outlet property="websiteButton" destination="1Wr-61-RHw" id="Cfw-SK-q6W"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="photoCollectionCell" rowHeight="137" id="ax8-Qk-2Nx" customClass="CampsiteDetailPhotoCell" customModule="Expenses" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="photoCollectionCell" rowHeight="137" id="ax8-Qk-2Nx" customClass="CampsiteDetailPhotoCell" customModule="Expenses" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="295" width="600" height="137"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ax8-Qk-2Nx" id="7Dj-E0-5Dj">
@@ -292,48 +293,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zVo-gt-3LA">
-                                <rect key="frame" x="0.0" y="64" width="600" height="48"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVo-gt-3LA">
+                                <rect key="frame" x="0.0" y="20" width="600" height="48"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pMJ-ol-N79">
-                                        <rect key="frame" x="8" y="9" width="518" height="30"/>
+                                        <rect key="frame" x="8" y="9" width="440" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moB-Kr-kDE">
-                                        <rect key="frame" x="538" y="9" width="54" height="30"/>
+                                        <rect key="frame" x="542" y="9" width="50" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="54" id="dH5-rK-Ab7"/>
+                                            <constraint firstAttribute="width" constant="50" id="dH5-rK-Ab7"/>
                                         </constraints>
                                         <state key="normal" title="Map"/>
                                         <connections>
                                             <action selector="viewSwitchTapped:" destination="kBd-Ov-9G2" eventType="touchUpInside" id="NeV-Wm-8eb"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aH2-ld-wOn">
+                                        <rect key="frame" x="460" y="9" width="70" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="Fui-IG-fQw"/>
+                                        </constraints>
+                                        <state key="normal" title="Search"/>
+                                        <connections>
+                                            <action selector="searchButtonTapped:" destination="kBd-Ov-9G2" eventType="touchUpInside" id="oeu-H7-ex8"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="pMJ-ol-N79" firstAttribute="leading" secondItem="zVo-gt-3LA" secondAttribute="leading" constant="8" id="1DC-Zs-t7L"/>
+                                    <constraint firstItem="aH2-ld-wOn" firstAttribute="leading" secondItem="pMJ-ol-N79" secondAttribute="trailing" constant="12" id="M2y-15-ph7"/>
                                     <constraint firstAttribute="height" constant="48" id="ZQd-H4-Yr4"/>
-                                    <constraint firstItem="moB-Kr-kDE" firstAttribute="leading" secondItem="pMJ-ol-N79" secondAttribute="trailing" constant="12" id="iAX-ur-9FE"/>
+                                    <constraint firstItem="moB-Kr-kDE" firstAttribute="leading" secondItem="aH2-ld-wOn" secondAttribute="trailing" constant="12" id="jso-Xv-XMm"/>
                                     <constraint firstItem="moB-Kr-kDE" firstAttribute="centerY" secondItem="zVo-gt-3LA" secondAttribute="centerY" id="n5N-BC-tTo"/>
                                     <constraint firstItem="pMJ-ol-N79" firstAttribute="centerY" secondItem="zVo-gt-3LA" secondAttribute="centerY" id="n7r-OE-3K3"/>
                                     <constraint firstAttribute="trailing" secondItem="moB-Kr-kDE" secondAttribute="trailing" constant="8" id="vGV-Ks-u5s"/>
+                                    <constraint firstItem="aH2-ld-wOn" firstAttribute="centerY" secondItem="zVo-gt-3LA" secondAttribute="centerY" id="vcJ-Of-RQb"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qU2-vd-xCT">
-                                <rect key="frame" x="0.0" y="112" width="600" height="488"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qU2-vd-xCT">
+                                <rect key="frame" x="0.0" y="68" width="600" height="532"/>
                                 <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fiL-EG-MuQ" userLabel="MapView">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiL-EG-MuQ" userLabel="MapView">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="532"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="Hme-Wz-6Ff" kind="embed" identifier="containerForMap" id="HAw-nG-ZCQ"/>
                                         </connections>
                                     </containerView>
-                                    <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nyt-Jz-g5o" userLabel="ListView">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyt-Jz-g5o" userLabel="ListView">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="532"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="A9G-gq-q5w" kind="embed" identifier="containerForList" id="RP9-LW-byp"/>
@@ -384,11 +398,11 @@
                         <viewControllerLayoutGuide type="bottom" id="fIO-23-eCo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Bgg-04-VSo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="532"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TDP-kz-0no">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="532"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
