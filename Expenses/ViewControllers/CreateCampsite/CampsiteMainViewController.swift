@@ -50,6 +50,12 @@ extension CampsiteMainViewController: UITextFieldDelegate {
 // MARK: - Action methods
 extension CampsiteMainViewController {
     
+    @IBAction func searchButtonTapped(sender: AnyObject) {
+        if let address = searchField.text where address.characters.count > 0 {
+            searchCampsiteFromAddress(address)
+        }
+    }
+    
     @IBAction func viewSwitchTapped(sender: UIButton!) {
         let buttonTitle = sender.titleLabel?.text
         
@@ -77,7 +83,7 @@ extension CampsiteMainViewController {
     }
     
     private func searchCampsiteForLocation(location: CLLocation) {
-        googleMapApi.getCampingSitesForLocation(location, radius: 4000, success: { (places) in
+        googleMapApi.getCampingSitesForLocation(location, radius: 50000, success: { (places) in
             self.listVC.campsiteList = places
             self.mapVC.campsiteList = places
             
