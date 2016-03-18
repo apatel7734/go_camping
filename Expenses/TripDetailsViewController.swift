@@ -20,7 +20,7 @@ class TripDetailsViewController: UIViewController {
     @IBOutlet weak var familiesRSVPSegmentedControl: UISegmentedControl!
     @IBOutlet weak var totalFamiliesRSVPLabel: UILabel!
     
-    let regionRadius: CLLocationDistance = 1000
+    let regionRadius: CLLocationDistance = 500
     var locationManager: CLLocationManager!
     
     //MARK:- Properties
@@ -47,13 +47,20 @@ class TripDetailsViewController: UIViewController {
     }
     
     private func initMap(){
+        mapView.delegate = self
+        mapView.userInteractionEnabled = true
+        mapView.scrollEnabled = false
+        mapView.rotateEnabled = false
         locationManager = CLLocationManager()
         checkLocationAuthorizationStatus()
-        
-        
-        if let longitude = self.campingTrip?.locationPoint.longitude.doubleValue, let latitude = self.campingTrip?.locationPoint.latitude.doubleValue{
+        if let longitude = self.campingTrip?.locationPoint.longitude.doubleValue, let latitude = self.campingTrip?.locationPoint.latitude.doubleValue, let title = self.campingTrip?.title{
             let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             centerMapOnLocation(location)
+            
+            //show annotation
+            let campsiteAnnotation = CampsiteAnnotation(title: title , locationName: "", coordinate: location)
+            mapView.addAnnotation(campsiteAnnotation)
+            mapView.selectAnnotation(campsiteAnnotation, animated: true)
         }
         
     }
@@ -75,6 +82,53 @@ class TripDetailsViewController: UIViewController {
             locationManager.requestWhenInUseAuthorization()
         }
     }
+}
+
+extension TripDetailsViewController : MKMapViewDelegate{
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? CampsiteAnnotation {
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+            
+            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+                as? MKPinAnnotationView { // 2
+                    dequeuedView.annotation = annotation
+                    view = dequeuedView
+            } else {
+                // 3
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.animatesDrop = true
+                
+                if let image = UIImage(named: "direction") as UIImage?{
+                    let directionButton   = UIButton(type: UIButtonType.Custom)
+                    directionButton.frame = CGRectMake(0, 0, 23, 23)
+                    directionButton.setImage(image, forState: .Normal)
+                    view.enabled = true
+                    view.rightCalloutAccessoryView = directionButton as UIView
+                }
+            }
+            return view
+        }
+        return nil
+    }
+}
+
+
+class CampsiteAnnotation : NSObject, MKAnnotation{
     
+    let title: String?
+    let locationName: String
+    let coordinate: CLLocationCoordinate2D
     
+    init(title: String, locationName: String, coordinate: CLLocationCoordinate2D) {
+        self.title = title
+        self.locationName = locationName
+        self.coordinate = coordinate
+        super.init()
+    }
+    
+    var subTitle: String{
+        return locationName
+    }
 }
