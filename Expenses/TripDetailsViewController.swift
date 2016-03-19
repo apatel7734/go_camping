@@ -48,9 +48,11 @@ class TripDetailsViewController: UIViewController {
     
     private func initMap(){
         mapView.delegate = self
-        mapView.userInteractionEnabled = true
         mapView.scrollEnabled = false
         mapView.rotateEnabled = false
+        mapView.pitchEnabled = false
+        mapView.zoomEnabled = false
+        
         locationManager = CLLocationManager()
         checkLocationAuthorizationStatus()
         if let longitude = self.campingTrip?.locationPoint.longitude.doubleValue, let latitude = self.campingTrip?.locationPoint.latitude.doubleValue, let title = self.campingTrip?.title{
@@ -102,7 +104,7 @@ extension TripDetailsViewController : MKMapViewDelegate{
                 
                 if let image = UIImage(named: "direction") as UIImage?{
                     let directionButton   = UIButton(type: UIButtonType.Custom)
-                    directionButton.frame = CGRectMake(0, 0, 23, 23)
+                    directionButton.frame = CGRectMake(0, 0, 29, 29)
                     directionButton.setImage(image, forState: .Normal)
                     view.enabled = true
                     view.rightCalloutAccessoryView = directionButton as UIView
@@ -111,6 +113,10 @@ extension TripDetailsViewController : MKMapViewDelegate{
             return view
         }
         return nil
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        //TODO: open google/apple map for direction....
     }
 }
 
