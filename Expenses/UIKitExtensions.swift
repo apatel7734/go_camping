@@ -37,6 +37,21 @@ extension UIColor{
         return UIColor.colorWithHexString("#273B49")
     }
     
+    class func darkGreen() -> UIColor {
+        return UIColor.colorWithHexString("#1B5E20")
+    }
+    
+    class func lightGreen() -> UIColor{
+        return UIColor.colorWithHexString("#199A5C")
+    }
+    
+    class func darkRed() -> UIColor{
+        return UIColor.colorWithHexString("#B71C1C")
+    }
+    
+    class func lightOrange() -> UIColor{
+        return UIColor.colorWithHexString("#FF7043")
+    }
 }
 
 

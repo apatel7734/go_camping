@@ -32,7 +32,8 @@ class TripDetailsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initMap()
-        
+        initSegmentedControlUI()
+        initPendingButtonUI()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -44,6 +45,28 @@ class TripDetailsViewController: UIViewController {
         locationTitleLabel.text = self.campingTrip?.title
         fromDate.text = campingTrip?.dateFrom.millisecondsToDate()
         toDate.text = campingTrip?.dateTo.millisecondsToDate()
+    }
+    
+    private func initPendingButtonUI(){
+        rsvpButton.backgroundColor = UIColor.lightOrange()
+        rsvpButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        rsvpButton.layer.cornerRadius = 5.0
+    }
+    
+    private func initRSVPYesButtonUI(){
+        rsvpButton.backgroundColor = UIColor.darkGreen()
+        rsvpButton.titleLabel?.textColor = UIColor.whiteColor()
+    }
+    
+    private func initRSVPNoButtonUI(){
+        rsvpButton.backgroundColor = UIColor.darkRed()
+        rsvpButton.titleLabel?.textColor = UIColor.whiteColor()
+    }
+    
+    private func initSegmentedControlUI(){
+        familiesRSVPSegmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGreen()], forState: UIControlState.Normal)
+        familiesRSVPSegmentedControl.tintColor = UIColor.darkGreen()
+        familiesRSVPSegmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
     }
     
     private func initMap(){
@@ -119,6 +142,7 @@ extension TripDetailsViewController : MKMapViewDelegate{
         //TODO: open google/apple map for direction....
     }
 }
+
 
 
 class CampsiteAnnotation : NSObject, MKAnnotation{
