@@ -32,7 +32,6 @@
 		09AC0BBC1B5C3670000849C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */; };
 		09AC0BBF1B5C3670000849C4 /* ExpensesData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BBD1B5C3670000849C4 /* ExpensesData.xcdatamodeld */; };
 		09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BC01B5C3671000849C4 /* FamilyViewController.swift */; };
-		09AC0BC61B5C3671000849C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09AC0BC51B5C3671000849C4 /* Images.xcassets */; };
 		09AC0BC91B5C3671000849C4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09AC0BC71B5C3671000849C4 /* LaunchScreen.xib */; };
 		09AC0BD51B5C3671000849C4 /* ExpensesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BD41B5C3671000849C4 /* ExpensesTests.swift */; };
 		09AC0BE71B5C3A3A000849C4 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC0BE61B5C3A3A000849C4 /* NSDateExtension.swift */; };
@@ -51,6 +50,7 @@
 		481B63C31BEF355D00FAB95D /* EnterPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */; };
 		481B63C51BF0571D00FAB95D /* APICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B63C41BF0571D00FAB95D /* APICoordinator.swift */; };
 		4823770A1C2B541D00DAC89C /* ListCampingTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482377091C2B541D00DAC89C /* ListCampingTripsViewController.swift */; };
+		4828FD281C9CBDA100D7161A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4828FD271C9CBDA000D7161A /* Images.xcassets */; };
 		483B05B91C2A872B0070178C /* ManageTrip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483B05B81C2A872B0070178C /* ManageTrip.storyboard */; };
 		483E4E721BE1426E0073F9DB /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483E4E711BE1426E0073F9DB /* CommonUtility.swift */; };
 		484BD0BF1C8D529800C35588 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484BD0BE1C8D529800C35588 /* LoginViewController.swift */; };
@@ -189,7 +189,6 @@
 		09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09AC0BBE1B5C3670000849C4 /* ExpensesData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpensesData.xcdatamodel; sourceTree = "<group>"; };
 		09AC0BC01B5C3671000849C4 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
-		09AC0BC51B5C3671000849C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		09AC0BC81B5C3671000849C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		09AC0BCE1B5C3671000849C4 /* ExpensesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpensesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09AC0BD31B5C3671000849C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -210,6 +209,7 @@
 		481B63C21BEF355D00FAB95D /* EnterPhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		481B63C41BF0571D00FAB95D /* APICoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICoordinator.swift; sourceTree = "<group>"; };
 		482377091C2B541D00DAC89C /* ListCampingTripsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCampingTripsViewController.swift; sourceTree = "<group>"; };
+		4828FD271C9CBDA000D7161A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		483B05B81C2A872B0070178C /* ManageTrip.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManageTrip.storyboard; sourceTree = "<group>"; };
 		483E4E711BE1426E0073F9DB /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		484BD0BE1C8D529800C35588 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -452,9 +452,9 @@
 				09AC0BE81B5C3E73000849C4 /* ViewControllers */,
 				B58097741BF4559E00A474A6 /* Views */,
 				09AC0BE51B5C3A1A000849C4 /* Utility */,
+				4828FD271C9CBDA000D7161A /* Images.xcassets */,
 				09AC0BDE1B5C3684000849C4 /* Models */,
 				09AC0BBB1B5C3670000849C4 /* AppDelegate.swift */,
-				09AC0BC51B5C3671000849C4 /* Images.xcassets */,
 				09AC0BC71B5C3671000849C4 /* LaunchScreen.xib */,
 				09AC0BBD1B5C3670000849C4 /* ExpensesData.xcdatamodeld */,
 				09AC0BB91B5C3670000849C4 /* Supporting Files */,
@@ -828,7 +828,7 @@
 				TargetAttributes = {
 					09AC0BB51B5C3670000849C4 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = F8F528SGM7;
+						DevelopmentTeam = F35VKAL4T5;
 					};
 					09AC0BCD1B5C3671000849C4 = {
 						CreatedOnToolsVersion = 6.4;
@@ -860,8 +860,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4828FD281C9CBDA100D7161A /* Images.xcassets in Resources */,
 				09AC0BC91B5C3671000849C4 /* LaunchScreen.xib in Resources */,
-				09AC0BC61B5C3671000849C4 /* Images.xcassets in Resources */,
 				48CB64D31C27AEE600791A22 /* CustomLoadingView.xib in Resources */,
 				481B63BF1BEF33E200FAB95D /* SignupLogin.storyboard in Resources */,
 				483B05B91C2A872B0070178C /* ManageTrip.storyboard in Resources */,
