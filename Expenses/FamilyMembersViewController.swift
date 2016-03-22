@@ -33,7 +33,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     }
     
     override func viewWillAppear(animated: Bool) {
-        let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addMembersButtonPressed:")
+        let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(FamilyMembersViewController.addMembersButtonPressed(_:)))
         if let navigationController = self.navigationController{
             navigationController.topViewController?.navigationItem.rightBarButtonItem = addRightBarButtonItem
         }
@@ -63,7 +63,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("membertableviewcell") as! MemberTableViewCell
-        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressedCell:")
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(FamilyMembersViewController.longPressedCell(_:)))
         cell.addGestureRecognizer(longPressGestureRecognizer)
         
         let member = members[indexPath.row]
@@ -100,9 +100,9 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     func longPressedCell(longPressedGesuture: UILongPressGestureRecognizer){
         if let cell = longPressedGesuture.view as? MemberTableViewCell{
-            //            if let indexPath = self.membersTableView.indexPathForCell(cell), campingTripId = campingTrip?.id, memberId = members[indexPath.row].id{
-            //                showAlertAction(indexPath, memberId: memberId, campingTripId: campingTripId)
-            //            }
+            if let indexPath = self.membersTableView.indexPathForCell(cell), tripId = campingTrip?.identifier, memberId = members[indexPath.row].identifier{
+                showAlertAction(indexPath, memberId: memberId.stringValue, campingTripId: tripId.stringValue)
+            }
         }
     }
     
