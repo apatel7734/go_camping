@@ -27,9 +27,9 @@ class ExpenseTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func loadData(expense: Expense){
-        self.expenseName.text = expense.name
-        if let amount = expense.amount?.stringValue{
+    func loadData(expense: GTLGocampingExpense){
+        self.expenseName.text = expense.itemName
+        if let amount = expense.itemCost?.stringValue{
             self.expenseAmountLabel.text = "$\(amount)"
         }
     }

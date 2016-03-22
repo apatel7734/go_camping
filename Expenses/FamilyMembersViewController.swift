@@ -86,7 +86,6 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
                     //display error.
                     print("There was an error.")
                 }else{
-                    print("Object Returned = \(object)")
                     if let membersCollection = object as? GTLGocampingMemberCollection{
                         if let members = membersCollection.items() as? [GTLGocampingMember]{
                             self.members = members

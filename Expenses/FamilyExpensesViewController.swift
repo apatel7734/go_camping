@@ -56,7 +56,7 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressedCell:")
         cell.addGestureRecognizer(longPressGestureRecognizer)
         
-        //        cell.loadData(expenses[indexPath.row])
+        cell.loadData(expenses[indexPath.row])
         
         return cell
     }
@@ -77,22 +77,32 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     private func fetchExpensesForFamily(){
-        if let familyId = family?.identifier{
+        if let familyId = family?.identifier.int64Value(){
+            let query = GTLQueryGocamping.queryForGetAllFamilyExpensesWithFamilyID(familyId)
+            let service  = GTLServiceGocamping()
+            service.executeQuery(query) { (tkt: GTLServiceTicket!, object: AnyObject!, error: NSError!) -> Void in
+                if (error != nil) {
+                    //display error.
+                    print("There was an error.")
+                }else{
+                    if let expenseCollection = object as? GTLGocampingExpenseCollection{
+                        if let expenses = expenseCollection.items() as? [GTLGocampingExpense]{
+                            self.expenses = expenses
+                            self.expenseTableView.reloadData()
+                        }
+                    }
+                }
+            }
             
-            //            ParseManager.fetchExpensesFor(familyId, pageNumber: 0, totalResultPerPage: 10, completionBlock: { (expenses, error) -> Void in
-            //                if let expenses = expenses{
-            //                    self.expenses = expenses
-            //                    self.expenseTableView.reloadData()
-            //                }
-            //            })
+            
         }
     }
     
     func longPressedCell(longPressedGesuture: UILongPressGestureRecognizer){
         if let cell = longPressedGesuture.view as? ExpenseTableViewCell{
-            //            if let indexPath = self.expenseTableView.indexPathForCell(cell), campingTripId = campingTrip?.id, expenseId = expenses[indexPath.row].id{
-            //                showAlertAction(indexPath, expenseId: expenseId, campingTripId: campingTripId)
-            //            }
+            if let indexPath = self.expenseTableView.indexPathForCell(cell), campingTripId = campingTrip?.identifier, expenseId = expenses[indexPath.row].identifier{
+                showAlertAction(indexPath, expenseId: expenseId.stringValue, campingTripId: campingTripId.stringValue)
+            }
         }
     }
     
