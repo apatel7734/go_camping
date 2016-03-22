@@ -96,8 +96,8 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK - segue methods on + button clicked.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let rootViewController = segue.destinationViewController as? RootViewController, indexPath = self.currentIndexPath{
-            //            rootViewController.family = families[indexPath.row]
-            //            rootViewController.campingTrip = campingTrip
+            rootViewController.family = families[indexPath.row]
+            rootViewController.campingTrip = campingTrip
         }
     }
     

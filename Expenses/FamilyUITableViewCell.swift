@@ -18,13 +18,22 @@ class FamilyUITableViewCell: UITableViewCell {
     
     
     func loadData(family: GTLGocampingFamily){
-
-        self.familyName.text = family.fullName
+        
+        let result = AppDelegate.sharedInstance().loggedInUser?.phoneNumber.stringValue.caseInsensitiveCompare(family.phoneNumber)
+        if result == NSComparisonResult.OrderedSame{
+            self.familyName.text = "You"
+        }else{
+            self.familyName.text = family.fullName
+        }
+        
         if let memberIds = family.memberIds{
             self.totalMembers.text = "\(memberIds.count)"
+        }else{
+            self.totalMembers.text = "0"
         }
         self.totalExpenses.text = NSDecimalNumber(decimal: family.totalOwedExpenseAmount.decimalValue).currencyFormattedValueWithDollarPrefix()
         self.familyImage.showFirstCharacterFor(family.fullName)
     }
+    
     
 }

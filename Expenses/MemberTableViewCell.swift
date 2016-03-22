@@ -24,7 +24,7 @@ class MemberTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func loadData(member: Member){
+    func loadData(member: GTLGocampingMember){
         self.memberNameLabel.text = member.name
         self.memberImageView.showFirstCharacterFor(member.name)
     }

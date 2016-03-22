@@ -8,14 +8,14 @@
 
 import UIKit
 
-class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, AddEditFamilyExpensesViewControllerDelegate {
+class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var expenseTableView: UITableView!
     
-    var family: Family?
-    var campingTrip: CampingTrip?
+    var family: GTLGocampingFamily?
+    var campingTrip: GTLGocampingCampingTrip?
     var pageIndex: Int = 1
-    var expenses = [Expense]()
+    var expenses = [GTLGocampingExpense]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
         let emptyFooterView = UIView()
         expenseTableView.tableFooterView = emptyFooterView
         
-        updateExpenses()
+        fetchExpensesForFamily()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,21 +52,13 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("expensetableviewcell") as! ExpenseTableViewCell
-
+        
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressedCell:")
         cell.addGestureRecognizer(longPressGestureRecognizer)
         
-        cell.loadData(expenses[indexPath.row])
+        //        cell.loadData(expenses[indexPath.row])
         
         return cell
-    }
-    
-    func didPickExpense(expense: Expense, actionType: ActionType) {
-        
-        CommonUtility.sharedInstance.updateFamilyTotalExpense(family)
-        CommonUtility.sharedInstance.updateTotalExpenseAmountForEvent()
-        self.expenseTableView.reloadData()
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func addExpensesButtonPressed(sender: UIBarButtonItem){
@@ -75,32 +67,32 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     func addEditExpenseFor(indexPath: NSIndexPath?){
         let destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilyexpensesvc") as! AddEditFamilyExpensesViewController
-        destVC.delegate = self
         if let selectedIndexPath = indexPath where expenses.count > selectedIndexPath.row{
-            destVC.expense = expenses[selectedIndexPath.row]
+            //            destVC.expense = expenses[selectedIndexPath.row]
         }
         
-        destVC.family = family
-        destVC.campingTrip = campingTrip
+        //        destVC.family = family
+        //        destVC.campingTrip = campingTrip
         self.presentViewController(destVC, animated: true, completion: nil)
     }
     
-    private func updateExpenses(){
-        if let familyId = family?.id{
-            ParseManager.fetchExpensesFor(familyId, pageNumber: 0, totalResultPerPage: 10, completionBlock: { (expenses, error) -> Void in
-                if let expenses = expenses{
-                    self.expenses = expenses
-                    self.expenseTableView.reloadData()
-                }
-            })
+    private func fetchExpensesForFamily(){
+        if let familyId = family?.identifier{
+            
+            //            ParseManager.fetchExpensesFor(familyId, pageNumber: 0, totalResultPerPage: 10, completionBlock: { (expenses, error) -> Void in
+            //                if let expenses = expenses{
+            //                    self.expenses = expenses
+            //                    self.expenseTableView.reloadData()
+            //                }
+            //            })
         }
     }
     
     func longPressedCell(longPressedGesuture: UILongPressGestureRecognizer){
         if let cell = longPressedGesuture.view as? ExpenseTableViewCell{
-            if let indexPath = self.expenseTableView.indexPathForCell(cell), campingTripId = campingTrip?.id, expenseId = expenses[indexPath.row].id{
-                showAlertAction(indexPath, expenseId: expenseId, campingTripId: campingTripId)
-            }
+            //            if let indexPath = self.expenseTableView.indexPathForCell(cell), campingTripId = campingTrip?.id, expenseId = expenses[indexPath.row].id{
+            //                showAlertAction(indexPath, expenseId: expenseId, campingTripId: campingTripId)
+            //            }
         }
     }
     

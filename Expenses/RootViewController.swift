@@ -18,8 +18,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource , UIP
     
     @IBOutlet weak var containerView: UIView!
     var pageViewcontrollers = [UIViewController]()
-    var family: Family?
-    var campingTrip: CampingTrip?
+    var family: GTLGocampingFamily?
+    var campingTrip: GTLGocampingCampingTrip?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,9 +77,9 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource , UIP
         
         switch(indexOrderType){
         case .After:
-            pageIndex++
+            pageIndex += 1
         case .Before:
-            pageIndex--
+            pageIndex -= 1
         }
         
         if pageIndex < 0 || pageIndex > pageViewcontrollers.count - 1{

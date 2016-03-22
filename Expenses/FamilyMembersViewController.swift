@@ -13,9 +13,9 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     @IBOutlet weak var membersTableView: UITableView!
     
-    var campingTrip: CampingTrip?
-    var family: Family?
-    var members = [Member]()
+    var campingTrip: GTLGocampingCampingTrip?
+    var family: GTLGocampingFamily?
+    var members = [GTLGocampingMember]()
     var pageIndex: Int = 0
     
     //MARK: UIView Callback methods
@@ -45,13 +45,13 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         presentNextViewcontroller(nil)
     }
     
-    func presentNextViewcontroller(member: Member?){
+    func presentNextViewcontroller(member: GTLGocampingMember?){
         let destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilymembersvc") as! AddEditFamilyMembersViewController
         if let member = member{
-            destVC.member = member
+//            destVC.member = member
         }
-        destVC.family = family
-        destVC.campingTrip = campingTrip
+        //        destVC.family = family
+        //        destVC.campingTrip = campingTrip
         self.presentViewController(destVC, animated: true, completion: nil)
     }
     
@@ -78,21 +78,21 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     }
     
     private func updateMembers(){
-        if let familyId = family?.id{
-            ParseManager.fetchMembersFor(familyId, pageNumber: 0, totalResultPerPage: 10) { (members, error) -> Void in
-                if let members = members{
-                    self.members = members
-                    self.membersTableView.reloadData()
-                }
-            }
+        if let familyId = family?.identifier{
+            // ParseManager.fetchMembersFor(familyId, pageNumber: 0, totalResultPerPage: 10) { (members, error) -> Void in
+            //                if let members = members{
+            //                    self.members = members
+            //                    self.membersTableView.reloadData()
+            //                }
+            //            }
         }
     }
     
     func longPressedCell(longPressedGesuture: UILongPressGestureRecognizer){
         if let cell = longPressedGesuture.view as? MemberTableViewCell{
-            if let indexPath = self.membersTableView.indexPathForCell(cell), campingTripId = campingTrip?.id, memberId = members[indexPath.row].id{
-                showAlertAction(indexPath, memberId: memberId, campingTripId: campingTripId)
-            }
+            //            if let indexPath = self.membersTableView.indexPathForCell(cell), campingTripId = campingTrip?.id, memberId = members[indexPath.row].id{
+            //                showAlertAction(indexPath, memberId: memberId, campingTripId: campingTripId)
+            //            }
         }
     }
     

@@ -14,13 +14,15 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+    var loggedInUser: GTLGocampingUserAccount?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         setupParse(launchOptions)
         
         instantiateRootViewController()
+        
+        loggedInUser = NSUserDefaultCoordinator.sharedInstance.loggedInUser
         return true
     }
     
@@ -150,6 +152,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         self.window?.rootViewController = rootViewcontroller
         self.window?.makeKeyAndVisible()
+    }
+    
+    static func sharedInstance()-> AppDelegate{
+        return UIApplication.sharedApplication().delegate as! AppDelegate
     }
 }
 
