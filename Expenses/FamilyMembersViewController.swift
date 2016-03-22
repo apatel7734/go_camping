@@ -29,7 +29,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         
         membersTableView.tableFooterView = UIView()
         
-        updateMembers()
+        fetchMembersForFamily()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -48,7 +48,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     func presentNextViewcontroller(member: GTLGocampingMember?){
         let destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilymembersvc") as! AddEditFamilyMembersViewController
         if let member = member{
-//            destVC.member = member
+            //            destVC.member = member
         }
         //        destVC.family = family
         //        destVC.campingTrip = campingTrip
@@ -77,14 +77,24 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         presentNextViewcontroller(member)
     }
     
-    private func updateMembers(){
-        if let familyId = family?.identifier{
-            // ParseManager.fetchMembersFor(familyId, pageNumber: 0, totalResultPerPage: 10) { (members, error) -> Void in
-            //                if let members = members{
-            //                    self.members = members
-            //                    self.membersTableView.reloadData()
-            //                }
-            //            }
+    private func fetchMembersForFamily(){
+        if let familyId = family?.identifier.int64Value(){
+            let query = GTLQueryGocamping.queryForGetAllFamilyMembersWithFamilyId(familyId)
+            let service  = GTLServiceGocamping()
+            service.executeQuery(query) { (tkt: GTLServiceTicket!, object: AnyObject!, error: NSError!) -> Void in
+                if (error != nil) {
+                    //display error.
+                    print("There was an error.")
+                }else{
+                    print("Object Returned = \(object)")
+                    if let membersCollection = object as? GTLGocampingMemberCollection{
+                        if let members = membersCollection.items() as? [GTLGocampingMember]{
+                            self.members = members
+                            self.membersTableView.reloadData()
+                        }
+                    }
+                }
+            }
         }
     }
     

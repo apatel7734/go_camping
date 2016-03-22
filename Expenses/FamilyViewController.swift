@@ -103,7 +103,7 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     private func familiesForCampingtripId(campingTrip : GTLGocampingCampingTrip){
-        if let tripId: Int64 = Int64(campingTrip.identifier.integerValue){
+        if let tripId: Int64 = campingTrip.identifier.int64Value(){
             let query = GTLQueryGocamping.queryForGetFamiliesForCampingTripWithCampingTripId(tripId)
             let service  = GTLServiceGocamping()
             activityIndicator.startAnimating()
@@ -120,7 +120,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             self.familyTableView.reloadData()
                         }
                     }
-                    
                 }
             }
         }
