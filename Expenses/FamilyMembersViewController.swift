@@ -13,9 +13,9 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     @IBOutlet weak var membersTableView: UITableView!
     
-    var campingTrip: CampingTrip?
-    var family: Family?
-    var members = [Member]()
+    var campingTrip: GTLGocampingCampingTrip?
+    var family: GTLGocampingFamily?
+    var members = [GTLGocampingMember]()
     var pageIndex: Int = 0
     
     //MARK: UIView Callback methods
@@ -29,11 +29,11 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         
         membersTableView.tableFooterView = UIView()
         
-        updateMembers()
+        fetchMembersForFamily()
     }
     
     override func viewWillAppear(animated: Bool) {
-        let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addMembersButtonPressed:")
+        let addRightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(FamilyMembersViewController.addMembersButtonPressed(_:)))
         if let navigationController = self.navigationController{
             navigationController.topViewController?.navigationItem.rightBarButtonItem = addRightBarButtonItem
         }
@@ -45,13 +45,13 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         presentNextViewcontroller(nil)
     }
     
-    func presentNextViewcontroller(member: Member?){
+    func presentNextViewcontroller(member: GTLGocampingMember?){
         let destVC = self.storyboard?.instantiateViewControllerWithIdentifier("addfamilymembersvc") as! AddEditFamilyMembersViewController
         if let member = member{
-            destVC.member = member
+            //            destVC.member = member
         }
-        destVC.family = family
-        destVC.campingTrip = campingTrip
+        //        destVC.family = family
+        //        destVC.campingTrip = campingTrip
         self.presentViewController(destVC, animated: true, completion: nil)
     }
     
@@ -63,7 +63,7 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("membertableviewcell") as! MemberTableViewCell
-        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressedCell:")
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(FamilyMembersViewController.longPressedCell(_:)))
         cell.addGestureRecognizer(longPressGestureRecognizer)
         
         let member = members[indexPath.row]
@@ -77,12 +77,21 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         presentNextViewcontroller(member)
     }
     
-    private func updateMembers(){
-        if let familyId = family?.id{
-            ParseManager.fetchMembersFor(familyId, pageNumber: 0, totalResultPerPage: 10) { (members, error) -> Void in
-                if let members = members{
-                    self.members = members
-                    self.membersTableView.reloadData()
+    private func fetchMembersForFamily(){
+        if let familyId = family?.identifier.int64Value(){
+            let query = GTLQueryGocamping.queryForGetAllFamilyMembersWithFamilyId(familyId)
+            let service  = GTLServiceGocamping()
+            service.executeQuery(query) { (tkt: GTLServiceTicket!, object: AnyObject!, error: NSError!) -> Void in
+                if (error != nil) {
+                    //display error.
+                    print("There was an error.")
+                }else{
+                    if let membersCollection = object as? GTLGocampingMemberCollection{
+                        if let members = membersCollection.items() as? [GTLGocampingMember]{
+                            self.members = members
+                            self.membersTableView.reloadData()
+                        }
+                    }
                 }
             }
         }
@@ -90,8 +99,8 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
     
     func longPressedCell(longPressedGesuture: UILongPressGestureRecognizer){
         if let cell = longPressedGesuture.view as? MemberTableViewCell{
-            if let indexPath = self.membersTableView.indexPathForCell(cell), campingTripId = campingTrip?.id, memberId = members[indexPath.row].id{
-                showAlertAction(indexPath, memberId: memberId, campingTripId: campingTripId)
+            if let indexPath = self.membersTableView.indexPathForCell(cell), tripId = campingTrip?.identifier, memberId = members[indexPath.row].identifier{
+                showAlertAction(indexPath, memberId: memberId.stringValue, campingTripId: tripId.stringValue)
             }
         }
     }

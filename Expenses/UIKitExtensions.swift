@@ -18,6 +18,10 @@ extension NSNumber{
         return dateFormatter.stringFromDate(aDate)
     }
     
+    func int64Value() -> Int64{
+        return Int64(self.integerValue)
+    }
+    
 }
 
 extension UIColor{

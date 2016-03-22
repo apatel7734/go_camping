@@ -96,14 +96,14 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK - segue methods on + button clicked.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let rootViewController = segue.destinationViewController as? RootViewController, indexPath = self.currentIndexPath{
-            //            rootViewController.family = families[indexPath.row]
-            //            rootViewController.campingTrip = campingTrip
+            rootViewController.family = families[indexPath.row]
+            rootViewController.campingTrip = campingTrip
         }
     }
     
     
     private func familiesForCampingtripId(campingTrip : GTLGocampingCampingTrip){
-        if let tripId: Int64 = Int64(campingTrip.identifier.integerValue){
+        if let tripId: Int64 = campingTrip.identifier.int64Value(){
             let query = GTLQueryGocamping.queryForGetFamiliesForCampingTripWithCampingTripId(tripId)
             let service  = GTLServiceGocamping()
             activityIndicator.startAnimating()
@@ -120,7 +120,6 @@ class FamilyViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             self.familyTableView.reloadData()
                         }
                     }
-                    
                 }
             }
         }
