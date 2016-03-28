@@ -48,7 +48,7 @@ class GoogleMapApi {
                 return
             }
             
-            var path = "\(basePath)/place/nearbysearch/json?types=campground&key=\(Constants.googleApiKey)"
+            var path = "\(basePath)/place/nearbysearch/json?type=campground&key=\(Constants.googleApiKey)"
             path += "&location=\(aLocation.coordinate.latitude),\(aLocation.coordinate.longitude)&radius=\(radius)"
             
             apiController.callGetRequestForPath(path, mapping: Place.getMapping(), keyPath: "results") { (statusCode, response) in

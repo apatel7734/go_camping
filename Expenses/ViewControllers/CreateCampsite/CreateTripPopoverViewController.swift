@@ -14,6 +14,8 @@ class CreateTripPopoverViewController: UIViewController {
     @IBOutlet weak var startDateField: UITextField!
     @IBOutlet weak var endDateField: UITextField!
     
+    var campingTrip: GTLGocampingCampingTrip
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +47,26 @@ class CreateTripPopoverViewController: UIViewController {
             endDateField.text = DateFormatterUtil.mediumDateFormatter.stringFromDate(datePicker.date)
     
             endDateField.resignFirstResponder()
+        }
+    }
+    
+    @IBAction func createTripButtonTapped(sender: AnyObject) {
+        let tripWrapper = GTLGocampingCampingTripWrapper()
+        let user = NSUserDefaultCoordinator.sharedInstance.loggedInUser
+        tripWrapper.userAccount = user
+        
+        campingTrip.title = titleField.text
+        var datePicker = startDateField.inputView as! UIDatePicker
+        campingTrip.dateFrom = datePicker.date.timeIntervalSince1970 * 1000
+        datePicker = endDateField.inputView as! UIDatePicker
+        campingTrip.dateTo = datePicker.date.timeIntervalSince1970 * 1000
+        
+        tripWrapper.campingTrip = campingTrip
+        
+        let query = GTLQueryGocamping.queryForCreateCampingTripWithObject(tripWrapper)
+        GTLServiceGocamping().executeQuery(query) { (serviceTicket: GTLServiceTicket!, response: AnyObject!, error: NSError!) in
+            // do something
+            print(response)
         }
     }
 }
