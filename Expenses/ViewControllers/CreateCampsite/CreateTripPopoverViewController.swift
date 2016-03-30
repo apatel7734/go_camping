@@ -8,21 +8,30 @@
 
 import UIKit
 
+protocol CreateTripPopoverVCDelegate: class {
+    func createTripSuccessed(vc: CreateTripPopoverViewController)
+}
+
 class CreateTripPopoverViewController: UIViewController {
     
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var startDateField: UITextField!
     @IBOutlet weak var endDateField: UITextField!
     
-    var campingTrip: GTLGocampingCampingTrip
+    var campingTrip: GTLGocampingCampingTrip!
+    
+    weak var delegate: CreateTripPopoverVCDelegate?
+    
+    private let startDatePicker = UIDatePicker()
+    private let endDatePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .Date
-        startDateField.inputView = datePicker
-        endDateField.inputView = datePicker
+        startDatePicker.datePickerMode = .Date
+        endDatePicker.datePickerMode = .Date
+        startDateField.inputView = startDatePicker
+        endDateField.inputView = endDatePicker
         
         let accessoryView = UIToolbar(frame: CGRectMake(0, 0, view.bounds.width, 50))
         accessoryView.items = [
@@ -37,14 +46,12 @@ class CreateTripPopoverViewController: UIViewController {
     
     func accessoryDoneButtonTapped(sender: UIView) {
         if startDateField.isFirstResponder() {
-            let datePicker = startDateField.inputView as! UIDatePicker
-            startDateField.text = DateFormatterUtil.mediumDateFormatter.stringFromDate(datePicker.date)
+            startDateField.text = DateFormatterUtil.mediumDateFormatter.stringFromDate(startDatePicker.date)
         
             startDateField.resignFirstResponder()
             
         } else if endDateField.isFirstResponder() {
-            let datePicker = endDateField.inputView as! UIDatePicker
-            endDateField.text = DateFormatterUtil.mediumDateFormatter.stringFromDate(datePicker.date)
+            endDateField.text = DateFormatterUtil.mediumDateFormatter.stringFromDate(endDatePicker.date)
     
             endDateField.resignFirstResponder()
         }
@@ -56,17 +63,18 @@ class CreateTripPopoverViewController: UIViewController {
         tripWrapper.userAccount = user
         
         campingTrip.title = titleField.text
-        var datePicker = startDateField.inputView as! UIDatePicker
-        campingTrip.dateFrom = datePicker.date.timeIntervalSince1970 * 1000
-        datePicker = endDateField.inputView as! UIDatePicker
-        campingTrip.dateTo = datePicker.date.timeIntervalSince1970 * 1000
+        campingTrip.dateFrom = startDatePicker.date.timeIntervalSince1970 * 1000
+        campingTrip.dateTo = endDatePicker.date.timeIntervalSince1970 * 1000
         
         tripWrapper.campingTrip = campingTrip
         
         let query = GTLQueryGocamping.queryForCreateCampingTripWithObject(tripWrapper)
         GTLServiceGocamping().executeQuery(query) { (serviceTicket: GTLServiceTicket!, response: AnyObject!, error: NSError!) in
-            // do something
-            print(response)
+            if (error != nil) {
+                print("There was an error.")
+            } else {
+                self.delegate?.createTripSuccessed(self)
+            }
         }
     }
 }
