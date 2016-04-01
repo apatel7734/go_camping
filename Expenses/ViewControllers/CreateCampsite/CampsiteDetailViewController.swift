@@ -49,11 +49,17 @@ class CampsiteDetailViewController: UITableViewController, UIPopoverPresentation
     }
     
     @IBAction func createTripButtonTapped(sender: AnyObject) {
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("CreateTripPopoverViewController")
-        vc!.transitioningDelegate = self
-        vc!.modalPresentationStyle = .Custom
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("CreateTripPopoverViewController") as! CreateTripPopoverViewController
+        vc.transitioningDelegate = self
+        vc.modalPresentationStyle = .Custom
+        vc.delegate = self
+        vc.campingTrip = GTLGocampingCampingTrip()
+        vc.campingTrip.locationPoint = GTLGocampingGeoPt()
+        vc.campingTrip.addressString = placeDetail?.address
+        vc.campingTrip.locationPoint.latitude = placeDetail?.geometry?.location?.latitude
+        vc.campingTrip.locationPoint.longitude = placeDetail?.geometry?.location?.longitude
         
-        presentViewController(vc!, animated: true, completion: nil)
+        presentViewController(vc, animated: true, completion: nil)
     }
 }
 
@@ -109,6 +115,22 @@ extension CampsiteDetailViewController: CampsiteDetailInfoCellDelegate {
     
     func websiteButtonTapped(website: NSURL!) {
         UIApplication.sharedApplication().openURL(website)
+    }
+}
+
+// MARK: - CreateTripPopoverVC delegate methods
+extension CampsiteDetailViewController: CreateTripPopoverVCDelegate {
+    
+    func createTripSuccessed(popOverVC: CreateTripPopoverViewController) {
+        popOverVC.dismissViewControllerAnimated(true) {
+            if let viewControllers = self.navigationController?.viewControllers {
+                for vc in viewControllers {
+                    if(vc is ListCampingTripsViewController){
+                        self.navigationController?.popToViewController(vc, animated: true);
+                    }
+                }
+            }
+        }
     }
 }
 
