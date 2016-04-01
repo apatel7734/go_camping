@@ -88,6 +88,14 @@ class ValidationUtil {
         return isValid
     }
     
+    static func isEmpty(str: String?) -> Bool {
+        if let aStr = str where !aStr.isEmpty {
+            return false
+        }
+        
+        return true
+    }
+    
     lazy var emailPredicate: NSPredicate = {
         let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
         return NSPredicate(format:"SELF MATCHES %@", emailRegEx)

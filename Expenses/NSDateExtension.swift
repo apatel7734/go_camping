@@ -17,4 +17,12 @@ extension NSDate{
         formatter.timeStyle = .ShortStyle
         return formatter.stringFromDate(self)
     }
+    
+    func before(date: NSDate) -> Bool {
+        return self.compare(date) == .OrderedAscending
+    }
+    
+    func after(date: NSDate) -> Bool {
+        return self.compare(date) == .OrderedDescending
+    }
 }

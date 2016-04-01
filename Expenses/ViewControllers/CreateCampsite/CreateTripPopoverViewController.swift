@@ -58,6 +58,10 @@ class CreateTripPopoverViewController: UIViewController {
     }
     
     @IBAction func createTripButtonTapped(sender: AnyObject) {
+        guard isFieldValid() else {
+            return
+        }
+    
         let tripWrapper = GTLGocampingCampingTripWrapper()
         let user = NSUserDefaultCoordinator.sharedInstance.loggedInUser
         tripWrapper.userAccount = user
@@ -76,5 +80,29 @@ class CreateTripPopoverViewController: UIViewController {
                 self.delegate?.createTripSuccessed(self)
             }
         }
+    }
+}
+
+// MARK: - Private methods
+extension CreateTripPopoverViewController {
+    
+    private func isFieldValid() -> Bool {
+        if ValidationUtil.isEmpty(titleField.text)
+            || ValidationUtil.isEmpty(startDateField.text)
+            || ValidationUtil.isEmpty(endDateField.text) {
+            return false
+        }
+        
+        let today = NSDate()
+        
+        if startDatePicker.date.before(today) {
+            return false
+        }
+        
+        if endDatePicker.date.before(startDatePicker.date) {
+            return false
+        }
+        
+        return true
     }
 }

@@ -4,7 +4,7 @@ PODS:
   - ISO8601DateFormatterValueTransformer (0.6.1):
     - RKValueTransformers (~> 1.1.0)
   - Kingfisher (1.9.3)
-  - Nimble (3.0.0)
+  - Nimble (3.2.0)
   - RestKit (0.25.0):
     - RestKit/Core (= 0.25.0)
   - RestKit/Core (0.25.0):
@@ -31,7 +31,7 @@ PODS:
 DEPENDENCIES:
   - Cosmos (> 1.0)
   - Kingfisher (~> 1.4)
-  - Nimble (~> 3.0.0)
+  - Nimble (> 3.0.0)
   - RestKit (= 0.25.0)
 
 SPEC CHECKSUMS:
@@ -39,7 +39,7 @@ SPEC CHECKSUMS:
   Cosmos: 87c49100c69d2cb2eebfa4eb8d1e801fe29ff774
   ISO8601DateFormatterValueTransformer: 52da467d6ec899d6aedda8e48280ac92e8ee97e6
   Kingfisher: 9e37d2a78a082dc123bfe8a16de65de85518daae
-  Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
+  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
   RestKit: a4fcaf3d4bb2c204679856a46d596160bf208095
   RKValueTransformers: e5ed67e3811229b616fe01bddeeafe3bb337b1b9
   SOCKit: c7376ac262bea9115b8f749358f762522a47d392
