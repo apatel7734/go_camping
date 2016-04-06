@@ -23,6 +23,9 @@ class FamilyMembersViewController: UIViewController, UITableViewDataSource,UITab
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        membersTableView.estimatedRowHeight = 70
+        membersTableView.rowHeight = UITableViewAutomaticDimension
+        
         //delegates
         membersTableView.dataSource = self
         membersTableView.delegate = self
