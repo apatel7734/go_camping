@@ -19,6 +19,10 @@ class FamilyExpensesViewController: UIViewController,UITableViewDataSource, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        expenseTableView.estimatedRowHeight = 70
+        expenseTableView.rowHeight = UITableViewAutomaticDimension
+        
         // Do any additional setup after loading the view.
         expenseTableView.dataSource = self
         expenseTableView.delegate = self
