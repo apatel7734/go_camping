@@ -64,8 +64,11 @@ class GoogleMapApi {
         let path = "\(basePath)/place/details/json?placeid=\(placeId)&key=\(Constants.googleApiKey)"
         
         apiController.callGetRequestForPath(path, mapping: PlaceDetail.getMapping(), keyPath: "result") { (statusCode, response) in
-            if statusCode == .Success {
-                success(placeDetail: response?[0] as? PlaceDetail)
+            if statusCode == .Success{
+                if let response = response{
+                    success(placeDetail: response.objectAtIndex(0) as? PlaceDetail)
+                }
+                
             } else {
                 failure(error: response as? Error)
             }
