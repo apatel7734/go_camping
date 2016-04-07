@@ -24,12 +24,18 @@ class CampsiteMapViewController: UIViewController {
             return
         }
         
+        var annotations: [MKAnnotation] = []
         for place in aCampsiteList {
             if let location = place.geometry?.location {
                 let pointAnnotation = MKPointAnnotation()
-                pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: Double(location.latitude), longitude: Double(location.longitude))
-                mapView.addAnnotation(pointAnnotation)
+                let coordinate = CLLocationCoordinate2D(latitude: Double(location.latitude), longitude: Double(location.longitude))
+                pointAnnotation.coordinate = coordinate
+                pointAnnotation.title = place.name
+                pointAnnotation.subtitle = place.vicinity
+                annotations.append(pointAnnotation)
             }
         }
+        
+        mapView.showAnnotations(annotations, animated: true)
     }
 }
