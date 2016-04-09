@@ -10,6 +10,6 @@ target 'Expenses' do
 end
 
 target 'ExpensesTests', :exclusive => true do
-  pod 'Nimble', '> 3.0.0'
+#  pod 'Nimble', '> 3.0.0'
 end
 

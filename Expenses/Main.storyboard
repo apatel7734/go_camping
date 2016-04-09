@@ -851,7 +851,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIS-45-8VO" userLabel="Slide View">
                                 <rect key="frame" x="0.0" y="94" width="300" height="3"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.53333333329999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="l8s-xf-K97"/>
                                 </constraints>
