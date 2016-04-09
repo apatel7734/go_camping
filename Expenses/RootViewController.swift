@@ -12,6 +12,7 @@ class RootViewController: UIViewController, UIScrollViewDelegate{
     
     @IBOutlet weak var membersLabel: UIButton!
     @IBOutlet weak var expenseLabel: UIButton!
+    @IBOutlet weak var slideView: UIView!
     
     private var scrollView: UIScrollView!
     private var viewControllersInDisplayOrder = [UIViewController]()
@@ -26,6 +27,7 @@ class RootViewController: UIViewController, UIScrollViewDelegate{
         createScrollView()
         // Do any additional setup after loading the view.
         initializePageViewcontrollers()
+        self.navigationItem.title = ""
     }
     
     
@@ -37,18 +39,19 @@ class RootViewController: UIViewController, UIScrollViewDelegate{
         let height = scrollViewBounds.size.height
         scrollView.contentSize = CGSizeMake(width * CGFloat(viewControllers.count), height)
         var idX = 0
-        
-        print("ScrollView frame = \(scrollView.frame)")
         for viewController in viewControllers{
             addChildViewController(viewController)
             let originX = CGFloat(idX) * width
             viewController.view.frame = CGRect(x: originX, y: 0.0, width: width, height: height)
-            print("ViewController frame = \(viewController.view.frame)")
             scrollView.addSubview(viewController.view)
             viewController.didMoveToParentViewController(self)
             idX += 1
         }
         
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        slideView.frame.origin.x = scrollView.contentOffset.x / 2
     }
     
     //step. 2 create scrollView
