@@ -846,27 +846,45 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9Q-PU-amH">
-                                <rect key="frame" x="0.0" y="94" width="600" height="457"/>
+                                <rect key="frame" x="0.0" y="97" width="600" height="454"/>
                                 <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIS-45-8VO" userLabel="Slide View">
+                                <rect key="frame" x="0.0" y="94" width="300" height="3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="l8s-xf-K97"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="vIS-45-8VO" firstAttribute="top" secondItem="KNE-3t-Ld5" secondAttribute="bottom" id="5W5-De-JMF"/>
                             <constraint firstItem="X9Q-PU-amH" firstAttribute="leading" secondItem="5Fp-lQ-poy" secondAttribute="leading" id="DPB-us-fNe"/>
+                            <constraint firstItem="vIS-45-8VO" firstAttribute="trailing" secondItem="sju-9q-Wv6" secondAttribute="trailing" id="F3X-6d-Yct"/>
                             <constraint firstItem="KNE-3t-Ld5" firstAttribute="top" secondItem="k7X-jA-7C5" secondAttribute="bottom" id="Iif-Gy-iz7"/>
                             <constraint firstAttribute="trailing" secondItem="X9Q-PU-amH" secondAttribute="trailing" id="NWU-Mt-wLx"/>
+                            <constraint firstItem="vIS-45-8VO" firstAttribute="leading" secondItem="sju-9q-Wv6" secondAttribute="leading" id="T1Z-al-AI5"/>
                             <constraint firstItem="hEk-5Z-nG6" firstAttribute="top" secondItem="X9Q-PU-amH" secondAttribute="bottom" id="X8M-iC-Zh1"/>
+                            <constraint firstItem="X9Q-PU-amH" firstAttribute="top" secondItem="vIS-45-8VO" secondAttribute="bottom" id="Ycx-G1-JL1"/>
+                            <constraint firstItem="vIS-45-8VO" firstAttribute="width" secondItem="sju-9q-Wv6" secondAttribute="width" id="Z3a-y4-xLd"/>
                             <constraint firstItem="X9Q-PU-amH" firstAttribute="leading" secondItem="5Fp-lQ-poy" secondAttribute="leading" id="b0r-uE-i1d"/>
                             <constraint firstAttribute="trailing" secondItem="X9Q-PU-amH" secondAttribute="trailing" id="eEV-Ww-JfJ"/>
                             <constraint firstItem="X9Q-PU-amH" firstAttribute="top" secondItem="KNE-3t-Ld5" secondAttribute="bottom" id="ogv-lH-rL6"/>
                             <constraint firstAttribute="trailing" secondItem="KNE-3t-Ld5" secondAttribute="trailing" id="u9s-2S-2A4"/>
                             <constraint firstItem="KNE-3t-Ld5" firstAttribute="leading" secondItem="5Fp-lQ-poy" secondAttribute="leading" id="ySm-DH-su6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ogv-lH-rL6"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="containerView" destination="X9Q-PU-amH" id="zqm-gx-Brt"/>
                         <outlet property="expenseLabel" destination="bHb-zc-yVJ" id="hCI-cu-wBQ"/>
                         <outlet property="membersLabel" destination="sju-9q-Wv6" id="9qY-Dw-wo0"/>
+                        <outlet property="slideView" destination="vIS-45-8VO" id="EKS-fx-ZCR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Uk-AT-XeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
