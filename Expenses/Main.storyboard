@@ -845,10 +845,10 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9Q-PU-amH">
-                                <rect key="frame" x="0.0" y="97" width="600" height="454"/>
+                                <rect key="frame" x="0.0" y="98" width="600" height="453"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7UD-4u-L25">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="454"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="453"/>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -876,7 +876,7 @@
                             <constraint firstAttribute="trailing" secondItem="X9Q-PU-amH" secondAttribute="trailing" id="NWU-Mt-wLx"/>
                             <constraint firstItem="vIS-45-8VO" firstAttribute="leading" secondItem="sju-9q-Wv6" secondAttribute="leading" id="T1Z-al-AI5"/>
                             <constraint firstItem="hEk-5Z-nG6" firstAttribute="top" secondItem="X9Q-PU-amH" secondAttribute="bottom" id="X8M-iC-Zh1"/>
-                            <constraint firstItem="X9Q-PU-amH" firstAttribute="top" secondItem="vIS-45-8VO" secondAttribute="bottom" id="Ycx-G1-JL1"/>
+                            <constraint firstItem="X9Q-PU-amH" firstAttribute="top" secondItem="vIS-45-8VO" secondAttribute="bottom" constant="1" id="Ycx-G1-JL1"/>
                             <constraint firstItem="vIS-45-8VO" firstAttribute="width" secondItem="sju-9q-Wv6" secondAttribute="width" id="Z3a-y4-xLd"/>
                             <constraint firstItem="X9Q-PU-amH" firstAttribute="leading" secondItem="5Fp-lQ-poy" secondAttribute="leading" id="b0r-uE-i1d"/>
                             <constraint firstAttribute="trailing" secondItem="X9Q-PU-amH" secondAttribute="trailing" id="eEV-Ww-JfJ"/>
