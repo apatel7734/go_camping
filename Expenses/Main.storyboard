@@ -730,15 +730,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Acs-aV-sSX">
-                                <rect key="frame" x="5" y="0.0" width="590" height="600"/>
+                            <tableView clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Acs-aV-sSX">
+                                <rect key="frame" x="1" y="0.0" width="598" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="expensetableviewcell" selectionStyle="default" indentationWidth="10" reuseIdentifier="expensetableviewcell" rowHeight="61" id="ZUb-bv-iUI" customClass="ExpenseTableViewCell" customModule="Expenses" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="590" height="61"/>
+                                        <rect key="frame" x="0.0" y="22" width="598" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZUb-bv-iUI" id="1SU-Mg-MaN">
-                                            <rect key="frame" x="0.0" y="0.0" width="590" height="60.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="598" height="60.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cPR-6r-3ml" customClass="CircularImageView" customModule="Expenses" customModuleProvider="target">
@@ -755,7 +755,7 @@
                                                     <color key="textColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAa-fL-29F">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAa-fL-29F">
                                                     <rect key="frame" x="529" y="10" width="45" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -781,12 +781,11 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Acs-aV-sSX" firstAttribute="leading" secondItem="h7v-NC-fpr" secondAttribute="leadingMargin" constant="-15" id="AlU-18-aJ0"/>
-                            <constraint firstItem="Acs-aV-sSX" firstAttribute="bottom" secondItem="h7v-NC-fpr" secondAttribute="bottomMargin" id="Ghz-eJ-jsm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Acs-aV-sSX" secondAttribute="trailing" constant="-15" id="lpk-eN-UQd"/>
-                            <constraint firstItem="Acs-aV-sSX" firstAttribute="top" secondItem="h7v-NC-fpr" secondAttribute="topMargin" id="msb-fH-huB"/>
+                            <constraint firstItem="Acs-aV-sSX" firstAttribute="leading" secondItem="h7v-NC-fpr" secondAttribute="leading" constant="1" id="AlU-18-aJ0"/>
+                            <constraint firstItem="Acs-aV-sSX" firstAttribute="bottom" secondItem="h7v-NC-fpr" secondAttribute="bottom" id="Ghz-eJ-jsm"/>
+                            <constraint firstAttribute="trailing" secondItem="Acs-aV-sSX" secondAttribute="trailing" constant="1" id="lpk-eN-UQd"/>
+                            <constraint firstItem="Acs-aV-sSX" firstAttribute="top" secondItem="h7v-NC-fpr" secondAttribute="top" id="msb-fH-huB"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="Sv5-1D-Qgd"/>
@@ -847,7 +846,18 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9Q-PU-amH">
                                 <rect key="frame" x="0.0" y="97" width="600" height="454"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7UD-4u-L25">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="454"/>
+                                    </scrollView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="7UD-4u-L25" secondAttribute="bottom" id="MZh-KR-efO"/>
+                                    <constraint firstItem="7UD-4u-L25" firstAttribute="leading" secondItem="X9Q-PU-amH" secondAttribute="leading" id="bQw-ZF-clK"/>
+                                    <constraint firstAttribute="trailing" secondItem="7UD-4u-L25" secondAttribute="trailing" id="fFK-tT-jsQ"/>
+                                    <constraint firstItem="7UD-4u-L25" firstAttribute="top" secondItem="X9Q-PU-amH" secondAttribute="top" id="sYc-vu-ucr"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIS-45-8VO" userLabel="Slide View">
                                 <rect key="frame" x="0.0" y="94" width="300" height="3"/>
@@ -903,18 +913,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2yg-ig-cT8">
-                                <rect key="frame" x="5" y="0.0" width="590" height="600"/>
+                            <tableView clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2yg-ig-cT8">
+                                <rect key="frame" x="1" y="0.0" width="598" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="membertableviewcell" rowHeight="61" id="HCf-ab-rqi" customClass="MemberTableViewCell" customModule="Expenses" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="590" height="61"/>
+                                        <rect key="frame" x="0.0" y="22" width="598" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HCf-ab-rqi" id="QmH-LL-vij">
-                                            <rect key="frame" x="0.0" y="0.0" width="590" height="60.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="598" height="60.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEK-Fb-eAR">
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eEK-Fb-eAR">
                                                     <rect key="frame" x="18" y="0.0" width="554" height="61"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rK9-Ns-wyY" customClass="CircularImageView" customModule="Expenses" customModuleProvider="target">
@@ -973,12 +983,11 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="2yg-ig-cT8" secondAttribute="trailing" constant="-15" id="7i0-qt-h1Y"/>
-                            <constraint firstItem="2yg-ig-cT8" firstAttribute="bottom" secondItem="YIU-te-hZB" secondAttribute="bottomMargin" id="FSi-Ym-CH1"/>
-                            <constraint firstItem="2yg-ig-cT8" firstAttribute="leading" secondItem="YIU-te-hZB" secondAttribute="leadingMargin" constant="-15" id="fU8-Ft-gI8"/>
-                            <constraint firstItem="2yg-ig-cT8" firstAttribute="top" secondItem="YIU-te-hZB" secondAttribute="topMargin" id="xXN-qb-DJU"/>
+                            <constraint firstAttribute="trailing" secondItem="2yg-ig-cT8" secondAttribute="trailing" constant="1" id="7i0-qt-h1Y"/>
+                            <constraint firstItem="2yg-ig-cT8" firstAttribute="bottom" secondItem="YIU-te-hZB" secondAttribute="bottom" id="FSi-Ym-CH1"/>
+                            <constraint firstItem="2yg-ig-cT8" firstAttribute="leading" secondItem="YIU-te-hZB" secondAttribute="leading" constant="1" id="fU8-Ft-gI8"/>
+                            <constraint firstItem="2yg-ig-cT8" firstAttribute="top" secondItem="YIU-te-hZB" secondAttribute="top" id="xXN-qb-DJU"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="tRS-Zp-hbr"/>
