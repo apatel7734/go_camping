@@ -28,6 +28,7 @@ class RootViewController: UIViewController, UIScrollViewDelegate{
         // Do any additional setup after loading the view.
         initializePageViewcontrollers()
         self.navigationItem.title = ""
+        self.navigationController?.navigationBar.configureAsTransparentBar()
     }
     
     
