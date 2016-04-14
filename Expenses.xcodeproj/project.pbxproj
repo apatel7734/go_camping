@@ -64,6 +64,7 @@
 		486BE9281BE55EF400241EA3 /* CoreDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */; };
 		486BE92A1BE5817100241EA3 /* NSUserDefaultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */; };
 		486BE92C1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BE92B1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift */; };
+		4870869B1CC04FB60090CCA1 /* TripRSVPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4870869A1CC04FB60090CCA1 /* TripRSVPViewController.swift */; };
 		487B67291C2B6FB400106137 /* CampingTripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B67281C2B6FB400106137 /* CampingTripsTableViewCell.swift */; };
 		488B53AF1C7A688E00C369E3 /* GTLObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 488B53851C7A688E00C369E3 /* GTLObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		488B53B01C7A688E00C369E3 /* GTLQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 488B53871C7A688E00C369E3 /* GTLQuery.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -227,6 +228,7 @@
 		486BE9271BE55EF400241EA3 /* CoreDataCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCoordinator.swift; sourceTree = "<group>"; };
 		486BE9291BE5817100241EA3 /* NSUserDefaultCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaultCoordinator.swift; sourceTree = "<group>"; };
 		486BE92B1BE5EC3800241EA3 /* NSDecimalNumberExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberExtension.swift; sourceTree = "<group>"; };
+		4870869A1CC04FB60090CCA1 /* TripRSVPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripRSVPViewController.swift; sourceTree = "<group>"; };
 		487B67281C2B6FB400106137 /* CampingTripsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampingTripsTableViewCell.swift; sourceTree = "<group>"; };
 		488B53821C7A688D00C369E3 /* Expenses-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Expenses-Bridging-Header.h"; sourceTree = "<group>"; };
 		488B53831C7A688E00C369E3 /* GTLDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLDefines.h; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				482377091C2B541D00DAC89C /* ListCampingTripsViewController.swift */,
 				487B67281C2B6FB400106137 /* CampingTripsTableViewCell.swift */,
 				481736EC1C30AB7A00686992 /* TripDetailsViewController.swift */,
+				4870869A1CC04FB60090CCA1 /* TripRSVPViewController.swift */,
 			);
 			name = CampingTrips;
 			sourceTree = "<group>";
@@ -1029,6 +1032,7 @@
 				489BD5941C850D7D000565EF /* GTLGocampingCampingTripCollection.m in Sources */,
 				09AC0BC11B5C3671000849C4 /* FamilyViewController.swift in Sources */,
 				488B53C11C7A688E00C369E3 /* GTMGatherInputStream.m in Sources */,
+				4870869B1CC04FB60090CCA1 /* TripRSVPViewController.swift in Sources */,
 				09AC0BBF1B5C3670000849C4 /* ExpensesData.xcdatamodeld in Sources */,
 				488B53B41C7A688E00C369E3 /* GTLUploadParameters.m in Sources */,
 				488B53B61C7A688E00C369E3 /* GTLErrorObject.m in Sources */,
