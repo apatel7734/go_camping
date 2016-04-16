@@ -9,27 +9,42 @@
 import UIKit
 
 class TripRSVPViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBOutlet weak var totalMembersLabel: UILabel!
+    @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet weak var plusButton: UIButton!
+    
+    private var totalMembers: Int = 0 {
+        didSet{
+            
+        }
+        
+        willSet(newTotalMembers){
+            if newTotalMembers < 0 {
+                
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
     }
-    */
-
+    @IBAction func didModifyRSVPMembersTotal(sender: UIButton) {
+        switch sender {
+        case minusButton:
+            totalMembers = totalMembers - 1
+        case plusButton:
+            totalMembers = totalMembers + 1
+        default:
+            print("Not supported.")
+        }
+        
+    }
+    
+    @IBAction func didTapRSVPButton(sender: UIButton) {
+        print("Total Members coming = \(totalMembers)")
+    }
+    
 }

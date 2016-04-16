@@ -139,11 +139,11 @@
                         <viewControllerLayoutGuide type="bottom" id="7jr-KG-w8v"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jrx-SU-D4b">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vt-EY-ryn">
-                                <rect key="frame" x="36" y="341" width="228" height="44"/>
+                                <rect key="frame" x="36" y="241" width="228" height="44"/>
                                 <color key="backgroundColor" red="0.054901960780000002" green="0.63529411759999999" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="1OJ-d1-2NV"/>
@@ -151,6 +151,9 @@
                                 <state key="normal" title="RSVP Yes">
                                     <color key="titleColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapRSVPButton:" destination="cjE-qb-mMF" eventType="touchUpInside" id="SIj-On-QcA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSVP for Trip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5we-T1-iOG">
                                 <rect key="frame" x="99" y="8" width="102" height="21"/>
@@ -159,13 +162,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You + Family members going" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T07-po-rWR">
-                                <rect key="frame" x="24" y="149" width="252" height="18"/>
+                                <rect key="frame" x="24" y="99" width="252" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nXl-9L-8Q2" userLabel="label stack view">
-                                <rect key="frame" x="24" y="175" width="252" height="50"/>
+                                <rect key="frame" x="24" y="125" width="252" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vt7-LJ-UOw">
                                         <rect key="frame" x="0.0" y="0.0" width="121" height="50"/>
@@ -183,6 +186,9 @@
                                                 <state key="normal" title="-">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didModifyRSVPMembersTotal:" destination="cjE-qb-mMF" eventType="touchUpInside" id="KVC-37-Ezn"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCH-IC-5nX">
                                                 <rect key="frame" x="61" y="0.0" width="59.5" height="50"/>
@@ -191,6 +197,9 @@
                                                 <state key="normal" title="+">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didModifyRSVPMembersTotal:" destination="cjE-qb-mMF" eventType="touchUpInside" id="XTX-hL-Gda"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -220,7 +229,12 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="300" height="400"/>
+                    <size key="freeformSize" width="300" height="300"/>
+                    <connections>
+                        <outlet property="minusButton" destination="h3d-pn-squ" id="8yM-p9-i7Q"/>
+                        <outlet property="plusButton" destination="rCH-IC-5nX" id="h93-eA-LE1"/>
+                        <outlet property="totalMembersLabel" destination="vt7-LJ-UOw" id="41a-gP-6Sl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKL-uI-TAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
