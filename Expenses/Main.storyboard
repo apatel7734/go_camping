@@ -184,6 +184,9 @@
                                         <exclude reference="jbJ-bc-rs5"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="didTapOnRSVPButton:" destination="Qdc-Ip-15r" eventType="touchUpInside" id="Ftk-KQ-Oia"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1529411765" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>

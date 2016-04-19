@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class TripDetailsViewController: UIViewController {
+class TripDetailsViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
     //MARK:- IBOutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -90,9 +90,24 @@ class TripDetailsViewController: UIViewController {
         
     }
     
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .OverCurrentContext
+    }
+    
+    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
+        let popover = PopoverPresentationController(presentedViewController: presented, presentingViewController: source)
+        popover.setXOffset(20.0)
+        popover.setYOffset(200.0)
+        return popover
+    }
+    
     
     @IBAction func didTapOnRSVPButton(sender: AnyObject) {
-        
+        let storyboard = UIStoryboard(name: "ManageTrip", bundle: nil)
+        let tripRSVPViewController = storyboard.instantiateViewControllerWithIdentifier("TripRSVPViewController") as! TripRSVPViewController
+        tripRSVPViewController.modalPresentationStyle = .Custom
+        tripRSVPViewController.transitioningDelegate = self
+        presentViewController(tripRSVPViewController, animated: true, completion: nil)
     }
     
     func centerMapOnLocation(location: CLLocationCoordinate2D){
