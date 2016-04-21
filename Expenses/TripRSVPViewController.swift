@@ -45,6 +45,29 @@ class TripRSVPViewController: UIViewController {
     
     @IBAction func didTapRSVPButton(sender: UIButton) {
         print("Total Members coming = \(totalMembers)")
+        
+        /*
+         "familyRSVPedResponse": "YES",
+         "campingTripId": "5101952727777280",
+         "familyId": "5664902681198592",
+         "totalMembersComing": 3
+        */
+        
+        /*
+        let rsvpWrapper = GTLGocampingFamilyRSVPWrapper()
+        rsvpWrapper.campingTripId = "SetTripID"
+        rsvpWrapper.familyId = "SetFamilyID"
+        rsvpWrapper.totalMembersComing = "SetTotalMembersComing"
+        rsvpWrapper.familyRSVPedResponse = "YES OR NO"
+        
+        
+        let query = GTLQueryGocamping.queryForRsvpForTheFamilyWithObject(rsvpWrapper)
+        let service  = GTLServiceGocamping()
+        service.executeQuery(GTLQueryProtocol) { (<#GTLServiceTicket!#>, <#AnyObject!#>, <#NSError!#>) in
+            
+        }
+ 
+        */
     }
     
 }
