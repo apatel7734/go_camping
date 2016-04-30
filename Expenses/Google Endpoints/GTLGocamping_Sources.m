@@ -16,9 +16,8 @@
 // Description:
 //   This is an API
 
-
 //#import "GTLGocampingConstants.m"
-
+//
 //#import "GTLGocampingCampingTrip.m"
 //#import "GTLGocampingCampingTripCollection.m"
 //#import "GTLGocampingCampingTripValidationResult.m"
@@ -33,6 +32,6 @@
 //#import "GTLGocampingMember.m"
 //#import "GTLGocampingMemberCollection.m"
 //#import "GTLGocampingUserAccount.m"
-
+//
 //#import "GTLQueryGocamping.m"
 //#import "GTLServiceGocamping.m"

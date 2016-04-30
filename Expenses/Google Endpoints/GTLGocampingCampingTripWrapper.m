@@ -13,7 +13,7 @@
 // Description:
 //   This is an API
 // Classes:
-//   GTLGocampingCampingTripWrapper (0 custom class methods, 3 custom properties)
+//   GTLGocampingCampingTripWrapper (0 custom class methods, 2 custom properties)
 
 #import "GTLGocampingCampingTripWrapper.h"
 
@@ -26,13 +26,5 @@
 //
 
 @implementation GTLGocampingCampingTripWrapper
-@dynamic campingTrip, campingTrips, userAccount;
-
-+ (NSDictionary *)arrayPropertyToClassMap {
-  NSDictionary *map = @{
-    @"campingTrips" : [GTLGocampingCampingTrip class]
-  };
-  return map;
-}
-
+@dynamic campingTrip, userAccount;
 @end

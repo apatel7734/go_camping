@@ -13,7 +13,7 @@
 // Description:
 //   This is an API
 // Classes:
-//   GTLQueryGocamping (19 custom class methods, 9 custom properties)
+//   GTLQueryGocamping (21 custom class methods, 9 custom properties)
 
 #if GTL_BUILT_AS_FRAMEWORK
   #import "GTL/GTLQuery.h"
@@ -99,6 +99,17 @@
 //   kGTLAuthScopeGocampingUserinfoEmail
 + (instancetype)queryForDeletUserWithRegisteredPhoneNumber:(long long)registeredPhoneNumber;
 
+#pragma mark - "familyEndpoint" methods
+// These create a GTLQueryGocamping object.
+
+// Method: gocamping.familyEndpoint.sendMessageTest
+//  Authorization scope(s):
+//   kGTLAuthScopeGocampingUserinfoEmail
++ (instancetype)queryForFamilyEndpointSendMessageTest;
+
+#pragma mark - Service level methods
+// These create a GTLQueryGocamping object.
+
 // Method: gocamping.getAllFamilyExpenses
 //  Authorization scope(s):
 //   kGTLAuthScopeGocampingUserinfoEmail
@@ -134,6 +145,13 @@
 //   kGTLAuthScopeGocampingUserinfoEmail
 // Fetches a GTLGocampingMember.
 + (instancetype)queryForGetMemberWithMemberId:(long long)memberId;
+
+// Method: gocamping.getUserFamilyByCampingTrip
+//  Authorization scope(s):
+//   kGTLAuthScopeGocampingUserinfoEmail
+// Fetches a GTLGocampingFamily.
++ (instancetype)queryForGetUserFamilyByCampingTripWithObject:(GTLGocampingUserAccount *)object
+                                               campingTripId:(long long)campingTripId;
 
 // Method: gocamping.inviteFamilies
 //  Authorization scope(s):

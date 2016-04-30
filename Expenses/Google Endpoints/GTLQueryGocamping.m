@@ -13,7 +13,7 @@
 // Description:
 //   This is an API
 // Classes:
-//   GTLQueryGocamping (19 custom class methods, 9 custom properties)
+//   GTLQueryGocamping (21 custom class methods, 9 custom properties)
 
 #import "GTLQueryGocamping.h"
 
@@ -119,6 +119,18 @@
   return query;
 }
 
+#pragma mark - "familyEndpoint" methods
+// These create a GTLQueryGocamping object.
+
++ (instancetype)queryForFamilyEndpointSendMessageTest {
+  NSString *methodName = @"gocamping.familyEndpoint.sendMessageTest";
+  GTLQueryGocamping *query = [self queryWithMethodName:methodName];
+  return query;
+}
+
+#pragma mark - Service level methods
+// These create a GTLQueryGocamping object.
+
 + (instancetype)queryForGetAllFamilyExpensesWithFamilyID:(long long)familyID {
   NSString *methodName = @"gocamping.getAllFamilyExpenses";
   GTLQueryGocamping *query = [self queryWithMethodName:methodName];
@@ -168,6 +180,20 @@
   GTLQueryGocamping *query = [self queryWithMethodName:methodName];
   query.memberId = memberId;
   query.expectedObjectClass = [GTLGocampingMember class];
+  return query;
+}
+
++ (instancetype)queryForGetUserFamilyByCampingTripWithObject:(GTLGocampingUserAccount *)object
+                                               campingTripId:(long long)campingTripId {
+  if (object == nil) {
+    GTL_DEBUG_ASSERT(object != nil, @"%@ got a nil object", NSStringFromSelector(_cmd));
+    return nil;
+  }
+  NSString *methodName = @"gocamping.getUserFamilyByCampingTrip";
+  GTLQueryGocamping *query = [self queryWithMethodName:methodName];
+  query.bodyObject = object;
+  query.campingTripId = campingTripId;
+  query.expectedObjectClass = [GTLGocampingFamily class];
   return query;
 }
 
