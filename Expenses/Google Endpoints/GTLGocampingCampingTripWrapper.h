@@ -13,7 +13,7 @@
 // Description:
 //   This is an API
 // Classes:
-//   GTLGocampingCampingTripWrapper (0 custom class methods, 3 custom properties)
+//   GTLGocampingCampingTripWrapper (0 custom class methods, 2 custom properties)
 
 #if GTL_BUILT_AS_FRAMEWORK
   #import "GTL/GTLObject.h"
@@ -31,6 +31,5 @@
 
 @interface GTLGocampingCampingTripWrapper : GTLObject
 @property (nonatomic, retain) GTLGocampingCampingTrip *campingTrip;
-@property (nonatomic, retain) NSArray *campingTrips;  // of GTLGocampingCampingTrip
 @property (nonatomic, retain) GTLGocampingUserAccount *userAccount;
 @end
