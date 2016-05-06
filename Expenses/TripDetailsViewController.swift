@@ -105,6 +105,8 @@ class TripDetailsViewController: UIViewController, UIViewControllerTransitioning
     @IBAction func didTapOnRSVPButton(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "ManageTrip", bundle: nil)
         let tripRSVPViewController = storyboard.instantiateViewControllerWithIdentifier("TripRSVPViewController") as! TripRSVPViewController
+        tripRSVPViewController.campingTripId = campingTrip?.identifier.int64Value()
+        tripRSVPViewController.delegate = self
         tripRSVPViewController.modalPresentationStyle = .Custom
         tripRSVPViewController.transitioningDelegate = self
         presentViewController(tripRSVPViewController, animated: true, completion: nil)
@@ -158,7 +160,12 @@ extension TripDetailsViewController : MKMapViewDelegate{
     }
 }
 
-
+extension TripDetailsViewController: TripRSVPVCDelegate {
+    
+    func rsvpSuccessed(vc: TripRSVPViewController) {
+        vc.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
 
 class CampsiteAnnotation : NSObject, MKAnnotation{
     
