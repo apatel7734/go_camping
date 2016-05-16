@@ -8,11 +8,19 @@
 
 import UIKit
 
+protocol TripRSVPVCDelegate: class {
+    func rsvpSuccessed(vc: TripRSVPViewController)
+}
+
 class TripRSVPViewController: UIViewController {
     
     @IBOutlet weak var totalMembersLabel: UILabel!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
+    
+    var campingTripId: Int64!
+    
+    weak var delegate: TripRSVPVCDelegate?
     
     private var totalMembers: Int = 0 {
         didSet{
@@ -44,30 +52,39 @@ class TripRSVPViewController: UIViewController {
     }
     
     @IBAction func didTapRSVPButton(sender: UIButton) {
-        print("Total Members coming = \(totalMembers)")
-        
-        /*
-         "familyRSVPedResponse": "YES",
-         "campingTripId": "5101952727777280",
-         "familyId": "5664902681198592",
-         "totalMembersComing": 3
-        */
-        
-        /*
-        let rsvpWrapper = GTLGocampingFamilyRSVPWrapper()
-        rsvpWrapper.campingTripId = "SetTripID"
-        rsvpWrapper.familyId = "SetFamilyID"
-        rsvpWrapper.totalMembersComing = "SetTotalMembersComing"
-        rsvpWrapper.familyRSVPedResponse = "YES OR NO"
-        
-        
-        let query = GTLQueryGocamping.queryForRsvpForTheFamilyWithObject(rsvpWrapper)
-        let service  = GTLServiceGocamping()
-        service.executeQuery(GTLQueryProtocol) { (<#GTLServiceTicket!#>, <#AnyObject!#>, <#NSError!#>) in
-            
+        if totalMembers < 1 {
+            return
         }
- 
-        */
+        
+        getFamilyId { (familyId) in
+            let rsvpWrapper = GTLGocampingFamilyRSVPWrapper()
+            rsvpWrapper.campingTripId = NSNumber(longLong: self.campingTripId)
+            rsvpWrapper.familyId = familyId
+            rsvpWrapper.totalMembersComing = self.totalMembers
+            rsvpWrapper.familyRSVPedResponse = "YES"
+    
+            let query = GTLQueryGocamping.queryForRsvpForTheFamilyWithObject(rsvpWrapper)
+            GTLServiceGocamping().executeQuery(query, completionHandler: { (ticket, response, error) in
+                if (error != nil) {
+                    print("There was an error")
+                } else {
+                    self.delegate?.rsvpSuccessed(self)
+                }
+            })
+        }
     }
     
+    private func getFamilyId(callback: (familyId: NSNumber) -> Void) {
+        if let user = NSUserDefaultCoordinator.sharedInstance.loggedInUser {
+            let query = GTLQueryGocamping.queryForGetUserFamilyByCampingTripWithObject(user, campingTripId: campingTripId)
+            GTLServiceGocamping().executeQuery(query, completionHandler: { (serviceTicket, response, error) in
+                if (error != nil) {
+                    print("There was an error")
+                } else {
+                    let family = response as! GTLGocampingFamily
+                    callback(familyId: family.identifier)
+                }
+            })
+        }
+    }
 }
